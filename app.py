@@ -122,25 +122,6 @@ def fmt_delta(v):
     return f"+{v:g}" if v > 0 else f"{v:g}"
 
 
-def safe_error(exc):
-    """Useful API diagnostics without printing request headers or secrets."""
-    parts = [f"{type(exc).__name__}: {exc}"]
-    response = getattr(exc, "response", None)
-    if response is not None:
-        parts.append(f"HTTP status: {response.status_code}")
-        request = getattr(response, "request", None)
-        method = getattr(request, "method", "?")
-        parts.append(f"Request: {method} {response.url}")
-        try:
-            body = response.text.strip()
-            if body:
-                # Only expose a short server error body. Never print headers/payloads.
-                parts.append("Response body (first 500 chars): " + body[:500])
-        except Exception:
-            pass
-    return "\n".join(parts)
-
-
 def get_conn():
     conn = gos.db()
     gos.init_db(conn)
@@ -153,7 +134,7 @@ def render_hero():
       <div class="hero-accent"></div>
       <div class="hero-kicker">WORKTHESPACE • MFL COMMUNITY CHALLENGE</div>
       <div class="hero-title">GROWER <span style="color:#b7ff00">OR</span> SHOWER</div>
-      <div class="hero-sub">Season 16 live progression tracker</div>
+      <div class="hero-sub">Season 17 live progression tracker</div>
       <div class="hero-pills">
         <span class="hero-pill">🌱 OVR GROWTH</span>
         <span class="hero-pill">⚡ TRAINING + MATCH XP</span>
@@ -192,7 +173,7 @@ def sync_if_due():
                 except Exception:
                     pass
         except Exception as exc:
-            st.session_state["sync_error"] = safe_error(exc)
+            st.session_state["sync_error"] = str(exc)
 
     row = conn.execute("SELECT MAX(captured_at) AS last_sync FROM snapshots").fetchone()
     conn.close()
@@ -209,16 +190,13 @@ if last_sync:
         shown = last_sync
     st.caption(f"Live MFL data • Last updated {shown} • refreshes automatically")
 elif "sync_error" in st.session_state:
-    st.error("MFL live sync failed. Open the diagnostic below and send me the text shown there.")
-    with st.expander("🔧 MFL sync diagnostic", expanded=True):
-        st.code(st.session_state["sync_error"])
-        st.caption("This diagnostic does not print request headers, cookies, or your Streamlit secret.")
+    st.warning("Live update is temporarily unavailable. The last saved standings will still be shown.")
 
 conn = get_conn()
 rows = gos.leaderboard(conn)
 
 if not rows:
-    st.warning("No player snapshots have been loaded yet. The diagnostic above will show why the first MFL sync failed.")
+    st.warning("No player snapshots yet. Click **Sync MFL now** to populate the dashboard.")
     conn.close()
     st.stop()
 
@@ -246,7 +224,7 @@ for col, label, big, small in cards:
         )
 
 st.markdown("## 🏆 Live standings")
-st.caption("Ranked by OVR improvement. Average Season 16 match rating is the tiebreaker.")
+st.caption("Ranked by OVR improvement. Average Season 17 match rating is the tiebreaker.")
 
 # Visual podium / cards for top entrants
 card_cols = st.columns(min(3, len(rows)))
@@ -363,7 +341,7 @@ if latest:
     st.dataframe(ldf, hide_index=True, use_container_width=True, height=390)
 
 with st.expander("About this tracker"):
-    st.write("Standings are ranked by OVR growth, with average Season 16 match rating used as the tiebreaker.")
+    st.write("Standings are ranked by OVR growth, with average Season 17 match rating used as the tiebreaker.")
     st.write("Player progression is pulled from MFL and refreshed automatically.")
 
 conn.close()

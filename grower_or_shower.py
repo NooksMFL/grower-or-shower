@@ -1,7 +1,7 @@
 """Grower or Shower - MFL progression tracker.
 
 Uses the same MFL API/auth pattern as the user's existing MFL tools.
-Stores current player data, progression history and Season 16 match rating in SQLite.
+Stores current player data, progression history and Season 17 match rating in SQLite.
 """
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ load_dotenv()
 
 BASE_URL = "https://api.playmfl.com"
 DB_PATH = Path(os.getenv("GROWER_DB", "grower_or_shower.db"))
-SEASON_NAME = os.getenv("GROWER_SEASON", "Season 16")
+SEASON_NAME = os.getenv("GROWER_SEASON", "Season 17")
 
 BROWSER_HEADERS = {
     "Accept": "*/*",
@@ -301,7 +301,9 @@ def sync_player(conn: sqlite3.Connection, token: str, player_id: int, owner: str
     meta = metadata_of(profile)
     stats = extract_stats(profile)
     avg_rating, appearances, competition_club = season_performance(competitions)
-    club_obj = profile.get("club") or meta.get("club") or {}
+    active_contract = profile.get("activeContract") or {}
+    active_club = active_contract.get("club") if isinstance(active_contract, dict) else {}
+    club_obj = active_club or profile.get("club") or meta.get("club") or {}
     club = club_obj.get("name") if isinstance(club_obj, dict) else str(club_obj or "")
     club = club or competition_club
     positions = meta.get("positions") or []
@@ -390,7 +392,7 @@ def print_leaderboard(conn: sqlite3.Connection) -> None:
         rating = f"{r['avg_rating']:.2f}" if r["avg_rating"] is not None else "—"
         print(f"{i:<3} {r['owner']:<14} {r['player'][:22]:<23} {str(r['ovr']):>4} {fmt_delta(r['ovr_growth']):>7} {rating:>7} {r['apps']:>5}  {attrs}")
     print("=" * 112)
-    print("Ranking: OVR growth first; Season 16 average match rating is the tiebreaker.")
+    print("Ranking: OVR growth first; Season 17 average match rating is the tiebreaker.")
 
 
 def print_history(conn: sqlite3.Connection, player_id: int) -> None:
