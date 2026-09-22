@@ -211,6 +211,11 @@ def init_db(conn: sqlite3.Connection) -> None:
         appearances INTEGER,
         raw_json TEXT
     );
+    CREATE TABLE IF NOT EXISTS discord_alerts (
+        alert_key TEXT PRIMARY KEY,
+        player_id INTEGER NOT NULL,
+        created_at TEXT NOT NULL
+    );
     CREATE TABLE IF NOT EXISTS baselines (
         player_id INTEGER PRIMARY KEY,
         locked_at TEXT NOT NULL,
@@ -327,7 +332,40 @@ def save_progression(conn: sqlite3.Connection, player_id: int, events: list[dict
     return inserted
 
 
+
+def send_discord_growth_alert(conn, player_id, owner, before, after):
+    webhook = os.getenv("DISCORD_WEBHOOK_URL", "").strip()
+    if not webhook or before is None or after is None:
+        return
+    fields=[("pace","PAC"),("shooting","SHO"),("passing","PAS"),
+            ("dribbling","DRI"),("defense","DEF"),("physical","PHY")]
+    unseen=[]
+    for field,label in fields:
+        old,new=before[field],after[field]
+        if old is None or new is None or float(new) <= float(old):
+            continue
+        key=f"{player_id}:{field}:{float(old):g}:{float(new):g}"
+        if conn.execute("SELECT 1 FROM discord_alerts WHERE alert_key=?",(key,)).fetchone():
+            continue
+        unseen.append((key,f"**{label}** {float(old):g} → {float(new):g} ⬆️"))
+    if not unseen:
+        return
+    title="🌱 GROWER ALERT!" if len(unseen)==1 else "🌱 MULTI-GROW ALERT!"
+    player=after["player_name"] or str(player_id)
+    msg=f"{title}\n**{player}** ({owner}) has improved!\n"+"\n".join(v for _,v in unseen)
+    if after["club"]: msg+=f"\n🏟️ {after['club']}"
+    if after["overall"] is not None: msg+=f"\nOVR: **{float(after['overall']):g}**"
+    r=requests.post(webhook,json={"content":msg},timeout=20)
+    r.raise_for_status()
+    stamp=datetime.now(timezone.utc).isoformat()
+    for key,_ in unseen:
+        conn.execute("INSERT OR IGNORE INTO discord_alerts(alert_key,player_id,created_at) VALUES(?,?,?)",
+                     (key,player_id,stamp))
+    conn.commit()
+
+
 def sync_player(conn: sqlite3.Connection, token: str, player_id: int, owner: str) -> dict:
+    previous_snapshot = latest_snapshot(conn, player_id)
     profile = get_profile(token, player_id)
     progression = get_progression(token, player_id)
     competitions = get_competitions(token, player_id)
@@ -355,6 +393,13 @@ def sync_player(conn: sqlite3.Connection, token: str, player_id: int, owner: str
          avg_rating, appearances, json.dumps(profile, ensure_ascii=False, default=str)),
     )
     conn.commit()
+    current_snapshot = latest_snapshot(conn, player_id)
+    try:
+        send_discord_growth_alert(conn, player_id, owner, previous_snapshot, current_snapshot)
+    except Exception as exc:
+        print(f"Discord alert failed for {player_id}: {type(exc).__name__}: {exc}")
+
+
     return {"owner": owner, "player": player_name(profile), "new_events": new_events, "overall": stats["overall"]}
 
 

@@ -29,6 +29,12 @@ try:
 except Exception:
     pass
 
+try:
+    if "DISCORD_WEBHOOK_URL" in st.secrets and not os.getenv("DISCORD_WEBHOOK_URL"):
+        os.environ["DISCORD_WEBHOOK_URL"] = st.secrets["DISCORD_WEBHOOK_URL"]
+except Exception:
+    pass
+
 AUTO_SYNC_MINUTES = 15
 
 st.markdown("""
