@@ -1,0 +1,39 @@
+name: Test Discord Alert
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send test Grower alert
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          webhook = os.environ["DISCORD_WEBHOOK_URL"]
+          message = {
+              "content": (
+                  "🌱 **GROWER ALERT — TEST**\n"
+                  "Discord notifications are connected successfully. ✅\n"
+                  "*This is only a test — no player attributes have changed.*"
+              )
+          }
+
+          req = urllib.request.Request(
+              webhook,
+              data=json.dumps(message).encode("utf-8"),
+              headers={"Content-Type": "application/json"},
+              method="POST",
+          )
+          with urllib.request.urlopen(req, timeout=20) as response:
+              if response.status not in (200, 204):
+                  raise RuntimeError(f"Discord returned HTTP {response.status}")
+
+          print("Discord test alert sent successfully.")
+          PY
