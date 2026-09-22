@@ -1,0 +1,15 @@
+name: Test Discord Alert
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send test Grower alert
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          curl --fail-with-body             -H "Content-Type: application/json"             -H "User-Agent: GrowerOrShower/1.0"             -X POST             -d '{"content":"🌱 **GROWER ALERT — TEST**\nDiscord notifications are connected successfully. ✅\n*This is only a test — no player attributes have changed.*"}'             "$DISCORD_WEBHOOK_URL"
+          echo "Discord test alert sent successfully."
