@@ -211,6 +211,12 @@ def init_db(conn: sqlite3.Connection) -> None:
         appearances INTEGER,
         raw_json TEXT
     );
+    CREATE TABLE IF NOT EXISTS baselines (
+        player_id INTEGER PRIMARY KEY,
+        locked_at TEXT NOT NULL,
+        overall REAL,
+        pace REAL, shooting REAL, passing REAL, dribbling REAL, defense REAL, physical REAL
+    );
     CREATE TABLE IF NOT EXISTS progression (
         event_id TEXT PRIMARY KEY,
         player_id INTEGER NOT NULL,
@@ -250,26 +256,55 @@ def get_competitions(token: str, player_id: int) -> list[dict]:
 
 
 def season_performance(rows: list[dict]) -> tuple[float | None, int, str]:
+    """Season 17 league performance only; exclude friendlies/pre-season/cups."""
     total_weighted_rating = 0.0
     rating_matches = 0
     appearances = 0
     clubs: list[str] = []
+
+    def text_blob(obj):
+        try:
+            return json.dumps(obj, ensure_ascii=False, default=str).lower()
+        except Exception:
+            return str(obj).lower()
+
     for item in rows:
         competition = item.get("competition") or {}
         season = competition.get("season") or {}
-        if season.get("name") != SEASON_NAME:
+        season_name = str(season.get("name") or "")
+        if season_name != SEASON_NAME:
             continue
+
+        blob = text_blob(competition)
+        # Friendly/pre-season/tournament/cup records are not league tiebreak data.
+        if any(word in blob for word in ("friendly", "pre-season", "preseason", "tournament", "cup")):
+            continue
+
+        # Prefer explicit league/type metadata where MFL provides it.
+        ctype = str(competition.get("type") or competition.get("competitionType") or "").lower()
+        if ctype and "league" not in ctype:
+            continue
+
         stats = item.get("stats") or {}
-        matches = int(stats.get("nbMatches") or 0)
+        matches = int(stats.get("nbMatches") or stats.get("appearances") or 0)
         appearances += matches
-        rating = stats.get("rating")
-        if isinstance(rating, (int, float)) and matches:
+
+        # Only use a plausible per-match football rating. This prevents aggregate
+        # competition scores such as 27.94 being displayed as an average rating.
+        rating = stats.get("averageRating")
+        if rating is None:
+            rating = stats.get("avgRating")
+        if rating is None:
+            rating = stats.get("rating")
+        if isinstance(rating, (int, float)) and matches and 0 <= float(rating) <= 10:
             total_weighted_rating += float(rating) * matches
             rating_matches += matches
+
         club = item.get("club") or {}
-        name = club.get("name")
+        name = club.get("name") if isinstance(club, dict) else None
         if name and name not in clubs:
             clubs.append(name)
+
     avg = round(total_weighted_rating / rating_matches, 2) if rating_matches else None
     return avg, appearances, " / ".join(clubs)
 
@@ -329,6 +364,27 @@ def latest_snapshot(conn: sqlite3.Connection, player_id: int) -> sqlite3.Row | N
     ).fetchone()
 
 
+def ensure_baseline(conn: sqlite3.Connection, player_id: int) -> sqlite3.Row | None:
+    """Lock the competition baseline once, using the first tracker snapshot."""
+    row = conn.execute("SELECT * FROM baselines WHERE player_id=?", (player_id,)).fetchone()
+    if row:
+        return row
+    first = conn.execute(
+        "SELECT * FROM snapshots WHERE player_id=? ORDER BY id ASC LIMIT 1", (player_id,)
+    ).fetchone()
+    if not first:
+        return None
+    conn.execute(
+        """INSERT OR IGNORE INTO baselines
+        (player_id,locked_at,overall,pace,shooting,passing,dribbling,defense,physical)
+        VALUES(?,?,?,?,?,?,?,?,?)""",
+        (player_id, first["captured_at"], first["overall"], first["pace"], first["shooting"],
+         first["passing"], first["dribbling"], first["defense"], first["physical"])
+    )
+    conn.commit()
+    return conn.execute("SELECT * FROM baselines WHERE player_id=?", (player_id,)).fetchone()
+
+
 def first_progress_stats(conn: sqlite3.Connection, player_id: int) -> sqlite3.Row | None:
     # Prefer the MFL INITIAL record. If absent, use the oldest progression record with OVR.
     row = conn.execute(
@@ -350,7 +406,7 @@ def leaderboard(conn: sqlite3.Connection) -> list[dict]:
         current = latest_snapshot(conn, ent["player_id"])
         if not current:
             continue
-        initial = first_progress_stats(conn, ent["player_id"])
+        initial = ensure_baseline(conn, ent["player_id"])
         initial_ovr = initial["overall"] if initial else None
         growth = (current["overall"] - initial_ovr) if current["overall"] is not None and initial_ovr is not None else None
         attr_growth = {}

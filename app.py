@@ -138,7 +138,7 @@ def render_hero():
       <div class="hero-pills">
         <span class="hero-pill">🌱 OVR GROWTH</span>
         <span class="hero-pill">⚡ TRAINING + MATCH XP</span>
-        <span class="hero-pill">🏆 AVG RATING TIEBREAK</span>
+        <span class="hero-pill">🏆 S17 LEAGUE RATING TIEBREAK</span>
       </div>
       <div class="hero-prize">
         <div class="hero-prize-label">Prize</div>
