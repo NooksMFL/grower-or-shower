@@ -122,6 +122,25 @@ def fmt_delta(v):
     return f"+{v:g}" if v > 0 else f"{v:g}"
 
 
+def safe_error(exc):
+    """Useful API diagnostics without printing request headers or secrets."""
+    parts = [f"{type(exc).__name__}: {exc}"]
+    response = getattr(exc, "response", None)
+    if response is not None:
+        parts.append(f"HTTP status: {response.status_code}")
+        request = getattr(response, "request", None)
+        method = getattr(request, "method", "?")
+        parts.append(f"Request: {method} {response.url}")
+        try:
+            body = response.text.strip()
+            if body:
+                # Only expose a short server error body. Never print headers/payloads.
+                parts.append("Response body (first 500 chars): " + body[:500])
+        except Exception:
+            pass
+    return "\n".join(parts)
+
+
 def get_conn():
     conn = gos.db()
     gos.init_db(conn)
@@ -173,7 +192,7 @@ def sync_if_due():
                 except Exception:
                     pass
         except Exception as exc:
-            st.session_state["sync_error"] = str(exc)
+            st.session_state["sync_error"] = safe_error(exc)
 
     row = conn.execute("SELECT MAX(captured_at) AS last_sync FROM snapshots").fetchone()
     conn.close()
@@ -190,13 +209,16 @@ if last_sync:
         shown = last_sync
     st.caption(f"Live MFL data • Last updated {shown} • refreshes automatically")
 elif "sync_error" in st.session_state:
-    st.warning("Live update is temporarily unavailable. The last saved standings will still be shown.")
+    st.error("MFL live sync failed. Open the diagnostic below and send me the text shown there.")
+    with st.expander("🔧 MFL sync diagnostic", expanded=True):
+        st.code(st.session_state["sync_error"])
+        st.caption("This diagnostic does not print request headers, cookies, or your Streamlit secret.")
 
 conn = get_conn()
 rows = gos.leaderboard(conn)
 
 if not rows:
-    st.warning("No player snapshots yet. Click **Sync MFL now** to populate the dashboard.")
+    st.warning("No player snapshots have been loaded yet. The diagnostic above will show why the first MFL sync failed.")
     conn.close()
     st.stop()
 
