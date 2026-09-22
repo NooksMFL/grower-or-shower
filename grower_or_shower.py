@@ -52,6 +52,7 @@ ENTRANTS = {
     402676: "hcy",
     409412: "mmewse",
     342247: "Ricky",
+    405395: "ElegantPenguin",
 }
 
 
