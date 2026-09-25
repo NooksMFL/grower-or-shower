@@ -295,16 +295,27 @@ def season_performance(rows: list[dict]) -> tuple[float | None, int, str]:
         matches = int(stats.get("nbMatches") or stats.get("appearances") or 0)
         appearances += matches
 
-        # Only use a plausible per-match football rating. This prevents aggregate
-        # competition scores such as 27.94 being displayed as an average rating.
+        # MFL can return the rating as either an average (e.g. 7.23) or as the
+        # accumulated rating points for that competition row (e.g. 14.46 for
+        # two appearances). Normalise both forms to a per-match average before
+        # combining rows. Previously values >10 were discarded, which is why a
+        # player's rating disappeared as soon as Apps increased above 1.
         rating = stats.get("averageRating")
         if rating is None:
             rating = stats.get("avgRating")
         if rating is None:
             rating = stats.get("rating")
-        if isinstance(rating, (int, float)) and matches and 0 <= float(rating) <= 10:
-            total_weighted_rating += float(rating) * matches
-            rating_matches += matches
+        if isinstance(rating, (int, float)) and matches:
+            rating = float(rating)
+            if 0 <= rating <= 10:
+                row_avg = rating
+            elif 0 <= rating / matches <= 10:
+                row_avg = rating / matches
+            else:
+                row_avg = None
+            if row_avg is not None:
+                total_weighted_rating += row_avg * matches
+                rating_matches += matches
 
         club = item.get("club") or {}
         name = club.get("name") if isinstance(club, dict) else None
