@@ -230,7 +230,7 @@ for col, label, big, small in cards:
         )
 
 st.markdown("## 🏆 Live standings")
-st.caption("Ranked by OVR improvement. Average Season 17 match rating is the tiebreaker.")
+st.caption("Ranked by OVR improvement, then attribute growth, then average Season 17 match rating.")
 
 # Visual podium / cards for top entrants
 card_cols = st.columns(min(3, len(rows)))
@@ -243,7 +243,7 @@ for idx, r in enumerate(rows[:3]):
                 <div class="owner">{esc(r['owner'])}</div>
                 <div class="pname">{esc(r['player'])}</div>
                 <span class="chip">OVR {esc(r['ovr'])}</span>
-                <span class="chip">Growth {esc(fmt_delta(r['ovr_growth']))}</span>
+                <span class="chip">OVR growth {esc(fmt_delta(r['ovr_growth']))}</span>\n                <span class="chip">Attr growth {esc(fmt_delta(r.get('attribute_growth', 0)))}</span>
                 <span class="chip">Rating {esc(rating)}</span>
                 <span class="chip">{esc(r['apps'])} apps</span>
                 <div style="margin-top:.6rem" class="muted">{esc(r['club'])} • {esc(r['positions'])}</div>
@@ -262,6 +262,7 @@ for i, r in enumerate(rows, 1):
         "Club": r["club"],
         "OVR": r["ovr"],
         "OVR ↑": fmt_delta(r["ovr_growth"]),
+        "ATTR ↑": fmt_delta(r.get("attribute_growth", 0)),
         "Rating": r["avg_rating"],
         "Apps": r["apps"],
         "PAC ↑": fmt_delta(r["pace_growth"]),
@@ -347,7 +348,7 @@ if latest:
     st.dataframe(ldf, hide_index=True, use_container_width=True, height=390)
 
 with st.expander("About this tracker"):
-    st.write("Standings are ranked by OVR growth, with average Season 17 match rating used as the tiebreaker.")
+    st.write("Standings are ranked by OVR growth first, then total attribute growth, then average Season 17 match rating.")
     st.write("Player progression is pulled from MFL and refreshed automatically.")
 
 conn.close()

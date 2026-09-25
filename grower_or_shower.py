@@ -471,16 +471,22 @@ def leaderboard(conn: sqlite3.Connection) -> list[dict]:
             start = initial[field] if initial else None
             now = current[field]
             attr_growth[field] = (now - start) if now is not None and start is not None else None
+        total_attr_growth = sum(v for v in attr_growth.values() if v is not None and v > 0)
         result.append({
             "owner": ent["owner"], "player_id": ent["player_id"], "player": current["name"],
             "club": current["club"], "age": current["age"], "positions": current["positions"],
             "ovr": current["overall"], "ovr_growth": growth, "avg_rating": current["avg_rating"],
-            "apps": current["appearances"], **{f"{k}_growth": v for k, v in attr_growth.items()},
+            "apps": current["appearances"], "attribute_growth": total_attr_growth,
+            **{f"{k}_growth": v for k, v in attr_growth.items()},
         })
+    # Ranking: OVR improvement first. While OVR growth is tied, reward actual
+    # attribute development before using the Season 17 average rating.
     result.sort(key=lambda r: (
         r["ovr_growth"] is not None,
         r["ovr_growth"] if r["ovr_growth"] is not None else -999,
+        r["attribute_growth"],
         r["avg_rating"] if r["avg_rating"] is not None else -999,
+        r["apps"] if r["apps"] is not None else -999,
     ), reverse=True)
     return result
 
@@ -505,7 +511,7 @@ def print_leaderboard(conn: sqlite3.Connection) -> None:
         rating = f"{r['avg_rating']:.2f}" if r["avg_rating"] is not None else "—"
         print(f"{i:<3} {r['owner']:<14} {r['player'][:22]:<23} {str(r['ovr']):>4} {fmt_delta(r['ovr_growth']):>7} {rating:>7} {r['apps']:>5}  {attrs}")
     print("=" * 112)
-    print("Ranking: OVR growth first; Season 17 average match rating is the tiebreaker.")
+    print("Ranking: OVR growth first; attribute growth second; Season 17 average match rating next.")
 
 
 def print_history(conn: sqlite3.Connection, player_id: int) -> None:
