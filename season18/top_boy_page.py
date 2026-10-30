@@ -35,7 +35,6 @@ def frame(rows):
 
 def render(store, setting):
     st.markdown('<div class="kicker" style="color:#f3c169">TOP BOY · SEASON 18</div>', unsafe_allow_html=True)
-    st.subheader('Every goal. Every assist. Every win.')
     st.write('League and cup matches count. Your player must appear in the match to earn a team-win point.')
     rows = tb.leaderboard(store)
     loaded = sum(bool(r.get('checked_at')) for r in rows)

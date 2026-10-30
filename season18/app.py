@@ -33,7 +33,16 @@ st.markdown('''<style>
 h1 {font-size:clamp(2.5rem,6vw,4.8rem)!important;letter-spacing:-.055em;line-height:1.03!important}
 h2,h3 {letter-spacing:-.025em}
 .kicker {color:#b7f36b;font-weight:800;letter-spacing:.18em;font-size:.76rem;margin-bottom:.8rem}
-.intro {font-size:1.05rem;color:#acb8ca;max-width:700px;line-height:1.7}
+.competition-header {display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:2rem;align-items:start;margin-bottom:1.8rem}
+.competition-title {font-size:clamp(2.5rem,4.8vw,4.4rem)!important;line-height:1.08!important;letter-spacing:-.045em!important;margin:0!important;padding:0!important}
+.competition-title span {display:block;font:inherit;line-height:inherit;color:inherit}
+.sponsor {background:linear-gradient(140deg,#172b4b,#111b30);border:1px solid #635433;border-radius:16px;padding:1.15rem 1rem;text-align:center;color:#f8e3a1}
+.sponsor-label {font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#b9c6db;margin-bottom:.55rem}
+.sponsor-stars {color:#f4cb68;font-size:.9rem;letter-spacing:.35em;margin-bottom:.35rem}
+.sponsor-name {font-size:2.2rem;font-weight:850;line-height:1.1;letter-spacing:-.04em;color:#fff0c7}
+.sponsor-story {font-size:1.04rem;font-weight:700;color:#f4cf70;margin-top:.35rem}
+@media(max-width:760px) {.competition-header {grid-template-columns:minmax(0,1fr) 155px;gap:.8rem}.competition-title {font-size:clamp(1.85rem,5.4vw,3rem)!important}.sponsor {padding:.8rem .5rem}.sponsor-name {font-size:1.75rem}.sponsor-story {font-size:.8rem}.sponsor-label {font-size:.55rem}}
+@media(max-width:430px) {.competition-header {grid-template-columns:1fr}.sponsor {justify-self:end;min-width:155px}.competition-title {font-size:2.35rem!important}}
 .player {border:1px solid #293548;border-radius:18px;padding:1.15rem;background:linear-gradient(140deg,#162132,#0e1724);margin-bottom:1rem;min-height:230px}
 .player img {width:70px;height:82px;object-fit:contain;float:right;margin-left:12px}
 .player .owner {color:#b7f36b;font-size:.8rem;font-weight:700}
@@ -47,9 +56,13 @@ h2,h3 {letter-spacing:-.025em}
 button[kind="primary"] {background:#b7f36b;color:#0b1018;border:0}
 </style>''', unsafe_allow_html=True)
 
-st.markdown('<div class="kicker">WORKTHESPACE · COMMUNITY COMPETITIONS · SEASON 18</div>', unsafe_allow_html=True)
-st.title('Grower or Shower\n& Top Boy')
-st.markdown('<p class="intro">The next breakout player. The season’s top performer. Two competitions, one place to follow the race.</p>', unsafe_allow_html=True)
+st.markdown('''<header class="competition-header">
+<div><div class="kicker">WORKTHESPACE · SEASON 18</div>
+<h1 class="competition-title"><span>Grower or Shower</span><span>&amp; Top Boy</span></h1></div>
+<aside class="sponsor" aria-label="Sponsored by Minty's Bedtime Stories">
+<div class="sponsor-label">Sponsored by</div><div class="sponsor-stars" aria-hidden="true">✦ ★ ✦</div>
+<div class="sponsor-name">Minty’s</div><div class="sponsor-story">Bedtime Stories</div>
+</aside></header>''', unsafe_allow_html=True)
 page = st.segmented_control('Competition', ['Grower or Shower', 'Top Boy'], default='Grower or Shower', label_visibility='collapsed')
 if page == 'Top Boy':
     import top_boy_page
@@ -155,7 +168,7 @@ with table:
     st.caption('Hawkeye’s final selection is #337204; the earlier #467300 has been replaced.')
 
 with growth:
-    st.subheader('From starting values to season finish')
+    st.subheader('Player growth')
     st.write('Training XP and match XP both contribute to player development. Starting values are saved once; future refreshes update current values only.')
     df = export_rows()
     columns = ['Entrant', 'Player', 'Start OVR', 'OVR', 'OVR gain', 'Attribute gain'] + [f'{label} gain' for label in ('PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY')] + ['Baseline saved (UTC)']
