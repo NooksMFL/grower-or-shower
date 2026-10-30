@@ -9,8 +9,8 @@ a {color:#a00059}a:hover {color:#0c0c10}
 .wts-brandbar {display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--wts-black);padding-bottom:.8rem;margin-bottom:1.4rem;gap:1rem}
 .wts-brandname {font-family:'WTS Condensed',sans-serif;font-size:1.3rem;font-weight:700;line-height:1;text-transform:uppercase}
 .wts-brandname small {display:block;font-family:Arial,sans-serif;font-size:.62rem;letter-spacing:.2em;margin-top:.4rem;font-weight:800}
-.mfl-brand {display:flex;align-items:center;justify-content:center;background:var(--wts-black);padding:.3rem 1.2rem .5rem;transform:skew(-9deg);border-left:5px solid var(--wts-pink);text-decoration:none!important}
-.mfl-mark {font-family:Arial,sans-serif;font-weight:1000;font-style:italic;font-size:2.45rem;letter-spacing:-.11em;line-height:1;color:white!important;padding-right:.1em}
+.mfl-brand {display:flex;align-items:center;justify-content:center;background:var(--wts-black);padding:.55rem 1rem;border-left:5px solid var(--wts-pink);text-decoration:none!important}
+.mfl-logo {display:block;width:132px;height:56px;object-fit:contain}
 .wts-hero {position:relative;overflow:hidden;isolation:isolate;padding:1.4rem 0 2.3rem;margin-bottom:.6rem}
 .wts-hero::before {content:'';position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(135deg,transparent 0 115px,rgba(255,255,255,.1) 115px 195px,transparent 195px 280px);clip-path:polygon(0 10%,100% 0,100% 95%,0 100%)}
 .wts-hero::after {content:'';position:absolute;width:14%;height:45%;right:-3%;bottom:3%;z-index:-1;transform:skew(-28deg);background:var(--wts-pink)}
@@ -50,5 +50,5 @@ button:focus-visible,a:focus-visible {outline:3px solid var(--wts-black)!importa
 .player .stats {display:flex;justify-content:space-between;border-top:2px solid #e5e7eb;padding-top:.75rem;margin-top:.8rem;font-size:.72rem}
 .player .stats span {text-align:center;color:#4c5159}.player .stats b {display:block;color:var(--wts-black);font-size:1.05rem}
 .player a {text-decoration:none;color:inherit}
-@media(max-width:760px) {.block-container {padding:1.2rem 1rem 2rem}.wts-hero-title {font-size:clamp(3rem,11.3vw,5.5rem)}.wts-hero {padding-bottom:1.4rem}.wts-brandname {font-size:1.05rem}.mfl-mark {font-size:2rem}.mfl-brand {padding:.35rem .9rem}.competition-choice {min-height:105px}.st-key-landing_grower,.st-key-landing_topboy {padding:1.3rem!important}.competition-choice h2 {font-size:2.2rem!important}}
+@media(max-width:760px) {.block-container {padding:1.2rem 1rem 2rem}.wts-hero-title {font-size:clamp(3rem,11.3vw,5.5rem)}.wts-hero {padding-bottom:1.4rem}.wts-brandname {font-size:1.05rem}.mfl-logo {width:105px;height:46px}.mfl-brand {padding:.35rem .9rem}.competition-choice {min-height:105px}.st-key-landing_grower,.st-key-landing_topboy {padding:1.3rem!important}.competition-choice h2 {font-size:2.2rem!important}}
 @media(prefers-reduced-motion:reduce) {button {transition:none!important}}

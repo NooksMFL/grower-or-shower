@@ -30,7 +30,7 @@ def storage():
 
 font = base64.b64encode((b.ROOT / 'assets/fonts/OpenSans-CondBold.ttf').read_bytes()).decode('ascii')
 st.markdown('<style>@font-face{font-family:"WTS Condensed";src:url(data:font/ttf;base64,' + font + ') format("truetype");font-weight:700;font-display:swap}' + (b.ROOT / 'wts.css').read_text() + '</style>', unsafe_allow_html=True)
-st.markdown('''<div class="wts-brandbar"><div class="wts-brandname">WORKTHESPACE<small>MFL COMMUNITY</small></div><a class="mfl-brand" href="https://app.playmfl.com" target="_blank" rel="noopener noreferrer" aria-label="MFL"><span class="mfl-mark">mfl</span></a></div>''', unsafe_allow_html=True)
+st.markdown('''<div class="wts-brandbar"><div class="wts-brandname">WORKTHESPACE<small>MFL COMMUNITY</small></div><a class="mfl-brand" href="https://app.playmfl.com" target="_blank" rel="noopener noreferrer" aria-label="MFL"><img class="mfl-logo" src="https://res.cloudinary.com/lancers-technology/image/upload/v1770748400/web3-explorer/dapp-logos/mfl.png" alt="MFL logo"></a></div>''', unsafe_allow_html=True)
 
 page = st.session_state.get('competition_page')
 if page not in ('Grower or Shower', 'Top Boy'):
