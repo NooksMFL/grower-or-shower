@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import base64
 import hmac
 import os
 import sys
@@ -41,6 +42,7 @@ h2,h3 {letter-spacing:-.025em}
 .sponsor-stars {color:#f4cb68;font-size:.9rem;letter-spacing:.35em;margin-bottom:.35rem}
 .sponsor-name {font-size:2.2rem;font-weight:850;line-height:1.1;letter-spacing:-.04em;color:#fff0c7}
 .sponsor-story {font-size:1.04rem;font-weight:700;color:#f4cf70;margin-top:.35rem}
+.sponsor-artwork {display:block;width:100%;height:auto;border-radius:9px}
 @media(max-width:760px) {.competition-header {grid-template-columns:minmax(0,1fr) 155px;gap:.8rem}.competition-title {font-size:clamp(1.85rem,5.4vw,3rem)!important}.sponsor {padding:.8rem .5rem}.sponsor-name {font-size:1.75rem}.sponsor-story {font-size:.8rem}.sponsor-label {font-size:.55rem}}
 @media(max-width:430px) {.competition-header {grid-template-columns:1fr}.sponsor {justify-self:end;min-width:155px}.competition-title {font-size:2.35rem!important}}
 .player {border:1px solid #293548;border-radius:18px;padding:1.15rem;background:linear-gradient(140deg,#162132,#0e1724);margin-bottom:1rem;min-height:230px}
@@ -56,12 +58,20 @@ h2,h3 {letter-spacing:-.025em}
 button[kind="primary"] {background:#b7f36b;color:#0b1018;border:0}
 </style>''', unsafe_allow_html=True)
 
+sponsor_folder = b.ROOT / 'assets' / 'sponsor'
+sponsor_files = sorted(p for p in sponsor_folder.glob('*') if p.suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp'))
+if sponsor_files:
+    sponsor_file = sponsor_files[0]
+    mime = {'.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp'}[sponsor_file.suffix.lower()]
+    encoded = base64.b64encode(sponsor_file.read_bytes()).decode('ascii')
+    sponsor_content = f'<img class="sponsor-artwork" src="data:{mime};base64,{encoded}" alt="Minty’s Bedtime Stories">'
+else:
+    sponsor_content = '<div class="sponsor-stars" aria-hidden="true">✦ ★ ✦</div><div class="sponsor-name">Minty’s</div><div class="sponsor-story">Bedtime Stories</div>'
 st.markdown('''<header class="competition-header">
 <div><div class="kicker">WORKTHESPACE · SEASON 18</div>
 <h1 class="competition-title"><span>Grower or Shower</span><span>&amp; Top Boy</span></h1></div>
 <aside class="sponsor" aria-label="Sponsored by Minty's Bedtime Stories">
-<div class="sponsor-label">Sponsored by</div><div class="sponsor-stars" aria-hidden="true">✦ ★ ✦</div>
-<div class="sponsor-name">Minty’s</div><div class="sponsor-story">Bedtime Stories</div>
+<div class="sponsor-label">Sponsored by</div>''' + sponsor_content + '''
 </aside></header>''', unsafe_allow_html=True)
 page = st.segmented_control('Competition', ['Grower or Shower', 'Top Boy'], default='Grower or Shower', label_visibility='collapsed')
 if page == 'Top Boy':
