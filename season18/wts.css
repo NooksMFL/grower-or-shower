@@ -41,13 +41,14 @@ button:focus-visible,a:focus-visible {outline:3px solid var(--wts-black)!importa
 [data-testid="stExpander"] {background:rgba(255,255,255,.9);border-radius:8px}
 .player {position:relative;overflow:hidden;background:white;border:2px solid var(--wts-black);border-radius:10px;padding:1.25rem;margin-bottom:1rem;min-height:248px;box-shadow:3px 4px 0 rgba(12,12,16,.12)}
 .player::before {content:'';position:absolute;left:0;right:0;top:0;height:6px;background:var(--wts-pink)}
-.player img {width:78px;height:92px;object-fit:contain;float:right;margin-left:12px}
+.player img {position:absolute;right:.3rem;top:.7rem;width:46%;height:calc(100% - 5.8rem);object-fit:contain;object-position:center bottom;float:none;margin:0;pointer-events:none}
+.player .owner,.player .name,.player .sub,.player .ovr {position:relative;z-index:1;max-width:55%}
 .player .owner {color:#a8005c!important;text-transform:uppercase;font-size:.75rem;font-weight:850;letter-spacing:.05em}
 .player .name {font-family:'WTS Condensed',sans-serif;font-size:1.65rem;font-weight:700;margin:.45rem 0;color:var(--wts-black)}
 .player .sub {color:#4c5159;font-size:.85rem;line-height:1.6}
 .player .ovr {font-family:'WTS Condensed',sans-serif;font-size:2.8rem;font-weight:700;letter-spacing:-.03em;color:var(--wts-black)}
 .player .ovr small {color:#4c5159!important}
-.player .stats {display:flex;justify-content:space-between;border-top:2px solid #e5e7eb;padding-top:.75rem;margin-top:.8rem;font-size:.72rem}
+.player .stats {position:relative;z-index:2;background:white;display:flex;justify-content:space-between;border-top:2px solid #e5e7eb;padding-top:.75rem;margin-top:.8rem;font-size:.72rem}
 .player .stats span {text-align:center;color:#4c5159}.player .stats b {display:block;color:var(--wts-black);font-size:1.05rem}
 .player a {text-decoration:none;color:inherit}
 @media(max-width:760px) {.block-container {padding:1.2rem 1rem 2rem}.wts-hero-title {font-size:clamp(3rem,11.3vw,5.5rem)}.wts-hero {padding-bottom:1.4rem}.wts-brandname {font-size:1.05rem}.mfl-logo {width:105px;height:46px}.mfl-brand {padding:.35rem .9rem}.competition-choice {min-height:105px}.st-key-landing_grower,.st-key-landing_topboy {padding:1.3rem!important}.competition-choice h2 {font-size:2.2rem!important}}
