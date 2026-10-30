@@ -134,7 +134,7 @@ if 'refresh_messages' in st.session_state:
             for message in messages:
                 st.write(message)
     else:
-        st.success('All 11 player profiles, progression histories and competition records refreshed.')
+        st.success(f'All {len(entries)} player profiles, progression histories and competition records refreshed.')
 
 if baselines < len(entries):
     st.info('Starting values: the first complete player refresh before Wednesday, 4 November is saved as that player’s baseline. Refresh before training starts; later values cannot automatically become a baseline.')
@@ -198,7 +198,7 @@ with table:
                  column_config={'Player URL': st.column_config.LinkColumn('MFL player', display_text='Open player')})
     st.download_button('Download full player register CSV', df.to_csv(index=False).encode('utf-8-sig'),
                        'grower_or_shower_season18.csv', 'text/csv')
-    st.info('BaldSherlock: player link still needed. Mike: entry not confirmed. Neither is counted among the 11 linked entries.')
+    st.info(f'BaldSherlock: player link still needed. Mike: entry not confirmed. Neither is counted among the {len(entries)} linked entries.')
     st.caption('Hawkeye’s final selection is #337204; the earlier #467300 has been replaced.')
 
 with growth:

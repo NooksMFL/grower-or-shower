@@ -9,7 +9,7 @@ A separate Streamlit app. The existing Season 17 app and Management Hub are unch
 3. Choose an available new app address, for example `mfl-grower-top-boy`.
 4. Under Advanced settings → Secrets, copy `MFL_REFRESH_TOKEN` from your working Management Hub's Streamlit Secrets. Add a new private `ADMIN_PASSWORD` to allow backup restoration. Do not put either value in GitHub or chat.
 5. Deploy, open **Grower or Shower**, and click **Refresh player data**.
-6. Before Wednesday 4 November 2026, verify **11 / 11 starting values saved**. Download and retain the JSON competition backup under **Growth tracker**. Public CSV exports contain current and baseline attributes, clubs, ages, positions, and timestamps.
+6. Before Wednesday 4 November 2026, verify **12 / 12 starting values saved**. Download and retain the JSON competition backup under **Growth tracker**. Public CSV exports contain current and baseline attributes, clubs, ages, positions, and timestamps.
 
 The public player endpoints are used first, matching the Management Hub's public client. If MFL requests authentication (HTTP 401), the app exchanges the refresh credential at `/auth/refresh`. A Cloudflare HTML block is reported as a server access problem, not an expired token. Credentials and raw API responses are not displayed or included in exports.
 

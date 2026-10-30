@@ -21,8 +21,8 @@ class CompetitionTests(unittest.TestCase):
 
     def test_entry_mapping_uses_final_hawkeye_choice(self):
         entries = b.entrants()
-        self.assertEqual(len(entries), 11)
-        self.assertEqual(len({e['player_id'] for e in entries}), 11)
+        self.assertEqual(len(entries), 12)
+        self.assertEqual(len({e['player_id'] for e in entries}), 12)
         self.assertEqual(next(e['player_id'] for e in entries if e['entrant'] == 'Hawkeye1'), 337204)
         self.assertNotIn(467300, {e['player_id'] for e in entries})
 

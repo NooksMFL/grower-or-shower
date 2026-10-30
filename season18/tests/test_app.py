@@ -37,9 +37,9 @@ class AppTests(unittest.TestCase):
         with patch.object(b.requests, 'request') as request:
             at = AppTest.from_file(str(ROOT / 'app.py')).run()
         self.assertEqual(list(at.exception), [])
-        self.assertEqual(at.metric[0].value, '11')
-        self.assertEqual(at.metric[2].value, '0 / 11')
-        self.assertEqual(len(at.dataframe[0].value), 11)
+        self.assertEqual(at.metric[0].value, '12')
+        self.assertEqual(at.metric[2].value, '0 / 12')
+        self.assertEqual(len(at.dataframe[0].value), 12)
         self.assertFalse(request.called)
 
     def test_top_boy_has_eleven_entries_and_separate_league_table(self):
@@ -65,7 +65,7 @@ class AppTests(unittest.TestCase):
                 store.save_profile(entry['player_id'], {**p, 'overall': 52, 'shooting': 54})
         at = AppTest.from_file(str(ROOT / 'app.py')).run()
         self.assertEqual(list(at.exception), [])
-        self.assertEqual(at.metric[2].value, '11 / 11')
+        self.assertEqual(at.metric[2].value, '12 / 12')
         self.assertTrue((at.dataframe[1].value['OVR gain'] == 2).all())
         self.assertTrue((at.dataframe[1].value['Attribute gain'] == 4).all())
 
