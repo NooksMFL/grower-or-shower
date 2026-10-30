@@ -48,3 +48,7 @@ Configure local credentials via environment variables or ignored `.streamlit/sec
 ## WorkTheSpace theme
 
 The WTS Original theme uses green #26F35C, turquoise #00EBCB, hot pink #FF008B, black and white. The header reads WORKTHESPACE MFL COMMUNITY, with an MFL logo image linking to MFL. The image source is the MFL listing in the public Lancers Web3 dapp registry (https://github.com/0x3f-lancers/dapp-registry/blob/main/src/apps/mfl/meta.json); the published image is shown without font recreation or skewing. White competition cards open the separate competition pages; the same colours carry through player cards, controls and tables. Open Sans Condensed Bold is bundled with its Apache 2.0 licence and copyright notice, with no external font request.
+
+### Top Boy table layout
+
+The main league table is a compact full-length HTML table with player portraits, entrants, player/club names, appearances, goals, assists, qualifying wins and points. All entrants are rendered at once without an internal vertical scrollbar. On narrow screens the entrant appears below the player name. Extra eligibility, source and scoring details remain in the collapsed breakdown.

@@ -34,9 +34,32 @@ def frame(rows):
     } for r in rows])
 
 
+def league_table_html(rows):
+    esc = lambda value: html.escape(str(value), quote=True)
+    body = []
+    for row in rows:
+        pid = int(row['player_id'])
+        player = row.get('player') or f'Player #{pid}'
+        club = row.get('club') or ('No current club' if row.get('club_known') else 'Player data pending')
+        leader = ' class="tb-leader"' if row.get('position') == 1 and row.get('points') is not None else ''
+        numbers = ''.join(f'<td class="tb-number">{display(row.get(key))}</td>' for key in ('appearances', 'goals', 'assists', 'wins'))
+        body.append(f'''<tr{leader}>
+<td class="tb-place"><span>{display(row.get('position'))}</span></td>
+<th scope="row" class="tb-entrant">{esc(row['entrant'])}</th>
+<td class="tb-player"><a href="https://app.playmfl.com/players/{pid}" target="_blank" rel="noopener noreferrer">
+<img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{pid}/photo.webp" alt="" width="36" height="40" loading="lazy">
+<span class="tb-player-text"><strong title="{esc(player)}">{esc(player)}</strong><small>{esc(club)}</small><small class="tb-entrant-mobile">{esc(row['entrant'])}</small></span></a></td>
+{numbers}<td class="tb-points">{display(row.get('points'))}</td></tr>''')
+    return '''<div class="tb-table-wrap"><div class="tb-table-label"><strong>SEASON 18</strong><span>LEAGUE + CUP</span></div>
+<table class="tb-league-table" aria-label="Top Boy Season 18 league table"><thead><tr>
+<th scope="col" class="tb-place">#</th><th scope="col" class="tb-entrant">ENTRANT</th><th scope="col" class="tb-player">PLAYER</th>
+<th scope="col" class="tb-number"><abbr title="League and cup appearances">Pld</abbr></th>
+<th scope="col" class="tb-number"><abbr title="Goals">G</abbr></th><th scope="col" class="tb-number"><abbr title="Assists">A</abbr></th>
+<th scope="col" class="tb-number"><abbr title="Team wins with a player appearance">W</abbr></th><th scope="col" class="tb-points">PTS</th>
+</tr></thead><tbody>''' + ''.join(body) + '</tbody></table></div>'
+
+
 def render(store, setting):
-    st.markdown('<div class="kicker" style="color:#f3c169">TOP BOY · SEASON 18</div>', unsafe_allow_html=True)
-    st.write('League and cup matches count. Your player must appear in the match to earn a team-win point.')
     with st.spinner('Loading any new Top Boy entries…'):
         automatic_messages = tb.refresh_missing(store, b.Client(str(setting('MFL_REFRESH_TOKEN'))))
     if automatic_messages:
@@ -47,10 +70,7 @@ def render(store, setting):
     rows = tb.leaderboard(store)
     loaded = sum(bool(r.get('checked_at')) for r in rows)
     complete = sum(r['points'] is not None for r in rows)
-    cols = st.columns(4)
-    for col, label, value in zip(cols, ('Entrants', 'Goals', 'Assists', 'Team win with appearance'), (len(rows), '+5 points', '+3 points', '+1 point')):
-        col.metric(label, value)
-    st.caption(f'{loaded} / {len(rows)} player profiles loaded · {complete} / {len(rows)} complete scoring totals · Winner’s prize: a limited pack')
+    st.markdown(f'<div class="tb-summary"><strong>{len(rows)} ENTRANTS</strong><span>GOAL <b>+5</b></span><span>ASSIST <b>+3</b></span><span>WIN WITH APPEARANCE <b>+1</b></span></div>', unsafe_allow_html=True)
     if st.button('↻ Refresh Top Boy', type='primary', width='stretch'):
         bar = st.progress(0, text='Refreshing Top Boy players and league / cup records…')
         messages = tb.refresh(store, b.Client(str(setting('MFL_REFRESH_TOKEN'))),
@@ -66,25 +86,17 @@ def render(store, setting):
                     st.write(message)
         else:
             st.success('Top Boy player profiles and competition records refreshed.')
-    st.caption('Top Boy refreshes are limited to once every 15 minutes. Scoring and profile timestamps are shown separately.')
 
     league, players, rules, organiser = st.tabs(['League table', 'Player cards', 'Rules & caps', 'Organiser'])
     df = frame(rows)
     with league:
-        st.subheader('Top Boy league table')
-        st.caption('Points = (goals × 5) + (assists × 3) + qualifying win appearances. Equal points share a position; no extra tie-break has been assumed.')
         provisional = any(r['points'] is None or r['eligibility'] != 'Within cap' for r in rows)
-        if provisional:
-            st.info('Provisional table: some scoring totals or entry eligibility checks are pending. Missing values are shown as —, never as zero.')
-        st.dataframe(df[['Pos', 'Photo', 'Entrant', 'Player', 'Club', 'Goals', 'Assists', 'Win appearances', 'Points', 'Eligibility', 'Score checked (UTC)']],
-                     hide_index=True, width='stretch', row_height=78,
-                     column_config={'Photo': st.column_config.ImageColumn('Player photo', width='small'),
-                                    'Pos': st.column_config.NumberColumn('Pos', format='%d'),
-                                    'Points': st.column_config.NumberColumn('Points', format='%d')})
+        st.markdown(league_table_html(rows), unsafe_allow_html=True)
+        st.caption(f'{loaded}/{len(rows)} profiles loaded · {complete}/{len(rows)} complete scores · ' + ('Provisional: scoring or eligibility checks pending. ' if provisional else '') + 'Equal points share a position. — means unavailable.')
         if any(r['wins'] is None for r in rows):
             st.caption('A club’s win total cannot prove that this player appeared. If MFL does not provide appearance-scoped wins, the organiser can enter verified full-season totals below.')
         with st.expander('Points breakdown and data sources'):
-            st.dataframe(df[['Entrant', 'Goals', 'Goal pts', 'Assists', 'Assist pts', 'Win appearances', 'Win pts', 'Points', 'League + cup apps', 'Source', 'Evidence note']], hide_index=True, width='stretch')
+            st.dataframe(df[['Entrant', 'Goals', 'Goal pts', 'Assists', 'Assist pts', 'Win appearances', 'Win pts', 'Points', 'League + cup apps', 'Eligibility', 'Score checked (UTC)', 'Source', 'Evidence note']], hide_index=True, width='stretch')
         st.download_button('Download Top Boy table CSV', df.to_csv(index=False).encode('utf-8-sig'), 'top_boy_season18.csv', 'text/csv')
         st.download_button('Download backup · both competitions', store.backup(), 'competitions_s18_backup.json', 'application/json', key='topboy_backup')
 
