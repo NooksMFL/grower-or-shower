@@ -95,6 +95,58 @@ def points(goals, assists, wins):
     return 5 * values[0] + 3 * values[1] + values[2] if all(v is not None for v in values) else None
 
 
+def average_rating(records):
+    """Appearance-weighted Season 18 league/cup average, with coverage checks."""
+    weighted = 0.0
+    rated = 0
+    incomplete = False
+    seen = set()
+    for record in records:
+        kind = competition_kind(record)
+        if kind == 'unknown':
+            incomplete = True
+            continue
+        if kind is None:
+            continue
+        signature = json.dumps(record, sort_keys=True, default=str)
+        if signature in seen:
+            continue
+        seen.add(signature)
+        stats = record.get('stats') or {}
+        if not isinstance(stats, dict):
+            incomplete = True
+            continue
+        apps = next((count(stats[k]) for k in ('matches', 'nbMatches', 'appearances', 'matchesPlayed', 'apps') if k in stats), None)
+        if apps == 0:
+            continue
+        if apps is None:
+            incomplete = True
+            continue
+        n = next((count(stats[k]) for k in ('ratedMatches', 'ratedAppearances') if k in stats), apps)
+        avg = next((b.number(stats[k]) for k in ('averageRating', 'avgRating') if stats.get(k) is not None), None)
+        if avg is None and n:
+            total = next((b.number(stats[k]) for k in ('totalRating', 'ratingTotal', 'ratingSum') if stats.get(k) is not None), None)
+            if total is not None:
+                avg = total / n
+            else:
+                rating = b.number(stats.get('rating'))
+                if rating is not None:
+                    if n == 1:
+                        avg = rating
+                    elif rating > 10:
+                        # Known MFL format: accumulated rating points.
+                        avg = rating / n
+        if n is None or n <= 0 or n > apps or avg is None or not 0 <= avg <= 10:
+            incomplete = True
+            continue
+        weighted += avg * n
+        rated += n
+        if n < apps:
+            incomplete = True
+    return {'average_rating': round(weighted / rated, 2) if rated and not incomplete else None,
+            'rated_appearances': rated}
+
+
 def validate_review(review):
     if not isinstance(review, dict):
         raise ValueError('Invalid organiser review.')
@@ -207,6 +259,7 @@ def leaderboard(store):
         c = competitions.get(pid)
         review = reviews.get(pid, {})
         auto = player_totals(c['records']) if c else dict.fromkeys(('appearances',) + SCORING_FIELDS)
+        ratings = average_rating(c['records']) if c else {'average_rating': None, 'rated_appearances': 0}
         manual = review.get('manual_totals')
         values = manual if manual is not None else auto
         league = review.get('league')
@@ -218,7 +271,7 @@ def leaderboard(store):
         score_source = 'Organiser-verified totals' if manual is not None else 'MFL player competition stats'
         if manual is None and auto.get('wins') is None:
             score_source = 'Win appearances need verification'
-        table.append({**entry, **p, **{f: values.get(f) for f in SCORING_FIELDS},
+        table.append({**entry, **p, **ratings, **{f: values.get(f) for f in SCORING_FIELDS},
                       'appearances': auto.get('appearances'), 'points': score,
                       'league': league, 'entry_rating': rating, 'oop': review.get('oop', False),
                       'eligibility': eligibility, 'source': score_source,

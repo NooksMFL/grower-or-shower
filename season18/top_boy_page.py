@@ -25,6 +25,7 @@ def frame(rows):
         'Assists': r['assists'], 'Assist pts': 3 * r['assists'] if r['assists'] is not None else None,
         'Win appearances': r['wins'], 'Win pts': r['wins'], 'Points': r['points'],
         'League + cup apps': r.get('appearances'), 'Eligibility': r['eligibility'],
+        'Average rating': r.get('average_rating'), 'Rated appearances': r.get('rated_appearances'),
         'Entry rating': r.get('entry_rating'), 'OOP rating': r['oop'],
         'Current OVR': r.get('overall'), 'Age': r.get('age'), 'Position': r.get('positions'),
         **{label: r.get(field) for field, label in b.LABELS.items() if field != 'overall'},
@@ -43,19 +44,20 @@ def league_table_html(rows):
         club = row.get('club') or ('No current club' if row.get('club_known') else 'Player data pending')
         leader = ' class="tb-leader"' if row.get('position') == 1 and row.get('points') is not None else ''
         numbers = ''.join(f'<td class="tb-number">{display(row.get(key))}</td>' for key in ('appearances', 'goals', 'assists', 'wins'))
+        rating = f"{row['average_rating']:.2f}" if row.get('average_rating') is not None else '—'
         body.append(f'''<tr{leader}>
 <td class="tb-place"><span>{display(row.get('position'))}</span></td>
 <th scope="row" class="tb-entrant">{esc(row['entrant'])}</th>
 <td class="tb-player"><a href="https://app.playmfl.com/players/{pid}" target="_blank" rel="noopener noreferrer">
 <img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{pid}/photo.webp" alt="" width="36" height="40" loading="lazy">
 <span class="tb-player-text"><strong title="{esc(player)}">{esc(player)}</strong><small>{esc(club)}</small><small class="tb-entrant-mobile">{esc(row['entrant'])}</small></span></a></td>
-{numbers}<td class="tb-points">{display(row.get('points'))}</td></tr>''')
+{numbers}<td class="tb-rating">{rating}</td><td class="tb-points">{display(row.get('points'))}</td></tr>''')
     return '''<div class="tb-table-wrap"><div class="tb-table-label"><strong>SEASON 18</strong><span>LEAGUE + CUP</span></div>
 <table class="tb-league-table" aria-label="Top Boy Season 18 league table"><thead><tr>
 <th scope="col" class="tb-place">#</th><th scope="col" class="tb-entrant">ENTRANT</th><th scope="col" class="tb-player">PLAYER</th>
 <th scope="col" class="tb-number"><abbr title="League and cup appearances">Pld</abbr></th>
 <th scope="col" class="tb-number"><abbr title="Goals">G</abbr></th><th scope="col" class="tb-number"><abbr title="Assists">A</abbr></th>
-<th scope="col" class="tb-number"><abbr title="Team wins with a player appearance">W</abbr></th><th scope="col" class="tb-points">PTS</th>
+<th scope="col" class="tb-number"><abbr title="Team wins with a player appearance">W</abbr></th><th scope="col" class="tb-rating"><abbr title="Average match rating across Season 18 league and cup appearances">AVG</abbr></th><th scope="col" class="tb-points">PTS</th>
 </tr></thead><tbody>''' + ''.join(body) + '</tbody></table></div>'
 
 
@@ -96,7 +98,8 @@ def render(store, setting):
         if any(r['wins'] is None for r in rows):
             st.caption('A club’s win total cannot prove that this player appeared. If MFL does not provide appearance-scoped wins, the organiser can enter verified full-season totals below.')
         with st.expander('Points breakdown and data sources'):
-            st.dataframe(df[['Entrant', 'Goals', 'Goal pts', 'Assists', 'Assist pts', 'Win appearances', 'Win pts', 'Points', 'League + cup apps', 'Eligibility', 'Score checked (UTC)', 'Source', 'Evidence note']], hide_index=True, width='stretch')
+            st.dataframe(df[['Entrant', 'Goals', 'Goal pts', 'Assists', 'Assist pts', 'Win appearances', 'Win pts', 'Points', 'League + cup apps', 'Average rating', 'Rated appearances', 'Eligibility', 'Score checked (UTC)', 'Source', 'Evidence note']], hide_index=True, width='stretch')
+            st.caption('AVG is weighted by appearances across league and cup. No rated matches or incomplete rating coverage displays —. An ambiguous rating total is not treated as an average.')
         st.download_button('Download Top Boy table CSV', df.to_csv(index=False).encode('utf-8-sig'), 'top_boy_season18.csv', 'text/csv')
         st.download_button('Download backup · both competitions', store.backup(), 'competitions_s18_backup.json', 'application/json', key='topboy_backup')
 

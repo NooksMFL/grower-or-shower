@@ -65,6 +65,25 @@ class TopBoyTests(unittest.TestCase):
         self.assertIsNone(tb.points(-1, 3, 0))
         self.assertIsNone(tb.points(True, 3, 0))
 
+    def test_average_rating_weights_league_and_cup_appearances(self):
+        league = fixture(apps=3)
+        league['stats']['averageRating'] = 8.0
+        cup = fixture('Aspirants Cup', apps=1)
+        cup['stats']['averageRating'] = 6.0
+        friendly = fixture('Friendly Cup', apps=10)
+        friendly['stats']['averageRating'] = 1.0
+        self.assertEqual(tb.average_rating([league, cup, friendly])['average_rating'], 7.5)
+        self.assertEqual(tb.average_rating([league, cup])['rated_appearances'], 4)
+
+    def test_average_rating_handles_accumulated_points_and_missing_coverage(self):
+        league = fixture(apps=2)
+        league['stats']['rating'] = 14.5
+        self.assertEqual(tb.average_rating([league])['average_rating'], 7.25)
+        self.assertIsNone(tb.average_rating([league, fixture('Aspirants Cup')])['average_rating'])
+        league['stats']['rating'] = 7.0
+        self.assertIsNone(tb.average_rating([league])['average_rating'])
+        self.assertIsNone(tb.average_rating([])['average_rating'])
+
     def test_duplicate_payload_not_counted_twice(self):
         row = fixture()
         self.assertEqual(tb.player_totals([row, row])['goals'], 2)

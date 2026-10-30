@@ -52,3 +52,5 @@ The WTS Original theme uses green #26F35C, turquoise #00EBCB, hot pink #FF008B, 
 ### Top Boy table layout
 
 The main league table is a compact full-length HTML table with player portraits, entrants, player/club names, appearances, goals, assists, qualifying wins and points. All entrants are rendered at once without an internal vertical scrollbar. On narrow screens the entrant appears below the player name. Extra eligibility, source and scoring details remain in the collapsed breakdown.
+
+Top Boy includes AVG, weighted by rated appearances across Season 18 league and cup. Explicit averages and known accumulated rating-point totals are normalised before combining competitions. Unavailable, ambiguous or incomplete rating coverage displays a dash and does not alter the points ranking. The league table is capped at 1100px wide with reduced cell padding and 60px desktop rows to keep the player and numeric columns closer together.

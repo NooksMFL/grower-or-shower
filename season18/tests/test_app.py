@@ -63,6 +63,7 @@ class AppTests(unittest.TestCase):
         table_html = next(m.value for m in at.markdown if '<table class="tb-league-table"' in m.value)
         self.assertEqual(table_html.count('<tr'), 16)
         self.assertIn('/90399/photo.webp', table_html)
+        self.assertIn('>AVG</abbr>', table_html)
         self.assertEqual(len(at.dataframe[0].value), 15)
         self.assertIn('Points', at.dataframe[0].value.columns)
         self.assertEqual(set(at.dataframe[0].value.Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock', 'Doineann', 'Dan', 'mmewse', 'Daz Shootz', 'Eddie'})
