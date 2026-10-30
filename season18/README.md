@@ -35,6 +35,14 @@ Entry rating caps: **Flint 62, Spark 68, Ice 74, Stone 78, Iron 82**. **OOP rati
 
 Top Boy uses its own SQLite tables and refresh cooldown. No Grower or Shower profiles or baselines are overwritten. Both competitions are included in the JSON backup; older Grower-only backups remain importable. Restore fills missing records only and never replaces a saved baseline or organiser review. Download a fresh combined backup after updates. The published app must verify live API field coverage because the development environment remains blocked by MFL's Cloudflare service.
 
+## Sponsor picture
+
+Use **Sponsor picture** below the top-right sponsor panel, enter the organiser password,
+choose the original PNG/JPG/WebP (up to 4 MB), then **Save sponsor picture**. No GitHub
+upload is needed. The original image is displayed in full on both competition pages.
+It is stored with the app data and included in the competition backup; download a fresh
+backup after uploading. Backup restoration preserves an existing sponsor image.
+
 ## Local run and checks
 
 ```sh

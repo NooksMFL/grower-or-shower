@@ -12,6 +12,7 @@ import streamlit as st
 # Resolve this standalone app's backend even when Streamlit starts at repo root.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import backend as b
+import sponsor
 
 st.set_page_config(page_title='Grower or Shower · Top Boy', page_icon='🌱', layout='wide')
 
@@ -60,7 +61,10 @@ button[kind="primary"] {background:#b7f36b;color:#0b1018;border:0}
 
 sponsor_folder = b.ROOT / 'assets' / 'sponsor'
 sponsor_files = sorted(p for p in sponsor_folder.glob('*') if p.suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp'))
-if sponsor_files:
+saved_sponsor = sponsor.get(storage())
+if saved_sponsor:
+    sponsor_content = f'<img class="sponsor-artwork" src="data:{saved_sponsor["mime"]};base64,{saved_sponsor["base64"]}" alt="Minty’s Bedtime Stories">'
+elif sponsor_files:
     sponsor_file = sponsor_files[0]
     mime = {'.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp'}[sponsor_file.suffix.lower()]
     encoded = base64.b64encode(sponsor_file.read_bytes()).decode('ascii')
@@ -73,6 +77,26 @@ st.markdown('''<header class="competition-header">
 <aside class="sponsor" aria-label="Sponsored by Minty's Bedtime Stories">
 <div class="sponsor-label">Sponsored by</div>''' + sponsor_content + '''
 </aside></header>''', unsafe_allow_html=True)
+_, sponsor_controls = st.columns([4, 1])
+with sponsor_controls:
+    with st.popover('Sponsor picture', use_container_width=True):
+        sponsor_password = str(setting('ADMIN_PASSWORD'))
+        if not sponsor_password:
+            st.info('Set ADMIN_PASSWORD in Streamlit Secrets to enable picture uploads.')
+        else:
+            supplied = st.text_input('Organiser password', type='password', key='sponsor_password')
+            if supplied and hmac.compare_digest(supplied, sponsor_password):
+                picture = st.file_uploader('Minty’s Bedtime Stories picture', type=['png', 'jpg', 'jpeg', 'webp'], key='sponsor_upload')
+                if picture and st.button('Save sponsor picture', type='primary'):
+                    try:
+                        sponsor.save(storage(), picture.getvalue())
+                    except ValueError as exc:
+                        st.error(str(exc))
+                    else:
+                        st.session_state['sponsor_saved'] = True
+                        st.rerun()
+if st.session_state.pop('sponsor_saved', False):
+    st.success('Sponsor picture saved. Download a new competition backup to keep a copy with your records.')
 page = st.segmented_control('Competition', ['Grower or Shower', 'Top Boy'], default='Grower or Shower', label_visibility='collapsed')
 if page == 'Top Boy':
     import top_boy_page

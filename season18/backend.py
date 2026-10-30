@@ -254,6 +254,7 @@ class Store:
                 CREATE TABLE IF NOT EXISTS topboy_competitions(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,checked_at TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS topboy_reviews(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,checked_at TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS topboy_refresh(id INTEGER PRIMARY KEY CHECK(id=1),at TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS site_assets(name TEXT PRIMARY KEY,mime TEXT NOT NULL,content BLOB NOT NULL);
             ''')
 
     def connect(self):
@@ -304,13 +305,18 @@ class Store:
         with self.connect() as c:
             tables = {table: c.execute(f'SELECT * FROM {table}').fetchall()
                       for table in ('profiles', 'baselines', 'histories', 'competitions') + TOPBOY_TABLES}
-        return json.dumps({'version': 1, 'season': 18, 'tables': tables}, indent=2)
+        from sponsor import get
+        return json.dumps({'version': 1, 'season': 18, 'tables': tables, 'sponsor': get(self)}, indent=2)
 
     def restore(self, content):
         data = json.loads(content)
         if data.get('version') != 1 or data.get('season') != 18:
             raise ValueError('This is not a Season 18 competition backup.')
         tables = data.get('tables', {})
+        artwork = None
+        if data.get('sponsor') is not None:
+            from sponsor import decode_backup
+            artwork = decode_backup(data['sponsor'])
         allowed = {e['player_id'] for e in entrants()}
         validated = {}
         for table in ('profiles', 'baselines', 'histories', 'competitions') + TOPBOY_TABLES:
@@ -346,6 +352,8 @@ class Store:
                 placeholders = '?,?,?' if table in ('profiles', 'baselines') + TOPBOY_TABLES else '?,?'
                 # Restore missing records only: never overwrite an existing baseline.
                 c.executemany(f'INSERT OR IGNORE INTO {table} VALUES({placeholders})', records)
+            if artwork is not None:
+                c.execute('INSERT OR IGNORE INTO site_assets VALUES(?,?,?)', ('sponsor', artwork[0], artwork[1]))
 
     def refresh(self, client, progress=None):
         if not self.claim_refresh():
