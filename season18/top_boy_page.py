@@ -118,7 +118,7 @@ def render(store, setting):
                     <div class="name">{esc(name)}</div><div class="sub">{esc(row.get('positions') or 'Position pending')} · Age {display(row.get('age'))}<br>{esc(club)}</div>
                     <div class="ovr">{display(row.get('overall'))} <small style="font-size:.75rem;color:#acb8ca">OVR</small></div>
                     <div class="stats">{attrs}</div></a></div>''', unsafe_allow_html=True)
-                st.caption(f"{display(row['points'])} points · Last profile check: {row.get('checked_at') or 'Not fetched yet'}")
+                st.markdown(f'<div class="player-check">{display(row["points"])} points · Last checked: {esc(row.get("checked_at") or "Not fetched yet")}</div>', unsafe_allow_html=True)
         st.dataframe(df[['Entrant', 'Player ID', 'Player', 'Club', 'Current OVR', 'Age', 'Position', 'PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY', 'MFL player']],
                      hide_index=True, width='stretch',
                      column_config={'MFL player': st.column_config.LinkColumn('MFL player', display_text='Open player')})

@@ -144,7 +144,7 @@ with overview:
             <div class="sub">{esc(row.get('positions') or 'Position pending')} · Age {fmt(row.get('age'))}<br>{esc(club)}</div>
             <div class="ovr">{fmt(row.get('overall'))} <small style="font-size:.75rem;color:#acb8ca">OVR</small></div>
             <div class="stats">{attrs}</div></a></div>''', unsafe_allow_html=True)
-            st.caption(f"Last checked: {row.get('checked_at') or 'Not fetched yet'}")
+            st.markdown(f'<div class="player-check">Last checked: {esc(row.get("checked_at") or "Not fetched yet")}</div>', unsafe_allow_html=True)
     st.caption('Cards open the official MFL player page. Missing data appears as —; it is never treated as zero.')
 
 with table:
