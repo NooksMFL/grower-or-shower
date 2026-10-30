@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import base64
 import hmac
 import os
 import sys
@@ -27,40 +28,22 @@ def storage():
     return b.Store(os.getenv('COMPETITIONS_DB', str(b.ROOT / 'competitions_s18.sqlite3')))
 
 
-st.markdown('''<style>
-.stApp {background:#0b1018;color:#edf2f7}
-.block-container {max-width:1450px;padding-top:2.4rem}
-h1 {font-size:clamp(2.5rem,6vw,4.8rem)!important;letter-spacing:-.055em;line-height:1.03!important}
-h2,h3 {letter-spacing:-.025em}
-.kicker {color:#b7f36b;font-weight:800;letter-spacing:.18em;font-size:.76rem;margin-bottom:.8rem}
-.competition-choice {border:1px solid #293548;border-radius:18px;padding:2rem;background:#111b2a;min-height:175px;margin:1.5rem 0 1rem}
-.competition-choice h2 {font-size:clamp(1.8rem,3.5vw,2.6rem);margin:0 0 .8rem}
-.competition-choice p {color:#acb8ca;margin:0}
-.player {border:1px solid #293548;border-radius:18px;padding:1.15rem;background:linear-gradient(140deg,#162132,#0e1724);margin-bottom:1rem;min-height:230px}
-.player img {width:70px;height:82px;object-fit:contain;float:right;margin-left:12px}
-.player .owner {color:#b7f36b;font-size:.8rem;font-weight:700}
-.player .name {font-size:1.3rem;font-weight:750;margin:.45rem 0}
-.player .sub {color:#a6b4c8;font-size:.85rem;line-height:1.6}
-.player .ovr {font-size:2.4rem;font-weight:800;letter-spacing:-.05em}
-.player .stats {display:flex;justify-content:space-between;border-top:1px solid #293548;padding-top:.75rem;margin-top:.8rem;font-size:.8rem}
-.player .stats span {text-align:center;color:#a6b4c8}.player .stats b {display:block;color:#edf2f7;font-size:1.05rem}
-.player a {text-decoration:none;color:inherit}
-[data-testid="stMetric"] {border:1px solid #293548;border-radius:14px;padding:1rem;background:#111b2a}
-button[kind="primary"] {background:#b7f36b;color:#0b1018;border:0}
-</style>''', unsafe_allow_html=True)
+font = base64.b64encode((b.ROOT / 'assets/fonts/OpenSans-CondBold.ttf').read_bytes()).decode('ascii')
+st.markdown('<style>@font-face{font-family:"WTS Condensed";src:url(data:font/ttf;base64,' + font + ') format("truetype");font-weight:700;font-display:swap}' + (b.ROOT / 'wts.css').read_text() + '</style>', unsafe_allow_html=True)
+st.markdown('''<div class="wts-brandbar"><div class="wts-brandname">WORKTHESPACE<small>MFL COMMUNITY</small></div><a class="mfl-brand" href="https://app.playmfl.com" target="_blank" rel="noopener noreferrer" aria-label="MFL"><span class="mfl-mark">mfl</span></a></div>''', unsafe_allow_html=True)
 
 page = st.session_state.get('competition_page')
 if page not in ('Grower or Shower', 'Top Boy'):
-    st.markdown('<div class="kicker">WORKTHESPACE · SEASON 18</div>', unsafe_allow_html=True)
+    st.markdown('<div class="wts-hero"><div class="wts-hero-title"><span>WORKTHESPACE</span><span>MFL COMMUNITY</span></div><div class="wts-season">SEASON 18</div></div>', unsafe_allow_html=True)
     st.title('Competitions')
     grower_choice, topboy_choice = st.columns(2)
-    with grower_choice:
-        st.markdown(f'<div class="competition-choice"><h2>Grower or Shower</h2><p>{len(b.entrants())} entrants</p></div>', unsafe_allow_html=True)
+    with grower_choice, st.container(key='landing_grower'):
+        st.markdown(f'<div class="competition-choice"><div class="entry-number">01</div><h2>Grower or Shower</h2><p>{len(b.entrants())} entrants</p></div>', unsafe_allow_html=True)
         if st.button('Grower or Shower', key='open_grower', type='primary', width='stretch'):
             st.session_state['competition_page'] = 'Grower or Shower'
             st.rerun()
-    with topboy_choice:
-        st.markdown(f'<div class="competition-choice"><h2>Top Boy</h2><p>{len(b.entrants("top_boy"))} entrants</p></div>', unsafe_allow_html=True)
+    with topboy_choice, st.container(key='landing_topboy'):
+        st.markdown(f'<div class="competition-choice"><div class="entry-number">02</div><h2>Top Boy</h2><p>{len(b.entrants("top_boy"))} entrants</p></div>', unsafe_allow_html=True)
         if st.button('Top Boy', key='open_topboy', type='primary', width='stretch'):
             st.session_state['competition_page'] = 'Top Boy'
             st.rerun()
@@ -69,7 +52,7 @@ if page not in ('Grower or Shower', 'Top Boy'):
 if st.button('← Competitions', key='back_to_competitions'):
     st.session_state.pop('competition_page', None)
     st.rerun()
-st.markdown('<div class="kicker">WORKTHESPACE · SEASON 18</div>', unsafe_allow_html=True)
+st.markdown('<div class="kicker">WORKTHESPACE MFL COMMUNITY · SEASON 18</div>', unsafe_allow_html=True)
 st.title(page)
 if page == 'Top Boy':
     import top_boy_page

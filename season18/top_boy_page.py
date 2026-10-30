@@ -18,7 +18,8 @@ def display(value):
 
 def frame(rows):
     return pd.DataFrame([{
-        'Pos': r['position'], 'Entrant': r['entrant'], 'Player': r.get('player') or f"Player #{r['player_id']}",
+        'Pos': r['position'], 'Photo': f"https://d13e14gtps4iwl.cloudfront.net/players/v2/{r['player_id']}/photo.webp",
+        'Entrant': r['entrant'], 'Player': r.get('player') or f"Player #{r['player_id']}",
         'Club': r.get('club') or ('No current club' if r.get('club_known') else 'Awaiting player data'), 'League': r.get('league'), 'Goals': r['goals'],
         'Goal pts': 5 * r['goals'] if r['goals'] is not None else None,
         'Assists': r['assists'], 'Assist pts': 3 * r['assists'] if r['assists'] is not None else None,
@@ -75,9 +76,10 @@ def render(store, setting):
         provisional = any(r['points'] is None or r['eligibility'] != 'Within cap' for r in rows)
         if provisional:
             st.info('Provisional table: some scoring totals or entry eligibility checks are pending. Missing values are shown as —, never as zero.')
-        st.dataframe(df[['Pos', 'Entrant', 'Player', 'Club', 'Goals', 'Assists', 'Win appearances', 'Points', 'Eligibility', 'Score checked (UTC)']],
-                     hide_index=True, width='stretch',
-                     column_config={'Pos': st.column_config.NumberColumn('Pos', format='%d'),
+        st.dataframe(df[['Pos', 'Photo', 'Entrant', 'Player', 'Club', 'Goals', 'Assists', 'Win appearances', 'Points', 'Eligibility', 'Score checked (UTC)']],
+                     hide_index=True, width='stretch', row_height=78,
+                     column_config={'Photo': st.column_config.ImageColumn('Player photo', width='small'),
+                                    'Pos': st.column_config.NumberColumn('Pos', format='%d'),
                                     'Points': st.column_config.NumberColumn('Points', format='%d')})
         if any(r['wins'] is None for r in rows):
             st.caption('A club’s win total cannot prove that this player appeared. If MFL does not provide appearance-scoped wins, the organiser can enter verified full-season totals below.')

@@ -27,7 +27,7 @@ Grower or Shower: BaldSherlock's missing player link and Mike's unconfirmed entr
 
 ## Top Boy
 
-The Top Boy page includes all eleven supplied entries and a points-sorted league table. Scoring is **5 per goal + 3 per assist + 1 per team win where the nominated player appeared**. Both **Season 18 league and cup** matches count; Arena, friendlies, preseason and exhibitions do not. Equal points share positions (1, 1, 3); no extra tie-break or winner is invented. Refresh Top Boy separately to load profiles and `/players/{id}/competitions` records. New or missing entries are fetched automatically on opening Top Boy; existing saved entries are retained. Failed lookups are throttled for 15 minutes. Tables include separate profile and scoring timestamps and CSV exports.
+The Top Boy page includes all twelve supplied entries and a points-sorted league table. Scoring is **5 per goal + 3 per assist + 1 per team win where the nominated player appeared**. Both **Season 18 league and cup** matches count; Arena, friendlies, preseason and exhibitions do not. Equal points share positions (1, 1, 3); no extra tie-break or winner is invented. Refresh Top Boy separately to load profiles and `/players/{id}/competitions` records. New or missing entries are fetched automatically on opening Top Boy; existing saved entries are retained. Failed lookups are throttled for 15 minutes. Tables include separate profile and scoring timestamps and CSV exports.
 
 Missing fields remain unavailable. A valid empty competition list establishes no recorded scoring contributions, while unknown season/competition shapes and incomplete rows do not become zero totals. Generic `wins`/`teamWins` fields do **not** establish player appearances: automatic win points require explicit appearance-scoped win fields. If these are absent, use the password-protected **Organiser** tab to enter verified full-season goals, assists and qualifying wins with an evidence note. These are replacement totals, never increments; they persist across API refreshes until changed or the manual-totals option is disabled. The downloadable public MFL scoring-record JSON helps inspect actual API field coverage without sharing credentials.
 
@@ -44,3 +44,7 @@ python -m unittest discover -s season18/tests -v
 ```
 
 Configure local credentials via environment variables or ignored `.streamlit/secrets.toml`. No `.env`, token, wallet data or prior-season database is bundled. Live MFL requests from the development cloud were blocked by Cloudflare, so deployed connectivity must be verified with the refresh button on Streamlit.
+
+## WorkTheSpace theme
+
+The WTS Original theme uses green #26F35C, turquoise #00EBCB, hot pink #FF008B, black and white. The header reads WORKTHESPACE MFL COMMUNITY, with a typographic MFL mark linking to MFL. White competition cards open the separate competition pages; the same colours carry through player cards, controls and tables. Open Sans Condensed Bold is bundled with its Apache 2.0 licence and copyright notice, with no external font request.
