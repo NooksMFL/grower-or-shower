@@ -255,6 +255,7 @@ class Store:
                 CREATE TABLE IF NOT EXISTS topboy_reviews(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,checked_at TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS topboy_refresh(id INTEGER PRIMARY KEY CHECK(id=1),at TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS site_assets(name TEXT PRIMARY KEY,mime TEXT NOT NULL,content BLOB NOT NULL);
+                CREATE TABLE IF NOT EXISTS topboy_auto_refresh(id INTEGER PRIMARY KEY CHECK(id=1),signature TEXT NOT NULL,at TEXT NOT NULL);
             ''')
 
     def connect(self):

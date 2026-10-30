@@ -165,6 +165,37 @@ def refresh(store, client, progress=None):
     return messages
 
 
+def refresh_missing(store, client):
+    """Fetch newly added entrants without re-fetching the existing competition."""
+    profiles = records(store, 'topboy_profiles')
+    competitions = records(store, 'topboy_competitions')
+    missing = [(e, table) for e in b.entrants('top_boy')
+               for table, saved in (('topboy_profiles', profiles), ('topboy_competitions', competitions))
+               if e['player_id'] not in saved]
+    if not missing:
+        return []
+    signature = json.dumps([(e['player_id'], table) for e, table in missing])
+    with store.connect() as c:
+        c.execute('BEGIN IMMEDIATE')
+        previous = c.execute('SELECT signature,at FROM topboy_auto_refresh WHERE id=1').fetchone()
+        if previous and previous[0] == signature and (datetime.now(timezone.utc) - b.timestamp(previous[1])).total_seconds() < 900:
+            return []
+        c.execute('INSERT OR REPLACE INTO topboy_auto_refresh VALUES(1,?,?)', (signature, b.utcnow()))
+    messages = []
+    for entry, table in missing:
+        pid = entry['player_id']
+        endpoint = f'/players/{pid}' + ('/competitions' if table == 'topboy_competitions' else '')
+        try:
+            payload = client.get(endpoint)
+            parsed = b.profile(payload, pid) if table == 'topboy_profiles' else {'records': b.rows(payload)}
+            save(store, table, pid, parsed)
+        except (b.APIError, ValueError) as exc:
+            messages.append(f"{entry['entrant']}: {exc}")
+            # Avoid making every page load wait on a failing MFL service.
+            break
+    return messages
+
+
 def leaderboard(store):
     profiles = records(store, 'topboy_profiles')
     competitions = records(store, 'topboy_competitions')

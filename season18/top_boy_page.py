@@ -18,8 +18,8 @@ def display(value):
 
 def frame(rows):
     return pd.DataFrame([{
-        'Pos': r['position'], 'Entrant': r['entrant'], 'Player': r.get('player'),
-        'Club': r.get('club'), 'League': r.get('league'), 'Goals': r['goals'],
+        'Pos': r['position'], 'Entrant': r['entrant'], 'Player': r.get('player') or f"Player #{r['player_id']}",
+        'Club': r.get('club') or ('No current club' if r.get('club_known') else 'Awaiting player data'), 'League': r.get('league'), 'Goals': r['goals'],
         'Goal pts': 5 * r['goals'] if r['goals'] is not None else None,
         'Assists': r['assists'], 'Assist pts': 3 * r['assists'] if r['assists'] is not None else None,
         'Win appearances': r['wins'], 'Win pts': r['wins'], 'Points': r['points'],
@@ -36,6 +36,13 @@ def frame(rows):
 def render(store, setting):
     st.markdown('<div class="kicker" style="color:#f3c169">TOP BOY · SEASON 18</div>', unsafe_allow_html=True)
     st.write('League and cup matches count. Your player must appear in the match to earn a team-win point.')
+    with st.spinner('Loading any new Top Boy entries…'):
+        automatic_messages = tb.refresh_missing(store, b.Client(str(setting('MFL_REFRESH_TOKEN'))))
+    if automatic_messages:
+        st.warning('New-entry lookup could not finish. Player links are still available in Player cards.')
+        with st.expander('New-entry lookup details'):
+            for message in automatic_messages:
+                st.write(message)
     rows = tb.leaderboard(store)
     loaded = sum(bool(r.get('checked_at')) for r in rows)
     complete = sum(r['points'] is not None for r in rows)

@@ -126,6 +126,30 @@ class TopBoyTests(unittest.TestCase):
         tb.refresh(self.store, client)
         self.assertEqual(client.get.call_count, 1)
 
+    def test_new_entrant_fetches_automatically_despite_full_refresh_cooldown(self):
+        for entry in b.entrants('top_boy'):
+            if entry['player_id'] == 56184:
+                continue
+            tb.save(self.store, 'topboy_profiles', entry['player_id'], {'player_id': entry['player_id'], 'player': 'Saved player'})
+            tb.save(self.store, 'topboy_competitions', entry['player_id'], {'records': []})
+        with self.store.connect() as c:
+            c.execute('INSERT INTO topboy_refresh VALUES(1,?)', (b.utcnow(),))
+        client = Mock()
+        client.get.side_effect = lambda path: [fixture()] if path.endswith('/competitions') else {'metadata': {'firstName': 'Sherlock', 'lastName': 'Player', 'overall': 70}}
+        self.assertEqual(tb.refresh_missing(self.store, client), [])
+        self.assertEqual(client.get.call_args_list[0].args[0], '/players/56184')
+        self.assertEqual(client.get.call_count, 2)
+        self.assertEqual(tb.records(self.store, 'topboy_profiles')[56184]['player'], 'Sherlock Player')
+        tb.refresh_missing(self.store, client)
+        self.assertEqual(client.get.call_count, 2)
+
+    def test_failed_automatic_lookup_does_not_retry_on_every_rerun(self):
+        client = Mock()
+        client.get.side_effect = b.APIError('MFL unavailable')
+        self.assertTrue(tb.refresh_missing(self.store, client))
+        self.assertEqual(tb.refresh_missing(self.store, client), [])
+        self.assertEqual(client.get.call_count, 1)
+
     def test_combined_backup_roundtrip_and_old_backup_compatible(self):
         self.review(35005, 2)
         tb.save(self.store, 'topboy_profiles', 35005, {'player_id': 35005, 'player': 'Test'})

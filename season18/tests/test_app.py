@@ -18,6 +18,11 @@ class AppTests(unittest.TestCase):
         self.path = str(Path(self.tmp.name) / 'ui.sqlite3')
         self.env = patch.dict(os.environ, {'COMPETITIONS_DB': self.path, 'ADMIN_PASSWORD': '', 'SCORING_CONFIRMED': 'false'})
         self.env.start()
+        self.network = patch.object(b.requests, 'request')
+        response = self.network.start().return_value
+        response.status_code = 503
+        response.ok = False
+        response.headers = {'content-type': 'application/json'}
         import streamlit as st
         st.cache_resource.clear()
 
@@ -25,6 +30,7 @@ class AppTests(unittest.TestCase):
         import streamlit as st
         st.cache_resource.clear()
         self.env.stop()
+        self.network.stop()
         self.tmp.cleanup()
 
     def test_empty_app_renders_all_entries_without_network(self):
