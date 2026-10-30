@@ -36,15 +36,29 @@ class AppTests(unittest.TestCase):
     def test_empty_app_renders_all_entries_without_network(self):
         with patch.object(b.requests, 'request') as request:
             at = AppTest.from_file(str(ROOT / 'app.py')).run()
+        at.button(key='open_grower').click().run()
         self.assertEqual(list(at.exception), [])
         self.assertEqual(at.metric[0].value, '12')
         self.assertEqual(at.metric[2].value, '0 / 12')
         self.assertEqual(len(at.dataframe[0].value), 12)
         self.assertFalse(request.called)
 
+    def test_front_page_choices_and_return_navigation(self):
+        at = AppTest.from_file(str(ROOT / 'app.py')).run()
+        self.assertEqual(at.title[0].value, 'Competitions')
+        self.assertEqual(len(at.dataframe), 0)
+        self.assertEqual({x.label for x in at.button}, {'Grower or Shower', 'Top Boy'})
+        at.button(key='open_grower').click().run()
+        self.assertEqual(at.title[0].value, 'Grower or Shower')
+        at.button(key='back_to_competitions').click().run()
+        self.assertEqual(at.title[0].value, 'Competitions')
+        at.button(key='open_topboy').click().run()
+        self.assertEqual(at.title[0].value, 'Top Boy')
+        self.assertFalse(any('Sponsor' in x.label for x in at.button))
+
     def test_top_boy_has_eleven_entries_and_separate_league_table(self):
         at = AppTest.from_file(str(ROOT / 'app.py')).run()
-        at.get('button_group')[0].set_value(['Top Boy']).run()
+        at.button(key='open_topboy').click().run()
         self.assertEqual(list(at.exception), [])
         self.assertEqual(at.metric[0].value, '11')
         self.assertEqual(len(at.dataframe[0].value), 11)
@@ -64,6 +78,7 @@ class AppTests(unittest.TestCase):
             with patch.object(b, 'utcnow', return_value='2026-11-05T12:00:00+00:00'):
                 store.save_profile(entry['player_id'], {**p, 'overall': 52, 'shooting': 54})
         at = AppTest.from_file(str(ROOT / 'app.py')).run()
+        at.button(key='open_grower').click().run()
         self.assertEqual(list(at.exception), [])
         self.assertEqual(at.metric[2].value, '12 / 12')
         self.assertTrue((at.dataframe[1].value['OVR gain'] == 2).all())
@@ -72,9 +87,9 @@ class AppTests(unittest.TestCase):
     def test_organiser_can_save_verified_top_boy_score(self):
         with patch.dict(os.environ, {'ADMIN_PASSWORD': 'test-password'}):
             at = AppTest.from_file(str(ROOT / 'app.py')).run()
-            at.get('button_group')[0].set_value(['Top Boy']).run()
+            at.button(key='open_topboy').click().run()
             at.text_input(key='topboy_admin_password').set_value('test-password')
-            at.get('button_group')[0].set_value(['Top Boy']).run()
+            at.run()
             self.assertEqual(list(at.exception), [])
             at.selectbox[1].set_value('Spark')
             at.number_input[0].set_value(68.0)
@@ -84,7 +99,7 @@ class AppTests(unittest.TestCase):
             at.text_area[0].set_value('League + cup checked, all four wins with an appearance.')
             submit = next(x for x in at.button if x.label == 'Save organiser review')
             submit.click()
-            at.get('button_group')[0].set_value(['Top Boy']).run()
+            at.run()
             self.assertEqual(list(at.exception), [])
             table = next(t.value for t in at.dataframe if 'Points' in t.value.columns)
             self.assertEqual(table.Points.max(), 23)

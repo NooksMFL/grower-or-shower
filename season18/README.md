@@ -1,6 +1,6 @@
 # Grower or Shower & Top Boy — Season 18
 
-A separate Streamlit app. The existing Season 17 app and Management Hub are unchanged.
+A separate Streamlit app. The front page offers Grower or Shower and Top Boy; each opens its own page, with a Competitions button to return. No sponsor panel or upload controls are displayed. The existing Season 17 app and Management Hub are unchanged.
 
 ## New Streamlit Community Cloud deployment
 
@@ -34,14 +34,6 @@ Missing fields remain unavailable. A valid empty competition list establishes no
 Entry rating caps: **Flint 62, Spark 68, Ice 74, Stone 78, Iron 82**. **OOP ratings are allowed**. Record the league, effective entry rating, OOP flag and position/evidence in Organiser. Current base OVR is not used to silently reject an OOP entry. An entry verified over its cap receives no table position. The table stays labelled provisional while totals or eligibility are pending. Prize: **a limited pack**. No Top Boy age limit has been inferred.
 
 Top Boy uses its own SQLite tables and refresh cooldown. No Grower or Shower profiles or baselines are overwritten. Both competitions are included in the JSON backup; older Grower-only backups remain importable. Restore fills missing records only and never replaces a saved baseline or organiser review. Download a fresh combined backup after updates. The published app must verify live API field coverage because the development environment remains blocked by MFL's Cloudflare service.
-
-## Sponsor picture
-
-Use **Sponsor picture** below the top-right sponsor panel, enter the organiser password,
-choose the original PNG/JPG/WebP (up to 4 MB), then **Save sponsor picture**. No GitHub
-upload is needed. The original image is displayed in full on both competition pages.
-It is stored with the app data and included in the competition backup; download a fresh
-backup after uploading. Backup restoration preserves an existing sponsor image.
 
 ## Local run and checks
 

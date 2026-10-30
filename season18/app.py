@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import base64
 import hmac
 import os
 import sys
@@ -12,7 +11,6 @@ import streamlit as st
 # Resolve this standalone app's backend even when Streamlit starts at repo root.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import backend as b
-import sponsor
 
 st.set_page_config(page_title='Grower or Shower · Top Boy', page_icon='🌱', layout='wide')
 
@@ -35,17 +33,9 @@ st.markdown('''<style>
 h1 {font-size:clamp(2.5rem,6vw,4.8rem)!important;letter-spacing:-.055em;line-height:1.03!important}
 h2,h3 {letter-spacing:-.025em}
 .kicker {color:#b7f36b;font-weight:800;letter-spacing:.18em;font-size:.76rem;margin-bottom:.8rem}
-.competition-header {display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:2rem;align-items:start;margin-bottom:1.8rem}
-.competition-title {font-size:clamp(2.5rem,4.8vw,4.4rem)!important;line-height:1.08!important;letter-spacing:-.045em!important;margin:0!important;padding:0!important}
-.competition-title span {display:block;font:inherit;line-height:inherit;color:inherit}
-.sponsor {background:linear-gradient(140deg,#172b4b,#111b30);border:1px solid #635433;border-radius:16px;padding:1.15rem 1rem;text-align:center;color:#f8e3a1}
-.sponsor-label {font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#b9c6db;margin-bottom:.55rem}
-.sponsor-stars {color:#f4cb68;font-size:.9rem;letter-spacing:.35em;margin-bottom:.35rem}
-.sponsor-name {font-size:2.2rem;font-weight:850;line-height:1.1;letter-spacing:-.04em;color:#fff0c7}
-.sponsor-story {font-size:1.04rem;font-weight:700;color:#f4cf70;margin-top:.35rem}
-.sponsor-artwork {display:block;width:100%;height:auto;border-radius:9px}
-@media(max-width:760px) {.competition-header {grid-template-columns:minmax(0,1fr) 155px;gap:.8rem}.competition-title {font-size:clamp(1.85rem,5.4vw,3rem)!important}.sponsor {padding:.8rem .5rem}.sponsor-name {font-size:1.75rem}.sponsor-story {font-size:.8rem}.sponsor-label {font-size:.55rem}}
-@media(max-width:430px) {.competition-header {grid-template-columns:1fr}.sponsor {justify-self:end;min-width:155px}.competition-title {font-size:2.35rem!important}}
+.competition-choice {border:1px solid #293548;border-radius:18px;padding:2rem;background:#111b2a;min-height:175px;margin:1.5rem 0 1rem}
+.competition-choice h2 {font-size:clamp(1.8rem,3.5vw,2.6rem);margin:0 0 .8rem}
+.competition-choice p {color:#acb8ca;margin:0}
 .player {border:1px solid #293548;border-radius:18px;padding:1.15rem;background:linear-gradient(140deg,#162132,#0e1724);margin-bottom:1rem;min-height:230px}
 .player img {width:70px;height:82px;object-fit:contain;float:right;margin-left:12px}
 .player .owner {color:#b7f36b;font-size:.8rem;font-weight:700}
@@ -59,45 +49,28 @@ h2,h3 {letter-spacing:-.025em}
 button[kind="primary"] {background:#b7f36b;color:#0b1018;border:0}
 </style>''', unsafe_allow_html=True)
 
-sponsor_folder = b.ROOT / 'assets' / 'sponsor'
-sponsor_files = sorted(p for p in sponsor_folder.glob('*') if p.suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp'))
-saved_sponsor = sponsor.get(storage())
-if saved_sponsor:
-    sponsor_content = f'<img class="sponsor-artwork" src="data:{saved_sponsor["mime"]};base64,{saved_sponsor["base64"]}" alt="Minty’s Bedtime Stories">'
-elif sponsor_files:
-    sponsor_file = sponsor_files[0]
-    mime = {'.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp'}[sponsor_file.suffix.lower()]
-    encoded = base64.b64encode(sponsor_file.read_bytes()).decode('ascii')
-    sponsor_content = f'<img class="sponsor-artwork" src="data:{mime};base64,{encoded}" alt="Minty’s Bedtime Stories">'
-else:
-    sponsor_content = '<div class="sponsor-stars" aria-hidden="true">✦ ★ ✦</div><div class="sponsor-name">Minty’s</div><div class="sponsor-story">Bedtime Stories</div>'
-st.markdown('''<header class="competition-header">
-<div><div class="kicker">WORKTHESPACE · SEASON 18</div>
-<h1 class="competition-title"><span>Grower or Shower</span><span>&amp; Top Boy</span></h1></div>
-<aside class="sponsor" aria-label="Sponsored by Minty's Bedtime Stories">
-<div class="sponsor-label">Sponsored by</div>''' + sponsor_content + '''
-</aside></header>''', unsafe_allow_html=True)
-_, sponsor_controls = st.columns([4, 1])
-with sponsor_controls:
-    with st.popover('Sponsor picture', use_container_width=True):
-        sponsor_password = str(setting('ADMIN_PASSWORD'))
-        if not sponsor_password:
-            st.info('Set ADMIN_PASSWORD in Streamlit Secrets to enable picture uploads.')
-        else:
-            supplied = st.text_input('Organiser password', type='password', key='sponsor_password')
-            if supplied and hmac.compare_digest(supplied, sponsor_password):
-                picture = st.file_uploader('Minty’s Bedtime Stories picture', type=['png', 'jpg', 'jpeg', 'webp'], key='sponsor_upload')
-                if picture and st.button('Save sponsor picture', type='primary'):
-                    try:
-                        sponsor.save(storage(), picture.getvalue())
-                    except ValueError as exc:
-                        st.error(str(exc))
-                    else:
-                        st.session_state['sponsor_saved'] = True
-                        st.rerun()
-if st.session_state.pop('sponsor_saved', False):
-    st.success('Sponsor picture saved. Download a new competition backup to keep a copy with your records.')
-page = st.segmented_control('Competition', ['Grower or Shower', 'Top Boy'], default='Grower or Shower', label_visibility='collapsed')
+page = st.session_state.get('competition_page')
+if page not in ('Grower or Shower', 'Top Boy'):
+    st.markdown('<div class="kicker">WORKTHESPACE · SEASON 18</div>', unsafe_allow_html=True)
+    st.title('Competitions')
+    grower_choice, topboy_choice = st.columns(2)
+    with grower_choice:
+        st.markdown(f'<div class="competition-choice"><h2>Grower or Shower</h2><p>{len(b.entrants())} entrants</p></div>', unsafe_allow_html=True)
+        if st.button('Grower or Shower', key='open_grower', type='primary', width='stretch'):
+            st.session_state['competition_page'] = 'Grower or Shower'
+            st.rerun()
+    with topboy_choice:
+        st.markdown(f'<div class="competition-choice"><h2>Top Boy</h2><p>{len(b.entrants("top_boy"))} entrants</p></div>', unsafe_allow_html=True)
+        if st.button('Top Boy', key='open_topboy', type='primary', width='stretch'):
+            st.session_state['competition_page'] = 'Top Boy'
+            st.rerun()
+    st.stop()
+
+if st.button('← Competitions', key='back_to_competitions'):
+    st.session_state.pop('competition_page', None)
+    st.rerun()
+st.markdown('<div class="kicker">WORKTHESPACE · SEASON 18</div>', unsafe_allow_html=True)
+st.title(page)
 if page == 'Top Boy':
     import top_boy_page
     top_boy_page.render(storage(), setting)
