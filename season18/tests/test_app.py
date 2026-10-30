@@ -56,16 +56,16 @@ class AppTests(unittest.TestCase):
         self.assertEqual(at.title[0].value, 'Top Boy')
         self.assertFalse(any('Sponsor' in x.label for x in at.button))
 
-    def test_top_boy_has_twelve_entries_and_separate_league_table(self):
+    def test_top_boy_has_thirteen_entries_and_separate_league_table(self):
         at = AppTest.from_file(str(ROOT / 'app.py')).run()
         at.button(key='open_topboy').click().run()
         self.assertEqual(list(at.exception), [])
         table_html = next(m.value for m in at.markdown if '<table class="tb-league-table"' in m.value)
-        self.assertEqual(table_html.count('<tr'), 13)
+        self.assertEqual(table_html.count('<tr'), 14)
         self.assertIn('/90399/photo.webp', table_html)
-        self.assertEqual(len(at.dataframe[0].value), 12)
+        self.assertEqual(len(at.dataframe[0].value), 13)
         self.assertIn('Points', at.dataframe[0].value.columns)
-        self.assertEqual(set(at.dataframe[0].value.Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock', 'Doineann', 'Dan'})
+        self.assertEqual(set(at.dataframe[0].value.Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock', 'Doineann', 'Dan', 'mmewse'})
         self.assertTrue(at.dataframe[0].value.Points.isna().all())
         self.assertEqual(len(b.Store(self.path).latest()), 0)
 
