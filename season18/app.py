@@ -52,9 +52,8 @@ st.title('Grower or Shower\n& Top Boy')
 st.markdown('<p class="intro">The next breakout player. The season’s top performer. Two competitions, one place to follow the race.</p>', unsafe_allow_html=True)
 page = st.segmented_control('Competition', ['Grower or Shower', 'Top Boy'], default='Grower or Shower', label_visibility='collapsed')
 if page == 'Top Boy':
-    st.subheader('Top Boy')
-    st.info('Entrants coming next. The Top Boy competition will be set up once its entries and scoring rules are supplied.')
-    st.caption('No Top Boy players or standings have been added yet.')
+    import top_boy_page
+    top_boy_page.render(storage(), setting)
     st.stop()
 
 store = storage()

@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parent
 TRAINING_START = '2026-11-04T00:00:00+00:00'
 FIELDS = ('overall', 'pace', 'shooting', 'passing', 'dribbling', 'defense', 'physical')
 LABELS = dict(zip(FIELDS, ('OVR', 'PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY')))
+TOPBOY_TABLES = ('topboy_profiles', 'topboy_competitions', 'topboy_reviews')
 HEADERS = {
     'Accept': '*/*', 'Origin': 'https://app.playmfl.com',
     'Referer': 'https://app.playmfl.com/',
@@ -35,8 +36,9 @@ def timestamp(value):
         return None
 
 
-def entrants():
-    with (ROOT / 'entrants.csv').open(newline='', encoding='utf-8') as f:
+def entrants(competition='grower'):
+    filename = 'top_boy_entrants.csv' if competition == 'top_boy' else 'entrants.csv'
+    with (ROOT / filename).open(newline='', encoding='utf-8') as f:
         return [{**row, 'player_id': int(row['player_id'])} for row in csv.DictReader(f)]
 
 
@@ -248,6 +250,10 @@ class Store:
                 CREATE TABLE IF NOT EXISTS competitions(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS refreshes(id INTEGER PRIMARY KEY CHECK(id=1),at TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS baselines(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,at TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS topboy_profiles(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,checked_at TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS topboy_competitions(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,checked_at TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS topboy_reviews(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,checked_at TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS topboy_refresh(id INTEGER PRIMARY KEY CHECK(id=1),at TEXT NOT NULL);
             ''')
 
     def connect(self):
@@ -297,7 +303,7 @@ class Store:
     def backup(self):
         with self.connect() as c:
             tables = {table: c.execute(f'SELECT * FROM {table}').fetchall()
-                      for table in ('profiles', 'baselines', 'histories', 'competitions')}
+                      for table in ('profiles', 'baselines', 'histories', 'competitions') + TOPBOY_TABLES}
         return json.dumps({'version': 1, 'season': 18, 'tables': tables}, indent=2)
 
     def restore(self, content):
@@ -307,14 +313,15 @@ class Store:
         tables = data.get('tables', {})
         allowed = {e['player_id'] for e in entrants()}
         validated = {}
-        for table in ('profiles', 'baselines', 'histories', 'competitions'):
+        for table in ('profiles', 'baselines', 'histories', 'competitions') + TOPBOY_TABLES:
             records = tables.get(table, [])
-            expected = 3 if table in ('profiles', 'baselines') else 2
+            expected = 3 if table in ('profiles', 'baselines') + TOPBOY_TABLES else 2
             if not isinstance(records, list):
                 raise ValueError('Invalid backup table.')
             validated[table] = []
             for row in records:
-                if not isinstance(row, list) or len(row) != expected or row[0] not in allowed:
+                ids = {e['player_id'] for e in entrants('top_boy')} if table in TOPBOY_TABLES else allowed
+                if not isinstance(row, list) or len(row) != expected or row[0] not in ids:
                     raise ValueError('Backup contains an invalid player record.')
                 payload = json.loads(row[1])
                 if table == 'baselines':
@@ -324,16 +331,19 @@ class Store:
                         raise ValueError('Baseline must have been captured before training starts.')
                 if expected == 3 and timestamp(row[2]) is None:
                     raise ValueError('Backup has an invalid timestamp.')
-                if table == 'profiles' and (not isinstance(payload, dict) or payload.get('player_id') != row[0]):
+                if table in ('profiles', 'topboy_profiles') and (not isinstance(payload, dict) or payload.get('player_id') != row[0]):
                     raise ValueError('Invalid saved profile.')
                 if table == 'histories' and not isinstance(payload, list):
                     raise ValueError('Invalid history.')
-                if table == 'competitions' and (not isinstance(payload, dict) or not isinstance(payload.get('records'), list)):
+                if table in ('competitions', 'topboy_competitions') and (not isinstance(payload, dict) or not isinstance(payload.get('records'), list)):
                     raise ValueError('Invalid competition records.')
+                if table == 'topboy_reviews':
+                    from top_boy import validate_review
+                    validate_review(payload)
                 validated[table].append(tuple(row))
         with self.connect() as c:
             for table, records in validated.items():
-                placeholders = '?,?,?' if table in ('profiles', 'baselines') else '?,?'
+                placeholders = '?,?,?' if table in ('profiles', 'baselines') + TOPBOY_TABLES else '?,?'
                 # Restore missing records only: never overwrite an existing baseline.
                 c.executemany(f'INSERT OR IGNORE INTO {table} VALUES({placeholders})', records)
 

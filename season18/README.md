@@ -5,7 +5,7 @@ A separate Streamlit app. The existing Season 17 app and Management Hub are unch
 ## New Streamlit Community Cloud deployment
 
 1. Visit https://share.streamlit.io/ and choose **Create app**.
-2. Select repository **NooksMFL/grower-or-shower**, branch **season18-competitions**, main file **season18/app.py**.
+2. Select repository **NooksMFL/grower-or-shower**, branch **main**, main file **season18/app.py**.
 3. Choose an available new app address, for example `mfl-grower-top-boy`.
 4. Under Advanced settings → Secrets, copy `MFL_REFRESH_TOKEN` from your working Management Hub's Streamlit Secrets. Add a new private `ADMIN_PASSWORD` to allow backup restoration. Do not put either value in GitHub or chat.
 5. Deploy, open **Grower or Shower**, and click **Refresh player data**.
@@ -23,7 +23,17 @@ Growth displays as soon as baseline and current attributes are available. Offici
 
 The dedicated `competitions_s18.sqlite3` holds profiles, complete starting values, history and competition records. Streamlit Community Cloud filesystem storage is ephemeral: keep JSON backups outside the app, especially immediately after starting values are captured. On restart/redeploy, use the organiser password and **Restore missing records** to import the saved backup. Restoration never replaces an existing baseline. A file path on a persistent volume can be configured using `COMPETITIONS_DB` on other hosts. The backup contains public player data only, no secrets. Shared refresh attempts are limited to once per 15 minutes per app database; failures retain previous data and show warnings and per-record timestamps.
 
-Top Boy is a clearly marked placeholder until entrants and scoring rules are supplied. There are no invented entries or results. BaldSherlock's missing player link and Mike's unconfirmed entry are documented separately.
+Grower or Shower: BaldSherlock's missing player link and Mike's unconfirmed entry are documented separately.
+
+## Top Boy
+
+The Top Boy page includes all nine supplied entries and a points-sorted league table. Scoring is **5 per goal + 3 per assist + 1 per team win where the nominated player appeared**. Both **Season 18 league and cup** matches count; Arena, friendlies, preseason and exhibitions do not. Equal points share positions (1, 1, 3); no extra tie-break or winner is invented. Refresh Top Boy separately to load profiles and `/players/{id}/competitions` records. There are no API requests on ordinary page viewing. Tables include separate profile and scoring timestamps and CSV exports.
+
+Missing fields remain unavailable. A valid empty competition list establishes no recorded scoring contributions, while unknown season/competition shapes and incomplete rows do not become zero totals. Generic `wins`/`teamWins` fields do **not** establish player appearances: automatic win points require explicit appearance-scoped win fields. If these are absent, use the password-protected **Organiser** tab to enter verified full-season goals, assists and qualifying wins with an evidence note. These are replacement totals, never increments; they persist across API refreshes until changed or the manual-totals option is disabled. The downloadable public MFL scoring-record JSON helps inspect actual API field coverage without sharing credentials.
+
+Entry rating caps: **Flint 62, Spark 68, Ice 74, Stone 78, Iron 82**. **OOP ratings are allowed**. Record the league, effective entry rating, OOP flag and position/evidence in Organiser. Current base OVR is not used to silently reject an OOP entry. An entry verified over its cap receives no table position. The table stays labelled provisional while totals or eligibility are pending. Prize: **a limited pack**. No Top Boy age limit has been inferred.
+
+Top Boy uses its own SQLite tables and refresh cooldown. No Grower or Shower profiles or baselines are overwritten. Both competitions are included in the JSON backup; older Grower-only backups remain importable. Restore fills missing records only and never replaces a saved baseline or organiser review. Download a fresh combined backup after updates. The published app must verify live API field coverage because the development environment remains blocked by MFL's Cloudflare service.
 
 ## Local run and checks
 
