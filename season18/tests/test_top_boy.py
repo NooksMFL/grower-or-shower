@@ -23,10 +23,10 @@ class TopBoyTests(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def test_thirteen_exact_entries(self):
+    def test_fourteen_exact_entries(self):
         self.assertEqual({e['entrant']: e['player_id'] for e in b.entrants('top_boy')}, {
             'Ricky': 35005, 'Hawkeye': 384642, 'Minty': 350909, 'iKenny': 152098,
-            'Nooks': 412176, 'Krystian': 236834, 'Rhythm': 110469, 'ClarkyIsland': 53882, 'hcy': 316875, 'BaldSherlock': 56184, 'Doineann': 240630, 'Dan': 90399, 'mmewse': 127842})
+            'Nooks': 412176, 'Krystian': 236834, 'Rhythm': 110469, 'ClarkyIsland': 53882, 'hcy': 316875, 'BaldSherlock': 56184, 'Doineann': 240630, 'Dan': 90399, 'mmewse': 127842, 'Daz Shootz': 338443})
 
     def test_league_plus_cup_excludes_arena_friendlies_and_past_season(self):
         totals = tb.player_totals([fixture(), fixture('Aspirants Cup'), fixture('Spark League', 'Season 17'),
@@ -108,8 +108,8 @@ class TopBoyTests(unittest.TestCase):
         client.get.side_effect = lambda path: [fixture()] if path.endswith('competitions') else {'metadata': {'firstName': 'Real', 'overall': 70}}
         messages = tb.refresh(self.store, client)
         self.assertEqual(messages, [])
-        self.assertEqual(client.get.call_count, 26)
-        self.assertEqual(len(tb.records(self.store, 'topboy_profiles')), 13)
+        self.assertEqual(client.get.call_count, 28)
+        self.assertEqual(len(tb.records(self.store, 'topboy_profiles')), 14)
         self.assertEqual(self.store.baseline(337204), before)
         self.assertEqual(len(self.store.latest()), 1)
         row = next(r for r in tb.leaderboard(self.store) if r['player_id'] == 35005)
