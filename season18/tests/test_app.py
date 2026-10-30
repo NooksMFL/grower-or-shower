@@ -36,14 +36,14 @@ class AppTests(unittest.TestCase):
         self.assertEqual(len(at.dataframe[0].value), 11)
         self.assertFalse(request.called)
 
-    def test_top_boy_has_nine_entries_and_separate_league_table(self):
+    def test_top_boy_has_ten_entries_and_separate_league_table(self):
         at = AppTest.from_file(str(ROOT / 'app.py')).run()
         at.get('button_group')[0].set_value(['Top Boy']).run()
         self.assertEqual(list(at.exception), [])
-        self.assertEqual(at.metric[0].value, '9')
-        self.assertEqual(len(at.dataframe[0].value), 9)
+        self.assertEqual(at.metric[0].value, '10')
+        self.assertEqual(len(at.dataframe[0].value), 10)
         self.assertIn('Points', at.dataframe[0].value.columns)
-        self.assertEqual(set(at.dataframe[0].value.Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy'})
+        self.assertEqual(set(at.dataframe[0].value.Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock'})
         self.assertTrue(at.dataframe[0].value.Points.isna().all())
         self.assertEqual(len(b.Store(self.path).latest()), 0)
 
