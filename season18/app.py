@@ -29,21 +29,21 @@ def storage():
 
 
 font = base64.b64encode((b.ROOT / 'assets/fonts/OpenSans-CondBold.ttf').read_bytes()).decode('ascii')
-st.markdown('<style>@font-face{font-family:"WTS Condensed";src:url(data:font/ttf;base64,' + font + ') format("truetype");font-weight:700;font-display:swap}' + (b.ROOT / 'wts.css').read_text() + '</style>', unsafe_allow_html=True)
-st.markdown('''<div class="wts-brandbar"><div class="wts-brandname">WORKTHESPACE<small>MFL COMMUNITY</small></div><a class="mfl-brand" href="https://app.playmfl.com" target="_blank" rel="noopener noreferrer" aria-label="MFL"><img class="mfl-logo" src="https://res.cloudinary.com/lancers-technology/image/upload/v1770748400/web3-explorer/dapp-logos/mfl.png" alt="MFL logo"></a></div>''', unsafe_allow_html=True)
+st.html('<style>@font-face{font-family:"WTS Condensed";src:url(data:font/ttf;base64,' + font + ') format("truetype");font-weight:700;font-display:swap}' + (b.ROOT / 'wts.css').read_text() + '</style>')
+st.html('''<div class="wts-brandbar"><div class="wts-brandname">WORKTHESPACE<small>MFL COMMUNITY</small></div><a class="mfl-brand" href="https://app.playmfl.com" target="_blank" rel="noopener noreferrer" aria-label="MFL"><img class="mfl-logo" src="https://res.cloudinary.com/lancers-technology/image/upload/v1770748400/web3-explorer/dapp-logos/mfl.png" alt="MFL logo"></a></div>''')
 
 page = st.session_state.get('competition_page')
 if page not in ('Grower or Shower', 'Top Boy'):
-    st.markdown('<div class="wts-hero"><div class="wts-hero-title"><span>WORKTHESPACE</span><span>MFL COMMUNITY</span></div><div class="wts-season">SEASON 18</div></div>', unsafe_allow_html=True)
+    st.html('<div class="wts-hero"><div class="wts-hero-title"><span>WORKTHESPACE</span><span>MFL COMMUNITY</span></div><div class="wts-season">SEASON 18</div></div>')
     st.title('Competitions')
     grower_choice, topboy_choice = st.columns(2)
     with grower_choice, st.container(key='landing_grower'):
-        st.markdown(f'<div class="competition-choice"><div class="entry-number">01</div><h2>Grower or Shower</h2><p>{len(b.entrants())} entrants</p></div>', unsafe_allow_html=True)
+        st.html(f'<div class="competition-choice"><div class="entry-number">01</div><h2>Grower or Shower</h2><p>{len(b.entrants())} entrants</p></div>')
         if st.button('Grower or Shower', key='open_grower', type='primary', width='stretch'):
             st.session_state['competition_page'] = 'Grower or Shower'
             st.rerun()
     with topboy_choice, st.container(key='landing_topboy'):
-        st.markdown(f'<div class="competition-choice"><div class="entry-number">02</div><h2>Top Boy</h2><p>{len(b.entrants("top_boy"))} entrants</p></div>', unsafe_allow_html=True)
+        st.html(f'<div class="competition-choice"><div class="entry-number">02</div><h2>Top Boy</h2><p>{len(b.entrants("top_boy"))} entrants</p></div>')
         if st.button('Top Boy', key='open_topboy', type='primary', width='stretch'):
             st.session_state['competition_page'] = 'Top Boy'
             st.rerun()
@@ -52,7 +52,7 @@ if page not in ('Grower or Shower', 'Top Boy'):
 if st.button('← Competitions', key='back_to_competitions'):
     st.session_state.pop('competition_page', None)
     st.rerun()
-st.markdown('<div class="kicker">WORKTHESPACE MFL COMMUNITY · SEASON 18</div>', unsafe_allow_html=True)
+st.html('<div class="kicker">WORKTHESPACE MFL COMMUNITY · SEASON 18</div>')
 st.title(page)
 if page == 'Top Boy':
     import top_boy_page
@@ -138,13 +138,13 @@ with overview:
             club = row.get('club') or ('No current club' if row.get('club_known') else 'Club awaiting MFL data')
             player = row.get('player') or f"Player #{row['player_id']}"
             attrs = ''.join(f'<span>{label}<b>{fmt(row.get(field))}</b></span>' for field, label in b.LABELS.items() if field != 'overall')
-            st.markdown(f'''<div class="player"><a href="{row['player_url']}" target="_blank" rel="noopener noreferrer">
+            st.html(f'''<div class="player"><a href="{row['player_url']}" target="_blank" rel="noopener noreferrer">
             <img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{row['player_id']}/photo.webp" alt="">
             <div class="owner">{esc(row['entrant'])}</div><div class="name">{esc(player)}</div>
             <div class="sub">{esc(row.get('positions') or 'Position pending')} · Age {fmt(row.get('age'))}<br>{esc(club)}</div>
             <div class="ovr">{fmt(row.get('overall'))} <small style="font-size:.75rem;color:#acb8ca">OVR</small></div>
-            <div class="stats">{attrs}</div></a></div>''', unsafe_allow_html=True)
-            st.markdown(f'<div class="player-check">Last checked: {esc(row.get("checked_at") or "Not fetched yet")}</div>', unsafe_allow_html=True)
+            <div class="stats">{attrs}</div></a></div>''')
+            st.html(f'<div class="player-check">Last checked: {esc(row.get("checked_at") or "Not fetched yet")}</div>')
     st.caption('Cards open the official MFL player page. Missing data appears as —; it is never treated as zero.')
 
 with table:

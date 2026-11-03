@@ -72,7 +72,7 @@ def render(store, setting):
     rows = tb.leaderboard(store)
     loaded = sum(bool(r.get('checked_at')) for r in rows)
     complete = sum(r['points'] is not None for r in rows)
-    st.markdown(f'<div class="tb-summary"><strong>{len(rows)} ENTRANTS</strong><span>GOAL <b>+5</b></span><span>ASSIST <b>+3</b></span><span>WIN WITH APPEARANCE <b>+1</b></span></div>', unsafe_allow_html=True)
+    st.html(f'<div class="tb-summary"><strong>{len(rows)} ENTRANTS</strong><span>GOAL <b>+5</b></span><span>ASSIST <b>+3</b></span><span>WIN WITH APPEARANCE <b>+1</b></span></div>')
     if st.button('↻ Refresh Top Boy', type='primary', width='stretch'):
         bar = st.progress(0, text='Refreshing Top Boy players and league / cup records…')
         messages = tb.refresh(store, b.Client(str(setting('MFL_REFRESH_TOKEN'))),
@@ -93,7 +93,7 @@ def render(store, setting):
     df = frame(rows)
     with league:
         provisional = any(r['points'] is None or r['eligibility'] != 'Within cap' for r in rows)
-        st.markdown(league_table_html(rows), unsafe_allow_html=True)
+        st.html(league_table_html(rows))
         st.caption(f'{loaded}/{len(rows)} profiles loaded · {complete}/{len(rows)} complete scores · ' + ('Provisional: scoring or eligibility checks pending. ' if provisional else '') + 'Equal points share a position. — means unavailable.')
         if any(r['wins'] is None for r in rows):
             st.caption('A club’s win total cannot prove that this player appeared. If MFL does not provide appearance-scoped wins, the organiser can enter verified full-season totals below.')
@@ -115,13 +115,13 @@ def render(store, setting):
                 club = row.get('club') or ('No current club' if row.get('club_known') else 'Club awaiting MFL data')
                 name = row.get('player') or f"Player #{row['player_id']}"
                 attrs = ''.join(f'<span>{label}<b>{display(row.get(field))}</b></span>' for field, label in b.LABELS.items() if field != 'overall')
-                st.markdown(f'''<div class="player"><a href="{row['player_url']}" target="_blank" rel="noopener noreferrer">
+                st.html(f'''<div class="player"><a href="{row['player_url']}" target="_blank" rel="noopener noreferrer">
                     <img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{row['player_id']}/photo.webp" alt="">
                     <div class="owner" style="color:#f3c169">{esc(row['entrant'])}</div>
                     <div class="name">{esc(name)}</div><div class="sub">{esc(row.get('positions') or 'Position pending')} · Age {display(row.get('age'))}<br>{esc(club)}</div>
                     <div class="ovr">{display(row.get('overall'))} <small style="font-size:.75rem;color:#acb8ca">OVR</small></div>
-                    <div class="stats">{attrs}</div></a></div>''', unsafe_allow_html=True)
-                st.markdown(f'<div class="player-check">{display(row["points"])} points · Last checked: {esc(row.get("checked_at") or "Not fetched yet")}</div>', unsafe_allow_html=True)
+                    <div class="stats">{attrs}</div></a></div>''')
+                st.html(f'<div class="player-check">{display(row["points"])} points · Last checked: {esc(row.get("checked_at") or "Not fetched yet")}</div>')
         st.dataframe(df[['Entrant', 'Player ID', 'Player', 'Club', 'Current OVR', 'Age', 'Position', 'PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY', 'MFL player']],
                      hide_index=True, width='stretch',
                      column_config={'MFL player': st.column_config.LinkColumn('MFL player', display_text='Open player')})

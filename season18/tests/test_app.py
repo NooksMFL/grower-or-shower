@@ -43,6 +43,25 @@ class AppTests(unittest.TestCase):
         self.assertEqual(len(at.dataframe[0].value), 12)
         self.assertFalse(request.called)
 
+    def test_cards_use_native_html_and_rendering_keeps_saved_baselines(self):
+        store=b.Store(self.path)
+        entry=b.entrants()[0]
+        player={'player_id':entry['player_id'],'player':'<Bad & Name>', 'positions':'ST',
+                'club':'Club & City','club_known':True,'age':20,**dict.fromkeys(b.FIELDS,60)}
+        with patch.object(b,'utcnow',return_value='2026-11-03T12:00:00+00:00'):
+            store.save_profile(entry['player_id'],player)
+        before=store.backup()
+        at=AppTest.from_file(str(ROOT/'app.py')).run()
+        at.button(key='open_grower').click().run()
+        self.assertEqual(list(at.exception),[])
+        cards=[e.proto.body for e in at.get('html') if 'class="player"' in e.proto.body]
+        self.assertEqual(len(cards),len(b.entrants()))
+        markup=''.join(cards)
+        self.assertIn('&lt;Bad &amp; Name&gt;',markup)
+        self.assertIn('Club &amp; City',markup)
+        self.assertNotIn('<Bad & Name>',markup)
+        self.assertEqual(store.backup(),before)
+
     def test_front_page_choices_and_return_navigation(self):
         at = AppTest.from_file(str(ROOT / 'app.py')).run()
         self.assertEqual(at.title[0].value, 'Competitions')
@@ -56,17 +75,17 @@ class AppTests(unittest.TestCase):
         self.assertEqual(at.title[0].value, 'Top Boy')
         self.assertFalse(any('Sponsor' in x.label for x in at.button))
 
-    def test_top_boy_has_fifteen_entries_and_separate_league_table(self):
+    def test_top_boy_has_sixteen_entries_and_separate_league_table(self):
         at = AppTest.from_file(str(ROOT / 'app.py')).run()
         at.button(key='open_topboy').click().run()
         self.assertEqual(list(at.exception), [])
-        table_html = next(m.value for m in at.markdown if '<table class="tb-league-table"' in m.value)
-        self.assertEqual(table_html.count('<tr'), 16)
+        table_html = next(m.proto.body for m in at.get('html') if '<table class="tb-league-table"' in m.proto.body)
+        self.assertEqual(table_html.count('<tr'), 17)
         self.assertIn('/90399/photo.webp', table_html)
         self.assertIn('>AVG</abbr>', table_html)
-        self.assertEqual(len(at.dataframe[0].value), 15)
+        self.assertEqual(len(at.dataframe[0].value), 16)
         self.assertIn('Points', at.dataframe[0].value.columns)
-        self.assertEqual(set(at.dataframe[0].value.Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock', 'Doineann', 'Dan', 'mmewse', 'Daz Shootz', 'Eddie'})
+        self.assertEqual(set(at.dataframe[0].value.Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock', 'Doineann', 'Dan', 'mmewse', 'Daz Shootz', 'Eddie', 'ShadyM'})
         self.assertTrue(at.dataframe[0].value.Points.isna().all())
         self.assertEqual(len(b.Store(self.path).latest()), 0)
 
