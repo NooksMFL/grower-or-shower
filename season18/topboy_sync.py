@@ -47,10 +47,10 @@ def collect(client,previous=None,delay=.4):
                 else:
                     records=[]
                     for record in b.rows(payload):
-                        if tb.competition_kind(record) not in ('league','cup'):continue
+                        if tb.competition_kind(record) is None:continue
                         stats=copy.deepcopy(record.get('stats') or {})
                         competition=record.get('competition') or {};club=record.get('club') or {}
-                        clean={'competition':{k:competition[k] for k in ('id','name','type','subType','season','status','withXp') if k in competition},
+                        clean={'competition':{k:competition[k] for k in ('id','name','type','subType','season','status','withXp','startingDate','startDate','endedAt','endDate','endingDate','endDateTime') if k in competition},
                                'club':{k:club[k] for k in ('id','name') if k in club},'stats':stats}
                         identity=nightly.key(clean);tracker[identity]=nightly.credit_wins(clean,tracker.get(identity))
                         records.append(clean)

@@ -68,6 +68,7 @@ def render(store, setting):
     snapshot=live_results.fetch()
     live_results.apply(store,snapshot)
     live_results.status(snapshot)
+    st.caption('Scoring starts 4 November 2026, 00:00 UK. Results from the completed pre-season cups are excluded.')
     with st.spinner('Loading any new Top Boy entries…'):
         automatic_messages = tb.refresh_missing(store, b.Client(str(setting('MFL_REFRESH_TOKEN'))))
     if automatic_messages:

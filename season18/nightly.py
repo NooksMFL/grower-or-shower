@@ -70,6 +70,7 @@ def rating_sum(stats):
 def delta(current,baseline):
     old={key(r):r for r in baseline};seen={};totals={'appearances':0,'goals':0,'assists':0,'wins':0};ratings=0.0;rating_known=True
     for row in current:
+        if tb.competition_kind(row)=='unknown':return None
         if tb.competition_kind(row) not in ('league','cup'):continue
         if key(row) in seen:
             if seen[key(row)]!=row:return None
@@ -96,7 +97,7 @@ def delta(current,baseline):
         else:ratings+=current_rating-old_rating
     # A disappearing competition row is a correction, not a zero-performance night.
     current_keys={key(r) for r in current}
-    if any(key(r) not in current_keys and (apps(r.get('stats') or {}) or 0)>0 for r in baseline):return None
+    if any(tb.competition_kind(r) in ('league','cup') and key(r) not in current_keys and (apps(r.get('stats') or {}) or 0)>0 for r in baseline):return None
     totals['average_rating']=round(ratings/totals['appearances'],3) if rating_known and totals['appearances'] else None
     totals['points']=5*totals['goals']+3*totals['assists']+totals['wins']
     return totals

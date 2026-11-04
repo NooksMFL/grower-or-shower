@@ -91,3 +91,10 @@ Win points are verified from player appearances and club win/draw/loss changes. 
 The first night uses the verified 4 November pre-match scan captured at 18:43 UK, so older community-cup results already assigned to Season 18 are not mistaken for tonight’s performance. Later nights require a saved checkpoint, and the report retains its actual scan timestamps. The midnight workflow can start after 00:00 if the GitHub runner is queued; the award is published after the complete scan. Closed nights are frozen so the following evening cannot change the previous award. Ambiguous/missing results remain pending rather than manufacturing a winner. Results history is retained independently of Streamlit's temporary database.
 
 Repository Actions uses its existing `MFL_REFRESH_TOKEN` secret only if MFL requires authentication. Public first-party player data is read first. GitHub's built-in workflow token writes only the separate results feed; no credentials, Discord webhook or browser session is published. The workflow does not send Discord messages.
+
+
+### Top Boy scoring start: 4 November 2026
+
+The organiser confirmed that only results from **4 November 2026, 00:00 UK onwards** count. A Season 18 label is not sufficient. The completed pre-season no-XP cups recorded in the verified opening scan are excluded by competition ID, including from older cached records, averages, points and nightly comparisons. These exclusions do not ban future community cups played within the scoring period.
+
+An explicit competition end before the cutoff is also excluded. A competition aggregate that began before the cutoff and cannot be split is treated as unverified, not counted in full or silently assigned zero. The collector retains date metadata for this check. Nightly comparisons ignore excluded rows in both their baseline and current records. Grower or Shower data is unchanged.

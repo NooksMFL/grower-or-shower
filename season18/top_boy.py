@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+from functools import lru_cache
 from datetime import datetime, timezone
 
 import backend as b
@@ -15,10 +16,24 @@ def count(value):
     return int(number) if number is not None and number >= 0 and number.is_integer() else None
 
 
+SCORING_START='2026-11-04T00:00:00+00:00'
+
+
+@lru_cache(maxsize=1)
+def preseason_cup_ids():
+    # These completed no-XP cups were confirmed by the organiser as ending
+    # before 4 November. Their Season 18 label must not grant scoring eligibility.
+    path=b.ROOT/'opening_night.json'
+    seed=json.loads(path.read_text()) if path.exists() else {}
+    return {r['competition']['id'] for records in seed.get('records',{}).values() for r in records
+            if r.get('competition',{}).get('type')=='CUP' and r['competition'].get('status')=='ENDED' and r['competition'].get('withXp') is False}
+
+
 def competition_kind(record):
     c = record.get('competition')
     if not isinstance(c, dict):
         return None
+    if c.get('id') in preseason_cup_ids():return None
     season = c.get('season') or record.get('season')
     if isinstance(season, dict):
         season = season.get('name') or season.get('number')
@@ -31,6 +46,13 @@ def competition_kind(record):
     text = name + ' ' + kind
     if any(word in text for word in ('friendly', 'preseason', 'pre-season', 'exhibition', 'arena')):
         return None
+    cutoff=b.timestamp(SCORING_START)
+    ended=next((b.timestamp(c[k]) for k in ('endedAt','endDate','endingDate','endDateTime') if c.get(k) is not None),None)
+    if ended and ended<cutoff:return None
+    started=next((b.timestamp(c[k]) for k in ('startingDate','startDate') if c.get(k) is not None),None)
+    # An aggregate covering both sides of the cutoff cannot be credited as
+    # post-cutoff match data without an independently verified split.
+    if started and started<cutoff:return 'unknown'
     if 'league' in text:
         return 'league'
     if 'cup' in text:
