@@ -1,0 +1,322 @@
+{
+  "at": "2026-11-04T18:43:18.041506+00:00",
+  "source": "Verified pre-match Top Boy scan",
+  "records": {
+    "35005": [],
+    "53882": [
+      {
+        "competition": {
+          "id": 20633,
+          "status": "ENDED",
+          "type": "CUP",
+          "name": "The WenDirk Cup - 68 OVR Max",
+          "withXp": false,
+          "season": {
+            "id": 28,
+            "name": "Season 18"
+          }
+        },
+        "club": {
+          "id": 7279,
+          "name": "Gladiatori Di Roma"
+        },
+        "stats": {
+          "nbMatches": 3,
+          "time": 16200,
+          "goals": 4,
+          "shots": 12,
+          "shotsOnTarget": 8,
+          "shotsIntercepted": 1,
+          "dribblingSuccess": 15,
+          "assists": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "saves": 0,
+          "goalsConceded": 0,
+          "wins": 1,
+          "draws": 0,
+          "losses": 2,
+          "foulsCommitted": 5,
+          "foulsSuffered": 6,
+          "rating": 22.25,
+          "xG": 3.24,
+          "chancesCreated": 1,
+          "passes": 41,
+          "passesAccurate": 30,
+          "crosses": 0,
+          "crossesAccurate": 0,
+          "shotsInterceptions": 1,
+          "clearances": 0,
+          "dribbledPast": 0,
+          "ownGoals": 0,
+          "defensiveDuelsWon": 4,
+          "v": 6
+        }
+      }
+    ],
+    "56184": [],
+    "68936": [],
+    "90399": [],
+    "110469": [
+      {
+        "competition": {
+          "id": 20641,
+          "status": "ENDED",
+          "type": "CUP",
+          "name": "The YTXP Cup - 75 OVR Max",
+          "withXp": false,
+          "season": {
+            "id": 28,
+            "name": "Season 18"
+          }
+        },
+        "club": {
+          "id": 5590,
+          "name": "Manila Reapers MFC"
+        },
+        "stats": {
+          "nbMatches": 3,
+          "time": 1683,
+          "goals": 1,
+          "shots": 3,
+          "shotsOnTarget": 3,
+          "shotsIntercepted": 0,
+          "dribblingSuccess": 3,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "saves": 0,
+          "goalsConceded": 0,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "foulsCommitted": 0,
+          "foulsSuffered": 0,
+          "rating": 20.96,
+          "xG": 1.95,
+          "chancesCreated": 0,
+          "passes": 10,
+          "passesAccurate": 10,
+          "crosses": 0,
+          "crossesAccurate": 0,
+          "shotsInterceptions": 0,
+          "clearances": 1,
+          "dribbledPast": 1,
+          "ownGoals": 0,
+          "defensiveDuelsWon": 0,
+          "v": 6
+        }
+      }
+    ],
+    "127842": [],
+    "152098": [
+      {
+        "competition": {
+          "id": 20633,
+          "status": "ENDED",
+          "type": "CUP",
+          "name": "The WenDirk Cup - 68 OVR Max",
+          "withXp": false,
+          "season": {
+            "id": 28,
+            "name": "Season 18"
+          }
+        },
+        "club": {
+          "id": 6742,
+          "name": "MFC Glasgow"
+        },
+        "stats": {
+          "nbMatches": 3,
+          "time": 14645,
+          "goals": 2,
+          "shots": 5,
+          "shotsOnTarget": 2,
+          "shotsIntercepted": 1,
+          "dribblingSuccess": 19,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "saves": 0,
+          "goalsConceded": 0,
+          "wins": 0,
+          "draws": 1,
+          "losses": 2,
+          "foulsCommitted": 2,
+          "foulsSuffered": 8,
+          "rating": 20.82,
+          "xG": 0.99,
+          "chancesCreated": 2,
+          "passes": 61,
+          "passesAccurate": 46,
+          "crosses": 3,
+          "crossesAccurate": 0,
+          "shotsInterceptions": 0,
+          "clearances": 4,
+          "dribbledPast": 3,
+          "ownGoals": 0,
+          "defensiveDuelsWon": 1,
+          "v": 6
+        }
+      }
+    ],
+    "199596": [],
+    "236834": [],
+    "240630": [],
+    "316875": [
+      {
+        "competition": {
+          "id": 20636,
+          "status": "ENDED",
+          "type": "CUP",
+          "name": "The Ramble Cup - 62 OVR Max",
+          "withXp": false,
+          "season": {
+            "id": 28,
+            "name": "Season 18"
+          }
+        },
+        "club": {
+          "id": 7208,
+          "name": "KL Phoenix FC"
+        },
+        "stats": {
+          "nbMatches": 3,
+          "time": 16200,
+          "goals": 1,
+          "shots": 3,
+          "shotsOnTarget": 1,
+          "shotsIntercepted": 0,
+          "dribblingSuccess": 6,
+          "assists": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "saves": 0,
+          "goalsConceded": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 1,
+          "foulsCommitted": 1,
+          "foulsSuffered": 1,
+          "rating": 18.81,
+          "xG": 0.6,
+          "chancesCreated": 3,
+          "passes": 89,
+          "passesAccurate": 69,
+          "crosses": 0,
+          "crossesAccurate": 0,
+          "shotsInterceptions": 0,
+          "clearances": 1,
+          "dribbledPast": 4,
+          "ownGoals": 0,
+          "defensiveDuelsWon": 2,
+          "v": 6
+        }
+      },
+      {
+        "competition": {
+          "id": 20632,
+          "status": "ENDED",
+          "type": "CUP",
+          "name": "The WenDirk Cup - 58 OVR Max",
+          "withXp": false,
+          "season": {
+            "id": 28,
+            "name": "Season 18"
+          }
+        },
+        "club": {
+          "id": 7208,
+          "name": "KL Phoenix FC"
+        },
+        "stats": {
+          "nbMatches": 3,
+          "time": 16200,
+          "goals": 3,
+          "shots": 8,
+          "shotsOnTarget": 6,
+          "shotsIntercepted": 1,
+          "dribblingSuccess": 10,
+          "assists": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "saves": 0,
+          "goalsConceded": 0,
+          "wins": 0,
+          "draws": 2,
+          "losses": 1,
+          "foulsCommitted": 2,
+          "foulsSuffered": 3,
+          "rating": 23.48,
+          "xG": 1.22,
+          "chancesCreated": 3,
+          "passes": 124,
+          "passesAccurate": 95,
+          "crosses": 0,
+          "crossesAccurate": 0,
+          "shotsInterceptions": 1,
+          "clearances": 1,
+          "dribbledPast": 0,
+          "ownGoals": 0,
+          "defensiveDuelsWon": 2,
+          "v": 6
+        }
+      }
+    ],
+    "338443": [],
+    "350909": [],
+    "384642": [],
+    "411954": [],
+    "412176": [
+      {
+        "competition": {
+          "id": 20633,
+          "status": "ENDED",
+          "type": "CUP",
+          "name": "The WenDirk Cup - 68 OVR Max",
+          "withXp": false,
+          "season": {
+            "id": 28,
+            "name": "Season 18"
+          }
+        },
+        "club": {
+          "id": 7126,
+          "name": "FCN Angrense"
+        },
+        "stats": {
+          "nbMatches": 3,
+          "time": 15039,
+          "goals": 1,
+          "shots": 7,
+          "shotsOnTarget": 1,
+          "shotsIntercepted": 4,
+          "dribblingSuccess": 2,
+          "assists": 0,
+          "yellowCards": 1,
+          "redCards": 0,
+          "saves": 0,
+          "goalsConceded": 0,
+          "wins": 1,
+          "draws": 1,
+          "losses": 1,
+          "foulsCommitted": 4,
+          "foulsSuffered": 5,
+          "rating": 19.39,
+          "xG": 1.06,
+          "chancesCreated": 2,
+          "passes": 60,
+          "passesAccurate": 53,
+          "crosses": 5,
+          "crossesAccurate": 2,
+          "shotsInterceptions": 0,
+          "clearances": 1,
+          "dribbledPast": 1,
+          "ownGoals": 0,
+          "defensiveDuelsWon": 1,
+          "v": 6
+        }
+      }
+    ]
+  }
+}

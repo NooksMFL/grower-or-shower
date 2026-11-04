@@ -1,6 +1,7 @@
 """Top Boy nightly awards from dated, completed player-stat checkpoints."""
 from __future__ import annotations
 import copy
+import json
 from datetime import date,datetime,time,timedelta,timezone
 from zoneinfo import ZoneInfo
 import backend as b
@@ -101,17 +102,24 @@ def delta(current,baseline):
     return totals
 
 
-def update(snapshot,now=None):
+def opening_checkpoint():
+    path=b.ROOT/'opening_night.json'
+    return json.loads(path.read_text()) if path.exists() else None
+
+
+def update(snapshot,now=None,opening=None):
     now=now or datetime.now(timezone.utc);today=now.astimezone(UK).date().isoformat()
     entries=b.entrants('top_boy');players=snapshot['players'];anchors=snapshot.setdefault('night_checkpoints',{})
     current={str(e['player_id']):copy.deepcopy(players.get(str(e['player_id']),{}).get('records',[])) for e in entries}
     checked=all(players.get(str(e['player_id']),{}).get('records_at','')>=snapshot['attempted_at'] for e in entries)
     if not checked:return snapshot
+    if opening and '2026-11-04' in anchors and anchors['2026-11-04'].get('source')=='Season 18 opening day' and not (snapshot.get('nights') or {}).get('2026-11-04'):
+        anchors['2026-11-04']=copy.deepcopy(opening)
     if not anchors:
         # Season 18's first day has a verified zero starting point. Later first
         # installs cannot reconstruct a missed midnight checkpoint by guessing.
         first='2026-11-04'
-        if today==first:anchors[first]={'at':snapshot['attempted_at'],'records':{pid:[] for pid in current},'source':'Season 18 opening day'}
+        if today==first:anchors[first]=copy.deepcopy(opening) if opening else {'at':now.isoformat(),'records':current,'source':'First observed checkpoint'}
         else:anchors[today]={'at':now.isoformat(),'records':current,'source':'First observed checkpoint'}
     nights=snapshot.setdefault('nights',{})
     yesterday=(date.fromisoformat(today)-timedelta(days=1)).isoformat()

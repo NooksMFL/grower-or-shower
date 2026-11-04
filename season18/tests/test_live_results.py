@@ -79,6 +79,17 @@ class LiveTests(unittest.TestCase):
             with self.assertRaises(SystemExit):sync.main()
         publish.assert_not_called()
 
+    def test_preexisting_season18_cup_stats_are_not_tonights_goals(self):
+        old=record(apps=3,goals=4,wins=1,losses=2,rating=23)
+        initial=snap(game=old)
+        opening={'at':'2026-11-04T18:43:00+00:00','records':{pid:copy.deepcopy(row['records']) for pid,row in initial['players'].items()},'source':'Verified pre-match Top Boy scan'}
+        nightly.update(initial,datetime(2026,11,4,19,tzinfo=timezone.utc),opening=opening)
+        current=snap('2026-11-05T00:01:00+00:00',record(apps=4,goals=6,wins=2,losses=2,rating=32))
+        current['night_checkpoints']=initial['night_checkpoints']
+        nightly.update(current,datetime(2026,11,5,0,1,tzinfo=timezone.utc),opening=opening)
+        row=current['nights']['2026-11-04']['rows'][0]
+        self.assertEqual((row['goals'],row['points'],row['average_rating']),(2,11,9))
+
     def test_uk_day_bounds_follow_summer_and_winter_time(self):
         self.assertEqual(nightly.bounds('2026-11-04')[0].hour,0)
         self.assertEqual(nightly.bounds('2027-07-01')[0].hour,23)

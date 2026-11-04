@@ -50,7 +50,7 @@ def collect(client,previous=None,delay=.4):
                         if tb.competition_kind(record) not in ('league','cup'):continue
                         stats=copy.deepcopy(record.get('stats') or {})
                         competition=record.get('competition') or {};club=record.get('club') or {}
-                        clean={'competition':{k:competition[k] for k in ('id','name','type','subType','season','status') if k in competition},
+                        clean={'competition':{k:competition[k] for k in ('id','name','type','subType','season','status','withXp') if k in competition},
                                'club':{k:club[k] for k in ('id','name') if k in club},'stats':stats}
                         identity=nightly.key(clean);tracker[identity]=nightly.credit_wins(clean,tracker.get(identity))
                         records.append(clean)
@@ -66,7 +66,7 @@ def collect(client,previous=None,delay=.4):
             if delay:time.sleep(delay)
     for obsolete in ('api_routes','diagnostic_feed','diagnostic_match','diagnostic_notice','diagnostic_player_feed','player_match_probe','match_endpoint_unavailable'):
         result.pop(obsolete,None)
-    nightly.update(result)
+    nightly.update(result,opening=nightly.opening_checkpoint())
     if not any(e['field'] in ('profile','records') for e in result['errors']):result['last_complete_at']=b.utcnow()
     return result
 
