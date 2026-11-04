@@ -1,7 +1,7 @@
 {
   "version": 1,
   "season": 18,
-  "attempted_at": "2026-11-04T19:10:20.223898+00:00",
+  "attempted_at": "2026-11-04T19:43:07.263844+00:00",
   "errors": [],
   "players": {
     "35005": {
@@ -22,9 +22,9 @@
         "defense": 40.0,
         "physical": 53.0
       },
-      "profile_at": "2026-11-04T19:10:20.424069+00:00",
+      "profile_at": "2026-11-04T19:43:07.609811+00:00",
       "records": [],
-      "records_at": "2026-11-04T19:10:20.986969+00:00",
+      "records_at": "2026-11-04T19:43:08.504814+00:00",
       "win_tracker": {}
     },
     "384642": {
@@ -45,9 +45,9 @@
         "defense": 11.0,
         "physical": 69.0
       },
-      "profile_at": "2026-11-04T19:10:21.554055+00:00",
+      "profile_at": "2026-11-04T19:43:09.121890+00:00",
       "records": [],
-      "records_at": "2026-11-04T19:10:22.095085+00:00",
+      "records_at": "2026-11-04T19:43:09.706966+00:00",
       "win_tracker": {}
     },
     "350909": {
@@ -68,10 +68,101 @@
         "defense": 30.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-04T19:10:22.650591+00:00",
-      "records": [],
-      "records_at": "2026-11-04T19:10:23.211175+00:00",
-      "win_tracker": {}
+      "profile_at": "2026-11-04T19:43:10.313652+00:00",
+      "records": [
+        {
+          "competition": {
+            "id": 21761,
+            "name": "Flint – League 138",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "status": "LIVE",
+            "withXp": true,
+            "startingDate": 1793630833000
+          },
+          "club": {
+            "id": 2154,
+            "name": "Dockside Academy Austria"
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 5232,
+            "goals": 0,
+            "shots": 3,
+            "shotsOnTarget": 1,
+            "shotsIntercepted": 1,
+            "dribblingSuccess": 2,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 0,
+            "foulsSuffered": 1,
+            "rating": 6.57,
+            "xG": 0.66,
+            "chancesCreated": 1,
+            "passes": 25,
+            "passesAccurate": 21,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 1,
+            "dribbledPast": 2,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 0,
+            "v": 6,
+            "winsWithAppearance": 1
+          }
+        }
+      ],
+      "records_at": "2026-11-04T19:43:10.996838+00:00",
+      "win_tracker": {
+        "21761:2154": {
+          "stats": {
+            "nbMatches": 1,
+            "time": 5232,
+            "goals": 0,
+            "shots": 3,
+            "shotsOnTarget": 1,
+            "shotsIntercepted": 1,
+            "dribblingSuccess": 2,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 0,
+            "foulsSuffered": 1,
+            "rating": 6.57,
+            "xG": 0.66,
+            "chancesCreated": 1,
+            "passes": 25,
+            "passesAccurate": 21,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 1,
+            "dribbledPast": 2,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 0,
+            "v": 6
+          },
+          "covered_apps": 1,
+          "wins": 1,
+          "verified": true
+        }
+      }
     },
     "152098": {
       "entrant": "iKenny",
@@ -91,60 +182,9 @@
         "defense": 44.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-04T19:10:23.787329+00:00",
-      "records": [
-        {
-          "competition": {
-            "id": 20633,
-            "name": "The WenDirk Cup - 68 OVR Max",
-            "type": "CUP",
-            "season": {
-              "id": 28,
-              "name": "Season 18"
-            },
-            "status": "ENDED",
-            "withXp": false
-          },
-          "club": {
-            "id": 6742,
-            "name": "MFC Glasgow"
-          },
-          "stats": {
-            "nbMatches": 3,
-            "time": 14645,
-            "goals": 2,
-            "shots": 5,
-            "shotsOnTarget": 2,
-            "shotsIntercepted": 1,
-            "dribblingSuccess": 19,
-            "assists": 0,
-            "yellowCards": 0,
-            "redCards": 0,
-            "saves": 0,
-            "goalsConceded": 0,
-            "wins": 0,
-            "draws": 1,
-            "losses": 2,
-            "foulsCommitted": 2,
-            "foulsSuffered": 8,
-            "rating": 20.82,
-            "xG": 0.99,
-            "chancesCreated": 2,
-            "passes": 61,
-            "passesAccurate": 46,
-            "crosses": 3,
-            "crossesAccurate": 0,
-            "shotsInterceptions": 0,
-            "clearances": 4,
-            "dribbledPast": 3,
-            "ownGoals": 0,
-            "defensiveDuelsWon": 1,
-            "v": 6,
-            "winsWithAppearance": 0
-          }
-        }
-      ],
-      "records_at": "2026-11-04T19:10:24.350582+00:00",
+      "profile_at": "2026-11-04T19:43:11.630706+00:00",
+      "records": [],
+      "records_at": "2026-11-04T19:43:12.437805+00:00",
       "win_tracker": {
         "20633:6742": {
           "stats": {
@@ -203,60 +243,9 @@
         "defense": 25.0,
         "physical": 64.0
       },
-      "profile_at": "2026-11-04T19:10:24.897427+00:00",
-      "records": [
-        {
-          "competition": {
-            "id": 20633,
-            "name": "The WenDirk Cup - 68 OVR Max",
-            "type": "CUP",
-            "season": {
-              "id": 28,
-              "name": "Season 18"
-            },
-            "status": "ENDED",
-            "withXp": false
-          },
-          "club": {
-            "id": 7126,
-            "name": "FCN Angrense"
-          },
-          "stats": {
-            "nbMatches": 3,
-            "time": 15039,
-            "goals": 1,
-            "shots": 7,
-            "shotsOnTarget": 1,
-            "shotsIntercepted": 4,
-            "dribblingSuccess": 2,
-            "assists": 0,
-            "yellowCards": 1,
-            "redCards": 0,
-            "saves": 0,
-            "goalsConceded": 0,
-            "wins": 1,
-            "draws": 1,
-            "losses": 1,
-            "foulsCommitted": 4,
-            "foulsSuffered": 5,
-            "rating": 19.39,
-            "xG": 1.06,
-            "chancesCreated": 2,
-            "passes": 60,
-            "passesAccurate": 53,
-            "crosses": 5,
-            "crossesAccurate": 2,
-            "shotsInterceptions": 0,
-            "clearances": 1,
-            "dribbledPast": 1,
-            "ownGoals": 0,
-            "defensiveDuelsWon": 1,
-            "v": 6,
-            "winsWithAppearance": 1
-          }
-        }
-      ],
-      "records_at": "2026-11-04T19:10:25.422608+00:00",
+      "profile_at": "2026-11-04T19:43:13.032283+00:00",
+      "records": [],
+      "records_at": "2026-11-04T19:43:13.662473+00:00",
       "win_tracker": {
         "20633:7126": {
           "stats": {
@@ -315,10 +304,101 @@
         "defense": 34.0,
         "physical": 51.0
       },
-      "profile_at": "2026-11-04T19:10:25.994613+00:00",
-      "records": [],
-      "records_at": "2026-11-04T19:10:26.518953+00:00",
-      "win_tracker": {}
+      "profile_at": "2026-11-04T19:43:14.234192+00:00",
+      "records": [
+        {
+          "competition": {
+            "id": 21687,
+            "name": "Flint – League 64",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "status": "LIVE",
+            "withXp": true,
+            "startingDate": 1793691374000
+          },
+          "club": {
+            "id": 6430,
+            "name": "Achaikos FC"
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 4,
+            "shots": 13,
+            "shotsOnTarget": 8,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 6,
+            "assists": 1,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 0,
+            "foulsSuffered": 0,
+            "rating": 9.61,
+            "xG": 2.3,
+            "chancesCreated": 3,
+            "passes": 27,
+            "passesAccurate": 20,
+            "crosses": 1,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 0,
+            "dribbledPast": 1,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 1,
+            "v": 6,
+            "winsWithAppearance": 1
+          }
+        }
+      ],
+      "records_at": "2026-11-04T19:43:14.792766+00:00",
+      "win_tracker": {
+        "21687:6430": {
+          "stats": {
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 4,
+            "shots": 13,
+            "shotsOnTarget": 8,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 6,
+            "assists": 1,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 0,
+            "foulsSuffered": 0,
+            "rating": 9.61,
+            "xG": 2.3,
+            "chancesCreated": 3,
+            "passes": 27,
+            "passesAccurate": 20,
+            "crosses": 1,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 0,
+            "dribbledPast": 1,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 1,
+            "v": 6
+          },
+          "covered_apps": 1,
+          "wins": 1,
+          "verified": true
+        }
+      }
     },
     "110469": {
       "entrant": "Rhythm",
@@ -338,60 +418,9 @@
         "defense": 24.0,
         "physical": 80.0
       },
-      "profile_at": "2026-11-04T19:10:27.064135+00:00",
-      "records": [
-        {
-          "competition": {
-            "id": 20641,
-            "name": "The YTXP Cup - 75 OVR Max",
-            "type": "CUP",
-            "season": {
-              "id": 28,
-              "name": "Season 18"
-            },
-            "status": "ENDED",
-            "withXp": false
-          },
-          "club": {
-            "id": 5590,
-            "name": "Manila Reapers MFC"
-          },
-          "stats": {
-            "nbMatches": 3,
-            "time": 1683,
-            "goals": 1,
-            "shots": 3,
-            "shotsOnTarget": 3,
-            "shotsIntercepted": 0,
-            "dribblingSuccess": 3,
-            "assists": 0,
-            "yellowCards": 0,
-            "redCards": 0,
-            "saves": 0,
-            "goalsConceded": 0,
-            "wins": 1,
-            "draws": 1,
-            "losses": 1,
-            "foulsCommitted": 0,
-            "foulsSuffered": 0,
-            "rating": 20.96,
-            "xG": 1.95,
-            "chancesCreated": 0,
-            "passes": 10,
-            "passesAccurate": 10,
-            "crosses": 0,
-            "crossesAccurate": 0,
-            "shotsInterceptions": 0,
-            "clearances": 1,
-            "dribbledPast": 1,
-            "ownGoals": 0,
-            "defensiveDuelsWon": 0,
-            "v": 6,
-            "winsWithAppearance": 1
-          }
-        }
-      ],
-      "records_at": "2026-11-04T19:10:27.602195+00:00",
+      "profile_at": "2026-11-04T19:43:15.374217+00:00",
+      "records": [],
+      "records_at": "2026-11-04T19:43:16.114358+00:00",
       "win_tracker": {
         "20641:5590": {
           "stats": {
@@ -450,60 +479,9 @@
         "defense": 37.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-04T19:10:28.127251+00:00",
-      "records": [
-        {
-          "competition": {
-            "id": 20633,
-            "name": "The WenDirk Cup - 68 OVR Max",
-            "type": "CUP",
-            "season": {
-              "id": 28,
-              "name": "Season 18"
-            },
-            "status": "ENDED",
-            "withXp": false
-          },
-          "club": {
-            "id": 7279,
-            "name": "Gladiatori Di Roma"
-          },
-          "stats": {
-            "nbMatches": 3,
-            "time": 16200,
-            "goals": 4,
-            "shots": 12,
-            "shotsOnTarget": 8,
-            "shotsIntercepted": 1,
-            "dribblingSuccess": 15,
-            "assists": 0,
-            "yellowCards": 1,
-            "redCards": 0,
-            "saves": 0,
-            "goalsConceded": 0,
-            "wins": 1,
-            "draws": 0,
-            "losses": 2,
-            "foulsCommitted": 5,
-            "foulsSuffered": 6,
-            "rating": 22.25,
-            "xG": 3.24,
-            "chancesCreated": 1,
-            "passes": 41,
-            "passesAccurate": 30,
-            "crosses": 0,
-            "crossesAccurate": 0,
-            "shotsInterceptions": 1,
-            "clearances": 0,
-            "dribbledPast": 0,
-            "ownGoals": 0,
-            "defensiveDuelsWon": 4,
-            "v": 6,
-            "winsWithAppearance": 1
-          }
-        }
-      ],
-      "records_at": "2026-11-04T19:10:28.699002+00:00",
+      "profile_at": "2026-11-04T19:43:16.705477+00:00",
+      "records": [],
+      "records_at": "2026-11-04T19:43:17.287823+00:00",
       "win_tracker": {
         "20633:7279": {
           "stats": {
@@ -562,110 +540,62 @@
         "defense": 35.0,
         "physical": 39.0
       },
-      "profile_at": "2026-11-04T19:10:29.247336+00:00",
+      "profile_at": "2026-11-04T19:43:17.913220+00:00",
       "records": [
         {
           "competition": {
-            "id": 20636,
-            "name": "The Ramble Cup - 62 OVR Max",
-            "type": "CUP",
+            "id": 21725,
+            "name": "Flint – League 102",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
             "season": {
               "id": 28,
               "name": "Season 18"
             },
-            "status": "ENDED",
-            "withXp": false
+            "status": "LIVE",
+            "withXp": true,
+            "startingDate": 1793662356000
           },
           "club": {
             "id": 7208,
             "name": "KL Phoenix FC"
           },
           "stats": {
-            "nbMatches": 3,
-            "time": 16200,
-            "goals": 1,
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 2,
             "shots": 3,
-            "shotsOnTarget": 1,
+            "shotsOnTarget": 2,
             "shotsIntercepted": 0,
-            "dribblingSuccess": 6,
-            "assists": 0,
-            "yellowCards": 1,
-            "redCards": 0,
-            "saves": 0,
-            "goalsConceded": 0,
-            "wins": 0,
-            "draws": 2,
-            "losses": 1,
-            "foulsCommitted": 1,
-            "foulsSuffered": 1,
-            "rating": 18.81,
-            "xG": 0.6,
-            "chancesCreated": 3,
-            "passes": 89,
-            "passesAccurate": 69,
-            "crosses": 0,
-            "crossesAccurate": 0,
-            "shotsInterceptions": 0,
-            "clearances": 1,
-            "dribbledPast": 4,
-            "ownGoals": 0,
-            "defensiveDuelsWon": 2,
-            "v": 6,
-            "winsWithAppearance": 0
-          }
-        },
-        {
-          "competition": {
-            "id": 20632,
-            "name": "The WenDirk Cup - 58 OVR Max",
-            "type": "CUP",
-            "season": {
-              "id": 28,
-              "name": "Season 18"
-            },
-            "status": "ENDED",
-            "withXp": false
-          },
-          "club": {
-            "id": 7208,
-            "name": "KL Phoenix FC"
-          },
-          "stats": {
-            "nbMatches": 3,
-            "time": 16200,
-            "goals": 3,
-            "shots": 8,
-            "shotsOnTarget": 6,
-            "shotsIntercepted": 1,
-            "dribblingSuccess": 10,
+            "dribblingSuccess": 1,
             "assists": 0,
             "yellowCards": 0,
             "redCards": 0,
             "saves": 0,
             "goalsConceded": 0,
-            "wins": 0,
-            "draws": 2,
-            "losses": 1,
-            "foulsCommitted": 2,
-            "foulsSuffered": 3,
-            "rating": 23.48,
-            "xG": 1.22,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 0,
+            "foulsSuffered": 0,
+            "rating": 8.56,
+            "xG": 1.7,
             "chancesCreated": 3,
-            "passes": 124,
-            "passesAccurate": 95,
-            "crosses": 0,
+            "passes": 39,
+            "passesAccurate": 31,
+            "crosses": 1,
             "crossesAccurate": 0,
-            "shotsInterceptions": 1,
-            "clearances": 1,
-            "dribbledPast": 0,
+            "shotsInterceptions": 0,
+            "clearances": 0,
+            "dribbledPast": 1,
             "ownGoals": 0,
-            "defensiveDuelsWon": 2,
+            "defensiveDuelsWon": 4,
             "v": 6,
-            "winsWithAppearance": 0
+            "winsWithAppearance": 1
           }
         }
       ],
-      "records_at": "2026-11-04T19:10:29.794519+00:00",
+      "records_at": "2026-11-04T19:43:18.552604+00:00",
       "win_tracker": {
         "20636:7208": {
           "stats": {
@@ -740,6 +670,43 @@
           "covered_apps": 3,
           "wins": 0,
           "verified": true
+        },
+        "21725:7208": {
+          "stats": {
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 2,
+            "shots": 3,
+            "shotsOnTarget": 2,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 1,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 0,
+            "foulsSuffered": 0,
+            "rating": 8.56,
+            "xG": 1.7,
+            "chancesCreated": 3,
+            "passes": 39,
+            "passesAccurate": 31,
+            "crosses": 1,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 0,
+            "dribbledPast": 1,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 4,
+            "v": 6
+          },
+          "covered_apps": 1,
+          "wins": 1,
+          "verified": true
         }
       }
     },
@@ -761,10 +728,101 @@
         "defense": 20.0,
         "physical": 64.0
       },
-      "profile_at": "2026-11-04T19:10:30.338961+00:00",
-      "records": [],
-      "records_at": "2026-11-04T19:10:30.885197+00:00",
-      "win_tracker": {}
+      "profile_at": "2026-11-04T19:43:19.147285+00:00",
+      "records": [
+        {
+          "competition": {
+            "id": 21601,
+            "name": "Spark – League 156",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "status": "LIVE",
+            "withXp": true,
+            "startingDate": 1793635962000
+          },
+          "club": {
+            "id": 5291,
+            "name": "Torquay Titans MFC"
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 4675,
+            "goals": 1,
+            "shots": 3,
+            "shotsOnTarget": 2,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 1,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 1,
+            "foulsCommitted": 0,
+            "foulsSuffered": 1,
+            "rating": 7.63,
+            "xG": 0.53,
+            "chancesCreated": 0,
+            "passes": 16,
+            "passesAccurate": 14,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 0,
+            "dribbledPast": 0,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 0,
+            "v": 6,
+            "winsWithAppearance": 0
+          }
+        }
+      ],
+      "records_at": "2026-11-04T19:43:20.136112+00:00",
+      "win_tracker": {
+        "21601:5291": {
+          "stats": {
+            "nbMatches": 1,
+            "time": 4675,
+            "goals": 1,
+            "shots": 3,
+            "shotsOnTarget": 2,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 1,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 1,
+            "foulsCommitted": 0,
+            "foulsSuffered": 1,
+            "rating": 7.63,
+            "xG": 0.53,
+            "chancesCreated": 0,
+            "passes": 16,
+            "passesAccurate": 14,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 0,
+            "dribbledPast": 0,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 0,
+            "v": 6
+          },
+          "covered_apps": 1,
+          "wins": 0,
+          "verified": true
+        }
+      }
     },
     "240630": {
       "entrant": "Doineann",
@@ -784,9 +842,9 @@
         "defense": 65.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-04T19:10:31.428870+00:00",
+      "profile_at": "2026-11-04T19:43:20.841394+00:00",
       "records": [],
-      "records_at": "2026-11-04T19:10:31.946586+00:00",
+      "records_at": "2026-11-04T19:43:21.421583+00:00",
       "win_tracker": {}
     },
     "90399": {
@@ -807,9 +865,9 @@
         "defense": 29.0,
         "physical": 69.0
       },
-      "profile_at": "2026-11-04T19:10:32.566918+00:00",
+      "profile_at": "2026-11-04T19:43:21.988537+00:00",
       "records": [],
-      "records_at": "2026-11-04T19:10:33.093690+00:00",
+      "records_at": "2026-11-04T19:43:22.698861+00:00",
       "win_tracker": {}
     },
     "127842": {
@@ -830,9 +888,9 @@
         "defense": 43.0,
         "physical": 72.0
       },
-      "profile_at": "2026-11-04T19:10:33.647806+00:00",
+      "profile_at": "2026-11-04T19:43:23.326439+00:00",
       "records": [],
-      "records_at": "2026-11-04T19:10:34.173131+00:00",
+      "records_at": "2026-11-04T19:43:24.089390+00:00",
       "win_tracker": {}
     },
     "338443": {
@@ -853,9 +911,9 @@
         "defense": 40.0,
         "physical": 74.0
       },
-      "profile_at": "2026-11-04T19:10:34.745640+00:00",
+      "profile_at": "2026-11-04T19:43:24.854451+00:00",
       "records": [],
-      "records_at": "2026-11-04T19:10:35.282888+00:00",
+      "records_at": "2026-11-04T19:43:25.526355+00:00",
       "win_tracker": {}
     },
     "199596": {
@@ -876,9 +934,9 @@
         "defense": 43.0,
         "physical": 69.0
       },
-      "profile_at": "2026-11-04T19:10:35.810135+00:00",
+      "profile_at": "2026-11-04T19:43:26.198845+00:00",
       "records": [],
-      "records_at": "2026-11-04T19:10:36.372430+00:00",
+      "records_at": "2026-11-04T19:43:26.860100+00:00",
       "win_tracker": {}
     },
     "411954": {
@@ -899,9 +957,9 @@
         "defense": 25.0,
         "physical": 66.0
       },
-      "profile_at": "2026-11-04T19:10:36.906091+00:00",
+      "profile_at": "2026-11-04T19:43:27.525311+00:00",
       "records": [],
-      "records_at": "2026-11-04T19:10:37.426773+00:00",
+      "records_at": "2026-11-04T19:43:28.117034+00:00",
       "win_tracker": {}
     },
     "68936": {
@@ -922,13 +980,13 @@
         "defense": 38.0,
         "physical": 71.0
       },
-      "profile_at": "2026-11-04T19:10:37.959115+00:00",
+      "profile_at": "2026-11-04T19:43:28.741708+00:00",
       "records": [],
-      "records_at": "2026-11-04T19:10:38.531468+00:00",
+      "records_at": "2026-11-04T19:43:29.449264+00:00",
       "win_tracker": {}
     }
   },
-  "last_complete_at": "2026-11-04T19:10:38.932806+00:00",
+  "last_complete_at": "2026-11-04T19:43:29.850284+00:00",
   "night_checkpoints": {
     "2026-11-04": {
       "at": "2026-11-04T18:43:18.041506+00:00",
@@ -1286,12 +1344,12 @@
         "player_id": 350909,
         "note": "",
         "player": "Hugo Pacheco",
-        "appearances": 0,
-        "goals": 0,
-        "assists": 0,
-        "wins": 0,
-        "average_rating": null,
-        "points": 0
+        "appearances": null,
+        "goals": null,
+        "assists": null,
+        "wins": null,
+        "points": null,
+        "average_rating": null
       },
       {
         "entrant": "iKenny",
@@ -1322,12 +1380,12 @@
         "player_id": 236834,
         "note": "",
         "player": "Jorge Dominguez",
-        "appearances": 0,
-        "goals": 0,
-        "assists": 0,
-        "wins": 0,
-        "average_rating": null,
-        "points": 0
+        "appearances": null,
+        "goals": null,
+        "assists": null,
+        "wins": null,
+        "points": null,
+        "average_rating": null
       },
       {
         "entrant": "Rhythm",
@@ -1358,24 +1416,24 @@
         "player_id": 316875,
         "note": "",
         "player": "Geraldo Marquês",
-        "appearances": 0,
-        "goals": 0,
-        "assists": 0,
-        "wins": 0,
-        "average_rating": null,
-        "points": 0
+        "appearances": null,
+        "goals": null,
+        "assists": null,
+        "wins": null,
+        "points": null,
+        "average_rating": null
       },
       {
         "entrant": "BaldSherlock",
         "player_id": 56184,
         "note": "",
         "player": "Pierre Wright",
-        "appearances": 0,
-        "goals": 0,
-        "assists": 0,
-        "wins": 0,
-        "average_rating": null,
-        "points": 0
+        "appearances": null,
+        "goals": null,
+        "assists": null,
+        "wins": null,
+        "points": null,
+        "average_rating": null
       },
       {
         "entrant": "Doineann",
