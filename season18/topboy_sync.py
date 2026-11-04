@@ -1,4 +1,4 @@
-"""Unattended Top Boy collection. Only public game records are published."""
+"""Unattended Top Boy collection, including published Season 18 league results."""
 from __future__ import annotations
 import base64
 import copy

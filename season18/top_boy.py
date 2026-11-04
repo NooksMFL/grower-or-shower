@@ -50,11 +50,13 @@ def competition_kind(record):
     ended=next((b.timestamp(c[k]) for k in ('endedAt','endDate','endingDate','endDateTime') if c.get(k) is not None),None)
     if ended and ended<cutoff:return None
     started=next((b.timestamp(c[k]) for k in ('startingDate','startDate') if c.get(k) is not None),None)
-    # An aggregate covering both sides of the cutoff cannot be credited as
-    # post-cutoff match data without an independently verified split.
-    if started and started<cutoff:return 'unknown'
+    # Season 18 leagues were published before their first matches on 4 Nov.
+    # MFL startingDate is the league setup date, not the date of these results.
+    # The verified pre-match opening scan contains no Season 18 league stats.
     if 'league' in text:
         return 'league'
+    # Cups may contain matches on both sides of the scoring cutoff.
+    if started and started<cutoff:return 'unknown'
     if 'cup' in text:
         return 'cup'
     return 'unknown'

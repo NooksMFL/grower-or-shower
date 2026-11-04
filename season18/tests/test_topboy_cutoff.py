@@ -32,9 +32,17 @@ class CutoffTests(unittest.TestCase):
     def test_finished_before_cutoff_and_straddling_aggregate(self):
         ended=game(start='2026-11-01T00:00:00Z');ended['competition']['endedAt']='2026-11-03T23:59:59Z'
         self.assertIsNone(tb.competition_kind(ended))
-        mixed=game(start='2026-11-03T12:00:00Z')
+        mixed=game(start='2026-11-03T12:00:00Z');mixed['competition'].update(type='CUP',name='Mixed Cup')
         self.assertEqual(tb.competition_kind(mixed),'unknown')
         self.assertIsNone(tb.player_totals([mixed])['goals'])
+    def test_published_league_date_does_not_hide_opening_day_match(self):
+        row=game(start=1793635962000)
+        row['competition'].update(id=21601,name='Spark – League 156',subType='LEAGUE',withXp=True)
+        self.assertEqual(tb.competition_kind(row),'league')
+        self.assertEqual(tb.player_totals([row])['goals'],2)
+        opening=nightly.opening_checkpoint()
+        self.assertTrue(all(not any('league' in str(r.get('competition',{}).get('type','')).lower() for r in rows) for rows in opening['records'].values()))
+
     def test_old_seasons_are_not_mistaken_for_mixed_current_stats(self):
         old=game(start='2026-09-22T00:00:00Z');old['competition']['season']={'name':'Season 17'}
         self.assertIsNone(tb.competition_kind(old))
