@@ -1,0 +1,38 @@
+name: Top Boy live results
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/topboy.yml'
+      - 'season18/topboy_sync.py'
+      - 'season18/nightly.py'
+      - 'season18/top_boy_entrants.csv'
+permissions:
+  contents: write
+concurrency:
+  group: topboy-live-results
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'pandas>=2.2,<3' 'requests>=2.32,<3'
+      - name: Refresh Top Boy only
+        run: python season18/topboy_sync.py
+        env:
+          MFL_REFRESH_TOKEN: ${{ secrets.MFL_REFRESH_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: topboy-results
+          path: topboy-result.json
+          retention-days: 14
