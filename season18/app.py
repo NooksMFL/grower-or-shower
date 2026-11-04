@@ -12,6 +12,7 @@ import streamlit as st
 # Resolve this standalone app's backend even when Streamlit starts at repo root.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import backend as b
+import rendering
 
 st.set_page_config(page_title='Grower or Shower · Top Boy', page_icon='🌱', layout='wide')
 
@@ -88,7 +89,7 @@ if not backup_secret:
     st.warning('Automatic browser backup is unavailable. Download a competition backup after refreshing.')
 elif backup_ready:
     st.caption('Automatic backup is enabled for this browser. Keep a downloaded competition backup as a separate copy.')
-st.download_button('Download competition backup',store.backup(),'competitions_s18_backup.json','application/json',key='grower_visible_backup')
+rendering.download('Download competition backup',store.backup(),'competitions_s18_backup.json','application/json',key='grower_visible_backup')
 
 if not confirmed:
     st.caption('Growth is measured from saved starting values. Competition ranks await confirmation of scoring and tie-break rules.')
@@ -143,10 +144,10 @@ with overview:
 
 with table:
     df = export_rows()
-    st.dataframe(df[['Entrant', 'Player', 'Player ID', 'Age', 'Position', 'Current club', 'OVR', 'PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY', 'Player URL', 'Profile checked (UTC)']],
+    rendering.table(df[['Entrant', 'Player', 'Player ID', 'Age', 'Position', 'Current club', 'OVR', 'PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY', 'Player URL', 'Profile checked (UTC)']],
                  hide_index=True, width='stretch',
                  column_config={'Player URL': st.column_config.LinkColumn('MFL player', display_text='Open player')})
-    st.download_button('Download full player register CSV', df.to_csv(index=False).encode('utf-8-sig'),
+    rendering.download('Download full player register CSV', df.to_csv(index=False).encode('utf-8-sig'),
                        'grower_or_shower_season18.csv', 'text/csv')
     st.info(f'BaldSherlock: player link still needed. Mike: entry not confirmed. Neither is counted among the {len(entries)} linked entries.')
     st.caption('Hawkeye’s final selection is #337204; the earlier #467300 has been replaced.')
@@ -158,9 +159,9 @@ with growth:
     columns = ['Entrant', 'Player', 'Start OVR', 'OVR', 'OVR gain', 'Attribute gain'] + [f'{label} gain' for label in ('PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY')] + ['Baseline saved (UTC)']
     if confirmed and all(r.get('rank') is not None for r in data):
         columns = ['Rank'] + columns
-    st.dataframe(df[columns], hide_index=True, width='stretch')
+    rendering.table(df[columns], hide_index=True, width='stretch')
     st.caption('No starting values means no calculated gain. League ratings use explicit average ratings; an ambiguous cumulative rating is left unavailable. Ties with missing ratings remain unresolved.')
-    st.download_button('Download competition backup', store.backup(), 'competitions_s18_backup.json', 'application/json')
+    rendering.download('Download competition backup', store.backup(), 'competitions_s18_backup.json', 'application/json')
 
 with details:
     st.subheader('Competition notes')

@@ -6,6 +6,7 @@ import html
 import json
 
 import pandas as pd
+import rendering
 import streamlit as st
 
 import backend as b
@@ -98,10 +99,10 @@ def render(store, setting):
         if any(r['wins'] is None for r in rows):
             st.caption('A club’s win total cannot prove that this player appeared. If MFL does not provide appearance-scoped wins, the organiser can enter verified full-season totals below.')
         with st.expander('Points breakdown and data sources'):
-            st.dataframe(df[['Entrant', 'Goals', 'Goal pts', 'Assists', 'Assist pts', 'Win appearances', 'Win pts', 'Points', 'League + cup apps', 'Average rating', 'Rated appearances', 'Eligibility', 'Score checked (UTC)', 'Source', 'Evidence note']], hide_index=True, width='stretch')
+            rendering.table(df[['Entrant', 'Goals', 'Goal pts', 'Assists', 'Assist pts', 'Win appearances', 'Win pts', 'Points', 'League + cup apps', 'Average rating', 'Rated appearances', 'Eligibility', 'Score checked (UTC)', 'Source', 'Evidence note']], hide_index=True, width='stretch')
             st.caption('AVG is weighted by appearances across league and cup. No rated matches or incomplete rating coverage displays —. An ambiguous rating total is not treated as an average.')
-        st.download_button('Download Top Boy table CSV', df.to_csv(index=False).encode('utf-8-sig'), 'top_boy_season18.csv', 'text/csv')
-        st.download_button('Download backup · both competitions', store.backup(), 'competitions_s18_backup.json', 'application/json', key='topboy_backup')
+        rendering.download('Download Top Boy table CSV', df.to_csv(index=False).encode('utf-8-sig'), 'top_boy_season18.csv', 'text/csv')
+        rendering.download('Download backup · both competitions', store.backup(), 'competitions_s18_backup.json', 'application/json', key='topboy_backup')
 
     with players:
         search = st.text_input('Find a Top Boy entrant, player or club', placeholder='Search Top Boy…')
@@ -122,7 +123,7 @@ def render(store, setting):
                     <div class="ovr">{display(row.get('overall'))} <small style="font-size:.75rem;color:#acb8ca">OVR</small></div>
                     <div class="stats">{attrs}</div></a></div>''')
                 st.html(f'<div class="player-check">{display(row["points"])} points · Last checked: {esc(row.get("checked_at") or "Not fetched yet")}</div>')
-        st.dataframe(df[['Entrant', 'Player ID', 'Player', 'Club', 'Current OVR', 'Age', 'Position', 'PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY', 'MFL player']],
+        rendering.table(df[['Entrant', 'Player ID', 'Player', 'Club', 'Current OVR', 'Age', 'Position', 'PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY', 'MFL player']],
                      hide_index=True, width='stretch',
                      column_config={'MFL player': st.column_config.LinkColumn('MFL player', display_text='Open player')})
 
@@ -140,7 +141,7 @@ def render(store, setting):
 
 ### Maximum entry ratings
 ''')
-        st.dataframe(pd.DataFrame([{'League': name, 'Maximum OVR': cap} for name, cap in tb.CAPS.items()]), hide_index=True, width='stretch')
+        rendering.table(pd.DataFrame([{'League': name, 'Maximum OVR': cap} for name, cap in tb.CAPS.items()]), hide_index=True, width='stretch')
         st.write('**OOP ratings are allowed.** The organiser can record the effective entry rating and its position in the evidence note. Current OVR is displayed separately and does not automatically disqualify a developing player.')
         st.write('**Winner’s prize: a limited pack.**')
         st.caption('Source: the supplied Season 18 Top Boy poster, plus the organiser’s league/cup and win-appearance clarification. Final tie-break and prize-sharing rules have not been supplied.')
@@ -199,6 +200,6 @@ def render(store, setting):
                         st.rerun()
         with st.expander('MFL scoring data · for checking field coverage'):
             st.caption('Contains public player competition records only. Use this to check whether MFL supplies win appearances; no token or password is included.')
-            st.download_button('Download MFL scoring records', json.dumps(tb.records(store, 'topboy_competitions'), indent=2), 'top_boy_mfl_scoring_records.json', 'application/json')
+            rendering.download('Download MFL scoring records', json.dumps(tb.records(store, 'topboy_competitions'), indent=2), 'top_boy_mfl_scoring_records.json', 'application/json')
 
     st.caption('Keep a backup of both competitions after capturing or verifying data. Local Streamlit storage can reset on a reboot or redeploy.')

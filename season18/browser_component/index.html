@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body><script>
+'use strict';
+let lastValue='';
+function send(type,fields){window.parent.postMessage(Object.assign({isStreamlitMessage:true,type:type},fields||{}),'*');}
+function result(value){const text=JSON.stringify(value);if(text!==lastValue){lastValue=text;send('streamlit:setComponentValue',{value:value,dataType:'json'});}}
+window.addEventListener('message',function(event){
+ if(event.source!==window.parent||!event.data||event.data.type!=='streamlit:render')return;
+ const args=event.data.args||{};
+ try{
+  if(args.operation==='read')result({ready:true,value:localStorage.getItem(args.storage_key)});
+  else if(args.operation==='write'){localStorage.setItem(args.storage_key,args.value);result({saved:true});}
+ }catch(error){result(args.operation==='read'?{ready:false,error:true}:{saved:false});}
+ send('streamlit:setFrameHeight',{height:0});
+});
+send('streamlit:componentReady',{apiVersion:1});send('streamlit:setFrameHeight',{height:0});
+</script></body></html>

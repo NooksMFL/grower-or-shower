@@ -69,3 +69,10 @@ Both competitions and the Grower refresh checkpoint are automatically backed up 
 On a later app restart, a verified browser copy fills missing records only. Existing server baselines and checkpoints take precedence. The app waits for the browser read to complete before writing, so an empty startup database cannot overwrite a backup before it is read. Unsigned or tampered data is not imported automatically. Older downloaded JSON backups remain restorable through the organiser controls.
 
 This protects the same browser on the same app origin. It is **not permanent shared database hosting**: another browser or a cleared browser store will not contain that copy. Keep downloaded competition backups as an independent copy; the download is now visible above the Grower tabs. The development environment cannot verify recovery from the live MFL API when its security service blocks access.
+
+
+## Frontend asset resilience
+
+The competition views use plain HTML tables instead of Streamlit's lazy-loaded dataframe renderer. File downloads are generated as Blob links inside inline HTML frames, without Streamlit's download-button module. JSON backups also have a copyable-text fallback. CSV exports still use the original dataframes; this change only affects presentation.
+
+Browser backups use a bundled, self-contained component with an inline script and Streamlit's standard message protocol. It has no React bundle, CDN imports or `streamlit_js_eval` runtime calls. The previous dependency is left in requirements to avoid forcing another dependency rebuild; it is no longer used by the app. Refresh jobs, baselines, scoring and database schema are unchanged by this display repair.

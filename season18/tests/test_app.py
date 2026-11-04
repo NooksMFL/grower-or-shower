@@ -3,6 +3,8 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from html.parser import HTMLParser
+import pandas as pd
 from unittest.mock import patch
 
 from streamlit.testing.v1 import AppTest
@@ -10,6 +12,30 @@ from streamlit.testing.v1 import AppTest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import backend as b
+
+
+def tables(at):
+    class Parser(HTMLParser):
+        def __init__(self):super().__init__();self.rows=[];self.row=[];self.cell=None
+        def handle_starttag(self,tag,attrs):
+            if tag=='tr':self.row=[]
+            if tag in ('td','th'):self.cell=''
+        def handle_data(self,data):
+            if self.cell is not None:self.cell+=data
+        def handle_endtag(self,tag):
+            if tag in ('td','th') and self.cell is not None:self.row.append(self.cell.strip());self.cell=None
+            if tag=='tr' and self.row:self.rows.append(self.row)
+    result=[]
+    for element in at.get('html'):
+        if 'mfl-data-table' not in element.proto.body:continue
+        parser=Parser();parser.feed(element.proto.body)
+        if not parser.rows:continue
+        frame=pd.DataFrame(parser.rows[1:],columns=parser.rows[0]).replace('—',pd.NA)
+        for column in frame:
+            try:frame[column]=pd.to_numeric(frame[column])
+            except (TypeError,ValueError):pass
+        result.append(frame)
+    return result
 
 
 class AppTests(unittest.TestCase):
@@ -40,7 +66,7 @@ class AppTests(unittest.TestCase):
         self.assertEqual(list(at.exception), [])
         self.assertEqual(at.metric[0].value, '12')
         self.assertEqual(at.metric[2].value, '0 / 12')
-        self.assertEqual(len(at.dataframe[0].value), 12)
+        self.assertEqual(len(tables(at)[0]), 12)
         self.assertFalse(request.called)
 
     def test_cards_use_native_html_and_rendering_keeps_saved_baselines(self):
@@ -62,10 +88,21 @@ class AppTests(unittest.TestCase):
         self.assertNotIn('<Bad & Name>',markup)
         self.assertEqual(store.backup(),before)
 
+    def test_tables_and_backups_do_not_use_broken_frontend_modules(self):
+        at=AppTest.from_file(str(ROOT/'app.py')).run()
+        at.button(key='open_grower').click().run()
+        self.assertFalse(at.exception)
+        self.assertFalse(at.dataframe)
+        self.assertFalse(at.get('download_button'))
+        self.assertEqual(len(tables(at)),2)
+        frames=[e.proto.srcdoc for e in at.get('iframe')]
+        self.assertTrue(any('URL.createObjectURL' in frame for frame in frames))
+        self.assertTrue(any('Competition backup JSON' in e.proto.body for e in at.get('html')))
+
     def test_front_page_choices_and_return_navigation(self):
         at = AppTest.from_file(str(ROOT / 'app.py')).run()
         self.assertEqual(at.title[0].value, 'Competitions')
-        self.assertEqual(len(at.dataframe), 0)
+        self.assertEqual(len(tables(at)), 0)
         self.assertEqual({x.label for x in at.button}, {'Grower or Shower', 'Top Boy'})
         at.button(key='open_grower').click().run()
         self.assertEqual(at.title[0].value, 'Grower or Shower')
@@ -83,10 +120,10 @@ class AppTests(unittest.TestCase):
         self.assertEqual(table_html.count('<tr'), 17)
         self.assertIn('/90399/photo.webp', table_html)
         self.assertIn('>AVG</abbr>', table_html)
-        self.assertEqual(len(at.dataframe[0].value), 16)
-        self.assertIn('Points', at.dataframe[0].value.columns)
-        self.assertEqual(set(at.dataframe[0].value.Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock', 'Doineann', 'Dan', 'mmewse', 'Daz Shootz', 'Eddie', 'ShadyM'})
-        self.assertTrue(at.dataframe[0].value.Points.isna().all())
+        self.assertEqual(len(tables(at)[0]), 16)
+        self.assertIn('Points', tables(at)[0].columns)
+        self.assertEqual(set(tables(at)[0].Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock', 'Doineann', 'Dan', 'mmewse', 'Daz Shootz', 'Eddie', 'ShadyM'})
+        self.assertTrue(tables(at)[0].Points.isna().all())
         self.assertEqual(len(b.Store(self.path).latest()), 0)
 
     def test_loaded_players_show_baselines_and_gains(self):
@@ -103,8 +140,8 @@ class AppTests(unittest.TestCase):
         at.button(key='open_grower').click().run()
         self.assertEqual(list(at.exception), [])
         self.assertEqual(at.metric[2].value, '12 / 12')
-        self.assertTrue((at.dataframe[1].value['OVR gain'] == 2).all())
-        self.assertTrue((at.dataframe[1].value['Attribute gain'] == 4).all())
+        self.assertTrue((tables(at)[1]['OVR gain'] == 2).all())
+        self.assertTrue((tables(at)[1]['Attribute gain'] == 4).all())
 
     def test_organiser_can_save_verified_top_boy_score(self):
         with patch.dict(os.environ, {'ADMIN_PASSWORD': 'test-password'}):
@@ -123,7 +160,7 @@ class AppTests(unittest.TestCase):
             submit.click()
             at.run()
             self.assertEqual(list(at.exception), [])
-            table = next(t.value for t in at.dataframe if 'Points' in t.value.columns)
+            table = next(t for t in tables(at) if 'Points' in t.columns)
             self.assertEqual(table.Points.max(), 23)
             self.assertEqual(table.iloc[0]['Eligibility'], 'Within cap')
             self.assertEqual(len(b.Store(self.path).latest()), 0)
