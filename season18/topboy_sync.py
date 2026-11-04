@@ -47,6 +47,16 @@ def collect(client,previous=None,delay=.4):
             except ValueError:
                 result['errors'].append({'entrant':entry['entrant'],'player_id':pid,'field':field,'message':'MFL returned an unsupported record format.'})
             if delay:time.sleep(delay)
+    if 'diagnostic_feed' not in result:
+        try:
+            feed=client.request('GET','/matches/feed',params={'playerId':35005,'status':'ENDED','limit':3})
+            result['diagnostic_feed']=feed
+            candidates=feed if isinstance(feed,list) else next((feed[k] for k in ('matches','data','items','results','feed') if isinstance(feed.get(k),list)),[])
+            if candidates:
+                mid=candidates[0].get('id') or candidates[0].get('matchId')
+                if mid:result['diagnostic_match']=client.get(f'/matches/{mid}')
+            result['diagnostic_player_feed']=client.request('GET','/players/35005/matches/feed',params={'limit':3})
+        except (b.APIError,ValueError) as exc:result['diagnostic_notice']=str(exc)
     if not any(e['field'] in ('profile','records') for e in result['errors']):result['last_complete_at']=b.utcnow()
     return result
 
