@@ -59,6 +59,11 @@ def collect(client,previous=None,delay=.4):
                 if mid:result['diagnostic_match']=client.get(f'/matches/{mid}')
             result['diagnostic_player_feed']=client.request('GET','/players/35005/matches/feed',params={'limit':3})
         except (b.APIError,ValueError) as exc:result['diagnostic_notice']=str(exc)
+    if 'player_match_probe' not in result:
+        result['player_match_probe']={}
+        for route in ('/players/35005/matches/feed','/players/35005/stats/matches','/players/35005/statistics/matches'):
+            try:result['player_match_probe'][route]=client.get(route)
+            except b.APIError as exc:result['player_match_probe'][route]={'error':str(exc)}
     if 'api_routes' not in result:
         # Inspect only the public client assets to identify the actual match
         # statistics route instead of guessing paths or trusting global feeds.
