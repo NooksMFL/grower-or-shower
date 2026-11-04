@@ -112,17 +112,17 @@ class AppTests(unittest.TestCase):
         self.assertEqual(at.title[0].value, 'Top Boy')
         self.assertFalse(any('Sponsor' in x.label for x in at.button))
 
-    def test_top_boy_has_sixteen_entries_and_separate_league_table(self):
+    def test_top_boy_has_seventeen_entries_and_separate_league_table(self):
         at = AppTest.from_file(str(ROOT / 'app.py')).run()
         at.button(key='open_topboy').click().run()
         self.assertEqual(list(at.exception), [])
         table_html = next(m.proto.body for m in at.get('html') if '<table class="tb-league-table"' in m.proto.body)
-        self.assertEqual(table_html.count('<tr'), 17)
+        self.assertEqual(table_html.count('<tr'), 18)
         self.assertIn('/90399/photo.webp', table_html)
         self.assertIn('>AVG</abbr>', table_html)
-        self.assertEqual(len(tables(at)[0]), 16)
+        self.assertEqual(len(tables(at)[0]), 17)
         self.assertIn('Points', tables(at)[0].columns)
-        self.assertEqual(set(tables(at)[0].Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock', 'Doineann', 'Dan', 'mmewse', 'Daz Shootz', 'Eddie', 'ShadyM'})
+        self.assertEqual(set(tables(at)[0].Entrant), {'Ricky', 'Hawkeye', 'Minty', 'iKenny', 'Nooks', 'Krystian', 'Rhythm', 'ClarkyIsland', 'hcy', 'BaldSherlock', 'Doineann', 'Dan', 'mmewse', 'Daz Shootz', 'Eddie', 'ShadyM', 'Mike'})
         self.assertTrue(tables(at)[0].Points.isna().all())
         self.assertEqual(len(b.Store(self.path).latest()), 0)
 

@@ -23,10 +23,10 @@ class TopBoyTests(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def test_sixteen_exact_entries(self):
+    def test_seventeen_exact_entries(self):
         self.assertEqual({e['entrant']: e['player_id'] for e in b.entrants('top_boy')}, {
             'Ricky': 35005, 'Hawkeye': 384642, 'Minty': 350909, 'iKenny': 152098,
-            'Nooks': 412176, 'Krystian': 236834, 'Rhythm': 110469, 'ClarkyIsland': 53882, 'hcy': 316875, 'BaldSherlock': 56184, 'Doineann': 240630, 'Dan': 90399, 'mmewse': 127842, 'Daz Shootz': 338443, 'Eddie': 199596, 'ShadyM': 411954})
+            'Nooks': 412176, 'Krystian': 236834, 'Rhythm': 110469, 'ClarkyIsland': 53882, 'hcy': 316875, 'BaldSherlock': 56184, 'Doineann': 240630, 'Dan': 90399, 'mmewse': 127842, 'Daz Shootz': 338443, 'Eddie': 199596, 'ShadyM': 411954, 'Mike': 68936})
 
     def test_league_plus_cup_excludes_arena_friendlies_and_past_season(self):
         totals = tb.player_totals([fixture(), fixture('Aspirants Cup'), fixture('Spark League', 'Season 17'),
