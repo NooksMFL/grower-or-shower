@@ -22,6 +22,12 @@ def snap(when='2026-11-04T18:00:00+00:00',game=None):
     return {'version':1,'season':18,'attempted_at':when,'players':{str(e['player_id']):{'profile':{'player_id':e['player_id'],'player':e['entrant']},'records':copy.deepcopy([game] if game else []),'records_at':when} for e in b.entrants('top_boy')}}
 
 class LiveTests(unittest.TestCase):
+    def test_delay_warning_respects_evening_and_midnight_schedule(self):
+        stamp=lambda s:datetime.fromisoformat(s+'+00:00')
+        self.assertFalse(live_results.scan_delayed(stamp('2026-11-05T00:03:00'),stamp('2026-11-05T18:59:00')))
+        self.assertFalse(live_results.scan_delayed(stamp('2026-11-04T22:03:00'),stamp('2026-11-05T00:10:00')))
+        self.assertTrue(live_results.scan_delayed(stamp('2026-11-04T19:43:00'),stamp('2026-11-04T21:23:00')))
+
     def test_win_credit_excludes_missed_team_matches(self):
         first=record();state=nightly.credit_wins(first)
         self.assertEqual(first['stats']['winsWithAppearance'],1)
@@ -90,10 +96,10 @@ class LiveTests(unittest.TestCase):
         row=current['nights']['2026-11-04']['rows'][0]
         self.assertEqual((row['goals'],row['points'],row['average_rating']),(2,11,9))
 
-    def test_uk_day_bounds_follow_summer_and_winter_time(self):
+    def test_gmt_day_bounds_stay_fixed_all_year(self):
         self.assertEqual(nightly.bounds('2026-11-04')[0].hour,0)
-        self.assertEqual(nightly.bounds('2027-07-01')[0].hour,23)
-        self.assertEqual(nightly.bounds('2027-07-01')[0].day,30)
+        self.assertEqual(nightly.bounds('2027-07-01')[0].hour,0)
+        self.assertEqual(nightly.bounds('2027-07-01')[0].day,1)
     def test_live_import_keeps_grower_baselines_and_reviews(self):
         with tempfile.TemporaryDirectory() as temp:
             store=b.Store(Path(temp)/'data.db');pid=b.entrants()[0]['player_id']
@@ -131,7 +137,7 @@ class NightPageTests(unittest.TestCase):
             at=AppTest.from_file(str(Path(b.__file__).with_name('app.py'))).run()
             at.button(key='open_topboy').click().run()
             self.assertFalse(at.exception)
-            self.assertTrue(any(t.label=='Star of the Night' for t in at.tabs))
+            self.assertTrue(any(t.label=='Star of the Day' for t in at.tabs))
             self.assertTrue(any('11 POINTS' in e.proto.body for e in at.get('html')))
             self.assertEqual(b.Store(Path(temp)/'test.db').latest(),{})
             st.cache_resource.clear()

@@ -1,7 +1,7 @@
 """Read the public Top Boy scheduler feed without modifying Grower data."""
 import json
 import time
-from datetime import datetime,timezone
+from datetime import datetime,timezone,timedelta
 from zoneinfo import ZoneInfo
 import requests
 import streamlit as st
@@ -44,6 +44,15 @@ def apply(store,snapshot):
     return count
 
 
+def scan_delayed(last_complete,now=None):
+    now=now or datetime.now(timezone.utc)
+    # Allow the host 30 minutes to start and finish a scheduled scan.
+    due=[(now-timedelta(days=d)).replace(hour=h,minute=0,second=0,microsecond=0)
+         for d in (0,1) for h in (0,19,20,21,22)]
+    expected=max(t for t in due if t<=now-timedelta(minutes=30))
+    return last_complete<expected
+
+
 def status(snapshot):
     if not snapshot:
         st.caption('Automatic Top Boy results are waiting for the first scheduled scan. Manual refresh remains available.')
@@ -51,22 +60,22 @@ def status(snapshot):
     at=b.timestamp(snapshot.get('last_complete_at'))
     attempt=b.timestamp(snapshot.get('attempted_at'))
     stamp=(at or attempt)
-    label=stamp.astimezone(ZoneInfo('Europe/London')).strftime('%d %b, %H:%M') if stamp else 'not checked'
+    label=stamp.astimezone(timezone.utc).strftime('%d %b, %H:%M') if stamp else 'not checked'
     if snapshot.get('errors'):
         st.warning('Automatic scan has notices. Previously saved results remain available.')
         with st.expander('Automatic scan details'):
             for error in snapshot['errors']:st.write(error['entrant']+': '+error['message'])
-    elif at and (datetime.now(timezone.utc)-at).total_seconds()>1800:
-        st.warning('The scheduled results are delayed. Last full check: '+label+' UK.')
-    st.caption('Top Boy background schedule: every 15 minutes · Last full check: '+label+' UK. Scheduled runs can be delayed by the host.')
+    elif at and scan_delayed(at):
+        st.warning('The scheduled results are delayed. Last full check: '+label+' GMT.')
+    st.caption('Updates at 19:00, 20:00, 21:00 and 22:00 GMT · Star of the Day at midnight GMT · Last full check: '+label+' GMT. Scheduled runs can be delayed by the host.')
 
 
 def render_night(snapshot):
     import html
     import pandas as pd
     import rendering
-    st.subheader('Star of the Night')
-    st.caption('Midnight UK scan · League + cup · 5 per goal, 3 per assist, 1 per win with an appearance. Nightly checkpoint changes determine the result; ties use the night’s average rating.')
+    st.subheader('Star of the Day')
+    st.caption('Midnight GMT scan · League + cup · 5 per goal, 3 per assist, 1 per win with an appearance. Nightly checkpoint changes determine the result; ties use the night’s average rating.')
     nights=(snapshot or {}).get('nights',{})
     if nights:
         selected=st.selectbox('Match night',sorted(nights,reverse=True),key='topboy_night')
@@ -83,7 +92,7 @@ def render_night(snapshot):
         else:st.info('Selection pending: the full night’s match evidence is not available yet. No winner has been guessed.')
         rows=night.get('rows',[])
     else:
-        st.info('The first Star of the Night is selected after the midnight UK scan. It compares that night’s league and cup performance between saved checkpoints.')
+        st.info('The first Star of the Day is selected after the midnight GMT scan. It compares that night’s league and cup performance between saved checkpoints.')
         rows=(snapshot or {}).get('tonight',{}).get('rows',[])
         if rows:st.subheader('Tonight so far')
     if rows:

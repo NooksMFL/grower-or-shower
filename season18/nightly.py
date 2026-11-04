@@ -6,7 +6,7 @@ from datetime import date,datetime,time,timedelta,timezone
 from zoneinfo import ZoneInfo
 import backend as b
 import top_boy as tb
-UK=ZoneInfo('Europe/London')
+UK=timezone.utc
 
 
 def bounds(day):
@@ -147,7 +147,7 @@ def update(snapshot,now=None,opening=None):
                         best=max(r['average_rating'] for r in tied);tied=[r for r in tied if r['average_rating']==best]
                     report.update(status='complete',winners=[r['player_id'] for r in tied])
         nights[day]=report
-    if today not in anchors:anchors[today]={'at':now.isoformat(),'records':current,'source':'Midnight UK scan'}
+    if today not in anchors:anchors[today]={'at':now.isoformat(),'records':current,'source':'Midnight GMT scan'}
     preview=[]
     for entry in entries:
         pid=str(entry['player_id']);value=delta(current[pid],anchors[today]['records'].get(pid,[]))

@@ -100,7 +100,7 @@ def render(store, setting):
         else:
             st.success('Top Boy player profiles and competition records refreshed.')
 
-    league, players, rules, organiser, night = st.tabs(['League table', 'Player cards', 'Rules & caps', 'Organiser', 'Star of the Night'])
+    league, players, rules, organiser, night = st.tabs(['League table', 'Player cards', 'Rules & caps', 'Organiser', 'Star of the Day'])
     with night:live_results.render_night(snapshot)
     df = frame(rows)
     with league:
