@@ -4,6 +4,8 @@ import base64
 import copy
 import json
 import os
+import re
+from urllib.parse import urljoin
 from pathlib import Path
 import time
 import requests
@@ -57,6 +59,27 @@ def collect(client,previous=None,delay=.4):
                 if mid:result['diagnostic_match']=client.get(f'/matches/{mid}')
             result['diagnostic_player_feed']=client.request('GET','/players/35005/matches/feed',params={'limit':3})
         except (b.APIError,ValueError) as exc:result['diagnostic_notice']=str(exc)
+    if 'api_routes' not in result:
+        # Inspect only the public client assets to identify the actual match
+        # statistics route instead of guessing paths or trusting global feeds.
+        try:
+            page=requests.get('https://app.playmfl.com/players/35005/history',timeout=20)
+            urls=re.findall(r'<script[^>]+src=["\']([^"\']+)',page.text)
+            result['api_routes']={'page_status':page.status_code,'scripts':urls,'snippets':[],'chunks':[]}
+            queue=[urljoin(page.url,url) for url in urls];seen=set()
+            while queue and len(seen)<8:
+                url=queue.pop(0)
+                if url in seen:continue
+                seen.add(url);script=requests.get(url,timeout=20)
+                if not script.ok:continue
+                text=script.text
+                chunks=re.findall(r'["\']([^"\']+\.js)["\']',text)
+                wanted=[c for c in chunks if any(k in c.lower() for k in ('player','match','history','stat'))]
+                result['api_routes']['chunks'].extend(wanted[:50])
+                queue.extend(urljoin(url,c) for c in wanted)
+                snippets=re.findall(r'.{0,70}(?:/matches|/players|match-history|playerMatches|matchStats).{0,150}',text)
+                result['api_routes']['snippets'].extend(snippets[:60])
+        except requests.RequestException:result['api_routes']={'error':'Public client discovery unavailable.'}
     if not any(e['field'] in ('profile','records') for e in result['errors']):result['last_complete_at']=b.utcnow()
     return result
 
