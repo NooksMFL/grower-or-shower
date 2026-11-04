@@ -4,12 +4,12 @@ import base64
 import copy
 import json
 import os
-import re
-from urllib.parse import urljoin
 from pathlib import Path
 import time
 import requests
 import backend as b
+import top_boy as tb
+import nightly
 
 LIVE_BRANCH='topboy-live'
 LIVE_PATH='season18/live/topboy.json'
@@ -17,31 +17,46 @@ LIVE_URL='https://raw.githubusercontent.com/NooksMFL/grower-or-shower/topboy-liv
 
 
 def fetch_previous():
-    r=requests.get(LIVE_URL,timeout=20,headers={'Cache-Control':'no-cache'})
-    if r.status_code==404:return {}
-    r.raise_for_status()
-    value=r.json()
-    return value if value.get('version')==1 and value.get('season')==18 else {}
+    repo=os.getenv('GITHUB_REPOSITORY');token=os.getenv('GITHUB_TOKEN')
+    if repo and token:
+        r=requests.get('https://api.github.com/repos/'+repo+'/contents/'+LIVE_PATH,
+                       params={'ref':LIVE_BRANCH},headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'},timeout=20)
+        if r.status_code==404:return {}
+        r.raise_for_status()
+        value=json.loads(base64.b64decode(r.json()['content']))
+    else:
+        r=requests.get(LIVE_URL+'?tick='+str(int(time.time()//60)),timeout=20,headers={'Cache-Control':'no-cache'})
+        if r.status_code==404:return {}
+        r.raise_for_status();value=r.json()
+    if value.get('version')!=1 or value.get('season')!=18:raise ValueError('Unrecognised prior snapshot.')
+    return value
 
 
 def collect(client,previous=None,delay=.4):
     result=copy.deepcopy(previous or {})
     result.update(version=1,season=18,attempted_at=b.utcnow(),errors=[])
     players=result.setdefault('players',{})
-    unsupported=False
     for entry in b.entrants('top_boy'):
         pid=entry['player_id'];row=players.setdefault(str(pid),{'entrant':entry['entrant'],'player_id':pid})
         row['entrant']=entry['entrant']
-        for suffix,field in [('', 'profile'),('/competitions','records'),('/matches','matches')]:
-            if field=='matches' and unsupported:continue
+        tracker=row.setdefault('win_tracker',{})
+        for suffix,field in [('', 'profile'),('/competitions','records')]:
             try:
                 payload=client.get(f'/players/{pid}'+suffix)
-                row[field]=b.profile(payload,pid) if field=='profile' else b.rows(payload)
+                if field=='profile':row[field]=b.profile(payload,pid)
+                else:
+                    records=[]
+                    for record in b.rows(payload):
+                        if tb.competition_kind(record) not in ('league','cup'):continue
+                        stats=copy.deepcopy(record.get('stats') or {})
+                        competition=record.get('competition') or {};club=record.get('club') or {}
+                        clean={'competition':{k:competition[k] for k in ('id','name','type','subType','season','status') if k in competition},
+                               'club':{k:club[k] for k in ('id','name') if k in club},'stats':stats}
+                        identity=nightly.key(clean);tracker[identity]=nightly.credit_wins(clean,tracker.get(identity))
+                        records.append(clean)
+                    row[field]=records
                 row[field+'_at']=b.utcnow()
             except b.APIError as exc:
-                if field=='matches' and 'HTTP 404' in str(exc):
-                    unsupported=True;result['match_endpoint_unavailable']=True
-                    continue
                 result['errors'].append({'entrant':entry['entrant'],'player_id':pid,'field':field,'message':str(exc)})
                 if exc.stop:
                     result['last_error_at']=b.utcnow()
@@ -49,42 +64,9 @@ def collect(client,previous=None,delay=.4):
             except ValueError:
                 result['errors'].append({'entrant':entry['entrant'],'player_id':pid,'field':field,'message':'MFL returned an unsupported record format.'})
             if delay:time.sleep(delay)
-    if 'diagnostic_feed' not in result:
-        try:
-            feed=client.request('GET','/matches/feed',params={'playerId':35005,'status':'ENDED','limit':3})
-            result['diagnostic_feed']=feed
-            candidates=feed if isinstance(feed,list) else next((feed[k] for k in ('matches','data','items','results','feed') if isinstance(feed.get(k),list)),[])
-            if candidates:
-                mid=candidates[0].get('id') or candidates[0].get('matchId')
-                if mid:result['diagnostic_match']=client.get(f'/matches/{mid}')
-            result['diagnostic_player_feed']=client.request('GET','/players/35005/matches/feed',params={'limit':3})
-        except (b.APIError,ValueError) as exc:result['diagnostic_notice']=str(exc)
-    if 'player_match_probe' not in result:
-        result['player_match_probe']={}
-        for route in ('/players/35005/matches/feed','/players/35005/stats/matches','/players/35005/statistics/matches'):
-            try:result['player_match_probe'][route]=client.get(route)
-            except b.APIError as exc:result['player_match_probe'][route]={'error':str(exc)}
-    if 'api_routes' not in result:
-        # Inspect only the public client assets to identify the actual match
-        # statistics route instead of guessing paths or trusting global feeds.
-        try:
-            page=requests.get('https://app.playmfl.com/players/35005/history',timeout=20)
-            urls=re.findall(r'<script[^>]+src=["\']([^"\']+)',page.text)
-            result['api_routes']={'page_status':page.status_code,'scripts':urls,'snippets':[],'chunks':[]}
-            queue=[urljoin(page.url,url) for url in urls];seen=set()
-            while queue and len(seen)<8:
-                url=queue.pop(0)
-                if url in seen:continue
-                seen.add(url);script=requests.get(url,timeout=20)
-                if not script.ok:continue
-                text=script.text
-                chunks=re.findall(r'["\']([^"\']+\.js)["\']',text)
-                wanted=[c for c in chunks if any(k in c.lower() for k in ('player','match','history','stat'))]
-                result['api_routes']['chunks'].extend(wanted[:50])
-                queue.extend(urljoin(url,c) for c in wanted)
-                snippets=re.findall(r'.{0,70}(?:/matches|/players|match-history|playerMatches|matchStats).{0,150}',text)
-                result['api_routes']['snippets'].extend(snippets[:60])
-        except requests.RequestException:result['api_routes']={'error':'Public client discovery unavailable.'}
+    for obsolete in ('api_routes','diagnostic_feed','diagnostic_match','diagnostic_notice','diagnostic_player_feed','player_match_probe','match_endpoint_unavailable'):
+        result.pop(obsolete,None)
+    nightly.update(result)
     if not any(e['field'] in ('profile','records') for e in result['errors']):result['last_complete_at']=b.utcnow()
     return result
 
@@ -108,7 +90,9 @@ def publish(snapshot):
 
 def main():
     try:previous=fetch_previous()
-    except (requests.RequestException,ValueError):previous={}
+    except (requests.RequestException,ValueError,KeyError):
+        print('Previous saved Top Boy results could not be read. Publication skipped to preserve them.')
+        raise SystemExit(1)
     snapshot=collect(b.Client(os.getenv('MFL_REFRESH_TOKEN','')),previous)
     Path('topboy-result.json').write_text(json.dumps(snapshot,ensure_ascii=False,indent=2))
     publish(snapshot)

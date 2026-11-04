@@ -62,7 +62,12 @@ def league_table_html(rows):
 </tr></thead><tbody>''' + ''.join(body) + '</tbody></table></div>'
 
 
+@st.fragment(run_every=60)
 def render(store, setting):
+    import live_results
+    snapshot=live_results.fetch()
+    live_results.apply(store,snapshot)
+    live_results.status(snapshot)
     with st.spinner('Loading any new Top Boy entries…'):
         automatic_messages = tb.refresh_missing(store, b.Client(str(setting('MFL_REFRESH_TOKEN'))))
     if automatic_messages:
@@ -74,7 +79,11 @@ def render(store, setting):
     loaded = sum(bool(r.get('checked_at')) for r in rows)
     complete = sum(r['points'] is not None for r in rows)
     st.html(f'<div class="tb-summary"><strong>{len(rows)} ENTRANTS</strong><span>GOAL <b>+5</b></span><span>ASSIST <b>+3</b></span><span>WIN WITH APPEARANCE <b>+1</b></span></div>')
-    if st.button('↻ Refresh Top Boy', type='primary', width='stretch'):
+    if st.button('↻ Load latest results' if snapshot else '↻ Refresh Top Boy', type='primary', width='stretch'):
+        if snapshot:
+            live_results.fetch.clear()
+            live_results.apply(store,live_results.fetch())
+            st.rerun()
         bar = st.progress(0, text='Refreshing Top Boy players and league / cup records…')
         messages = tb.refresh(store, b.Client(str(setting('MFL_REFRESH_TOKEN'))),
                               lambda n: bar.progress(n, text='Refreshing Top Boy players and league / cup records…'))
@@ -90,7 +99,8 @@ def render(store, setting):
         else:
             st.success('Top Boy player profiles and competition records refreshed.')
 
-    league, players, rules, organiser = st.tabs(['League table', 'Player cards', 'Rules & caps', 'Organiser'])
+    league, players, rules, organiser, night = st.tabs(['League table', 'Player cards', 'Rules & caps', 'Organiser', 'Star of the Night'])
+    with night:live_results.render_night(snapshot)
     df = frame(rows)
     with league:
         provisional = any(r['points'] is None or r['eligibility'] != 'Within cap' for r in rows)

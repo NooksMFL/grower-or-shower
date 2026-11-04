@@ -76,3 +76,18 @@ This protects the same browser on the same app origin. It is **not permanent sha
 The competition views use plain HTML tables instead of Streamlit's lazy-loaded dataframe renderer. File downloads are generated as Blob links inside inline HTML frames, without Streamlit's download-button module. JSON backups also have a copyable-text fallback. CSV exports still use the original dataframes; this change only affects presentation.
 
 Browser backups use a bundled, self-contained component with an inline script and Streamlit's standard message protocol. It has no React bundle, CDN imports or `streamlit_js_eval` runtime calls. The previous dependency is left in requirements to avoid forcing another dependency rebuild; it is no longer used by the app. Refresh jobs, baselines, scoring and database schema are unchanged by this display repair.
+
+
+## Top Boy automatic results and Star of the Night
+
+A separate **Top Boy live results** GitHub Actions workflow is scheduled every 15 minutes. It reads every linked Top Boy profile and Season 18 league/cup competition record even while Streamlit is closed. Successful reads keep their own timestamps. Failures retain the last saved values and publish a visible notice instead of inventing zeros. GitHub may delay scheduled runs; the site shows the actual last full check.
+
+The workflow publishes public player statistics on the separate `topboy-live` branch at `season18/live/topboy.json`. The website checks that feed while Top Boy is open and imports newer Top Boy records only. Grower profiles, baselines and organiser reviews are not overwritten. Updates to the results branch do not redeploy the main Streamlit app. The old Grower workflow is separate and is not used for Top Boy.
+
+Win points are verified from player appearances and club win/draw/loss changes. A team win with no added player appearance earns zero. A period with more team matches than player appearances remains unverified unless the complete player record proves all relevant appearances. Bare team wins are not blindly copied into player points.
+
+**Star of the Night** compares the player's Season 18 league/cup records between nightly checkpoints, scanning at the UK date change (`Europe/London`, including daylight-saving changes). It awards 5 points per goal, 3 per assist and 1 per verified win appearance. Ties use the night's appearance-weighted average rating; exact ties share the award. Missing evidence leaves a pending result. No qualifying appearances means no award. It does not use career totals or friendly/Arena results.
+
+The first night has a Season 18 opening-day zero starting point. Later nights require a saved checkpoint, and the report retains its actual scan timestamps. The midnight workflow can start after 00:00 if the GitHub runner is queued; the award is published after the complete scan. Closed nights are frozen so the following evening cannot change the previous award. Ambiguous/missing results remain pending rather than manufacturing a winner. Results history is retained independently of Streamlit's temporary database.
+
+Repository Actions uses its existing `MFL_REFRESH_TOKEN` secret only if MFL requires authentication. Public first-party player data is read first. GitHub's built-in workflow token writes only the separate results feed; no credentials, Discord webhook or browser session is published. The workflow does not send Discord messages.
