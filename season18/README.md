@@ -54,3 +54,18 @@ The WTS Original theme uses green #26F35C, turquoise #00EBCB, hot pink #FF008B, 
 The main league table is a compact full-length HTML table with player portraits, entrants, player/club names, appearances, goals, assists, qualifying wins and points. All entrants are rendered at once without an internal vertical scrollbar. On narrow screens the entrant appears below the player name. Extra eligibility, source and scoring details remain in the collapsed breakdown.
 
 Top Boy includes AVG, weighted by rated appearances across Season 18 league and cup. Explicit averages and known accumulated rating-point totals are normalised before combining competitions. Unavailable, ambiguous or incomplete rating coverage displays a dash and does not alter the points ranking. The league table is capped at 1100px wide with reduced cell padding and 60px desktop rows to keep the player and numeric columns closer together.
+
+
+## Interrupted refreshes and starting-value recovery
+
+Grower refresh now saves each completed profile, history and competition request separately. **Continue player refresh** skips completed requests and honours MFL's cooldown; the 15-minute rule applies after a fully completed refresh. Existing records from an interrupted older refresh are reused. The cooldown button checks its state every ten seconds. There is no reset action in the normal refresh flow.
+
+A missing baseline can be recovered from a complete state established by dated player history strictly before 4 November 2026. The parser merges partial absolute attribute snapshots in chronological order. It does not sum deltas, use later snapshots, fill absent attributes with zero, or replace an existing baseline. If history cannot establish all seven starting values, the player remains unranked until an organiser provides a valid original backup.
+
+### Browser recovery
+
+Both competitions and the Grower refresh checkpoint are automatically backed up in the same browser. The browser copy is signed server-side using `BACKUP_SIGNING_KEY`, falling back to `MFL_REFRESH_TOKEN`. Prefer a stable `BACKUP_SIGNING_KEY` in Streamlit Secrets; rotating the signing key prevents automatic verification of older browser copies. No signing key or MFL credential is sent to the browser.
+
+On a later app restart, a verified browser copy fills missing records only. Existing server baselines and checkpoints take precedence. The app waits for the browser read to complete before writing, so an empty startup database cannot overwrite a backup before it is read. Unsigned or tampered data is not imported automatically. Older downloaded JSON backups remain restorable through the organiser controls.
+
+This protects the same browser on the same app origin. It is **not permanent shared database hosting**: another browser or a cleared browser store will not contain that copy. Keep downloaded competition backups as an independent copy; the download is now visible above the Grower tabs. The development environment cannot verify recovery from the live MFL API when its security service blocks access.

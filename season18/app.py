@@ -32,6 +32,13 @@ font = base64.b64encode((b.ROOT / 'assets/fonts/OpenSans-CondBold.ttf').read_byt
 st.html('<style>@font-face{font-family:"WTS Condensed";src:url(data:font/ttf;base64,' + font + ') format("truetype");font-weight:700;font-display:swap}' + (b.ROOT / 'wts.css').read_text() + '</style>')
 st.html('''<div class="wts-brandbar"><div class="wts-brandname">WORKTHESPACE<small>MFL COMMUNITY</small></div><a class="mfl-brand" href="https://app.playmfl.com" target="_blank" rel="noopener noreferrer" aria-label="MFL"><img class="mfl-logo" src="https://res.cloudinary.com/lancers-technology/image/upload/v1770748400/web3-explorer/dapp-logos/mfl.png" alt="MFL logo"></a></div>''')
 
+# Restore a server-signed backup before reading either competition's tables.
+import browser_backup
+store=storage()
+backup_secret=str(setting('BACKUP_SIGNING_KEY') or setting('MFL_REFRESH_TOKEN'))
+backup_ready=browser_backup.restore(store,backup_secret)
+for entry in b.entrants():store.recover_baseline(entry['player_id'])
+
 page = st.session_state.get('competition_page')
 if page not in ('Grower or Shower', 'Top Boy'):
     st.html('<div class="wts-hero"><div class="wts-hero-title"><span>WORKTHESPACE</span><span>MFL COMMUNITY</span></div><div class="wts-season">SEASON 18</div></div>')
@@ -47,6 +54,7 @@ if page not in ('Grower or Shower', 'Top Boy'):
         if st.button('Top Boy', key='open_topboy', type='primary', width='stretch'):
             st.session_state['competition_page'] = 'Top Boy'
             st.rerun()
+    browser_backup.save(store,backup_secret,backup_ready)
     st.stop()
 
 if st.button('← Competitions', key='back_to_competitions'):
@@ -56,7 +64,8 @@ st.html('<div class="kicker">WORKTHESPACE MFL COMMUNITY · SEASON 18</div>')
 st.title(page)
 if page == 'Top Boy':
     import top_boy_page
-    top_boy_page.render(storage(), setting)
+    top_boy_page.render(store, setting)
+    browser_backup.save(store,backup_secret,backup_ready)
     st.stop()
 
 store = storage()
@@ -71,31 +80,16 @@ for col, title, value in zip(cols, ['Linked entries', 'Players loaded', 'Startin
     col.metric(title, value)
 
 st.write('')
-left, right = st.columns([1, 3])
-with left:
-    refresh = st.button('↻ Refresh player data', type='primary', width='stretch')
-with right:
-    st.caption('Fetches names, age, positions, current clubs, OVR and all six attributes. Shared refresh limit: once every 15 minutes.')
-if refresh:
-    bar = st.progress(0, text='Checking entrants with MFL…')
-    messages = store.refresh(b.Client(str(setting('MFL_REFRESH_TOKEN'))), lambda value: bar.progress(value, text='Checking entrants with MFL…'))
-    bar.empty()
-    st.session_state['refresh_messages'] = messages
-    st.rerun()
-if 'refresh_messages' in st.session_state:
-    messages = st.session_state['refresh_messages']
-    if messages:
-        st.warning('Refresh has notices. Any previously saved data is retained.')
-        with st.expander('Refresh details', expanded=saved == 0):
-            for message in messages:
-                st.write(message)
-    else:
-        st.success(f'All {len(entries)} player profiles, progression histories and competition records refreshed.')
-
+import grower_controls
+grower_controls.render(store,setting)
 if baselines < len(entries):
-    st.info('Starting values: the first complete player refresh before Wednesday, 4 November is saved as that player’s baseline. Refresh before training starts; later values cannot automatically become a baseline.')
-if baselines:
-    st.warning('Download a competition backup after capturing starting values. Streamlit’s local storage may reset on a reboot or redeploy; keep the backup to restore them.')
+    st.info(f'{baselines} of {len(entries)} starting values are available. Refresh reads dated player history to recover missing values from before 4 November. Missing starting values stay unranked; current stats are never used as a replacement.')
+if not backup_secret:
+    st.warning('Automatic browser backup is unavailable. Download a competition backup after refreshing.')
+elif backup_ready:
+    st.caption('Automatic backup is enabled for this browser. Keep a downloaded competition backup as a separate copy.')
+st.download_button('Download competition backup',store.backup(),'competitions_s18_backup.json','application/json',key='grower_visible_backup')
+
 if not confirmed:
     st.caption('Growth is measured from saved starting values. Competition ranks await confirmation of scoring and tie-break rules.')
 
@@ -206,3 +200,5 @@ with st.expander('Organiser · restore saved competition data'):
 
 st.divider()
 st.caption('Season 18 · Grower or Shower & Top Boy · Independent competition app · All times shown in UTC')
+
+browser_backup.save(store,backup_secret,backup_ready)

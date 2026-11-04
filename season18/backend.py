@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import json
 import math
+import time
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -132,9 +133,10 @@ def profile(payload, pid):
 
 
 class APIError(RuntimeError):
-    def __init__(self, message, stop=False):
+    def __init__(self, message, stop=False, retry_after=180):
         super().__init__(message)
         self.stop = stop
+        self.retry_after = retry_after
 
 
 class Client:
@@ -154,7 +156,9 @@ class Client:
             raise APIError('MFL could not be reached. Previously saved data is retained.') from None
         # Never include response bodies or credentials in diagnostics.
         if r.status_code == 429:
-            raise APIError('MFL rate limit reached. Wait before refreshing again.', stop=True)
+            try: wait = max(30, int(r.headers.get('Retry-After', 180)))
+            except (TypeError, ValueError): wait = 180
+            raise APIError('MFL asked us to wait. Completed requests are saved.', stop=True, retry_after=wait)
         if r.status_code == 403 and 'text/html' in r.headers.get('content-type', ''):
             raise APIError('MFL security service blocked this server (HTTP 403).', stop=True)
         if r.status_code == 401 and method == 'GET' and self.refresh_token and not self.auth_attempted:
@@ -181,24 +185,23 @@ def baseline_from_history(events, cutoff):
     end = timestamp(cutoff)
     if end is None:
         return None
-    candidates = []
+    dated=[]
     for event in events:
-        date = timestamp(next((event[k] for k in ('createdAt', 'date', 'timestamp', 'created_at', 'updatedAt') if event.get(k)), None))
-        if date is None or date > end:
-            continue
-        # No delta summing or inference from later snapshots.
-        for key in ('after', 'newValues', 'values', 'player', 'metadata', 'data', None):
-            obj = event if key is None else event.get(key)
-            if not isinstance(obj, dict):
-                continue
-            values = stats(obj)
-            if all(values[f] is not None for f in FIELDS):
-                candidates.append((date, values))
-                break
-    if not candidates:
-        return None
-    date, values = max(candidates, key=lambda x: x[0])
-    return {'at': date.isoformat(), **values}
+        date=timestamp(next((event[k] for k in ('createdAt','date','timestamp','created_at','updatedAt') if event.get(k)),None))
+        if date is None or date>=end:continue
+        values={}
+        for key in (None,'after','newValues','values','player','metadata','data'):
+            obj=event if key is None else event.get(key)
+            if isinstance(obj,dict):
+                values.update({f:v for f,v in stats(obj).items() if v is not None and 0<=v<=100})
+        if values:dated.append((date,values))
+    # MFL history can contain an initial full snapshot followed by partial
+    # absolute attribute values. Merge chronologically; never sum deltas.
+    current={};last=None
+    for date,values in sorted(dated,key=lambda item:item[0]):
+        current.update(values);last=date
+    if not all(f in current for f in FIELDS):return None
+    return {'at':last.isoformat(),**current}
 
 
 def league_performance(records):
@@ -249,6 +252,7 @@ class Store:
                 CREATE TABLE IF NOT EXISTS histories(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS competitions(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS refreshes(id INTEGER PRIMARY KEY CHECK(id=1),at TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS grower_refresh_state(id INTEGER PRIMARY KEY CHECK(id=1),payload TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS baselines(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,at TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS topboy_profiles(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,checked_at TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS topboy_competitions(player_id INTEGER PRIMARY KEY,payload TEXT NOT NULL,checked_at TEXT NOT NULL);
@@ -307,7 +311,7 @@ class Store:
             tables = {table: c.execute(f'SELECT * FROM {table}').fetchall()
                       for table in ('profiles', 'baselines', 'histories', 'competitions') + TOPBOY_TABLES}
         from sponsor import get
-        return json.dumps({'version': 1, 'season': 18, 'tables': tables, 'sponsor': get(self)}, indent=2)
+        return json.dumps({'version': 1, 'season': 18, 'tables': tables, 'sponsor': get(self), 'grower_refresh': self.refresh_state()}, indent=2)
 
     def restore(self, content):
         data = json.loads(content)
@@ -348,43 +352,101 @@ class Store:
                     from top_boy import validate_review
                     validate_review(payload)
                 validated[table].append(tuple(row))
+        job=data.get('grower_refresh') or {}
+        if not isinstance(job,dict):raise ValueError('Invalid refresh checkpoint.')
+        if job:
+            valid_tables={'profiles','histories','competitions'}
+            if job.get('status') not in ('running','paused','complete') or not isinstance(job.get('done'),list):
+                raise ValueError('Invalid refresh checkpoint.')
+            if any(not isinstance(r,list) or len(r)!=2 or r[0] not in allowed or r[1] not in valid_tables for r in job['done']):
+                raise ValueError('Invalid refresh checkpoint.')
+            if number(job.get('retry_until',0)) is None:raise ValueError('Invalid refresh wait time.')
+            if job['status']=='running':job={**job,'status':'paused'}
         with self.connect() as c:
             for table, records in validated.items():
                 placeholders = '?,?,?' if table in ('profiles', 'baselines') + TOPBOY_TABLES else '?,?'
                 # Restore missing records only: never overwrite an existing baseline.
                 c.executemany(f'INSERT OR IGNORE INTO {table} VALUES({placeholders})', records)
+            if job:
+                c.execute('INSERT OR IGNORE INTO grower_refresh_state VALUES(1,?)',(json.dumps(job),))
             if artwork is not None:
                 c.execute('INSERT OR IGNORE INTO site_assets VALUES(?,?,?)', ('sponsor', artwork[0], artwork[1]))
 
-    def refresh(self, client, progress=None):
-        if not self.claim_refresh():
-            return ['A refresh was already attempted in the last 15 minutes. Saved data is shown.']
-        messages = []
-        entries = entrants()
-        for i, entry in enumerate(entries):
-            pid = entry['player_id']
-            stop = False
-            for endpoint, table in ((f'/players/{pid}', 'profiles'),
-                                    (f'/players/{pid}/experiences/history', 'histories'),
-                                    (f'/players/{pid}/competitions', 'competitions')):
-                try:
-                    data = client.get(endpoint)
-                    if table == 'profiles':
-                        self.save_profile(pid, profile(data, pid))
-                    elif table == 'histories':
-                        self.save(table, pid, rows(data))
-                    else:
-                        self.save(table, pid, {'records': rows(data), 'checked_at': utcnow()})
-                except (APIError, ValueError) as exc:
-                    messages.append(f"{entry['entrant']}: {exc}")
-                    if isinstance(exc, APIError) and exc.stop:
-                        stop = True
-                        break
-            if progress:
-                progress((i + 1) / len(entries))
-            if stop:
-                messages.append('Refresh stopped; previously saved data is retained for all remaining players.')
+    def refresh_state(self):
+        with self.connect() as c:
+            row=c.execute('SELECT payload FROM grower_refresh_state WHERE id=1').fetchone()
+        return json.loads(row[0]) if row else {}
+
+    def recover_baseline(self,pid):
+        if self.baseline(pid):return False
+        baseline=baseline_from_history(self.history(pid),TRAINING_START)
+        if not baseline:return False
+        values={f:baseline[f] for f in FIELDS}
+        values['source']='Dated player history'
+        with self.connect() as c:
+            c.execute('INSERT OR IGNORE INTO baselines VALUES(?,?,?)',(pid,json.dumps(values),baseline['at']))
+        return True
+
+    def _save_refresh(self,state):
+        with self.connect() as c:
+            c.execute('INSERT OR REPLACE INTO grower_refresh_state VALUES(1,?)',(json.dumps(state),))
+
+    def refresh(self,client,progress=None,delay=.35):
+        entries=entrants()
+        tasks=[(e['player_id'],table) for e in entries for table in ('profiles','histories','competitions')]
+        names={e['player_id']:e['entrant'] for e in entries}
+        with self.connect() as c:
+            c.execute('BEGIN IMMEDIATE')
+            row=c.execute('SELECT payload FROM grower_refresh_state WHERE id=1').fetchone()
+            state=json.loads(row[0]) if row else {}
+            if state.get('retry_until',0)>time.time():
+                seconds=max(1,math.ceil(state['retry_until']-time.time()))
+                return [f'MFL wait: {seconds} seconds remaining. Saved progress is kept.']
+            if state.get('status')=='running' and time.time()-state.get('heartbeat',0)<120:
+                return ['A refresh is already running. Saved progress is kept.']
+            if state.get('status')=='complete':
+                completed=timestamp(state.get('completed_at'))
+                if completed and (datetime.now(timezone.utc)-completed).total_seconds()<900:
+                    return ['The last full refresh finished less than 15 minutes ago. Saved data is shown.']
+                state={}
+            if not state:
+                # One-time recovery of an interrupted legacy refresh: use records
+                # already present instead of fetching those endpoints again.
+                done=[]
+                if not row:
+                    for pid,table in tasks:
+                        if c.execute(f'SELECT 1 FROM {table} WHERE player_id=?',(pid,)).fetchone():done.append([pid,table])
+                state={'status':'paused','done':done,'started_at':utcnow()}
+            state.update(status='running',heartbeat=time.time(),error=None,retry_until=0)
+            c.execute('INSERT OR REPLACE INTO grower_refresh_state VALUES(1,?)',(json.dumps(state),))
+        done={tuple(x) for x in state['done']}
+        # Recover from histories already saved before the interrupted attempt.
+        for entry in entries:self.recover_baseline(entry['player_id'])
+        messages=[]
+        for pid,table in tasks:
+            if (pid,table) in done:continue
+            endpoint=f'/players/{pid}'+{'profiles':'','histories':'/experiences/history','competitions':'/competitions'}[table]
+            try:
+                data=client.get(endpoint)
+                if table=='profiles':self.save_profile(pid,profile(data,pid))
+                elif table=='histories':
+                    self.save(table,pid,rows(data));self.recover_baseline(pid)
+                else:self.save(table,pid,{'records':rows(data),'checked_at':utcnow()})
+                done.add((pid,table))
+                state.update(done=[list(t) for t in tasks if t in done],heartbeat=time.time())
+                self._save_refresh(state)
+            except (APIError,ValueError) as exc:
+                messages.append(f'{names[pid]}: {exc}')
+                state.update(status='paused',error=str(exc),heartbeat=time.time())
+                state['retry_until']=time.time()+getattr(exc,'retry_after',30)
+                self._save_refresh(state)
+                messages.append(f'Refresh stopped; {len(done)} of {len(tasks)} requests are saved. Continue after the wait to finish the rest.')
                 break
+            if progress:progress(len(done)/len(tasks))
+            if delay:time.sleep(delay)
+        if len(done)==len(tasks):
+            state.update(status='complete',completed_at=utcnow(),retry_until=0,error=None)
+            self._save_refresh(state)
         return messages
 
 

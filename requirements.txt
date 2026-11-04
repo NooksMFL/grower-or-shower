@@ -2,3 +2,4 @@ requests
 python-dotenv
 streamlit==1.49.1
 pandas
+streamlit-js-eval>=0.1.7,<1
