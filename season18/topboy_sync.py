@@ -33,6 +33,23 @@ def fetch_previous():
     return value
 
 
+def rank_positions(snapshot):
+    scores=[]
+    for entry in b.entrants('top_boy'):
+        row=snapshot.get('players',{}).get(str(entry['player_id']),{})
+        if 'records' not in row:return {}
+        totals=tb.player_totals(row['records'])
+        score=tb.points(totals['goals'],totals['assists'],totals['wins'])
+        if score is None:return {}
+        scores.append((str(entry['player_id']),score))
+    scores.sort(key=lambda r:-r[1])
+    positions={};last=None;position=None
+    for index,(pid,score) in enumerate(scores,1):
+        if score!=last:position=index
+        positions[pid]=position;last=score
+    return positions
+
+
 def collect(client,previous=None,delay=.4):
     result=copy.deepcopy(previous or {})
     result.update(version=1,season=18,attempted_at=b.utcnow(),errors=[])
@@ -68,7 +85,14 @@ def collect(client,previous=None,delay=.4):
     for obsolete in ('api_routes','diagnostic_feed','diagnostic_match','diagnostic_notice','diagnostic_player_feed','player_match_probe','match_endpoint_unavailable'):
         result.pop(obsolete,None)
     nightly.update(result,opening=nightly.opening_checkpoint())
-    if not any(e['field'] in ('profile','records') for e in result['errors']):result['last_complete_at']=b.utcnow()
+    if not any(e['field'] in ('profile','records') for e in result['errors']):
+        result['last_complete_at']=b.utcnow()
+        positions=rank_positions(result)
+        if positions:
+            old=previous or {}
+            result['previous_positions']=old.get('positions') or (rank_positions(old) if not old.get('errors') else {})
+            result['positions']=positions
+            result['movement_compared_at']=old.get('last_complete_at')
     return result
 
 

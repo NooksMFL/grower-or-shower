@@ -89,3 +89,6 @@ button:focus-visible,a:focus-visible {outline:3px solid var(--wts-black)!importa
 .tb-league-table .tb-rating {width:78px;text-align:center;font-size:1.1rem;font-weight:800;background:#ddfff2;font-variant-numeric:tabular-nums}
 .tb-league-table thead .tb-rating {background:#00ebcb;font-size:.85rem}
 @media(max-width:650px) {.tb-league-table .tb-rating {width:43px;font-size:.86rem}.tb-league-table thead .tb-rating {font-size:.65rem}.tb-league-table .tb-number {width:25px}.tb-league-table .tb-place {width:23px}.tb-league-table .tb-points {width:37px}.tb-player img {width:30px;height:40px}.tb-player a {gap:.2rem}}
+
+.tb-league-table .tb-place .tb-movement {display:block;font-size:.72rem;font-weight:800;line-height:1.2;margin-top:5px;white-space:nowrap;background:transparent;padding:0}
+.tb-movement-up {color:#087b40}.tb-movement-down {color:#c32647}.tb-movement-same {color:#778087}

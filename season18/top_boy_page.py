@@ -46,8 +46,13 @@ def league_table_html(rows):
         leader = ' class="tb-leader"' if row.get('position') == 1 and row.get('points') is not None else ''
         numbers = ''.join(f'<td class="tb-number">{display(row.get(key))}</td>' for key in ('appearances', 'goals', 'assists', 'wins'))
         rating = f"{row['average_rating']:.2f}" if row.get('average_rating') is not None else '—'
+        change=row.get('movement')
+        label='—' if change is None or change==0 else ('↑' if change>0 else '↓')+str(abs(change))
+        direction='up' if change and change>0 else 'down' if change and change<0 else 'same'
+        description=('Up ' if change and change>0 else 'Down ')+str(abs(change))+' places since previous completed update' if change else 'No movement or no previous comparison'
+        movement=f'<small class="tb-movement tb-movement-{direction}" title="{description}" aria-label="{description}">{label}</small>'
         body.append(f'''<tr{leader}>
-<td class="tb-place"><span>{display(row.get('position'))}</span></td>
+<td class="tb-place"><span>{display(row.get('position'))}</span>{movement}</td>
 <th scope="row" class="tb-entrant">{esc(row['entrant'])}</th>
 <td class="tb-player"><a href="https://app.playmfl.com/players/{pid}" target="_blank" rel="noopener noreferrer">
 <img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{pid}/photo.webp" alt="" width="36" height="40" loading="lazy">
@@ -77,6 +82,10 @@ def render(store, setting):
             for message in automatic_messages:
                 st.write(message)
     rows = tb.leaderboard(store)
+    previous_positions=(snapshot or {}).get('previous_positions',{})
+    for row in rows:
+        prior=previous_positions.get(str(row['player_id']))
+        row['movement']=prior-row['position'] if isinstance(prior,int) and row.get('position') is not None and row.get('review',{}).get('manual_totals') is None else None
     loaded = sum(bool(r.get('checked_at')) for r in rows)
     complete = sum(r['points'] is not None for r in rows)
     st.html(f'<div class="tb-summary"><strong>{len(rows)} ENTRANTS</strong><span>GOAL <b>+5</b></span><span>ASSIST <b>+3</b></span><span>WIN WITH APPEARANCE <b>+1</b></span></div>')
@@ -106,7 +115,7 @@ def render(store, setting):
     with league:
         provisional = any(r['points'] is None or r['eligibility'] != 'Within cap' for r in rows)
         st.html(league_table_html(rows))
-        st.caption(f'{loaded}/{len(rows)} profiles loaded · {complete}/{len(rows)} complete scores · ' + ('Provisional: scoring or eligibility checks pending. ' if provisional else '') + 'Equal points share a position. — means unavailable.')
+        st.caption(f'{loaded}/{len(rows)} profiles loaded · {complete}/{len(rows)} complete scores · ' + ('Provisional: scoring or eligibility checks pending. ' if provisional else '') + 'Arrows show places changed since the previous completed update. Equal points share a position. — means no movement or unavailable.')
         if any(r['wins'] is None for r in rows):
             st.caption('A club’s win total cannot prove that this player appeared. If MFL does not provide appearance-scoped wins, the organiser can enter verified full-season totals below.')
         with st.expander('Points breakdown and data sources'):
