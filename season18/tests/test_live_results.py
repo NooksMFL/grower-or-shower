@@ -51,13 +51,15 @@ class LiveTests(unittest.TestCase):
         self.assertEqual(live_results.day_leaders({'rows':[a,b]}),[])
 
     def test_rank_movement_uses_shared_positions_and_rejects_incomplete_scores(self):
-        before=snap(game=record(goals=0,assists=0,wins=0,losses=1))
+        def verified(**kw):
+            row=record(**kw);row['stats']['winsWithAppearance']=row['stats']['wins'];return row
+        before=snap(game=verified(goals=0,assists=0,wins=0,losses=1))
         ids=list(before['players'])
-        before['players'][ids[0]]['records']=[record(goals=3)]
-        before['players'][ids[1]]['records']=[record(goals=2)]
+        before['players'][ids[0]]['records']=[verified(goals=3)]
+        before['players'][ids[1]]['records']=[verified(goals=2)]
         old=sync.rank_positions(before)
         after=copy.deepcopy(before)
-        after['players'][ids[1]]['records']=[record(goals=4)]
+        after['players'][ids[1]]['records']=[verified(goals=4)]
         current=sync.rank_positions(after)
         self.assertEqual(old[ids[1]]-current[ids[1]],1)
         self.assertEqual(old[ids[0]]-current[ids[0]],-1)
