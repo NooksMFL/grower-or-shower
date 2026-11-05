@@ -68,6 +68,28 @@ class LiveTests(unittest.TestCase):
         del after['players'][ids[3]]['records']
         self.assertEqual(sync.rank_positions(after),{})
 
+    def test_daily_movement_stays_visible_across_polls_for_every_player(self):
+        before=snap(game=record(goals=0,wins=0,losses=1))
+        ids=list(before['players'])
+        def played(goals):
+            r=record(goals=goals);r['stats']['winsWithAppearance']=1;return r
+        for r in before['players'].values():r['records'][0]['stats']['winsWithAppearance']=0
+        before['players'][ids[0]]['records']=[played(4)]
+        before['players'][ids[1]]['records']=[played(3)]
+        before['players'][ids[2]]['records']=[played(2)]
+        current=copy.deepcopy(before)
+        current['tonight']={'day':'2026-11-05'}
+        current['night_checkpoints']={'2026-11-05':{'records':{pid:r['records'] for pid,r in before['players'].items()}}}
+        current['players'][ids[2]]['records']=[played(5)]
+        baseline=sync.day_start_positions(current)
+        positions=sync.rank_positions(current)
+        self.assertEqual(len(baseline),len(b.entrants('top_boy')))
+        self.assertEqual(baseline[ids[2]]-positions[ids[2]],2)
+        self.assertEqual(baseline[ids[0]]-positions[ids[0]],-1)
+        current['previous_positions']=positions
+        self.assertEqual(sync.day_start_positions(current),baseline)
+        self.assertEqual(sync.day_start_positions({}),{})
+
     def test_win_credit_excludes_missed_team_matches(self):
         first=record();state=nightly.credit_wins(first)
         self.assertEqual(first['stats']['winsWithAppearance'],1)

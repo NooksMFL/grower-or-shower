@@ -50,6 +50,14 @@ def rank_positions(snapshot):
     return positions
 
 
+def day_start_positions(snapshot):
+    # A day's opening checkpoint stays fixed as subsequent polls arrive.
+    day=(snapshot.get('tonight') or {}).get('day')
+    anchor=(snapshot.get('night_checkpoints') or {}).get(day,{})
+    records=anchor.get('records',{})
+    return rank_positions({'players':{pid:{'records':rows} for pid,rows in records.items()}})
+
+
 def collect(client,previous=None,delay=.4):
     result=copy.deepcopy(previous or {})
     result.update(version=1,season=18,attempted_at=b.utcnow(),errors=[])
