@@ -92,3 +92,35 @@ button:focus-visible,a:focus-visible {outline:3px solid var(--wts-black)!importa
 
 .tb-league-table .tb-place .tb-movement {display:block;font-size:.72rem;font-weight:800;line-height:1.2;margin-top:5px;white-space:nowrap;background:transparent;padding:0}
 .tb-movement-up {color:#087b40}.tb-movement-down {color:#c32647}.tb-movement-same {color:#778087}
+
+/* Compact award card: explicit typography avoids oversized global heading styles. */
+.star-card {width:100%;max-width:760px;overflow:hidden;border:3px solid #101014;border-radius:16px;background:#fff;color:#101014;box-shadow:5px 6px 0 #10101422;margin:0 0 16px;box-sizing:border-box}
+.star-card .star-card-header {display:flex;align-items:center;justify-content:space-between;gap:10px;background:#101014;border-top:7px solid #ff008b;padding:12px 18px;color:#fff;line-height:1.2}
+.star-card-header>span {font-size:1rem;font-weight:850;letter-spacing:.08em;color:#00ebcb}
+.star-card-header time {font-size:.78rem;color:#ddd;white-space:nowrap}
+.star-card .star-card-main {display:grid;grid-template-columns:38% 1fr;align-items:stretch;min-height:0}
+.star-card .star-portrait {display:flex;align-items:flex-end;justify-content:center;background:linear-gradient(135deg,#defff2,#f4fffc);overflow:hidden}
+.star-card .star-portrait img {display:block;width:100%;height:240px;object-fit:contain;object-position:center bottom;margin:0}
+.star-card .star-details {display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:18px 20px;gap:6px;min-width:0}
+.star-card .star-owner {font-size:.9rem;font-weight:800;color:#b00063;line-height:1.2;margin:0}
+.star-card .star-player {font-family:'WTS Condensed',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.04;overflow-wrap:anywhere;margin:0;padding:0}
+.star-card .star-apps {font-size:.8rem;color:#59616b;line-height:1.3;margin:0}
+.star-card .star-points {margin:8px 0 0;padding:7px 12px;background:#ff008b;color:white;border-radius:7px;font-size:1.4rem;font-weight:850;line-height:1.1}
+.star-card .star-stats {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#101014;padding:12px 4px;color:white;gap:0}
+.star-card .star-stat {display:flex;flex-direction:column;align-items:center;gap:3px;border-right:1px solid #ffffff26;line-height:1.15}
+.star-card .star-stat:last-child {border-right:0}
+.star-card .star-stat strong {font-size:1.45rem;color:#fff}
+.star-card .star-stat span {font-size:.63rem;font-weight:700;letter-spacing:.06em;color:#00ebcb;white-space:nowrap}
+@media(max-width:650px) {
+.star-card {border-radius:12px;margin-bottom:12px}
+.star-card .star-card-header {padding:10px 12px;gap:6px}
+.star-card-header>span {font-size:.76rem;letter-spacing:.04em}
+.star-card-header time {font-size:.66rem}
+.star-card .star-portrait img {height:190px}
+.star-card .star-details {padding:12px;gap:5px}
+.star-card .star-player {font-size:1.85rem;line-height:1.03}
+.star-card .star-owner {font-size:.8rem}
+.star-card .star-points {font-size:1.12rem;padding:7px 9px;margin-top:6px}
+.star-card .star-stat strong {font-size:1.25rem}
+.star-card .star-stat span {font-size:.55rem}
+}

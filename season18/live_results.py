@@ -84,37 +84,48 @@ def day_leaders(preview):
     return tied
 
 
+def star_card_html(row,day):
+    import html
+    esc=lambda value:html.escape(str(value),quote=True)
+    average=f"{row['average_rating']:.2f}" if row.get('average_rating') is not None else '—'
+    count=row.get('appearances',0)
+    appearance=f"{count} appearance"+('' if count==1 else 's')
+    stats=''.join(f'<div class="star-stat"><strong>{esc(value)}</strong><span>{label}</span></div>'
+                  for value,label in ((row['goals'],'GOALS'),(row['assists'],'ASSISTS'),(row['wins'],'WINS'),(average,'AVG RATING')))
+    return f'''<article class="star-card" aria-label="Star of the Day: {esc(row['player'])}">
+<div class="star-card-header"><span>★ STAR OF THE DAY</span><time>{esc(day)}</time></div>
+<div class="star-card-main"><div class="star-portrait"><img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{int(row['player_id'])}/photo.webp" alt="{esc(row['player'])}"></div>
+<div class="star-details"><div class="star-owner">{esc(row['entrant'])}</div><div class="star-player">{esc(row['player'])}</div><div class="star-apps">{appearance}</div><div class="star-points"><strong>{row['points']} POINTS</strong></div></div></div>
+<div class="star-stats">{stats}</div></article>'''
+
+
 def render_night(snapshot):
     import html
     import pandas as pd
     import rendering
-    st.subheader('Star of the Day')
-    st.caption('Midnight GMT scan · League + cup · 5 per goal, 3 per assist, 1 per win with an appearance. Nightly checkpoint changes determine the result; ties use the night’s average rating.')
     preview=(snapshot or {}).get('tonight',{})
     today=datetime.now(timezone.utc).date().isoformat()
     if preview.get('day')==today:
-        st.subheader('Today so far · '+today)
-        st.caption('Provisional — final award follows the midnight GMT scan. Checked: '+str((snapshot or {}).get('last_complete_at','not checked')))
+        checked=b.timestamp((snapshot or {}).get('last_complete_at'))
+        stamp=checked.strftime('%H:%M GMT') if checked else 'not checked'
+        st.caption('Today’s results · Final award after midnight GMT · Updated '+stamp)
         covered={r.get('player_id') for r in preview.get('rows',[])}
         expected={e['player_id'] for e in b.entrants('top_boy')}
         leaders=day_leaders(preview) if covered==expected else []
         if leaders:
             for row in leaders:
-                esc=lambda v:html.escape(str(v))
-                avg=f"{row['average_rating']:.2f}" if row.get('average_rating') is not None else '—'
-                st.html(f'<div style="background:white;border:3px solid #101014;border-top:8px solid #ff008b;border-radius:12px;padding:20px;display:flex;gap:20px;align-items:center"><img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{row["player_id"]}/photo.webp" alt="" style="width:110px;height:145px;object-fit:contain"><div><strong style="color:#b00063">{esc(row["entrant"])} · PROVISIONAL LEADER</strong><h2>{esc(row["player"])}</h2><p>{row["appearances"]} appearances · <strong>{row["points"]} POINTS</strong> · {row["goals"]} goals · {row["assists"]} assists · {row["wins"]} wins · {avg} AVG</p></div></div>')
+                st.html(star_card_html(row,today))
         else:st.info('No verified leader yet. Waiting for qualifying appearances or complete results.')
     nights=(snapshot or {}).get('nights',{})
     if nights:
-        selected=st.selectbox('Match night',sorted(nights,reverse=True),key='topboy_night')
+        st.subheader('Previous winners')
+        selected=st.selectbox('Date',sorted(nights,reverse=True),key='topboy_night')
         night=nights[selected]
         winners=night.get('winners',[])
         if night['status']=='complete':
             for row in night['rows']:
                 if row['player_id'] not in winners:continue
-                esc=lambda v:html.escape(str(v))
-                average=f"{row['average_rating']:.2f}" if row['average_rating'] is not None else '—'
-                st.html(f'<div style="background:white;border:3px solid #101014;border-top:8px solid #ff008b;border-radius:12px;padding:24px;display:flex;gap:24px;align-items:center"><img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{row["player_id"]}/photo.webp" alt="" style="width:160px;height:200px;object-fit:contain"><div><strong style="color:#b00063">{esc(row["entrant"])} · {esc(selected)}</strong><h2>{esc(row["player"])}</h2><p><strong>{row["points"]} POINTS</strong> · {row["goals"]} goals · {row["assists"]} assists · {row["wins"]} wins · {average} AVG</p></div></div>')
+                st.html(star_card_html(row,selected))
             if len(winners)>1:st.caption('Joint winners: points and average rating are tied.')
         elif night['status']=='no_matches':st.info('No qualifying player appearances on this date.')
         else:st.info('Selection pending: the full night’s match evidence is not available yet. No winner has been guessed.')
