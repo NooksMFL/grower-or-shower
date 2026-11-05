@@ -28,6 +28,17 @@ class LiveTests(unittest.TestCase):
         self.assertFalse(live_results.scan_delayed(stamp('2026-11-04T22:03:00'),stamp('2026-11-05T00:10:00')))
         self.assertTrue(live_results.scan_delayed(stamp('2026-11-04T19:43:00'),stamp('2026-11-04T21:23:00')))
 
+    def test_scheduled_retries_only_collect_unfinished_hourly_slot(self):
+        now=datetime(2026,11,5,20,40,tzinfo=timezone.utc)
+        self.assertTrue(sync.schedule_due({'last_complete_at':'2026-11-05T02:02:00Z'},now))
+        self.assertFalse(sync.schedule_due({'last_complete_at':'2026-11-05T20:03:00Z'},now))
+        self.assertTrue(sync.schedule_due({'last_complete_at':'2026-11-05T19:43:00Z'},now))
+        late=datetime(2026,11,5,23,40,tzinfo=timezone.utc)
+        self.assertFalse(sync.schedule_due({'last_complete_at':'2026-11-05T22:03:00Z'},late))
+        midnight=datetime(2026,11,6,0,20,tzinfo=timezone.utc)
+        self.assertTrue(sync.schedule_due({'last_complete_at':'2026-11-05T22:03:00Z'},midnight))
+        self.assertFalse(sync.schedule_due({'last_complete_at':'2026-11-06T00:03:00Z'},midnight))
+
     def test_win_credit_excludes_missed_team_matches(self):
         first=record();state=nightly.credit_wins(first)
         self.assertEqual(first['stats']['winsWithAppearance'],1)

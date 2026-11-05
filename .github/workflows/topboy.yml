@@ -1,7 +1,9 @@
 name: Top Boy live results
 on:
   schedule:
-    - cron: '0 0,19-22 * * *'
+    # Retry missed slots; the worker skips slots already completed. All UTC/GMT.
+    - cron: '0,20,40 19-23 * * *'
+    - cron: '0,20,40 0-2 * * *'
   workflow_dispatch:
   push:
     branches: [main]

@@ -5,6 +5,7 @@ import copy
 import json
 import os
 from pathlib import Path
+from datetime import datetime,timezone,timedelta
 import time
 import requests
 import backend as b
@@ -88,11 +89,23 @@ def publish(snapshot):
     saved=session.put(api+'/contents/'+LIVE_PATH,json=body,timeout=30);saved.raise_for_status()
 
 
+def schedule_due(previous,now=None):
+    now=(now or datetime.now(timezone.utc)).astimezone(timezone.utc)
+    slots=[(now-timedelta(days=d)).replace(hour=h,minute=0,second=0,microsecond=0)
+           for d in (0,1) for h in (0,19,20,21,22)]
+    target=max(t for t in slots if t<=now)
+    completed=b.timestamp(previous.get('last_complete_at'))
+    return completed is None or completed<target
+
+
 def main():
     try:previous=fetch_previous()
     except (requests.RequestException,ValueError,KeyError):
         print('Previous saved Top Boy results could not be read. Publication skipped to preserve them.')
         raise SystemExit(1)
+    if os.getenv('GITHUB_EVENT_NAME')=='schedule' and not schedule_due(previous):
+        print('This GMT update slot is already complete. Saved results left unchanged.')
+        return
     snapshot=collect(b.Client(os.getenv('MFL_REFRESH_TOKEN','')),previous)
     Path('topboy-result.json').write_text(json.dumps(snapshot,ensure_ascii=False,indent=2))
     publish(snapshot)
