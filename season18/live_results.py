@@ -70,12 +70,40 @@ def status(snapshot):
     st.caption('Updates at 19:00, 20:00, 21:00 and 22:00 GMT · Star of the Day at midnight GMT · Last full check: '+label+' GMT. Scheduled runs can be delayed by the host.')
 
 
+def day_leaders(preview):
+    rows=preview.get('rows',[])
+    if not rows or any(r.get('points') is None or r.get('appearances') is None for r in rows):return []
+    active=[r for r in rows if r['appearances']>0]
+    if not active:return []
+    best=max(r['points'] for r in active)
+    tied=[r for r in active if r['points']==best]
+    if len(tied)>1:
+        if any(r.get('average_rating') is None for r in tied):return []
+        rating=max(r['average_rating'] for r in tied)
+        tied=[r for r in tied if r['average_rating']==rating]
+    return tied
+
+
 def render_night(snapshot):
     import html
     import pandas as pd
     import rendering
     st.subheader('Star of the Day')
     st.caption('Midnight GMT scan · League + cup · 5 per goal, 3 per assist, 1 per win with an appearance. Nightly checkpoint changes determine the result; ties use the night’s average rating.')
+    preview=(snapshot or {}).get('tonight',{})
+    today=datetime.now(timezone.utc).date().isoformat()
+    if preview.get('day')==today:
+        st.subheader('Today so far · '+today)
+        st.caption('Provisional — final award follows the midnight GMT scan. Checked: '+str((snapshot or {}).get('last_complete_at','not checked')))
+        covered={r.get('player_id') for r in preview.get('rows',[])}
+        expected={e['player_id'] for e in b.entrants('top_boy')}
+        leaders=day_leaders(preview) if covered==expected else []
+        if leaders:
+            for row in leaders:
+                esc=lambda v:html.escape(str(v))
+                avg=f"{row['average_rating']:.2f}" if row.get('average_rating') is not None else '—'
+                st.html(f'<div style="background:white;border:3px solid #101014;border-top:8px solid #ff008b;border-radius:12px;padding:20px;display:flex;gap:20px;align-items:center"><img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{row["player_id"]}/photo.webp" alt="" style="width:110px;height:145px;object-fit:contain"><div><strong style="color:#b00063">{esc(row["entrant"])} · PROVISIONAL LEADER</strong><h2>{esc(row["player"])}</h2><p>{row["appearances"]} appearances · <strong>{row["points"]} POINTS</strong> · {row["goals"]} goals · {row["assists"]} assists · {row["wins"]} wins · {avg} AVG</p></div></div>')
+        else:st.info('No verified leader yet. Waiting for qualifying appearances or complete results.')
     nights=(snapshot or {}).get('nights',{})
     if nights:
         selected=st.selectbox('Match night',sorted(nights,reverse=True),key='topboy_night')

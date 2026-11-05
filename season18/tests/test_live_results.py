@@ -39,6 +39,17 @@ class LiveTests(unittest.TestCase):
         self.assertTrue(sync.schedule_due({'last_complete_at':'2026-11-05T22:03:00Z'},midnight))
         self.assertFalse(sync.schedule_due({'last_complete_at':'2026-11-06T00:03:00Z'},midnight))
 
+    def test_live_day_leader_uses_daily_points_and_rating_without_guessing(self):
+        a=dict(player_id=1,appearances=1,points=16,average_rating=8.75)
+        b=dict(player_id=2,appearances=1,points=14,average_rating=9.0)
+        self.assertEqual(live_results.day_leaders({'rows':[a,b]}),[a])
+        b.update(points=16,average_rating=9.0)
+        self.assertEqual(live_results.day_leaders({'rows':[a,b]}),[b])
+        b['average_rating']=8.75
+        self.assertEqual(live_results.day_leaders({'rows':[a,b]}),[a,b])
+        b['points']=None
+        self.assertEqual(live_results.day_leaders({'rows':[a,b]}),[])
+
     def test_win_credit_excludes_missed_team_matches(self):
         first=record();state=nightly.credit_wins(first)
         self.assertEqual(first['stats']['winsWithAppearance'],1)
