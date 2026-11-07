@@ -1,18 +1,36 @@
 name: Grower or Shower Sync
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: '17 1 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync.yml'
+      - 'season18/grower_sync.py'
+      - 'season18/entrants.csv'
+permissions:
+  contents: write
+concurrency:
+  group: grower-season18-results
+  cancel-in-progress: false
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-      - run: pip install -r requirements.txt
-      - run: python scheduled_sync.py
+          python-version: '3.12'
+      - run: pip install 'pandas>=2.2,<3' 'requests>=2.32,<3'
+      - run: python season18/grower_sync.py
         env:
           MFL_REFRESH_TOKEN: ${{ secrets.MFL_REFRESH_TOKEN }}
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: grower-results
+          path: grower-result.json
+          retention-days: 14
