@@ -70,6 +70,13 @@ if page == 'Top Boy':
     st.stop()
 
 store = storage()
+import grower_live
+grower_snapshot=grower_live.fetch()
+grower_live.apply(store,grower_snapshot)
+if grower_snapshot:
+    checked=b.timestamp(grower_snapshot.get('last_complete_at'))
+    if checked:st.caption('Player development updated '+checked.strftime('%d %b, %H:%M GMT'))
+    if grower_snapshot.get('errors'):st.info('Some players could not be checked. Their saved data is kept.')
 confirmed = str(setting('SCORING_CONFIRMED', 'false')).lower() == 'true'
 entries = b.entrants()
 data = b.standings(store, confirmed=confirmed)

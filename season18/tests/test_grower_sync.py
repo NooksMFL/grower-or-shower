@@ -34,3 +34,29 @@ class GrowerScanTests(unittest.TestCase):
         row=result['players'][str(entry['player_id'])]
         self.assertNotIn('baseline',row)
         self.assertIsNone(row['gains']['overall'])
+
+class GrowerImportTests(unittest.TestCase):
+    def test_import_keeps_existing_baseline_and_topboy_data(self):
+        import tempfile,json
+        import grower_live
+        with tempfile.TemporaryDirectory() as folder:
+            store=b.Store(Path(folder)/'test.db');pid=b.entrants()[0]['player_id']
+            baseline={f:40 for f in b.FIELDS};profile={f:52 for f in b.FIELDS};profile['player_id']=pid
+            with store.connect() as c:
+                c.execute('INSERT INTO baselines VALUES(?,?,?)',(pid,json.dumps(baseline),'2026-11-03T20:00:00Z'))
+                c.execute('INSERT INTO topboy_reviews VALUES(?,?,?)',(35005,'{"note":"keep"}','2026-11-03T20:00:00Z'))
+            before=store.baseline(pid)
+            data={'competition':'grower','players':{str(pid):{'profile':profile,'profile_at':'2026-11-07T01:00:00Z','history':[],
+                'baseline':{**{f:50 for f in b.FIELDS},'at':'2026-11-03T19:00:00Z'}}}}
+            self.assertEqual(grower_live.apply(store,data),1)
+            self.assertEqual(store.baseline(pid),before)
+            with store.connect() as c:self.assertEqual(c.execute('SELECT payload FROM topboy_reviews').fetchone()[0],'{"note":"keep"}')
+            self.assertEqual(grower_live.apply(store,data),0)
+    def test_post_cutoff_baseline_is_not_imported(self):
+        import tempfile
+        import grower_live
+        with tempfile.TemporaryDirectory() as folder:
+            store=b.Store(Path(folder)/'test.db');pid=b.entrants()[0]['player_id']
+            data={'competition':'grower','players':{str(pid):{'baseline':{**{f:50 for f in b.FIELDS},'at':'2026-11-07T01:00:00Z'}}}}
+            grower_live.apply(store,data)
+            self.assertIsNone(store.baseline(pid))

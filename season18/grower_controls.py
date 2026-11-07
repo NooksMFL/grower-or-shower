@@ -7,6 +7,15 @@ import backend as b
 
 @st.fragment(run_every=10)
 def render(store,setting):
+    import grower_live
+    snapshot=grower_live.fetch()
+    if snapshot:
+        if st.button('↻ Load latest player update',type='primary',width='stretch',key='grower_load_live'):
+            grower_live.fetch.clear()
+            grower_live.apply(store,grower_live.fetch())
+            st.rerun()
+        st.caption('Player development is checked daily. Starting values stay fixed.')
+        return
     state=store.refresh_state()
     waiting=state.get('retry_until',0)>time.time()
     partial=state.get('status') in ('paused','running')
