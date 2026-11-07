@@ -1,0 +1,1759 @@
+{
+  "version": 1,
+  "season": 18,
+  "competition": "grower",
+  "attempted_at": "2026-11-07T05:38:37.250538+00:00",
+  "errors": [],
+  "players": {
+    "468523": {
+      "player_id": 468523,
+      "entrant": "Nooks",
+      "profile": {
+        "player_id": 468523,
+        "player": "Hans-Peter Bonga",
+        "age": 16.0,
+        "positions": "CB / CDM / RB",
+        "club": "FCN Vélez Academy",
+        "club_known": true,
+        "overall": 69.0,
+        "pace": 50.0,
+        "shooting": 14.0,
+        "passing": 33.0,
+        "dribbling": 28.0,
+        "defense": 76.0,
+        "physical": 74.0
+      },
+      "profile_at": "2026-11-07T05:38:37.427466+00:00",
+      "history": [
+        {
+          "date": 1792438632454,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 16,
+            "overall": 69,
+            "defense": 76,
+            "passing": 33,
+            "pace": 50,
+            "dribbling": 28,
+            "physical": 74,
+            "shooting": 14,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:38.011640+00:00",
+      "baseline": {
+        "at": "2026-10-19T19:37:12.454000+00:00",
+        "overall": 69.0,
+        "pace": 50.0,
+        "shooting": 14.0,
+        "passing": 33.0,
+        "dribbling": 28.0,
+        "defense": 76.0,
+        "physical": 74.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21332,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Ice – League 3",
+            "code": "ICE",
+            "prizePool": "41250",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#9CB2BE",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "startingDate": 1793824200000,
+            "root": {
+              "id": 569,
+              "name": "Ice Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 6390,
+            "name": "FCN Vélez Academy",
+            "status": "FOUNDED",
+            "mainColor": "#fcdc00",
+            "secondaryColor": "#0066FF",
+            "city": "Vélez-Málaga",
+            "division": 8,
+            "logoVersion": "1785586067581",
+            "country": "SPAIN",
+            "ownedBy": {
+              "walletAddress": "0x65cc0e72dd71ad80",
+              "name": "Nooks",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0x65cc0e72dd71ad80/photo.png?t=1790407083796",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "ajferguson85",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 3,
+            "time": 16200,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 3,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 1,
+            "foulsSuffered": 0,
+            "rating": 23.19,
+            "xG": 0,
+            "chancesCreated": 0,
+            "passes": 150,
+            "passesAccurate": 146,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 1,
+            "clearances": 17,
+            "dribbledPast": 2,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 7,
+            "v": 6
+          }
+        },
+        {
+          "competition": {
+            "id": 20637,
+            "status": "ENDED",
+            "type": "CUP",
+            "name": "The Ramble Cup - 72 OVR Max",
+            "code": "DIRK",
+            "prizePool": "2500",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "#RambleOn",
+            "primaryColor": "#FFF700",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": true,
+            "withAlliances": false,
+            "noFatigue": true,
+            "autoStart": false,
+            "withXp": false,
+            "maxParticipants": 64,
+            "startRegistrationDate": 1793368800000,
+            "endRegistrationDate": 1793617200000,
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 6390,
+            "name": "FCN Vélez Academy",
+            "status": "FOUNDED",
+            "mainColor": "#fcdc00",
+            "secondaryColor": "#0066FF",
+            "city": "Vélez-Málaga",
+            "division": 8,
+            "logoVersion": "1785586067581",
+            "country": "SPAIN",
+            "ownedBy": {
+              "walletAddress": "0x65cc0e72dd71ad80",
+              "name": "Nooks",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0x65cc0e72dd71ad80/photo.png?t=1790407083796",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "ajferguson85",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 3,
+            "time": 15111,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 2,
+            "losses": 1,
+            "foulsCommitted": 2,
+            "foulsSuffered": 2,
+            "rating": 19.39,
+            "xG": 0,
+            "chancesCreated": 0,
+            "passes": 113,
+            "passesAccurate": 110,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 11,
+            "dribbledPast": 0,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 7,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:38.614662+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "273344": {
+      "player_id": 273344,
+      "entrant": "Minty",
+      "profile": {
+        "player_id": 273344,
+        "player": "Volkmar Kiefer",
+        "age": 22.0,
+        "positions": "GK",
+        "club": "Chemnitz Junglöwen",
+        "club_known": true,
+        "overall": 55.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      },
+      "profile_at": "2026-11-07T05:38:39.229853+00:00",
+      "history": [
+        {
+          "date": 1765881428140,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 22,
+            "overall": 55,
+            "defense": 0,
+            "passing": 0,
+            "pace": 0,
+            "dribbling": 0,
+            "physical": 0,
+            "shooting": 0,
+            "goalkeeping": 55
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:39.818217+00:00",
+      "baseline": {
+        "at": "2025-12-16T10:37:08.140000+00:00",
+        "overall": 55.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21543,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Spark – League 98",
+            "code": "SPK",
+            "prizePool": "19650",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#FFB136",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "endRegistrationDate": 1793655633000,
+            "startingDate": 1793655633000,
+            "root": {
+              "id": 568,
+              "name": "Spark Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 3694,
+            "name": "Chemnitz Junglöwen",
+            "status": "FOUNDED",
+            "mainColor": "#FFD700",
+            "secondaryColor": "#161515",
+            "city": "Chemnitz",
+            "division": 9,
+            "logoVersion": "1792697792131",
+            "country": "GERMANY",
+            "ownedBy": {
+              "walletAddress": "0xf1fd823ddac98f71",
+              "name": "minty",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/pfp/defaults/4.png",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": null,
+              "country": "WALES",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 2,
+            "time": 10800,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 3,
+            "goalsConceded": 3,
+            "wins": 1,
+            "draws": 0,
+            "losses": 1,
+            "foulsCommitted": 0,
+            "foulsSuffered": 0,
+            "rating": 13.66,
+            "xG": 0,
+            "chancesCreated": 0,
+            "passes": 46,
+            "passesAccurate": 17,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 8,
+            "dribbledPast": 0,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 0,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:40.418168+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "268682": {
+      "player_id": 268682,
+      "entrant": "Rhythm",
+      "profile": {
+        "player_id": 268682,
+        "player": "Tahir Alharthi",
+        "age": 18.0,
+        "positions": "ST",
+        "club": "Bon Jhovi Academy",
+        "club_known": true,
+        "overall": 56.0,
+        "pace": 85.0,
+        "shooting": 49.0,
+        "passing": 43.0,
+        "dribbling": 60.0,
+        "defense": 31.0,
+        "physical": 62.0
+      },
+      "profile_at": "2026-11-07T05:38:41.031933+00:00",
+      "history": [
+        {
+          "date": 1765881152510,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 18,
+            "overall": 56,
+            "defense": 31,
+            "passing": 43,
+            "pace": 85,
+            "dribbling": 60,
+            "physical": 62,
+            "shooting": 49,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:41.611159+00:00",
+      "baseline": {
+        "at": "2025-12-16T10:32:32.510000+00:00",
+        "overall": 56.0,
+        "pace": 85.0,
+        "shooting": 49.0,
+        "passing": 43.0,
+        "dribbling": 60.0,
+        "defense": 31.0,
+        "physical": 62.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21640,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Flint – League 17",
+            "code": "FLT",
+            "prizePool": "9575",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#757061",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "endRegistrationDate": 1793796363000,
+            "startingDate": 1793796363000,
+            "root": {
+              "id": 567,
+              "name": "Flint Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 4697,
+            "name": "Bon Jhovi Academy",
+            "status": "FOUNDED",
+            "mainColor": "#000b1b",
+            "secondaryColor": "#0066FF",
+            "city": "Jõhvi",
+            "division": 10,
+            "logoVersion": "1788099485544",
+            "country": "ESTONIA",
+            "ownedBy": {
+              "walletAddress": "0x607afacad207a167",
+              "name": "Rhythm",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0x607afacad207a167/photo.png?t=1781889127683",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 2,
+            "time": 8674,
+            "goals": 0,
+            "shots": 5,
+            "shotsOnTarget": 1,
+            "shotsIntercepted": 1,
+            "dribblingSuccess": 4,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 1,
+            "losses": 1,
+            "foulsCommitted": 1,
+            "foulsSuffered": 1,
+            "rating": 11.53,
+            "xG": 0.54,
+            "chancesCreated": 0,
+            "passes": 41,
+            "passesAccurate": 30,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 1,
+            "dribbledPast": 1,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 1,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:42.200524+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "410261": {
+      "player_id": 410261,
+      "entrant": "Daz Shootz",
+      "profile": {
+        "player_id": 410261,
+        "player": "Ádám Bujdosó",
+        "age": 20.0,
+        "positions": "ST",
+        "club": "Sofia Eagles",
+        "club_known": true,
+        "overall": 65.0,
+        "pace": 83.0,
+        "shooting": 65.0,
+        "passing": 53.0,
+        "dribbling": 66.0,
+        "defense": 30.0,
+        "physical": 43.0
+      },
+      "profile_at": "2026-11-07T05:38:42.813358+00:00",
+      "history": [
+        {
+          "date": 1788532416861,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 20,
+            "overall": 65,
+            "defense": 30,
+            "passing": 53,
+            "pace": 83,
+            "dribbling": 66,
+            "physical": 43,
+            "shooting": 65,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:43.400433+00:00",
+      "baseline": {
+        "at": "2026-09-04T14:33:36.861000+00:00",
+        "overall": 65.0,
+        "pace": 83.0,
+        "shooting": 65.0,
+        "passing": 53.0,
+        "dribbling": 66.0,
+        "defense": 30.0,
+        "physical": 43.0,
+        "source": "Dated player history"
+      },
+      "records": [],
+      "records_at": "2026-11-07T05:38:43.987607+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "471063": {
+      "player_id": 471063,
+      "entrant": "Ricky",
+      "profile": {
+        "player_id": 471063,
+        "player": "Barry Henry",
+        "age": 23.0,
+        "positions": "CM",
+        "club": "The Agent Hub - Saint-Louis",
+        "club_known": true,
+        "overall": 43.0,
+        "pace": 60.0,
+        "shooting": 29.0,
+        "passing": 37.0,
+        "dribbling": 57.0,
+        "defense": 40.0,
+        "physical": 56.0
+      },
+      "profile_at": "2026-11-07T05:38:44.602885+00:00",
+      "history": [
+        {
+          "date": 1792439040667,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 23,
+            "overall": 43,
+            "defense": 40,
+            "passing": 37,
+            "pace": 60,
+            "dribbling": 57,
+            "physical": 56,
+            "shooting": 29,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:45.181356+00:00",
+      "baseline": {
+        "at": "2026-10-19T19:44:00.667000+00:00",
+        "overall": 43.0,
+        "pace": 60.0,
+        "shooting": 29.0,
+        "passing": 37.0,
+        "dribbling": 57.0,
+        "defense": 40.0,
+        "physical": 56.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21680,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Flint – League 57",
+            "code": "FLT",
+            "prizePool": "9575",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#757061",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "endRegistrationDate": 1793706833000,
+            "startingDate": 1793706833000,
+            "root": {
+              "id": 567,
+              "name": "Flint Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 3506,
+            "name": "The Agent Hub - Saint-Louis",
+            "status": "FOUNDED",
+            "mainColor": "#9900FF",
+            "secondaryColor": "#3a3a3a",
+            "city": "Saint-Louis",
+            "division": 10,
+            "logoVersion": "1780300051293",
+            "country": "SENEGAL",
+            "ownedBy": {
+              "walletAddress": "0xecc6cc6ecf4782da",
+              "name": "Ricky Hyde-The Agent Hub",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0xecc6cc6ecf4782da/photo.png?t=1780127708888",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "twitter": "TheAgentHubMFL",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 2,
+            "time": 10800,
+            "goals": 0,
+            "shots": 1,
+            "shotsOnTarget": 1,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2,
+            "foulsCommitted": 1,
+            "foulsSuffered": 2,
+            "rating": 12.63,
+            "xG": 0.05,
+            "chancesCreated": 1,
+            "passes": 47,
+            "passesAccurate": 40,
+            "crosses": 1,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 11,
+            "dribbledPast": 5,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 5,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:45.775977+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "473918": {
+      "player_id": 473918,
+      "entrant": "mmewse",
+      "profile": {
+        "player_id": 473918,
+        "player": "Andor Szabó",
+        "age": 20.0,
+        "positions": "RB",
+        "club": "Potsdam Phoenix FC",
+        "club_known": true,
+        "overall": 48.0,
+        "pace": 63.0,
+        "shooting": 35.0,
+        "passing": 38.0,
+        "dribbling": 47.0,
+        "defense": 45.0,
+        "physical": 66.0
+      },
+      "profile_at": "2026-11-07T05:38:46.368348+00:00",
+      "history": [
+        {
+          "date": 1792439120466,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 20,
+            "overall": 48,
+            "defense": 45,
+            "passing": 38,
+            "pace": 63,
+            "dribbling": 47,
+            "physical": 66,
+            "shooting": 35,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:46.946174+00:00",
+      "baseline": {
+        "at": "2026-10-19T19:45:20.466000+00:00",
+        "overall": 48.0,
+        "pace": 63.0,
+        "shooting": 35.0,
+        "passing": 38.0,
+        "dribbling": 47.0,
+        "defense": 45.0,
+        "physical": 66.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21519,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Spark – League 74",
+            "code": "SPK",
+            "prizePool": "19650",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#FFB136",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "endRegistrationDate": 1793708037000,
+            "startingDate": 1793708037000,
+            "root": {
+              "id": 568,
+              "name": "Spark Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 9454,
+            "name": "Potsdam Phoenix FC",
+            "status": "FOUNDED",
+            "mainColor": "#FF0000",
+            "secondaryColor": "#0066FF",
+            "city": "Potsdam",
+            "division": 9,
+            "logoVersion": "1782505819490",
+            "country": "GERMANY",
+            "ownedBy": {
+              "walletAddress": "0x19ef9c9392d367b1",
+              "name": "Mmewse",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/pfp/defaults/1.png",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": null,
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 3,
+            "time": 2398,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 2,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 1,
+            "losses": 1,
+            "foulsCommitted": 2,
+            "foulsSuffered": 2,
+            "rating": 20.55,
+            "xG": 0,
+            "chancesCreated": 2,
+            "passes": 16,
+            "passesAccurate": 9,
+            "crosses": 2,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 2,
+            "dribbledPast": 2,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 4,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:47.531843+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "240630": {
+      "player_id": 240630,
+      "entrant": "Doineann",
+      "profile": {
+        "player_id": 240630,
+        "player": "Bob Bijlsma",
+        "age": 22.0,
+        "positions": "LB",
+        "club": "Modena Stallions",
+        "club_known": true,
+        "overall": 58.0,
+        "pace": 55.0,
+        "shooting": 51.0,
+        "passing": 50.0,
+        "dribbling": 47.0,
+        "defense": 65.0,
+        "physical": 63.0
+      },
+      "profile_at": "2026-11-07T05:38:48.135115+00:00",
+      "history": [
+        {
+          "date": 1755093768116,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 22,
+            "overall": 58,
+            "defense": 65,
+            "passing": 50,
+            "pace": 55,
+            "dribbling": 47,
+            "physical": 63,
+            "shooting": 51,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:48.691194+00:00",
+      "baseline": {
+        "at": "2025-08-13T14:02:48.116000+00:00",
+        "overall": 58.0,
+        "pace": 55.0,
+        "shooting": 51.0,
+        "passing": 50.0,
+        "dribbling": 47.0,
+        "defense": 65.0,
+        "physical": 63.0,
+        "source": "Dated player history"
+      },
+      "records": [],
+      "records_at": "2026-11-07T05:38:49.276502+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "337204": {
+      "player_id": 337204,
+      "entrant": "Hawkeye1",
+      "profile": {
+        "player_id": 337204,
+        "player": "Carmine Ronchi",
+        "age": 23.0,
+        "positions": "CB",
+        "club": "Invicta Narva",
+        "club_known": true,
+        "overall": 60.0,
+        "pace": 71.0,
+        "shooting": 36.0,
+        "passing": 45.0,
+        "dribbling": 38.0,
+        "defense": 64.0,
+        "physical": 61.0
+      },
+      "profile_at": "2026-11-07T05:38:49.879313+00:00",
+      "history": [
+        {
+          "date": 1766154938995,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 23,
+            "overall": 60,
+            "defense": 64,
+            "passing": 45,
+            "pace": 71,
+            "dribbling": 38,
+            "physical": 61,
+            "shooting": 36,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:50.466334+00:00",
+      "baseline": {
+        "at": "2025-12-19T14:35:38.995000+00:00",
+        "overall": 60.0,
+        "pace": 71.0,
+        "shooting": 36.0,
+        "passing": 45.0,
+        "dribbling": 38.0,
+        "defense": 64.0,
+        "physical": 61.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21574,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Spark – League 129",
+            "code": "SPK",
+            "prizePool": "19650",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#FFB136",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "endRegistrationDate": 1793643835000,
+            "startingDate": 1793643835000,
+            "root": {
+              "id": 568,
+              "name": "Spark Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 5682,
+            "name": "Invicta Narva",
+            "status": "FOUNDED",
+            "mainColor": "#FF6600",
+            "secondaryColor": "#c0c0c0",
+            "city": "Narva",
+            "division": 9,
+            "logoVersion": "1792613067965",
+            "country": "ESTONIA",
+            "ownedBy": {
+              "walletAddress": "0x3ee5a83bbefa90bb",
+              "name": "RoninMFL",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/pfp/defaults/7.png",
+              "arenaAvatarFlair": "flair-beta",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 3,
+            "time": 16200,
+            "goals": 0,
+            "shots": 1,
+            "shotsOnTarget": 1,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 2,
+            "draws": 1,
+            "losses": 0,
+            "foulsCommitted": 3,
+            "foulsSuffered": 3,
+            "rating": 21.57,
+            "xG": 0.4,
+            "chancesCreated": 1,
+            "passes": 147,
+            "passesAccurate": 146,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 1,
+            "clearances": 7,
+            "dribbledPast": 3,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 7,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:51.066439+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "274406": {
+      "player_id": 274406,
+      "entrant": "hcy",
+      "profile": {
+        "player_id": 274406,
+        "player": "Hermann Hämmerle",
+        "age": 22.0,
+        "positions": "CF / CDM / RM",
+        "club": "TECFC Pacífico",
+        "club_known": true,
+        "overall": 59.0,
+        "pace": 75.0,
+        "shooting": 44.0,
+        "passing": 55.0,
+        "dribbling": 66.0,
+        "defense": 31.0,
+        "physical": 47.0
+      },
+      "profile_at": "2026-11-07T05:38:51.675310+00:00",
+      "history": [
+        {
+          "date": 1765881488666,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 22,
+            "overall": 59,
+            "defense": 31,
+            "passing": 55,
+            "pace": 75,
+            "dribbling": 66,
+            "physical": 47,
+            "shooting": 44,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:52.247970+00:00",
+      "baseline": {
+        "at": "2025-12-16T10:38:08.666000+00:00",
+        "overall": 59.0,
+        "pace": 75.0,
+        "shooting": 44.0,
+        "passing": 55.0,
+        "dribbling": 66.0,
+        "defense": 31.0,
+        "physical": 47.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21688,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Flint – League 65",
+            "code": "FLT",
+            "prizePool": "9575",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#757061",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "endRegistrationDate": 1793691341000,
+            "startingDate": 1793691341000,
+            "root": {
+              "id": 567,
+              "name": "Flint Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 2640,
+            "name": "TECFC Pacífico",
+            "status": "FOUNDED",
+            "mainColor": "#006b5b",
+            "secondaryColor": "#18b7b1",
+            "city": "Buenaventura",
+            "division": 10,
+            "logoVersion": "1793448343430",
+            "country": "COLOMBIA",
+            "ownedBy": {
+              "walletAddress": "0xc0e7c7d0c3ea7dfa",
+              "name": "Tarek1025",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/pfp/defaults/7.png",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "tarek_chidiac",
+              "country": "LEBANON",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 3,
+            "time": 16200,
+            "goals": 1,
+            "shots": 7,
+            "shotsOnTarget": 5,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 11,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 2,
+            "foulsCommitted": 7,
+            "foulsSuffered": 10,
+            "rating": 21.08,
+            "xG": 0.69,
+            "chancesCreated": 3,
+            "passes": 80,
+            "passesAccurate": 57,
+            "crosses": 5,
+            "crossesAccurate": 3,
+            "shotsInterceptions": 0,
+            "clearances": 3,
+            "dribbledPast": 3,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 0,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:52.852912+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "404608": {
+      "player_id": 404608,
+      "entrant": "Krystian",
+      "profile": {
+        "player_id": 404608,
+        "player": "Jiří Soukup",
+        "age": 19.0,
+        "positions": "LW / RW / ST",
+        "club": "Achaikos FC",
+        "club_known": true,
+        "overall": 51.0,
+        "pace": 62.0,
+        "shooting": 54.0,
+        "passing": 36.0,
+        "dribbling": 55.0,
+        "defense": 29.0,
+        "physical": 51.0
+      },
+      "profile_at": "2026-11-07T05:38:53.455215+00:00",
+      "history": [
+        {
+          "date": 1788528624096,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 19,
+            "overall": 51,
+            "defense": 29,
+            "passing": 36,
+            "pace": 62,
+            "dribbling": 55,
+            "physical": 51,
+            "shooting": 54,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:54.018779+00:00",
+      "baseline": {
+        "at": "2026-09-04T13:30:24.096000+00:00",
+        "overall": 51.0,
+        "pace": 62.0,
+        "shooting": 54.0,
+        "passing": 36.0,
+        "dribbling": 55.0,
+        "defense": 29.0,
+        "physical": 51.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21687,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Flint – League 64",
+            "code": "FLT",
+            "prizePool": "9575",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#757061",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "endRegistrationDate": 1793691374000,
+            "startingDate": 1793691374000,
+            "root": {
+              "id": 567,
+              "name": "Flint Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 6430,
+            "name": "Achaikos FC",
+            "status": "FOUNDED",
+            "mainColor": "#0d3050",
+            "secondaryColor": "#b0b3b4",
+            "city": "Káto Achaḯa",
+            "division": 10,
+            "logoVersion": "8385880d270a0f368dd30834f4ee71bc",
+            "country": "GREECE",
+            "ownedBy": {
+              "walletAddress": "0xe36dcd2e6ea77d54",
+              "name": "Krystian",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/pfp/defaults/6.png",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "twitter": null,
+              "country": "POLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 3,
+            "time": 13057,
+            "goals": 0,
+            "shots": 5,
+            "shotsOnTarget": 1,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 11,
+            "assists": 2,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 2,
+            "losses": 0,
+            "foulsCommitted": 1,
+            "foulsSuffered": 3,
+            "rating": 20.94,
+            "xG": 0.49,
+            "chancesCreated": 5,
+            "passes": 92,
+            "passesAccurate": 58,
+            "crosses": 8,
+            "crossesAccurate": 3,
+            "shotsInterceptions": 0,
+            "clearances": 2,
+            "dribbledPast": 3,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 4,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:54.647358+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "466488": {
+      "player_id": 466488,
+      "entrant": "ClarkyIsland",
+      "profile": {
+        "player_id": 466488,
+        "player": "Felipe Posadas",
+        "age": 18.0,
+        "positions": "RB",
+        "club": "King of Kings",
+        "club_known": true,
+        "overall": 50.0,
+        "pace": 63.0,
+        "shooting": 38.0,
+        "passing": 45.0,
+        "dribbling": 64.0,
+        "defense": 42.0,
+        "physical": 54.0
+      },
+      "profile_at": "2026-11-07T05:38:55.240595+00:00",
+      "history": [
+        {
+          "date": 1792438578429,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 18,
+            "overall": 50,
+            "defense": 42,
+            "passing": 45,
+            "pace": 63,
+            "dribbling": 64,
+            "physical": 54,
+            "shooting": 38,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:55.815299+00:00",
+      "baseline": {
+        "at": "2026-10-19T19:36:18.429000+00:00",
+        "overall": 50.0,
+        "pace": 63.0,
+        "shooting": 38.0,
+        "passing": 45.0,
+        "dribbling": 64.0,
+        "defense": 42.0,
+        "physical": 54.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21632,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Flint – League 9",
+            "code": "FLT",
+            "prizePool": "9575",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#757061",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "endRegistrationDate": 1793817609000,
+            "startingDate": 1793817609000,
+            "root": {
+              "id": 567,
+              "name": "Flint Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 1354,
+            "name": "King of Kings",
+            "status": "FOUNDED",
+            "mainColor": "#005293",
+            "secondaryColor": "#018749",
+            "city": "Helsingborg",
+            "division": 10,
+            "logoVersion": "1785840460436",
+            "country": "SWEDEN",
+            "ownedBy": {
+              "walletAddress": "0x8a9b7779bc2aa9b6",
+              "name": "ClarkyIsland",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0x8a9b7779bc2aa9b6/photo.png?t=1786022937794",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 2,
+            "time": 10800,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 2,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 1,
+            "foulsCommitted": 1,
+            "foulsSuffered": 3,
+            "rating": 12.84,
+            "xG": 0,
+            "chancesCreated": 1,
+            "passes": 104,
+            "passesAccurate": 87,
+            "crosses": 4,
+            "crossesAccurate": 1,
+            "shotsInterceptions": 0,
+            "clearances": 3,
+            "dribbledPast": 15,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 13,
+            "v": 6
+          }
+        },
+        {
+          "competition": {
+            "id": 20632,
+            "status": "ENDED",
+            "type": "CUP",
+            "name": "The WenDirk Cup - 58 OVR Max",
+            "code": "DIRK",
+            "prizePool": "2500",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "#DirkIsNow",
+            "primaryColor": "#FFF700",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": true,
+            "withAlliances": false,
+            "noFatigue": true,
+            "autoStart": false,
+            "withXp": false,
+            "maxParticipants": 64,
+            "startRegistrationDate": 1793368800000,
+            "endRegistrationDate": 1793617200000,
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 1354,
+            "name": "King of Kings",
+            "status": "FOUNDED",
+            "mainColor": "#005293",
+            "secondaryColor": "#018749",
+            "city": "Helsingborg",
+            "division": 10,
+            "logoVersion": "1785840460436",
+            "country": "SWEDEN",
+            "ownedBy": {
+              "walletAddress": "0x8a9b7779bc2aa9b6",
+              "name": "ClarkyIsland",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0x8a9b7779bc2aa9b6/photo.png?t=1786022937794",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 3,
+            "time": 16200,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 5,
+            "assists": 0,
+            "yellowCards": 1,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 2,
+            "foulsCommitted": 4,
+            "foulsSuffered": 2,
+            "rating": 19.05,
+            "xG": 0,
+            "chancesCreated": 0,
+            "passes": 142,
+            "passesAccurate": 121,
+            "crosses": 6,
+            "crossesAccurate": 2,
+            "shotsInterceptions": 0,
+            "clearances": 5,
+            "dribbledPast": 16,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 21,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:56.433040+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    },
+    "409907": {
+      "player_id": 409907,
+      "entrant": "ShadyM",
+      "profile": {
+        "player_id": 409907,
+        "player": "David Cardozo",
+        "age": 16.0,
+        "positions": "LM / LWB",
+        "club": "Campinas EC",
+        "club_known": true,
+        "overall": 67.0,
+        "pace": 76.0,
+        "shooting": 60.0,
+        "passing": 65.0,
+        "dribbling": 73.0,
+        "defense": 69.0,
+        "physical": 55.0
+      },
+      "profile_at": "2026-11-07T05:38:57.035110+00:00",
+      "history": [
+        {
+          "date": 1788532382139,
+          "reasonType": "INITIAL",
+          "values": {
+            "age": 16,
+            "overall": 67,
+            "defense": 69,
+            "passing": 65,
+            "pace": 76,
+            "dribbling": 73,
+            "physical": 55,
+            "shooting": 60,
+            "goalkeeping": 0
+          }
+        }
+      ],
+      "history_at": "2026-11-07T05:38:57.609157+00:00",
+      "baseline": {
+        "at": "2026-09-04T14:33:02.139000+00:00",
+        "overall": 67.0,
+        "pace": 76.0,
+        "shooting": 60.0,
+        "passing": 65.0,
+        "dribbling": 73.0,
+        "defense": 69.0,
+        "physical": 55.0,
+        "source": "Dated player history"
+      },
+      "records": [
+        {
+          "competition": {
+            "id": 21386,
+            "status": "LIVE",
+            "type": "LEAGUE",
+            "subType": "LEAGUE",
+            "name": "Ice – League 57",
+            "code": "ICE",
+            "prizePool": "41250",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "-",
+            "primaryColor": "#9CB2BE",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": 12,
+            "endRegistrationDate": 1793885063000,
+            "startingDate": 1793885063000,
+            "root": {
+              "id": 569,
+              "name": "Ice Division"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 1509,
+            "name": "Campinas EC",
+            "status": "FOUNDED",
+            "mainColor": "#FFD700",
+            "secondaryColor": "#0eb80e",
+            "city": "Campinas",
+            "division": 8,
+            "logoVersion": "1791328673430",
+            "country": "BRAZIL",
+            "ownedBy": {
+              "walletAddress": "0x9f71424248f056d0",
+              "name": "ShadyM™",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0x9f71424248f056d0/photo.png?t=1787848238021",
+              "arenaAvatarFlair": "flair-beta",
+              "twitter": "",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 3,
+            "time": 11018,
+            "goals": 0,
+            "shots": 1,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 1,
+            "dribblingSuccess": 10,
+            "assists": 0,
+            "yellowCards": 1,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 2,
+            "losses": 1,
+            "foulsCommitted": 1,
+            "foulsSuffered": 3,
+            "rating": 19.35,
+            "xG": 0.05,
+            "chancesCreated": 1,
+            "passes": 82,
+            "passesAccurate": 68,
+            "crosses": 4,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 5,
+            "dribbledPast": 1,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 8,
+            "v": 6
+          }
+        }
+      ],
+      "records_at": "2026-11-07T05:38:58.187981+00:00",
+      "gains": {
+        "overall": 0.0,
+        "pace": 0.0,
+        "shooting": 0.0,
+        "passing": 0.0,
+        "dribbling": 0.0,
+        "defense": 0.0,
+        "physical": 0.0
+      }
+    }
+  },
+  "last_complete_at": "2026-11-07T05:38:58.688145+00:00"
+}
