@@ -1,7 +1,7 @@
 {
   "version": 1,
   "season": 18,
-  "attempted_at": "2026-11-07T20:51:59.211219+00:00",
+  "attempted_at": "2026-11-07T22:29:35.216374+00:00",
   "errors": [],
   "players": {
     "35005": {
@@ -22,7 +22,7 @@
         "defense": 40.0,
         "physical": 53.0
       },
-      "profile_at": "2026-11-07T20:51:59.440480+00:00",
+      "profile_at": "2026-11-07T22:29:35.476893+00:00",
       "records": [
         {
           "competition": {
@@ -43,77 +43,77 @@
             "name": "Own Goal Gods"
           },
           "stats": {
-            "nbMatches": 2,
-            "time": 10800,
-            "goals": 1,
-            "shots": 8,
-            "shotsOnTarget": 4,
+            "nbMatches": 3,
+            "time": 16200,
+            "goals": 4,
+            "shots": 12,
+            "shotsOnTarget": 7,
             "shotsIntercepted": 1,
-            "dribblingSuccess": 12,
+            "dribblingSuccess": 13,
             "assists": 1,
             "yellowCards": 0,
             "redCards": 0,
             "saves": 0,
             "goalsConceded": 0,
-            "wins": 2,
+            "wins": 3,
             "draws": 0,
             "losses": 0,
             "foulsCommitted": 2,
-            "foulsSuffered": 3,
-            "rating": 14.49,
-            "xG": 1.03,
+            "foulsSuffered": 5,
+            "rating": 23.17,
+            "xG": 2,
             "chancesCreated": 1,
-            "passes": 37,
-            "passesAccurate": 28,
+            "passes": 53,
+            "passesAccurate": 42,
             "crosses": 1,
             "crossesAccurate": 0,
             "shotsInterceptions": 0,
-            "clearances": 0,
+            "clearances": 1,
             "dribbledPast": 0,
             "ownGoals": 0,
             "defensiveDuelsWon": 1,
             "v": 6,
-            "winsWithAppearance": 2
+            "winsWithAppearance": 3
           }
         }
       ],
-      "records_at": "2026-11-07T20:51:59.961900+00:00",
+      "records_at": "2026-11-07T22:29:36.451595+00:00",
       "win_tracker": {
         "21298:5836": {
           "stats": {
-            "nbMatches": 2,
-            "time": 10800,
-            "goals": 1,
-            "shots": 8,
-            "shotsOnTarget": 4,
+            "nbMatches": 3,
+            "time": 16200,
+            "goals": 4,
+            "shots": 12,
+            "shotsOnTarget": 7,
             "shotsIntercepted": 1,
-            "dribblingSuccess": 12,
+            "dribblingSuccess": 13,
             "assists": 1,
             "yellowCards": 0,
             "redCards": 0,
             "saves": 0,
             "goalsConceded": 0,
-            "wins": 2,
+            "wins": 3,
             "draws": 0,
             "losses": 0,
             "foulsCommitted": 2,
-            "foulsSuffered": 3,
-            "rating": 14.49,
-            "xG": 1.03,
+            "foulsSuffered": 5,
+            "rating": 23.17,
+            "xG": 2,
             "chancesCreated": 1,
-            "passes": 37,
-            "passesAccurate": 28,
+            "passes": 53,
+            "passesAccurate": 42,
             "crosses": 1,
             "crossesAccurate": 0,
             "shotsInterceptions": 0,
-            "clearances": 0,
+            "clearances": 1,
             "dribbledPast": 0,
             "ownGoals": 0,
             "defensiveDuelsWon": 1,
             "v": 6
           },
-          "covered_apps": 2,
-          "wins": 2,
+          "covered_apps": 3,
+          "wins": 3,
           "verified": true
         }
       }
@@ -136,7 +136,7 @@
         "defense": 11.0,
         "physical": 69.0
       },
-      "profile_at": "2026-11-07T20:52:00.544905+00:00",
+      "profile_at": "2026-11-07T22:29:37.035766+00:00",
       "records": [
         {
           "competition": {
@@ -191,7 +191,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:01.073496+00:00",
+      "records_at": "2026-11-07T22:29:37.624055+00:00",
       "win_tracker": {
         "21456:8373": {
           "stats": {
@@ -250,7 +250,7 @@
         "defense": 30.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-07T20:52:01.664870+00:00",
+      "profile_at": "2026-11-07T22:29:38.201781+00:00",
       "records": [
         {
           "competition": {
@@ -305,7 +305,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:02.208872+00:00",
+      "records_at": "2026-11-07T22:29:38.846678+00:00",
       "win_tracker": {
         "21761:2154": {
           "stats": {
@@ -364,7 +364,7 @@
         "defense": 44.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-07T20:52:02.781039+00:00",
+      "profile_at": "2026-11-07T22:29:39.433684+00:00",
       "records": [
         {
           "competition": {
@@ -419,7 +419,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:03.301343+00:00",
+      "records_at": "2026-11-07T22:29:40.206470+00:00",
       "win_tracker": {
         "20633:6742": {
           "stats": {
@@ -515,7 +515,7 @@
         "defense": 25.0,
         "physical": 64.0
       },
-      "profile_at": "2026-11-07T20:52:03.869980+00:00",
+      "profile_at": "2026-11-07T22:29:40.785583+00:00",
       "records": [
         {
           "competition": {
@@ -570,7 +570,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:04.385805+00:00",
+      "records_at": "2026-11-07T22:29:41.371271+00:00",
       "win_tracker": {
         "20633:7126": {
           "stats": {
@@ -666,7 +666,7 @@
         "defense": 34.0,
         "physical": 51.0
       },
-      "profile_at": "2026-11-07T20:52:04.953535+00:00",
+      "profile_at": "2026-11-07T22:29:41.952082+00:00",
       "records": [
         {
           "competition": {
@@ -721,7 +721,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:05.488931+00:00",
+      "records_at": "2026-11-07T22:29:42.593869+00:00",
       "win_tracker": {
         "21687:6430": {
           "stats": {
@@ -780,7 +780,7 @@
         "defense": 24.0,
         "physical": 80.0
       },
-      "profile_at": "2026-11-07T20:52:06.067289+00:00",
+      "profile_at": "2026-11-07T22:29:43.194849+00:00",
       "records": [
         {
           "competition": {
@@ -835,7 +835,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:06.595026+00:00",
+      "records_at": "2026-11-07T22:29:44.009299+00:00",
       "win_tracker": {
         "20641:5590": {
           "stats": {
@@ -931,7 +931,7 @@
         "defense": 37.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-07T20:52:07.172643+00:00",
+      "profile_at": "2026-11-07T22:29:44.604785+00:00",
       "records": [
         {
           "competition": {
@@ -986,7 +986,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:07.703508+00:00",
+      "records_at": "2026-11-07T22:29:45.616898+00:00",
       "win_tracker": {
         "20633:7279": {
           "stats": {
@@ -1082,7 +1082,7 @@
         "defense": 35.0,
         "physical": 40.0
       },
-      "profile_at": "2026-11-07T20:52:08.277838+00:00",
+      "profile_at": "2026-11-07T22:29:46.205028+00:00",
       "records": [
         {
           "competition": {
@@ -1137,7 +1137,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:08.807018+00:00",
+      "records_at": "2026-11-07T22:29:46.818935+00:00",
       "win_tracker": {
         "20636:7208": {
           "stats": {
@@ -1270,7 +1270,7 @@
         "defense": 20.0,
         "physical": 64.0
       },
-      "profile_at": "2026-11-07T20:52:09.366385+00:00",
+      "profile_at": "2026-11-07T22:29:47.393821+00:00",
       "records": [
         {
           "competition": {
@@ -1325,7 +1325,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:09.887352+00:00",
+      "records_at": "2026-11-07T22:29:48.463932+00:00",
       "win_tracker": {
         "21601:5291": {
           "stats": {
@@ -1384,9 +1384,9 @@
         "defense": 65.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-07T20:52:10.486695+00:00",
+      "profile_at": "2026-11-07T22:29:49.083081+00:00",
       "records": [],
-      "records_at": "2026-11-07T20:52:11.003741+00:00",
+      "records_at": "2026-11-07T22:29:49.662068+00:00",
       "win_tracker": {}
     },
     "90399": {
@@ -1407,7 +1407,7 @@
         "defense": 29.0,
         "physical": 69.0
       },
-      "profile_at": "2026-11-07T20:52:11.581447+00:00",
+      "profile_at": "2026-11-07T22:29:50.238637+00:00",
       "records": [
         {
           "competition": {
@@ -1462,7 +1462,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:12.105497+00:00",
+      "records_at": "2026-11-07T22:29:51.012360+00:00",
       "win_tracker": {
         "21484:7024": {
           "stats": {
@@ -1521,7 +1521,7 @@
         "defense": 43.0,
         "physical": 72.0
       },
-      "profile_at": "2026-11-07T20:52:12.687013+00:00",
+      "profile_at": "2026-11-07T22:29:51.605690+00:00",
       "records": [
         {
           "competition": {
@@ -1576,7 +1576,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:13.226821+00:00",
+      "records_at": "2026-11-07T22:29:52.385760+00:00",
       "win_tracker": {
         "21519:9454": {
           "stats": {
@@ -1635,7 +1635,7 @@
         "defense": 40.0,
         "physical": 74.0
       },
-      "profile_at": "2026-11-07T20:52:13.828907+00:00",
+      "profile_at": "2026-11-07T22:29:52.971603+00:00",
       "records": [
         {
           "competition": {
@@ -1690,7 +1690,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:14.335115+00:00",
+      "records_at": "2026-11-07T22:29:53.729708+00:00",
       "win_tracker": {
         "21361:6528": {
           "stats": {
@@ -1749,7 +1749,7 @@
         "defense": 43.0,
         "physical": 69.0
       },
-      "profile_at": "2026-11-07T20:52:14.910456+00:00",
+      "profile_at": "2026-11-07T22:29:54.326615+00:00",
       "records": [
         {
           "competition": {
@@ -1804,7 +1804,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:15.427322+00:00",
+      "records_at": "2026-11-07T22:29:55.036856+00:00",
       "win_tracker": {
         "21313:7180": {
           "stats": {
@@ -1863,7 +1863,7 @@
         "defense": 25.0,
         "physical": 66.0
       },
-      "profile_at": "2026-11-07T20:52:15.995390+00:00",
+      "profile_at": "2026-11-07T22:29:55.611992+00:00",
       "records": [
         {
           "competition": {
@@ -1918,7 +1918,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:16.510658+00:00",
+      "records_at": "2026-11-07T22:29:56.244911+00:00",
       "win_tracker": {
         "21370:11210": {
           "stats": {
@@ -1977,7 +1977,7 @@
         "defense": 38.0,
         "physical": 71.0
       },
-      "profile_at": "2026-11-07T20:52:17.079866+00:00",
+      "profile_at": "2026-11-07T22:29:56.819833+00:00",
       "records": [
         {
           "competition": {
@@ -2032,7 +2032,7 @@
           }
         }
       ],
-      "records_at": "2026-11-07T20:52:17.592960+00:00",
+      "records_at": "2026-11-07T22:29:57.619018+00:00",
       "win_tracker": {
         "21519:4008": {
           "stats": {
@@ -2074,7 +2074,7 @@
       }
     }
   },
-  "last_complete_at": "2026-11-07T20:52:17.995019+00:00",
+  "last_complete_at": "2026-11-07T22:29:58.020439+00:00",
   "night_checkpoints": {
     "2026-11-04": {
       "at": "2026-11-04T18:43:18.041506+00:00",
@@ -5623,12 +5623,12 @@
         "player_id": 35005,
         "note": "",
         "player": "Alexandru Popovici",
-        "appearances": 0,
-        "goals": 0,
+        "appearances": 1,
+        "goals": 3,
         "assists": 0,
-        "wins": 0,
-        "average_rating": null,
-        "points": 0
+        "wins": 1,
+        "average_rating": 8.68,
+        "points": 16
       },
       {
         "entrant": "Hawkeye",
@@ -5849,18 +5849,18 @@
     "236834": 3,
     "90399": 4,
     "384642": 5,
-    "53882": 6,
-    "127842": 7,
-    "68936": 7,
-    "56184": 9,
-    "316875": 10,
-    "199596": 11,
-    "412176": 12,
-    "411954": 12,
-    "35005": 14,
+    "35005": 6,
+    "53882": 7,
+    "127842": 8,
+    "68936": 8,
+    "56184": 10,
+    "316875": 11,
+    "199596": 12,
+    "412176": 13,
+    "411954": 13,
     "110469": 15,
     "338443": 15,
     "240630": 17
   },
-  "movement_compared_at": "2026-11-07T20:48:23.261074+00:00"
+  "movement_compared_at": "2026-11-07T20:52:17.995019+00:00"
 }
