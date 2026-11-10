@@ -2,7 +2,7 @@
   "version": 1,
   "season": 18,
   "competition": "grower",
-  "attempted_at": "2026-11-09T07:56:09.248079+00:00",
+  "attempted_at": "2026-11-10T08:24:16.886097+00:00",
   "errors": [],
   "players": {
     "468523": {
@@ -23,7 +23,7 @@
         "defense": 76.0,
         "physical": 74.0
       },
-      "profile_at": "2026-11-09T07:56:09.504282+00:00",
+      "profile_at": "2026-11-10T08:24:17.105056+00:00",
       "history": [
         {
           "date": 1792438632454,
@@ -41,7 +41,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:10.163261+00:00",
+      "history_at": "2026-11-10T08:24:17.703813+00:00",
       "baseline": {
         "at": "2026-10-19T19:37:12.454000+00:00",
         "overall": 69.0,
@@ -54,6 +54,91 @@
         "source": "Dated player history"
       },
       "records": [
+        {
+          "competition": {
+            "id": 21831,
+            "status": "LIVE",
+            "type": "CUP",
+            "subType": "IMFF_CUP",
+            "name": "Aspirants Cup – Tier 26",
+            "code": "ASPIR",
+            "prizePool": "19600",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "Welcome to the IMFF Aspirants Cup!",
+            "primaryColor": "#ABBFD7",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": null,
+            "startingDate": 1794242760000,
+            "root": {
+              "id": 577,
+              "name": "IMFF Aspirants Cup"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 6390,
+            "name": "FCN Vélez Academy",
+            "status": "FOUNDED",
+            "mainColor": "#fcdc00",
+            "secondaryColor": "#0066FF",
+            "city": "Vélez-Málaga",
+            "division": 8,
+            "logoVersion": "1785586067581",
+            "country": "SPAIN",
+            "ownedBy": {
+              "walletAddress": "0x65cc0e72dd71ad80",
+              "name": "Nooks",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0x65cc0e72dd71ad80/photo.png?t=1790407083796",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 2,
+            "foulsSuffered": 0,
+            "rating": 7.21,
+            "xG": 0,
+            "chancesCreated": 0,
+            "passes": 59,
+            "passesAccurate": 58,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 10,
+            "dribbledPast": 3,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 1,
+            "v": 6
+          }
+        },
         {
           "competition": {
             "id": 21332,
@@ -222,7 +307,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:10.854055+00:00",
+      "records_at": "2026-11-10T08:24:18.323685+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -251,7 +336,7 @@
         "defense": 0.0,
         "physical": 0.0
       },
-      "profile_at": "2026-11-09T07:56:11.551411+00:00",
+      "profile_at": "2026-11-10T08:24:18.936838+00:00",
       "history": [
         {
           "date": 1765881428140,
@@ -269,7 +354,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:12.222127+00:00",
+      "history_at": "2026-11-10T08:24:19.544022+00:00",
       "baseline": {
         "at": "2025-12-16T10:37:08.140000+00:00",
         "overall": 55.0,
@@ -282,6 +367,91 @@
         "source": "Dated player history"
       },
       "records": [
+        {
+          "competition": {
+            "id": 21887,
+            "status": "LIVE",
+            "type": "CUP",
+            "subType": "IMFF_CUP",
+            "name": "Aspirants Cup – Tier 82",
+            "code": "ASPIR",
+            "prizePool": "8560",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "Welcome to the IMFF Aspirants Cup!",
+            "primaryColor": "#ABBFD7",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": null,
+            "startingDate": 1794241080000,
+            "root": {
+              "id": 577,
+              "name": "IMFF Aspirants Cup"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 3694,
+            "name": "Chemnitz Junglöwen",
+            "status": "FOUNDED",
+            "mainColor": "#FFD700",
+            "secondaryColor": "#161515",
+            "city": "Chemnitz",
+            "division": 9,
+            "logoVersion": "1792697792131",
+            "country": "GERMANY",
+            "ownedBy": {
+              "walletAddress": "0xf1fd823ddac98f71",
+              "name": "minty",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/pfp/defaults/4.png",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": null,
+              "country": "WALES",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 3,
+            "goalsConceded": 1,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 0,
+            "foulsSuffered": 0,
+            "rating": 7.08,
+            "xG": 0,
+            "chancesCreated": 0,
+            "passes": 16,
+            "passesAccurate": 10,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 4,
+            "dribbledPast": 0,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 0,
+            "v": 6
+          }
+        },
         {
           "competition": {
             "id": 21543,
@@ -369,7 +539,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:12.895952+00:00",
+      "records_at": "2026-11-10T08:24:20.425043+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -398,7 +568,7 @@
         "defense": 31.0,
         "physical": 62.0
       },
-      "profile_at": "2026-11-09T07:56:13.590581+00:00",
+      "profile_at": "2026-11-10T08:24:21.051110+00:00",
       "history": [
         {
           "date": 1765881152510,
@@ -416,7 +586,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:14.293704+00:00",
+      "history_at": "2026-11-10T08:24:21.654269+00:00",
       "baseline": {
         "at": "2025-12-16T10:32:32.510000+00:00",
         "overall": 56.0,
@@ -429,6 +599,91 @@
         "source": "Dated player history"
       },
       "records": [
+        {
+          "competition": {
+            "id": 21945,
+            "status": "LIVE",
+            "type": "CUP",
+            "subType": "IMFF_CUP",
+            "name": "Aspirants Cup – Tier 140",
+            "code": "ASPIR",
+            "prizePool": "6270",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "Welcome to the IMFF Aspirants Cup!",
+            "primaryColor": "#ABBFD7",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": null,
+            "startingDate": 1794239400000,
+            "root": {
+              "id": 577,
+              "name": "IMFF Aspirants Cup"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 4697,
+            "name": "Bon Jhovi Academy",
+            "status": "FOUNDED",
+            "mainColor": "#000b1b",
+            "secondaryColor": "#0066FF",
+            "city": "Jõhvi",
+            "division": 10,
+            "logoVersion": "1788099485544",
+            "country": "ESTONIA",
+            "ownedBy": {
+              "walletAddress": "0x607afacad207a167",
+              "name": "Rhythm",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0x607afacad207a167/photo.png?t=1781889127683",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 4253,
+            "goals": 0,
+            "shots": 4,
+            "shotsOnTarget": 1,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 2,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 1,
+            "foulsSuffered": 1,
+            "rating": 6.42,
+            "xG": 0.59,
+            "chancesCreated": 0,
+            "passes": 25,
+            "passesAccurate": 21,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 0,
+            "dribbledPast": 0,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 0,
+            "v": 6
+          }
+        },
         {
           "competition": {
             "id": 21640,
@@ -516,7 +771,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:14.980522+00:00",
+      "records_at": "2026-11-10T08:24:22.267910+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -545,7 +800,7 @@
         "defense": 30.0,
         "physical": 43.0
       },
-      "profile_at": "2026-11-09T07:56:15.668963+00:00",
+      "profile_at": "2026-11-10T08:24:22.911703+00:00",
       "history": [
         {
           "date": 1788532416861,
@@ -563,7 +818,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:16.332502+00:00",
+      "history_at": "2026-11-10T08:24:23.514144+00:00",
       "baseline": {
         "at": "2026-09-04T14:33:36.861000+00:00",
         "overall": 65.0,
@@ -576,6 +831,90 @@
         "source": "Dated player history"
       },
       "records": [
+        {
+          "competition": {
+            "id": 21855,
+            "status": "LIVE",
+            "type": "CUP",
+            "subType": "IMFF_CUP",
+            "name": "Aspirants Cup – Tier 50",
+            "code": "ASPIR",
+            "prizePool": "10280",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "Welcome to the IMFF Aspirants Cup!",
+            "primaryColor": "#ABBFD7",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": null,
+            "startingDate": 1794242040000,
+            "root": {
+              "id": 577,
+              "name": "IMFF Aspirants Cup"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 8045,
+            "name": "Sofia Eagles",
+            "status": "FOUNDED",
+            "mainColor": "#FF0000",
+            "secondaryColor": "#0066FF",
+            "city": "Sofia",
+            "division": 9,
+            "logoVersion": "1774721458839",
+            "country": "BULGARIA",
+            "ownedBy": {
+              "walletAddress": "0xbfc0f72486f5a586",
+              "name": "Daryl Shootz",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0xbfc0f72486f5a586/photo.png?t=1774472744777",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "D_Shootz",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 0,
+            "shots": 3,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 6,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 1,
+            "losses": 0,
+            "foulsCommitted": 0,
+            "foulsSuffered": 2,
+            "rating": 5.66,
+            "xG": 0.71,
+            "chancesCreated": 0,
+            "passes": 13,
+            "passesAccurate": 11,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 0,
+            "dribbledPast": 1,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 1,
+            "v": 6
+          }
+        },
         {
           "competition": {
             "id": 21591,
@@ -662,7 +1001,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:17.002361+00:00",
+      "records_at": "2026-11-10T08:24:24.115707+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -691,7 +1030,7 @@
         "defense": 40.0,
         "physical": 56.0
       },
-      "profile_at": "2026-11-09T07:56:17.687395+00:00",
+      "profile_at": "2026-11-10T08:24:24.732931+00:00",
       "history": [
         {
           "date": 1792439040667,
@@ -709,7 +1048,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:18.336452+00:00",
+      "history_at": "2026-11-10T08:24:25.310898+00:00",
       "baseline": {
         "at": "2026-10-19T19:44:00.667000+00:00",
         "overall": 43.0,
@@ -722,6 +1061,90 @@
         "source": "Dated player history"
       },
       "records": [
+        {
+          "competition": {
+            "id": 21981,
+            "status": "LIVE",
+            "type": "CUP",
+            "subType": "IMFF_CUP",
+            "name": "Aspirants Cup – Tier 176",
+            "code": "ASPIR",
+            "prizePool": "4350",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "Welcome to the IMFF Aspirants Cup!",
+            "primaryColor": "#ABBFD7",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": null,
+            "startingDate": 1794238320000,
+            "root": {
+              "id": 577,
+              "name": "IMFF Aspirants Cup"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 3506,
+            "name": "The Agent Hub - Saint-Louis",
+            "status": "FOUNDED",
+            "mainColor": "#9900FF",
+            "secondaryColor": "#3a3a3a",
+            "city": "Saint-Louis",
+            "division": 10,
+            "logoVersion": "1780300051293",
+            "country": "SENEGAL",
+            "ownedBy": {
+              "walletAddress": "0xecc6cc6ecf4782da",
+              "name": "Ricky Hyde-The Agent Hub",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0xecc6cc6ecf4782da/photo.png?t=1780127708888",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "twitter": "TheAgentHubMFL",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 1,
+            "foulsCommitted": 1,
+            "foulsSuffered": 1,
+            "rating": 6.51,
+            "xG": 0,
+            "chancesCreated": 1,
+            "passes": 27,
+            "passesAccurate": 19,
+            "crosses": 1,
+            "crossesAccurate": 1,
+            "shotsInterceptions": 0,
+            "clearances": 5,
+            "dribbledPast": 3,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 4,
+            "v": 6
+          }
+        },
         {
           "competition": {
             "id": 21680,
@@ -775,10 +1198,10 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 4,
-            "time": 21600,
+            "nbMatches": 5,
+            "time": 27000,
             "goals": 0,
-            "shots": 2,
+            "shots": 3,
             "shotsOnTarget": 2,
             "shotsIntercepted": 0,
             "dribblingSuccess": 0,
@@ -789,26 +1212,26 @@
             "goalsConceded": 0,
             "wins": 0,
             "draws": 0,
-            "losses": 4,
-            "foulsCommitted": 3,
+            "losses": 5,
+            "foulsCommitted": 4,
             "foulsSuffered": 2,
-            "rating": 24.8,
-            "xG": 0.11,
-            "chancesCreated": 1,
-            "passes": 105,
-            "passesAccurate": 92,
+            "rating": 30.58,
+            "xG": 0.17,
+            "chancesCreated": 2,
+            "passes": 132,
+            "passesAccurate": 115,
             "crosses": 1,
             "crossesAccurate": 0,
             "shotsInterceptions": 0,
-            "clearances": 23,
-            "dribbledPast": 12,
+            "clearances": 26,
+            "dribbledPast": 14,
             "ownGoals": 0,
-            "defensiveDuelsWon": 12,
+            "defensiveDuelsWon": 15,
             "v": 6
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:19.024778+00:00",
+      "records_at": "2026-11-10T08:24:25.924030+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -837,7 +1260,7 @@
         "defense": 45.0,
         "physical": 66.0
       },
-      "profile_at": "2026-11-09T07:56:19.710049+00:00",
+      "profile_at": "2026-11-10T08:24:26.557187+00:00",
       "history": [
         {
           "date": 1792439120466,
@@ -855,7 +1278,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:20.362760+00:00",
+      "history_at": "2026-11-10T08:24:27.157957+00:00",
       "baseline": {
         "at": "2026-10-19T19:45:20.466000+00:00",
         "overall": 48.0,
@@ -868,6 +1291,91 @@
         "source": "Dated player history"
       },
       "records": [
+        {
+          "competition": {
+            "id": 21900,
+            "status": "LIVE",
+            "type": "CUP",
+            "subType": "IMFF_CUP",
+            "name": "Aspirants Cup – Tier 95",
+            "code": "ASPIR",
+            "prizePool": "8020",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "Welcome to the IMFF Aspirants Cup!",
+            "primaryColor": "#ABBFD7",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": null,
+            "startingDate": 1794240720000,
+            "root": {
+              "id": 577,
+              "name": "IMFF Aspirants Cup"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 9454,
+            "name": "Potsdam Phoenix FC",
+            "status": "FOUNDED",
+            "mainColor": "#FF0000",
+            "secondaryColor": "#0066FF",
+            "city": "Potsdam",
+            "division": 9,
+            "logoVersion": "1782505819490",
+            "country": "GERMANY",
+            "ownedBy": {
+              "walletAddress": "0x19ef9c9392d367b1",
+              "name": "Mmewse",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/pfp/defaults/1.png",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": null,
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 1173,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 0,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 1,
+            "foulsCommitted": 0,
+            "foulsSuffered": 0,
+            "rating": 5.63,
+            "xG": 0,
+            "chancesCreated": 1,
+            "passes": 9,
+            "passesAccurate": 8,
+            "crosses": 0,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 1,
+            "dribbledPast": 1,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 3,
+            "v": 6
+          }
+        },
         {
           "competition": {
             "id": 21519,
@@ -955,7 +1463,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:21.041113+00:00",
+      "records_at": "2026-11-10T08:24:27.769928+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -984,7 +1492,7 @@
         "defense": 65.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-09T07:56:21.728107+00:00",
+      "profile_at": "2026-11-10T08:24:28.384424+00:00",
       "history": [
         {
           "date": 1755093768116,
@@ -1002,7 +1510,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:22.378162+00:00",
+      "history_at": "2026-11-10T08:24:28.969877+00:00",
       "baseline": {
         "at": "2025-08-13T14:02:48.116000+00:00",
         "overall": 58.0,
@@ -1101,7 +1609,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:23.047997+00:00",
+      "records_at": "2026-11-10T08:24:29.562965+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1130,7 +1638,7 @@
         "defense": 64.0,
         "physical": 61.0
       },
-      "profile_at": "2026-11-09T07:56:23.736768+00:00",
+      "profile_at": "2026-11-10T08:24:30.173880+00:00",
       "history": [
         {
           "date": 1766154938995,
@@ -1156,7 +1664,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:24.385559+00:00",
+      "history_at": "2026-11-10T08:24:30.757692+00:00",
       "baseline": {
         "at": "2025-12-19T14:35:38.995000+00:00",
         "overall": 60.0,
@@ -1256,7 +1764,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:25.050222+00:00",
+      "records_at": "2026-11-10T08:24:31.349576+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1285,7 +1793,7 @@
         "defense": 31.0,
         "physical": 47.0
       },
-      "profile_at": "2026-11-09T07:56:25.744016+00:00",
+      "profile_at": "2026-11-10T08:24:31.978499+00:00",
       "history": [
         {
           "date": 1765881488666,
@@ -1303,7 +1811,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:26.395292+00:00",
+      "history_at": "2026-11-10T08:24:32.565172+00:00",
       "baseline": {
         "at": "2025-12-16T10:38:08.666000+00:00",
         "overall": 59.0,
@@ -1316,6 +1824,90 @@
         "source": "Dated player history"
       },
       "records": [
+        {
+          "competition": {
+            "id": 21960,
+            "status": "LIVE",
+            "type": "CUP",
+            "subType": "IMFF_CUP",
+            "name": "Aspirants Cup – Tier 155",
+            "code": "ASPIR",
+            "prizePool": "5410",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "Welcome to the IMFF Aspirants Cup!",
+            "primaryColor": "#ABBFD7",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": null,
+            "startingDate": 1794238920000,
+            "root": {
+              "id": 577,
+              "name": "IMFF Aspirants Cup"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 2640,
+            "name": "TECFC Pacífico",
+            "status": "FOUNDED",
+            "mainColor": "#006b5b",
+            "secondaryColor": "#18b7b1",
+            "city": "Buenaventura",
+            "division": 10,
+            "logoVersion": "1793448343430",
+            "country": "COLOMBIA",
+            "ownedBy": {
+              "walletAddress": "0xc0e7c7d0c3ea7dfa",
+              "name": "Tarek1025",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/pfp/defaults/7.png",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "tarek_chidiac",
+              "country": "LEBANON",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 0,
+            "shots": 1,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 5,
+            "assists": 1,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "foulsCommitted": 3,
+            "foulsSuffered": 5,
+            "rating": 7.51,
+            "xG": 0.01,
+            "chancesCreated": 1,
+            "passes": 50,
+            "passesAccurate": 37,
+            "crosses": 3,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 1,
+            "dribbledPast": 1,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 0,
+            "v": 6
+          }
+        },
         {
           "competition": {
             "id": 21688,
@@ -1402,7 +1994,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:27.067600+00:00",
+      "records_at": "2026-11-10T08:24:33.213548+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1431,7 +2023,7 @@
         "defense": 29.0,
         "physical": 51.0
       },
-      "profile_at": "2026-11-09T07:56:27.784641+00:00",
+      "profile_at": "2026-11-10T08:24:33.891328+00:00",
       "history": [
         {
           "date": 1788528624096,
@@ -1449,7 +2041,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:28.465165+00:00",
+      "history_at": "2026-11-10T08:24:34.480815+00:00",
       "baseline": {
         "at": "2026-09-04T13:30:24.096000+00:00",
         "overall": 51.0,
@@ -1548,7 +2140,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:29.156022+00:00",
+      "records_at": "2026-11-10T08:24:35.074770+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1577,7 +2169,7 @@
         "defense": 42.0,
         "physical": 54.0
       },
-      "profile_at": "2026-11-09T07:56:29.835978+00:00",
+      "profile_at": "2026-11-10T08:24:35.685071+00:00",
       "history": [
         {
           "date": 1792438578429,
@@ -1595,7 +2187,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:30.488169+00:00",
+      "history_at": "2026-11-10T08:24:36.277480+00:00",
       "baseline": {
         "at": "2026-10-19T19:36:18.429000+00:00",
         "overall": 50.0,
@@ -1608,6 +2200,91 @@
         "source": "Dated player history"
       },
       "records": [
+        {
+          "competition": {
+            "id": 21968,
+            "status": "LIVE",
+            "type": "CUP",
+            "subType": "IMFF_CUP",
+            "name": "Aspirants Cup – Tier 163",
+            "code": "ASPIR",
+            "prizePool": "4950",
+            "hasPassword": false,
+            "featured": false,
+            "subtitle": "Welcome to the IMFF Aspirants Cup!",
+            "primaryColor": "#ABBFD7",
+            "inactiveClubsOnly": false,
+            "areRegistrationsOpen": false,
+            "withAlliances": false,
+            "noFatigue": false,
+            "withXp": true,
+            "maxParticipants": null,
+            "startingDate": 1794238680000,
+            "root": {
+              "id": 577,
+              "name": "IMFF Aspirants Cup"
+            },
+            "season": {
+              "id": 28,
+              "name": "Season 18"
+            },
+            "entryFeesAmount": null
+          },
+          "club": {
+            "id": 1354,
+            "name": "King of Kings",
+            "status": "FOUNDED",
+            "mainColor": "#005293",
+            "secondaryColor": "#018749",
+            "city": "Helsingborg",
+            "division": 10,
+            "logoVersion": "1785840460436",
+            "country": "SWEDEN",
+            "ownedBy": {
+              "walletAddress": "0x8a9b7779bc2aa9b6",
+              "name": "ClarkyIsland",
+              "avatar": "https://d13e14gtps4iwl.cloudfront.net/u/users/0x8a9b7779bc2aa9b6/photo.png?t=1786022937794",
+              "arenaAvatarFlair": "flair-beta-gold",
+              "arenaProfileBanner": "banner-gates-open",
+              "twitter": "",
+              "country": "ENGLAND",
+              "lastActive": 1
+            },
+            "squads": []
+          },
+          "stats": {
+            "nbMatches": 1,
+            "time": 5400,
+            "goals": 0,
+            "shots": 0,
+            "shotsOnTarget": 0,
+            "shotsIntercepted": 0,
+            "dribblingSuccess": 3,
+            "assists": 0,
+            "yellowCards": 0,
+            "redCards": 0,
+            "saves": 0,
+            "goalsConceded": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 1,
+            "foulsCommitted": 2,
+            "foulsSuffered": 0,
+            "rating": 6.87,
+            "xG": 0,
+            "chancesCreated": 0,
+            "passes": 36,
+            "passesAccurate": 32,
+            "crosses": 1,
+            "crossesAccurate": 0,
+            "shotsInterceptions": 0,
+            "clearances": 2,
+            "dribbledPast": 3,
+            "ownGoals": 0,
+            "defensiveDuelsWon": 10,
+            "v": 6
+          }
+        },
         {
           "competition": {
             "id": 21632,
@@ -1777,7 +2454,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:31.165649+00:00",
+      "records_at": "2026-11-10T08:24:36.890646+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1806,7 +2483,7 @@
         "defense": 69.0,
         "physical": 55.0
       },
-      "profile_at": "2026-11-09T07:56:31.855065+00:00",
+      "profile_at": "2026-11-10T08:24:37.511645+00:00",
       "history": [
         {
           "date": 1788532382139,
@@ -1824,7 +2501,7 @@
           }
         }
       ],
-      "history_at": "2026-11-09T07:56:32.504111+00:00",
+      "history_at": "2026-11-10T08:24:38.101369+00:00",
       "baseline": {
         "at": "2026-09-04T14:33:02.139000+00:00",
         "overall": 67.0,
@@ -1923,7 +2600,7 @@
           }
         }
       ],
-      "records_at": "2026-11-09T07:56:33.173577+00:00",
+      "records_at": "2026-11-10T08:24:38.745762+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1935,5 +2612,5 @@
       }
     }
   },
-  "last_complete_at": "2026-11-09T07:56:33.673727+00:00"
+  "last_complete_at": "2026-11-10T08:24:39.246078+00:00"
 }
