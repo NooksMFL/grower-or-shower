@@ -101,7 +101,8 @@ rendering.download('Download competition backup',store.backup(),'competitions_s1
 if not confirmed:
     st.caption('Growth is measured from saved starting values. Competition ranks await confirmation of scoring and tie-break rules.')
 
-overview, table, growth, details = st.tabs(['Player cards', 'Entry register', 'Growth tracker', 'Rules & prizes'])
+growth, overview, table, details = st.tabs(['Progress table', 'Player cards', 'Entry register', 'Rules & prizes'])
+import grower_view
 
 
 def fmt(value):
@@ -137,17 +138,9 @@ with overview:
     grid = st.columns(3)
     for i, row in enumerate(filtered):
         with grid[i % 3]:
-            club = row.get('club') or ('No current club' if row.get('club_known') else 'Club awaiting MFL data')
-            player = row.get('player') or f"Player #{row['player_id']}"
-            attrs = ''.join(f'<span>{label}<b>{fmt(row.get(field))}</b></span>' for field, label in b.LABELS.items() if field != 'overall')
-            st.html(f'''<div class="player"><a href="{row['player_url']}" target="_blank" rel="noopener noreferrer">
-            <img src="https://d13e14gtps4iwl.cloudfront.net/players/v2/{row['player_id']}/photo.webp" alt="">
-            <div class="owner">{esc(row['entrant'])}</div><div class="name">{esc(player)}</div>
-            <div class="sub">{esc(row.get('positions') or 'Position pending')} · Age {fmt(row.get('age'))}<br>{esc(club)}</div>
-            <div class="ovr">{fmt(row.get('overall'))} <small style="font-size:.75rem;color:#acb8ca">OVR</small></div>
-            <div class="stats">{attrs}</div></a></div>''')
+            st.html(grower_view.card_html(row))
             st.html(f'<div class="player-check">Last checked: {esc(row.get("checked_at") or "Not fetched yet")}</div>')
-    st.caption('Cards open the official MFL player page. Missing data appears as —; it is never treated as zero.')
+    st.caption('Changes are shown below each stat: green gains, red decreases, ±0 unchanged. — means a starting value is unavailable.')
 
 with table:
     df = export_rows()
@@ -160,14 +153,8 @@ with table:
     st.caption('Hawkeye’s final selection is #337204; the earlier #467300 has been replaced.')
 
 with growth:
-    st.subheader('Player growth')
-    st.write('Training XP and match XP both contribute to player development. Starting values are saved once; future refreshes update current values only.')
-    df = export_rows()
-    columns = ['Entrant', 'Player', 'Start OVR', 'OVR', 'OVR gain', 'Attribute gain'] + [f'{label} gain' for label in ('PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY')] + ['Baseline saved (UTC)']
-    if confirmed and all(r.get('rank') is not None for r in data):
-        columns = ['Rank'] + columns
-    rendering.table(df[columns], hide_index=True, width='stretch')
-    st.caption('No starting values means no calculated gain. League ratings use explicit average ratings; an ambiguous cumulative rating is left unavailable. Ties with missing ratings remain unresolved.')
+    st.html(grower_view.progress_table_html(data))
+    st.caption('Changes since saved starting values · ATTR is the combined change across PAC, SHO, PAS, DRI, DEF and PHY. ±0 means unchanged; — means a starting value is unavailable.')
     rendering.download('Download competition backup', store.backup(), 'competitions_s18_backup.json', 'application/json')
 
 with details:

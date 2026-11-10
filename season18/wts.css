@@ -124,3 +124,46 @@ button:focus-visible,a:focus-visible {outline:3px solid var(--wts-black)!importa
 .star-card .star-stat strong {font-size:1.25rem}
 .star-card .star-stat span {font-size:.55rem}
 }
+
+.gos-gain {display:inline-block;font-family:Arial,sans-serif;font-size:.78rem!important;font-weight:800;line-height:1.3;letter-spacing:0;padding:2px 5px;border-radius:4px;white-space:nowrap}
+.gos-up {color:#08743e;background:#ddfff0}.gos-down {color:#b52243;background:#ffe5ec}.gos-flat {color:#596470;background:#eef1f4}.gos-unknown {color:#68717c;background:#f0f2f4}
+.player.gos-player {height:348px;min-height:348px}
+.player.gos-player .ovr {bottom:6.4rem;max-width:65%}
+.player.gos-player img {height:calc(100% - 7.2rem)}
+.player.gos-player .ovr .gos-gain {vertical-align:middle;font-size:1rem!important}
+.player.gos-player .stats {height:4.25rem;padding-top:.55rem;gap:3px}
+.gos-card-attribute {display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.player.gos-player .gos-card-attribute>span:first-child {font-size:.69rem;color:#59616b}
+.player.gos-player .gos-card-attribute>b {font-size:1.05rem;line-height:1.2}
+.player.gos-player .gos-card-attribute>.gos-gain {font-size:.66rem!important;padding:1px 4px}
+.gos-progress-wrap {border:2px solid #101014;border-radius:10px;overflow:hidden;background:#fff;box-shadow:4px 5px 0 #10101422;margin:.4rem 0 .8rem}
+.gos-progress-title {display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#101014;color:#fff;letter-spacing:.07em;font-size:.85rem}
+.gos-progress-title strong {color:#00ebcb}
+.gos-progress {width:100%;border-collapse:collapse;table-layout:fixed;color:#101014;font-size:.88rem}
+.gos-progress th,.gos-progress td {padding:8px 5px;text-align:center;border-bottom:1px solid #dce5e3;vertical-align:middle}
+.gos-progress thead {background:#00dfc0;font-size:.7rem;letter-spacing:.025em}
+.gos-progress tbody tr:nth-child(even) {background:#f2f6f5}
+.gos-progress .gos-entrant {width:13%;text-align:left;padding-left:12px;font-weight:800}
+.gos-progress .gos-player-cell {width:25%;text-align:left}
+.gos-progress thead th:nth-child(2) {width:25%;text-align:left}
+.gos-progress .gos-player-cell a {display:flex;align-items:center;gap:8px;text-decoration:none;color:#101014}
+.gos-progress .gos-player-cell img {width:32px;height:42px;object-fit:contain;background:#e7f7f1;border-radius:4px}
+.gos-player-cell strong {display:block;font-size:.86rem;line-height:1.2;overflow-wrap:anywhere}
+.gos-player-cell small {display:none}
+.gos-progress .gos-total {background:#ddfff2}
+@media(max-width:650px) {
+.gos-progress .gos-entrant,.gos-progress .gos-attribute {display:none}
+.gos-progress thead th:nth-child(2) {width:43%;padding-left:9px}
+.gos-progress .gos-player-cell {width:43%;padding-left:9px}
+.gos-player-cell small {display:block;font-size:.67rem;color:#596470;margin-top:3px}
+.gos-progress .gos-player-cell a {gap:5px}
+.gos-player-cell strong {font-size:.78rem}
+.gos-progress th,.gos-progress td {padding:7px 3px}
+.gos-progress thead {font-size:.59rem}
+.gos-progress .gos-gain {font-size:.72rem!important;padding:2px 4px}
+.gos-progress .gos-player-cell img {width:28px;height:38px}
+}
+.player.gos-player .gos-card-attribute>.gos-up {color:#08743e}
+.player.gos-player .gos-card-attribute>.gos-down {color:#b52243}
+.player.gos-player .gos-card-attribute>.gos-flat {color:#596470}
+.player.gos-player .gos-card-attribute>.gos-unknown {color:#68717c}

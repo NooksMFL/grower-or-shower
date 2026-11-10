@@ -27,7 +27,7 @@ def tables(at):
             if tag=='tr' and self.row:self.rows.append(self.row)
     result=[]
     for element in at.get('html'):
-        if 'mfl-data-table' not in element.proto.body:continue
+        if 'mfl-data-table' not in element.proto.body and 'class="gos-progress"' not in element.proto.body:continue
         parser=Parser();parser.feed(element.proto.body)
         if not parser.rows:continue
         frame=pd.DataFrame(parser.rows[1:],columns=parser.rows[0]).replace('—',pd.NA)
@@ -80,7 +80,7 @@ class AppTests(unittest.TestCase):
         at=AppTest.from_file(str(ROOT/'app.py')).run()
         at.button(key='open_grower').click().run()
         self.assertEqual(list(at.exception),[])
-        cards=[e.proto.body for e in at.get('html') if 'class="player"' in e.proto.body]
+        cards=[e.proto.body for e in at.get('html') if 'class="player gos-player"' in e.proto.body]
         self.assertEqual(len(cards),len(b.entrants()))
         markup=''.join(cards)
         self.assertIn('&lt;Bad &amp; Name&gt;',markup)
@@ -140,8 +140,13 @@ class AppTests(unittest.TestCase):
         at.button(key='open_grower').click().run()
         self.assertEqual(list(at.exception), [])
         self.assertEqual(at.metric[2].value, '12 / 12')
-        self.assertTrue((tables(at)[1]['OVR gain'] == 2).all())
-        self.assertTrue((tables(at)[1]['Attribute gain'] == 4).all())
+        self.assertEqual(at.tabs[0].label,'Progress table')
+        progress=next(t for t in tables(at) if 'OVR +/−' in t.columns)
+        self.assertTrue((progress['OVR +/−'] == 2).all())
+        self.assertTrue((progress['ATTR +/−'] == 4).all())
+        cards=[e.proto.body for e in at.get('html') if 'class="player gos-player"' in e.proto.body]
+        self.assertEqual(len(cards),12)
+        self.assertTrue(all('+2</span>' in card and '+4</span>' in card and '±0</span>' in card for card in cards))
 
     def test_organiser_can_save_verified_top_boy_score(self):
         with patch.dict(os.environ, {'ADMIN_PASSWORD': 'test-password'}):
