@@ -1,7 +1,7 @@
 name: Grower or Shower Sync
 on:
   schedule:
-    - cron: '17 1 * * *'
+    - cron: '17 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -35,4 +35,5 @@ jobs:
           path: grower-result.json
           retention-days: 14
 
-# Requested refresh: 2026-11-07 20:47 GMT
+
+# Requested refresh: 2026-11-11 10:37 GMT — Bonga development
