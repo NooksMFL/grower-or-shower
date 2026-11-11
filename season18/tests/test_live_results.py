@@ -90,6 +90,18 @@ class LiveTests(unittest.TestCase):
         self.assertEqual(sync.day_start_positions(current),baseline)
         self.assertEqual(sync.day_start_positions({}),{})
 
+    def test_direct_feed_decodes_github_contents_and_never_replaces_newer_scan_with_cdn(self):
+        import base64,json
+        older=snap('2026-11-11T19:00:00Z')
+        newer=snap('2026-11-11T21:11:00Z')
+        response=Mock();response.json.return_value={'content':base64.b64encode(json.dumps(newer).encode()).decode()}
+        live_results.direct.clear()
+        with patch.object(live_results.requests,'get',return_value=response):
+            self.assertEqual(live_results.direct()['attempted_at'],newer['attempted_at'])
+        self.assertEqual(live_results.newest(newer,older),newer)
+        self.assertEqual(live_results.newest(None,older,newer),newer)
+        live_results.direct.clear()
+
     def test_win_credit_excludes_missed_team_matches(self):
         first=record();state=nightly.credit_wins(first)
         self.assertEqual(first['stats']['winsWithAppearance'],1)

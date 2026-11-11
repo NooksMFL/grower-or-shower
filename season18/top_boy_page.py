@@ -70,7 +70,8 @@ def league_table_html(rows):
 @st.fragment(run_every=60)
 def render(store, setting):
     import live_results
-    snapshot=live_results.fetch()
+    snapshot=live_results.newest(live_results.fetch(),st.session_state.get('topboy_loaded_snapshot'))
+    if snapshot:st.session_state['topboy_loaded_snapshot']=snapshot
     live_results.apply(store,snapshot)
     live_results.status(snapshot)
     st.caption('Scoring starts 4 November 2026, 00:00 UK. Results from the completed pre-season cups are excluded.')
@@ -87,13 +88,20 @@ def render(store, setting):
     for row in rows:
         prior=previous_positions.get(str(row['player_id']))
         row['movement']=prior-row['position'] if isinstance(prior,int) and row.get('position') is not None else None
+    checked=[b.timestamp(r.get('score_checked_at')) for r in rows]
+    if checked and all(checked):st.caption('Table data checked: '+min(checked).strftime('%d %b, %H:%M GMT'))
+    if any(r.get('source')=='Organiser-verified totals' for r in rows):
+        st.info('Some scores use organiser-entered totals. These remain fixed until the organiser changes them.')
     loaded = sum(bool(r.get('checked_at')) for r in rows)
     complete = sum(r['points'] is not None for r in rows)
     st.html(f'<div class="tb-summary"><strong>{len(rows)} ENTRANTS</strong><span>GOAL <b>+5</b></span><span>ASSIST <b>+3</b></span><span>WIN WITH APPEARANCE <b>+1</b></span></div>')
     if st.button('↻ Load latest results' if snapshot else '↻ Refresh Top Boy', type='primary', width='stretch'):
         if snapshot:
+            live_results.direct.clear()
             live_results.fetch.clear()
-            live_results.apply(store,live_results.fetch())
+            latest=live_results.newest(snapshot,live_results.fetch())
+            st.session_state['topboy_loaded_snapshot']=latest
+            live_results.apply(store,latest)
             st.rerun()
         bar = st.progress(0, text='Refreshing Top Boy players and league / cup records…')
         messages = tb.refresh(store, b.Client(str(setting('MFL_REFRESH_TOKEN'))),

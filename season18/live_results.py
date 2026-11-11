@@ -1,5 +1,6 @@
 """Read the public Top Boy scheduler feed without modifying Grower data."""
 import json
+import base64
 import time
 from datetime import datetime,timezone,timedelta
 from zoneinfo import ZoneInfo
@@ -9,15 +10,36 @@ import backend as b
 from topboy_sync import LIVE_URL
 
 
+def valid_snapshot(value):
+    return isinstance(value,dict) and value.get('version')==1 and value.get('season')==18 and isinstance(value.get('players'),dict)
+
+
+@st.cache_data(ttl=120,show_spinner=False)
+def direct():
+    # The contents API reads the branch directly, avoiding stale raw-file CDN copies.
+    try:
+        response=requests.get('https://api.github.com/repos/NooksMFL/grower-or-shower/contents/season18/live/topboy.json',
+            params={'ref':'topboy-live'},headers={'Accept':'application/vnd.github+json','Cache-Control':'no-cache'},timeout=(4,12))
+        response.raise_for_status()
+        content=response.json()
+        value=json.loads(base64.b64decode(content['content']))
+        return value if valid_snapshot(value) else None
+    except (requests.RequestException,ValueError,KeyError,TypeError):return None
+
+
+def newest(*snapshots):
+    available=[v for v in snapshots if valid_snapshot(v)]
+    return max(available,key=lambda v:b.timestamp(v.get('attempted_at') or v.get('last_complete_at')) or datetime.min.replace(tzinfo=timezone.utc)) if available else None
+
+
 @st.cache_data(ttl=45,show_spinner=False)
 def fetch():
+    current=direct()
     try:
         r=requests.get(LIVE_URL+'?tick='+str(int(time.time()//60)),headers={'Cache-Control':'no-cache'},timeout=(4,12))
-        if not r.ok:return None
-        value=r.json()
-        if value.get('version')!=1 or value.get('season')!=18 or not isinstance(value.get('players'),dict):return None
-        return value
-    except (requests.RequestException,ValueError,AttributeError):return None
+        raw=r.json() if r.ok else None
+        return newest(current,raw)
+    except (requests.RequestException,ValueError,AttributeError):return current
 
 
 def apply(store,snapshot):
