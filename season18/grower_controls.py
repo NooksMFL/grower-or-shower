@@ -10,11 +10,14 @@ def render(store,setting):
     import grower_live
     snapshot=grower_live.fetch()
     if snapshot:
+        # This fragment polls while the page is open; redraw the whole page
+        # when a newer saved scan arrives so cards and the table change too.
+        if grower_live.apply(store,snapshot):st.rerun()
         if st.button('↻ Load latest player update',type='primary',width='stretch',key='grower_load_live'):
             grower_live.fetch.clear()
             grower_live.apply(store,grower_live.fetch())
             st.rerun()
-        st.caption('Player development is checked daily. Starting values stay fixed.')
+        st.caption('Hourly development checks · New results appear automatically · Starting values stay fixed.')
         return
     state=store.refresh_state()
     waiting=state.get('retry_until',0)>time.time()
