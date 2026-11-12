@@ -1,7 +1,7 @@
 {
   "version": 1,
   "season": 18,
-  "attempted_at": "2026-11-11T21:18:08.824745+00:00",
+  "attempted_at": "2026-11-12T01:19:47.972009+00:00",
   "errors": [],
   "players": {
     "35005": {
@@ -22,7 +22,7 @@
         "defense": 40.0,
         "physical": 53.0
       },
-      "profile_at": "2026-11-11T21:18:08.980870+00:00",
+      "profile_at": "2026-11-12T01:19:48.204325+00:00",
       "records": [
         {
           "competition": {
@@ -129,7 +129,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:09.501735+00:00",
+      "records_at": "2026-11-12T01:19:49.525578+00:00",
       "win_tracker": {
         "21298:5836": {
           "stats": {
@@ -225,7 +225,7 @@
         "defense": 11.0,
         "physical": 69.0
       },
-      "profile_at": "2026-11-11T21:18:10.032228+00:00",
+      "profile_at": "2026-11-12T01:19:50.077176+00:00",
       "records": [
         {
           "competition": {
@@ -332,7 +332,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:10.551444+00:00",
+      "records_at": "2026-11-12T01:19:50.644543+00:00",
       "win_tracker": {
         "21456:8373": {
           "stats": {
@@ -428,7 +428,7 @@
         "defense": 30.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-11T21:18:11.074023+00:00",
+      "profile_at": "2026-11-12T01:19:51.252490+00:00",
       "records": [
         {
           "competition": {
@@ -535,7 +535,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:11.610489+00:00",
+      "records_at": "2026-11-12T01:19:52.043235+00:00",
       "win_tracker": {
         "21761:2154": {
           "stats": {
@@ -631,7 +631,7 @@
         "defense": 44.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-11T21:18:12.130482+00:00",
+      "profile_at": "2026-11-12T01:19:52.608894+00:00",
       "records": [
         {
           "competition": {
@@ -738,7 +738,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:12.650590+00:00",
+      "records_at": "2026-11-12T01:19:53.715575+00:00",
       "win_tracker": {
         "20633:6742": {
           "stats": {
@@ -871,7 +871,7 @@
         "defense": 26.0,
         "physical": 64.0
       },
-      "profile_at": "2026-11-11T21:18:13.179069+00:00",
+      "profile_at": "2026-11-12T01:19:54.303049+00:00",
       "records": [
         {
           "competition": {
@@ -978,7 +978,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:13.695388+00:00",
+      "records_at": "2026-11-12T01:19:54.893262+00:00",
       "win_tracker": {
         "20633:7126": {
           "stats": {
@@ -1111,7 +1111,7 @@
         "defense": 34.0,
         "physical": 51.0
       },
-      "profile_at": "2026-11-11T21:18:14.232130+00:00",
+      "profile_at": "2026-11-12T01:19:55.460300+00:00",
       "records": [
         {
           "competition": {
@@ -1218,7 +1218,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:14.746778+00:00",
+      "records_at": "2026-11-12T01:19:56.199069+00:00",
       "win_tracker": {
         "21687:6430": {
           "stats": {
@@ -1314,7 +1314,7 @@
         "defense": 24.0,
         "physical": 80.0
       },
-      "profile_at": "2026-11-11T21:18:15.265487+00:00",
+      "profile_at": "2026-11-12T01:19:56.798439+00:00",
       "records": [
         {
           "competition": {
@@ -1421,7 +1421,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:15.788733+00:00",
+      "records_at": "2026-11-12T01:19:57.952635+00:00",
       "win_tracker": {
         "20641:5590": {
           "stats": {
@@ -1554,7 +1554,7 @@
         "defense": 37.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-11T21:18:16.319657+00:00",
+      "profile_at": "2026-11-12T01:19:58.529330+00:00",
       "records": [
         {
           "competition": {
@@ -1661,7 +1661,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:16.913063+00:00",
+      "records_at": "2026-11-12T01:19:59.988752+00:00",
       "win_tracker": {
         "20633:7279": {
           "stats": {
@@ -1794,7 +1794,7 @@
         "defense": 35.0,
         "physical": 40.0
       },
-      "profile_at": "2026-11-11T21:18:17.446067+00:00",
+      "profile_at": "2026-11-12T01:20:00.572863+00:00",
       "records": [
         {
           "competition": {
@@ -1901,7 +1901,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:17.953306+00:00",
+      "records_at": "2026-11-12T01:20:01.258995+00:00",
       "win_tracker": {
         "20636:7208": {
           "stats": {
@@ -2071,7 +2071,7 @@
         "defense": 20.0,
         "physical": 64.0
       },
-      "profile_at": "2026-11-11T21:18:18.492356+00:00",
+      "profile_at": "2026-11-12T01:20:01.850790+00:00",
       "records": [
         {
           "competition": {
@@ -2178,7 +2178,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:19.018629+00:00",
+      "records_at": "2026-11-12T01:20:03.313510+00:00",
       "win_tracker": {
         "21601:5291": {
           "stats": {
@@ -2274,7 +2274,7 @@
         "defense": 65.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-11T21:18:19.554286+00:00",
+      "profile_at": "2026-11-12T01:20:03.977178+00:00",
       "records": [
         {
           "competition": {
@@ -2329,7 +2329,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:20.052642+00:00",
+      "records_at": "2026-11-12T01:20:04.539936+00:00",
       "win_tracker": {
         "21589:5394": {
           "stats": {
@@ -2388,7 +2388,7 @@
         "defense": 29.0,
         "physical": 69.0
       },
-      "profile_at": "2026-11-11T21:18:20.563902+00:00",
+      "profile_at": "2026-11-12T01:20:05.112710+00:00",
       "records": [
         {
           "competition": {
@@ -2443,7 +2443,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:21.080773+00:00",
+      "records_at": "2026-11-12T01:20:06.144370+00:00",
       "win_tracker": {
         "21484:7024": {
           "stats": {
@@ -2502,7 +2502,7 @@
         "defense": 43.0,
         "physical": 72.0
       },
-      "profile_at": "2026-11-11T21:18:21.608486+00:00",
+      "profile_at": "2026-11-12T01:20:06.726605+00:00",
       "records": [
         {
           "competition": {
@@ -2609,7 +2609,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:22.124423+00:00",
+      "records_at": "2026-11-12T01:20:07.728896+00:00",
       "win_tracker": {
         "21519:9454": {
           "stats": {
@@ -2705,7 +2705,7 @@
         "defense": 40.0,
         "physical": 74.0
       },
-      "profile_at": "2026-11-11T21:18:22.667482+00:00",
+      "profile_at": "2026-11-12T01:20:08.324113+00:00",
       "records": [
         {
           "competition": {
@@ -2812,7 +2812,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:23.157879+00:00",
+      "records_at": "2026-11-12T01:20:09.247957+00:00",
       "win_tracker": {
         "21361:6528": {
           "stats": {
@@ -2908,7 +2908,7 @@
         "defense": 43.0,
         "physical": 69.0
       },
-      "profile_at": "2026-11-11T21:18:23.688682+00:00",
+      "profile_at": "2026-11-12T01:20:09.802425+00:00",
       "records": [
         {
           "competition": {
@@ -3015,7 +3015,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:24.217810+00:00",
+      "records_at": "2026-11-12T01:20:10.784101+00:00",
       "win_tracker": {
         "21313:7180": {
           "stats": {
@@ -3111,7 +3111,7 @@
         "defense": 25.0,
         "physical": 66.0
       },
-      "profile_at": "2026-11-11T21:18:24.739665+00:00",
+      "profile_at": "2026-11-12T01:20:11.360845+00:00",
       "records": [
         {
           "competition": {
@@ -3218,7 +3218,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:25.256649+00:00",
+      "records_at": "2026-11-12T01:20:12.025351+00:00",
       "win_tracker": {
         "21370:11210": {
           "stats": {
@@ -3314,7 +3314,7 @@
         "defense": 38.0,
         "physical": 71.0
       },
-      "profile_at": "2026-11-11T21:18:25.827713+00:00",
+      "profile_at": "2026-11-12T01:20:12.601802+00:00",
       "records": [
         {
           "competition": {
@@ -3421,7 +3421,7 @@
           }
         }
       ],
-      "records_at": "2026-11-11T21:18:26.354172+00:00",
+      "records_at": "2026-11-12T01:20:13.651577+00:00",
       "win_tracker": {
         "21519:4008": {
           "stats": {
@@ -3500,7 +3500,7 @@
       }
     }
   },
-  "last_complete_at": "2026-11-11T21:18:26.756724+00:00",
+  "last_complete_at": "2026-11-12T01:20:14.054268+00:00",
   "night_checkpoints": {
     "2026-11-04": {
       "at": "2026-11-04T18:43:18.041506+00:00",
@@ -11534,6 +11534,1710 @@
         ]
       },
       "source": "Midnight GMT scan"
+    },
+    "2026-11-12": {
+      "at": "2026-11-12T01:20:14.051989+00:00",
+      "records": {
+        "35005": [
+          {
+            "competition": {
+              "id": 21790,
+              "name": "Rivals Cup – Tier 1",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794244200000
+            },
+            "club": {
+              "id": 5836,
+              "name": "Own Goal Gods"
+            },
+            "stats": {
+              "nbMatches": 1,
+              "time": 5400,
+              "goals": 0,
+              "shots": 3,
+              "shotsOnTarget": 0,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 3,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 1,
+              "foulsCommitted": 1,
+              "foulsSuffered": 1,
+              "rating": 5.53,
+              "xG": 0.84,
+              "chancesCreated": 0,
+              "passes": 29,
+              "passesAccurate": 22,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 0,
+              "dribbledPast": 0,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 0
+            }
+          },
+          {
+            "competition": {
+              "id": 21298,
+              "name": "Stone – League 29",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793824920000
+            },
+            "club": {
+              "id": 5836,
+              "name": "Own Goal Gods"
+            },
+            "stats": {
+              "nbMatches": 4,
+              "time": 21600,
+              "goals": 4,
+              "shots": 12,
+              "shotsOnTarget": 7,
+              "shotsIntercepted": 1,
+              "dribblingSuccess": 20,
+              "assists": 1,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 4,
+              "draws": 0,
+              "losses": 0,
+              "foulsCommitted": 4,
+              "foulsSuffered": 6,
+              "rating": 28.62,
+              "xG": 2,
+              "chancesCreated": 1,
+              "passes": 67,
+              "passesAccurate": 54,
+              "crosses": 1,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 1,
+              "dribbledPast": 0,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 1,
+              "v": 6,
+              "winsWithAppearance": 4
+            }
+          }
+        ],
+        "384642": [
+          {
+            "competition": {
+              "id": 21861,
+              "name": "Aspirants Cup – Tier 56",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794241920000
+            },
+            "club": {
+              "id": 8373,
+              "name": "Invicta Kurume"
+            },
+            "stats": {
+              "nbMatches": 1,
+              "time": 5400,
+              "goals": 1,
+              "shots": 10,
+              "shotsOnTarget": 4,
+              "shotsIntercepted": 3,
+              "dribblingSuccess": 1,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 1,
+              "foulsCommitted": 0,
+              "foulsSuffered": 2,
+              "rating": 7.62,
+              "xG": 1,
+              "chancesCreated": 0,
+              "passes": 10,
+              "passesAccurate": 7,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 0,
+              "dribbledPast": 1,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 0
+            }
+          },
+          {
+            "competition": {
+              "id": 21456,
+              "name": "Spark – League 11",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793861100000
+            },
+            "club": {
+              "id": 8373,
+              "name": "Invicta Kurume"
+            },
+            "stats": {
+              "nbMatches": 7,
+              "time": 37800,
+              "goals": 7,
+              "shots": 36,
+              "shotsOnTarget": 12,
+              "shotsIntercepted": 4,
+              "dribblingSuccess": 26,
+              "assists": 2,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 5,
+              "draws": 1,
+              "losses": 1,
+              "foulsCommitted": 8,
+              "foulsSuffered": 15,
+              "rating": 51.25,
+              "xG": 5.14,
+              "chancesCreated": 7,
+              "passes": 126,
+              "passesAccurate": 101,
+              "crosses": 9,
+              "crossesAccurate": 2,
+              "shotsInterceptions": 0,
+              "clearances": 2,
+              "dribbledPast": 2,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 1,
+              "v": 6,
+              "winsWithAppearance": 5
+            }
+          }
+        ],
+        "350909": [
+          {
+            "competition": {
+              "id": 21927,
+              "name": "Aspirants Cup – Tier 122",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794239880000
+            },
+            "club": {
+              "id": 2154,
+              "name": "Dockside Academy Austria"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 8560,
+              "goals": 2,
+              "shots": 6,
+              "shotsOnTarget": 3,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 8,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 2,
+              "draws": 0,
+              "losses": 0,
+              "foulsCommitted": 1,
+              "foulsSuffered": 1,
+              "rating": 14.56,
+              "xG": 1.72,
+              "chancesCreated": 1,
+              "passes": 38,
+              "passesAccurate": 28,
+              "crosses": 1,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 1,
+              "dribbledPast": 1,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 2
+            }
+          },
+          {
+            "competition": {
+              "id": 21761,
+              "name": "Flint – League 138",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793630833000
+            },
+            "club": {
+              "id": 2154,
+              "name": "Dockside Academy Austria"
+            },
+            "stats": {
+              "nbMatches": 7,
+              "time": 32180,
+              "goals": 12,
+              "shots": 35,
+              "shotsOnTarget": 17,
+              "shotsIntercepted": 5,
+              "dribblingSuccess": 18,
+              "assists": 1,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 4,
+              "draws": 2,
+              "losses": 1,
+              "foulsCommitted": 0,
+              "foulsSuffered": 6,
+              "rating": 54.85,
+              "xG": 6.15,
+              "chancesCreated": 5,
+              "passes": 123,
+              "passesAccurate": 101,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 4,
+              "dribbledPast": 6,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 2,
+              "v": 6,
+              "winsWithAppearance": 4
+            }
+          }
+        ],
+        "152098": [
+          {
+            "competition": {
+              "id": 21869,
+              "name": "Aspirants Cup – Tier 64",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794241680000
+            },
+            "club": {
+              "id": 6742,
+              "name": "MFC Glasgow"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 10800,
+              "goals": 3,
+              "shots": 8,
+              "shotsOnTarget": 5,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 14,
+              "assists": 0,
+              "yellowCards": 1,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 1,
+              "draws": 0,
+              "losses": 1,
+              "foulsCommitted": 1,
+              "foulsSuffered": 5,
+              "rating": 15.81,
+              "xG": 1.98,
+              "chancesCreated": 0,
+              "passes": 51,
+              "passesAccurate": 42,
+              "crosses": 1,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 1,
+              "dribbledPast": 0,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 2,
+              "v": 6,
+              "winsWithAppearance": 1
+            }
+          },
+          {
+            "competition": {
+              "id": 21487,
+              "name": "Spark – League 42",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793782495000
+            },
+            "club": {
+              "id": 6742,
+              "name": "MFC Glasgow"
+            },
+            "stats": {
+              "nbMatches": 5,
+              "time": 27000,
+              "goals": 10,
+              "shots": 28,
+              "shotsOnTarget": 17,
+              "shotsIntercepted": 2,
+              "dribblingSuccess": 71,
+              "assists": 2,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 5,
+              "draws": 0,
+              "losses": 0,
+              "foulsCommitted": 1,
+              "foulsSuffered": 20,
+              "rating": 42.94,
+              "xG": 3.1,
+              "chancesCreated": 8,
+              "passes": 138,
+              "passesAccurate": 108,
+              "crosses": 19,
+              "crossesAccurate": 5,
+              "shotsInterceptions": 0,
+              "clearances": 3,
+              "dribbledPast": 2,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 6,
+              "v": 6,
+              "winsWithAppearance": 5
+            }
+          }
+        ],
+        "412176": [
+          {
+            "competition": {
+              "id": 21873,
+              "name": "Aspirants Cup – Tier 68",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794241560000
+            },
+            "club": {
+              "id": 7126,
+              "name": "FCN Angrense"
+            },
+            "stats": {
+              "nbMatches": 1,
+              "time": 4297,
+              "goals": 0,
+              "shots": 1,
+              "shotsOnTarget": 0,
+              "shotsIntercepted": 1,
+              "dribblingSuccess": 0,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 1,
+              "draws": 0,
+              "losses": 0,
+              "foulsCommitted": 1,
+              "foulsSuffered": 1,
+              "rating": 5.72,
+              "xG": 0.12,
+              "chancesCreated": 0,
+              "passes": 9,
+              "passesAccurate": 8,
+              "crosses": 1,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 0,
+              "dribbledPast": 0,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 1
+            }
+          },
+          {
+            "competition": {
+              "id": 21454,
+              "name": "Spark – League 9",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793862425000
+            },
+            "club": {
+              "id": 7126,
+              "name": "FCN Angrense"
+            },
+            "stats": {
+              "nbMatches": 7,
+              "time": 32308,
+              "goals": 3,
+              "shots": 7,
+              "shotsOnTarget": 3,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 8,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 5,
+              "draws": 1,
+              "losses": 1,
+              "foulsCommitted": 6,
+              "foulsSuffered": 10,
+              "rating": 44.72,
+              "xG": 2.1,
+              "chancesCreated": 2,
+              "passes": 93,
+              "passesAccurate": 77,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 2,
+              "dribbledPast": 4,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 6,
+              "v": 6,
+              "winsWithAppearance": 5
+            }
+          }
+        ],
+        "236834": [
+          {
+            "competition": {
+              "id": 21925,
+              "name": "Aspirants Cup – Tier 120",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794240000000
+            },
+            "club": {
+              "id": 6430,
+              "name": "Achaikos FC"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 1207,
+              "goals": 0,
+              "shots": 1,
+              "shotsOnTarget": 0,
+              "shotsIntercepted": 1,
+              "dribblingSuccess": 2,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 1,
+              "draws": 1,
+              "losses": 0,
+              "foulsCommitted": 0,
+              "foulsSuffered": 1,
+              "rating": 13.26,
+              "xG": 0.15,
+              "chancesCreated": 0,
+              "passes": 5,
+              "passesAccurate": 5,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 0,
+              "dribbledPast": 0,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 1
+            }
+          },
+          {
+            "competition": {
+              "id": 21687,
+              "name": "Flint – League 64",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793691374000
+            },
+            "club": {
+              "id": 6430,
+              "name": "Achaikos FC"
+            },
+            "stats": {
+              "nbMatches": 7,
+              "time": 37800,
+              "goals": 11,
+              "shots": 49,
+              "shotsOnTarget": 27,
+              "shotsIntercepted": 3,
+              "dribblingSuccess": 42,
+              "assists": 1,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 2,
+              "draws": 3,
+              "losses": 2,
+              "foulsCommitted": 1,
+              "foulsSuffered": 6,
+              "rating": 57.94,
+              "xG": 10.21,
+              "chancesCreated": 10,
+              "passes": 188,
+              "passesAccurate": 145,
+              "crosses": 4,
+              "crossesAccurate": 1,
+              "shotsInterceptions": 0,
+              "clearances": 1,
+              "dribbledPast": 2,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 2,
+              "v": 6,
+              "winsWithAppearance": 2
+            }
+          }
+        ],
+        "110469": [
+          {
+            "competition": {
+              "id": 21834,
+              "name": "Aspirants Cup – Tier 29",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794242640000
+            },
+            "club": {
+              "id": 5590,
+              "name": "Manila Reapers MFC"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 9815,
+              "goals": 1,
+              "shots": 1,
+              "shotsOnTarget": 1,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 4,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 0,
+              "draws": 1,
+              "losses": 1,
+              "foulsCommitted": 0,
+              "foulsSuffered": 1,
+              "rating": 12.9,
+              "xG": 0.33,
+              "chancesCreated": 0,
+              "passes": 23,
+              "passesAccurate": 18,
+              "crosses": 2,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 2,
+              "dribbledPast": 1,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 0
+            }
+          },
+          {
+            "competition": {
+              "id": 21436,
+              "name": "Ice – League 107",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793642182000
+            },
+            "club": {
+              "id": 5590,
+              "name": "Manila Reapers MFC"
+            },
+            "stats": {
+              "nbMatches": 5,
+              "time": 26419,
+              "goals": 1,
+              "shots": 14,
+              "shotsOnTarget": 5,
+              "shotsIntercepted": 1,
+              "dribblingSuccess": 11,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 2,
+              "draws": 0,
+              "losses": 3,
+              "foulsCommitted": 2,
+              "foulsSuffered": 9,
+              "rating": 30.49,
+              "xG": 1.96,
+              "chancesCreated": 0,
+              "passes": 69,
+              "passesAccurate": 61,
+              "crosses": 2,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 5,
+              "dribbledPast": 2,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 2,
+              "v": 6,
+              "winsWithAppearance": 2
+            }
+          }
+        ],
+        "53882": [
+          {
+            "competition": {
+              "id": 21867,
+              "name": "Aspirants Cup – Tier 62",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794241680000
+            },
+            "club": {
+              "id": 7279,
+              "name": "Gladiatori Di Roma"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 10800,
+              "goals": 2,
+              "shots": 4,
+              "shotsOnTarget": 2,
+              "shotsIntercepted": 2,
+              "dribblingSuccess": 9,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 1,
+              "draws": 0,
+              "losses": 1,
+              "foulsCommitted": 0,
+              "foulsSuffered": 8,
+              "rating": 13.99,
+              "xG": 1.18,
+              "chancesCreated": 1,
+              "passes": 46,
+              "passesAccurate": 30,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 1,
+              "dribbledPast": 5,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 2,
+              "v": 6,
+              "winsWithAppearance": 1
+            }
+          },
+          {
+            "competition": {
+              "id": 21475,
+              "name": "Spark – League 30",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793798924000
+            },
+            "club": {
+              "id": 7279,
+              "name": "Gladiatori Di Roma"
+            },
+            "stats": {
+              "nbMatches": 7,
+              "time": 30980,
+              "goals": 5,
+              "shots": 37,
+              "shotsOnTarget": 20,
+              "shotsIntercepted": 1,
+              "dribblingSuccess": 20,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 4,
+              "draws": 1,
+              "losses": 2,
+              "foulsCommitted": 2,
+              "foulsSuffered": 15,
+              "rating": 48.37,
+              "xG": 5.76,
+              "chancesCreated": 0,
+              "passes": 96,
+              "passesAccurate": 69,
+              "crosses": 2,
+              "crossesAccurate": 1,
+              "shotsInterceptions": 0,
+              "clearances": 2,
+              "dribbledPast": 2,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 4
+            }
+          }
+        ],
+        "316875": [
+          {
+            "competition": {
+              "id": 21929,
+              "name": "Aspirants Cup – Tier 124",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794239880000
+            },
+            "club": {
+              "id": 7208,
+              "name": "KL Phoenix FC"
+            },
+            "stats": {
+              "nbMatches": 1,
+              "time": 4250,
+              "goals": 1,
+              "shots": 2,
+              "shotsOnTarget": 1,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 0,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 1,
+              "draws": 0,
+              "losses": 0,
+              "foulsCommitted": 0,
+              "foulsSuffered": 0,
+              "rating": 7.74,
+              "xG": 0.52,
+              "chancesCreated": 1,
+              "passes": 30,
+              "passesAccurate": 24,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 0,
+              "dribbledPast": 1,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 1,
+              "v": 6,
+              "winsWithAppearance": 1
+            }
+          },
+          {
+            "competition": {
+              "id": 21725,
+              "name": "Flint – League 102",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793662356000
+            },
+            "club": {
+              "id": 7208,
+              "name": "KL Phoenix FC"
+            },
+            "stats": {
+              "nbMatches": 6,
+              "time": 28923,
+              "goals": 5,
+              "shots": 14,
+              "shotsOnTarget": 6,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 11,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 4,
+              "draws": 1,
+              "losses": 1,
+              "foulsCommitted": 1,
+              "foulsSuffered": 5,
+              "rating": 44.25,
+              "xG": 3.73,
+              "chancesCreated": 9,
+              "passes": 169,
+              "passesAccurate": 145,
+              "crosses": 2,
+              "crossesAccurate": 1,
+              "shotsInterceptions": 0,
+              "clearances": 1,
+              "dribbledPast": 2,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 8,
+              "v": 6,
+              "winsWithAppearance": 4
+            }
+          }
+        ],
+        "56184": [
+          {
+            "competition": {
+              "id": 21911,
+              "name": "Aspirants Cup – Tier 106",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794240360000
+            },
+            "club": {
+              "id": 5291,
+              "name": "Torquay Titans MFC"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 8697,
+              "goals": 1,
+              "shots": 7,
+              "shotsOnTarget": 1,
+              "shotsIntercepted": 1,
+              "dribblingSuccess": 5,
+              "assists": 1,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 1,
+              "draws": 0,
+              "losses": 1,
+              "foulsCommitted": 0,
+              "foulsSuffered": 2,
+              "rating": 14.77,
+              "xG": 0.8,
+              "chancesCreated": 2,
+              "passes": 30,
+              "passesAccurate": 25,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 2,
+              "dribbledPast": 0,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 1,
+              "v": 6,
+              "winsWithAppearance": 1
+            }
+          },
+          {
+            "competition": {
+              "id": 21601,
+              "name": "Spark – League 156",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793635962000
+            },
+            "club": {
+              "id": 5291,
+              "name": "Torquay Titans MFC"
+            },
+            "stats": {
+              "nbMatches": 6,
+              "time": 23450,
+              "goals": 7,
+              "shots": 19,
+              "shotsOnTarget": 11,
+              "shotsIntercepted": 2,
+              "dribblingSuccess": 8,
+              "assists": 1,
+              "yellowCards": 1,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 4,
+              "draws": 0,
+              "losses": 2,
+              "foulsCommitted": 2,
+              "foulsSuffered": 4,
+              "rating": 46.85,
+              "xG": 3.34,
+              "chancesCreated": 2,
+              "passes": 91,
+              "passesAccurate": 69,
+              "crosses": 4,
+              "crossesAccurate": 2,
+              "shotsInterceptions": 0,
+              "clearances": 7,
+              "dribbledPast": 3,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 1,
+              "v": 6,
+              "winsWithAppearance": 4
+            }
+          }
+        ],
+        "240630": [
+          {
+            "competition": {
+              "id": 21589,
+              "name": "Spark – League 144",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793640268000
+            },
+            "club": {
+              "id": 5394,
+              "name": "Modena Stallions"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 10800,
+              "goals": 0,
+              "shots": 0,
+              "shotsOnTarget": 0,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 3,
+              "assists": 0,
+              "yellowCards": 1,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 0,
+              "draws": 1,
+              "losses": 1,
+              "foulsCommitted": 2,
+              "foulsSuffered": 1,
+              "rating": 14.01,
+              "xG": 0,
+              "chancesCreated": 2,
+              "passes": 92,
+              "passesAccurate": 79,
+              "crosses": 8,
+              "crossesAccurate": 2,
+              "shotsInterceptions": 0,
+              "clearances": 8,
+              "dribbledPast": 4,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 14,
+              "v": 6,
+              "winsWithAppearance": 0
+            }
+          }
+        ],
+        "90399": [
+          {
+            "competition": {
+              "id": 21484,
+              "name": "Spark – League 39",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793786671000
+            },
+            "club": {
+              "id": 7024,
+              "name": "Dockside Academy Luxembourg"
+            },
+            "stats": {
+              "nbMatches": 7,
+              "time": 30983,
+              "goals": 7,
+              "shots": 26,
+              "shotsOnTarget": 11,
+              "shotsIntercepted": 2,
+              "dribblingSuccess": 15,
+              "assists": 0,
+              "yellowCards": 1,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 2,
+              "draws": 5,
+              "losses": 0,
+              "foulsCommitted": 3,
+              "foulsSuffered": 6,
+              "rating": 50.95,
+              "xG": 2.8,
+              "chancesCreated": 4,
+              "passes": 105,
+              "passesAccurate": 84,
+              "crosses": 10,
+              "crossesAccurate": 5,
+              "shotsInterceptions": 0,
+              "clearances": 4,
+              "dribbledPast": 6,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 3,
+              "v": 6,
+              "winsWithAppearance": 2
+            }
+          }
+        ],
+        "127842": [
+          {
+            "competition": {
+              "id": 21900,
+              "name": "Aspirants Cup – Tier 95",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794240720000
+            },
+            "club": {
+              "id": 9454,
+              "name": "Potsdam Phoenix FC"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 8531,
+              "goals": 1,
+              "shots": 6,
+              "shotsOnTarget": 1,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 1,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 2,
+              "foulsCommitted": 0,
+              "foulsSuffered": 1,
+              "rating": 13.41,
+              "xG": 0.96,
+              "chancesCreated": 0,
+              "passes": 33,
+              "passesAccurate": 29,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 5,
+              "dribbledPast": 1,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 1,
+              "v": 6,
+              "winsWithAppearance": 0
+            }
+          },
+          {
+            "competition": {
+              "id": 21519,
+              "name": "Spark – League 74",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793708037000
+            },
+            "club": {
+              "id": 9454,
+              "name": "Potsdam Phoenix FC"
+            },
+            "stats": {
+              "nbMatches": 6,
+              "time": 19293,
+              "goals": 4,
+              "shots": 13,
+              "shotsOnTarget": 7,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 23,
+              "assists": 0,
+              "yellowCards": 1,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 2,
+              "draws": 1,
+              "losses": 3,
+              "foulsCommitted": 3,
+              "foulsSuffered": 9,
+              "rating": 41.87,
+              "xG": 1.74,
+              "chancesCreated": 1,
+              "passes": 91,
+              "passesAccurate": 76,
+              "crosses": 1,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 1,
+              "clearances": 8,
+              "dribbledPast": 5,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 8,
+              "v": 6,
+              "winsWithAppearance": 2
+            }
+          }
+        ],
+        "338443": [
+          {
+            "competition": {
+              "id": 21822,
+              "name": "Aspirants Cup – Tier 17",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794243000000
+            },
+            "club": {
+              "id": 6528,
+              "name": "Crystal Palace MFC"
+            },
+            "stats": {
+              "nbMatches": 1,
+              "time": 1464,
+              "goals": 0,
+              "shots": 1,
+              "shotsOnTarget": 0,
+              "shotsIntercepted": 1,
+              "dribblingSuccess": 0,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 0,
+              "draws": 1,
+              "losses": 0,
+              "foulsCommitted": 0,
+              "foulsSuffered": 0,
+              "rating": 6.73,
+              "xG": 0.78,
+              "chancesCreated": 0,
+              "passes": 4,
+              "passesAccurate": 4,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 0,
+              "dribbledPast": 0,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 0
+            }
+          },
+          {
+            "competition": {
+              "id": 21361,
+              "name": "Ice – League 32",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793823840000
+            },
+            "club": {
+              "id": 6528,
+              "name": "Crystal Palace MFC"
+            },
+            "stats": {
+              "nbMatches": 4,
+              "time": 18167,
+              "goals": 1,
+              "shots": 19,
+              "shotsOnTarget": 7,
+              "shotsIntercepted": 2,
+              "dribblingSuccess": 7,
+              "assists": 0,
+              "yellowCards": 1,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 1,
+              "draws": 0,
+              "losses": 3,
+              "foulsCommitted": 4,
+              "foulsSuffered": 3,
+              "rating": 25.41,
+              "xG": 2.41,
+              "chancesCreated": 2,
+              "passes": 75,
+              "passesAccurate": 63,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 3,
+              "dribbledPast": 5,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 3,
+              "v": 6,
+              "winsWithAppearance": 1
+            }
+          }
+        ],
+        "199596": [
+          {
+            "competition": {
+              "id": 21800,
+              "name": "Rivals Cup – Tier 11",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794243840000
+            },
+            "club": {
+              "id": 7180,
+              "name": "FC 7 Grand Dad"
+            },
+            "stats": {
+              "nbMatches": 1,
+              "time": 4227,
+              "goals": 2,
+              "shots": 6,
+              "shotsOnTarget": 4,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 1,
+              "assists": 1,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 1,
+              "foulsCommitted": 1,
+              "foulsSuffered": 2,
+              "rating": 8.14,
+              "xG": 1.44,
+              "chancesCreated": 1,
+              "passes": 15,
+              "passesAccurate": 14,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 1,
+              "dribbledPast": 2,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 0
+            }
+          },
+          {
+            "competition": {
+              "id": 21313,
+              "name": "Stone – League 44",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793722485000
+            },
+            "club": {
+              "id": 7180,
+              "name": "FC 7 Grand Dad"
+            },
+            "stats": {
+              "nbMatches": 7,
+              "time": 30188,
+              "goals": 5,
+              "shots": 26,
+              "shotsOnTarget": 13,
+              "shotsIntercepted": 4,
+              "dribblingSuccess": 5,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 2,
+              "draws": 3,
+              "losses": 2,
+              "foulsCommitted": 4,
+              "foulsSuffered": 2,
+              "rating": 48.14,
+              "xG": 4.96,
+              "chancesCreated": 1,
+              "passes": 102,
+              "passesAccurate": 87,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 1,
+              "clearances": 15,
+              "dribbledPast": 3,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 1,
+              "v": 6,
+              "winsWithAppearance": 2
+            }
+          }
+        ],
+        "411954": [
+          {
+            "competition": {
+              "id": 21838,
+              "name": "Aspirants Cup – Tier 33",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794242520000
+            },
+            "club": {
+              "id": 11210,
+              "name": "Thunder Bay SC"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 10800,
+              "goals": 2,
+              "shots": 11,
+              "shotsOnTarget": 4,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 9,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 2,
+              "draws": 0,
+              "losses": 0,
+              "foulsCommitted": 2,
+              "foulsSuffered": 3,
+              "rating": 15.09,
+              "xG": 0.72,
+              "chancesCreated": 1,
+              "passes": 33,
+              "passesAccurate": 23,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 0,
+              "dribbledPast": 1,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 2
+            }
+          },
+          {
+            "competition": {
+              "id": 21370,
+              "name": "Ice – League 41",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794172585000
+            },
+            "club": {
+              "id": 11210,
+              "name": "Thunder Bay SC"
+            },
+            "stats": {
+              "nbMatches": 5,
+              "time": 24714,
+              "goals": 2,
+              "shots": 10,
+              "shotsOnTarget": 4,
+              "shotsIntercepted": 1,
+              "dribblingSuccess": 1,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 3,
+              "draws": 0,
+              "losses": 2,
+              "foulsCommitted": 3,
+              "foulsSuffered": 3,
+              "rating": 32.48,
+              "xG": 2.76,
+              "chancesCreated": 2,
+              "passes": 80,
+              "passesAccurate": 67,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 1,
+              "dribbledPast": 4,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 1,
+              "v": 6,
+              "winsWithAppearance": 3
+            }
+          }
+        ],
+        "68936": [
+          {
+            "competition": {
+              "id": 21895,
+              "name": "Aspirants Cup – Tier 90",
+              "type": "CUP",
+              "subType": "IMFF_CUP",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1794240840000
+            },
+            "club": {
+              "id": 4008,
+              "name": "FK Zvornik Mali MFC"
+            },
+            "stats": {
+              "nbMatches": 2,
+              "time": 8470,
+              "goals": 2,
+              "shots": 5,
+              "shotsOnTarget": 4,
+              "shotsIntercepted": 0,
+              "dribblingSuccess": 11,
+              "assists": 0,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 2,
+              "draws": 0,
+              "losses": 0,
+              "foulsCommitted": 0,
+              "foulsSuffered": 1,
+              "rating": 15.27,
+              "xG": 1.74,
+              "chancesCreated": 0,
+              "passes": 32,
+              "passesAccurate": 25,
+              "crosses": 0,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 0,
+              "dribbledPast": 0,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 0,
+              "v": 6,
+              "winsWithAppearance": 2
+            }
+          },
+          {
+            "competition": {
+              "id": 21519,
+              "name": "Spark – League 74",
+              "type": "LEAGUE",
+              "subType": "LEAGUE",
+              "season": {
+                "id": 28,
+                "name": "Season 18"
+              },
+              "status": "LIVE",
+              "withXp": true,
+              "startingDate": 1793708037000
+            },
+            "club": {
+              "id": 4008,
+              "name": "FK Zvornik Mali MFC"
+            },
+            "stats": {
+              "nbMatches": 7,
+              "time": 30891,
+              "goals": 4,
+              "shots": 20,
+              "shotsOnTarget": 7,
+              "shotsIntercepted": 1,
+              "dribblingSuccess": 15,
+              "assists": 3,
+              "yellowCards": 0,
+              "redCards": 0,
+              "saves": 0,
+              "goalsConceded": 0,
+              "wins": 3,
+              "draws": 1,
+              "losses": 3,
+              "foulsCommitted": 3,
+              "foulsSuffered": 10,
+              "rating": 49.29,
+              "xG": 5.62,
+              "chancesCreated": 4,
+              "passes": 109,
+              "passesAccurate": 86,
+              "crosses": 1,
+              "crossesAccurate": 0,
+              "shotsInterceptions": 0,
+              "clearances": 4,
+              "dribbledPast": 1,
+              "ownGoals": 0,
+              "defensiveDuelsWon": 5,
+              "v": 6,
+              "winsWithAppearance": 3
+            }
+          }
+        ]
+      },
+      "source": "Midnight GMT scan"
     }
   },
   "nights": {
@@ -13062,10 +14766,228 @@
       ],
       "missing": [],
       "status": "complete"
+    },
+    "2026-11-11": {
+      "day": "2026-11-11",
+      "checked_at": "2026-11-12T01:20:14.051989+00:00",
+      "period_start": "2026-11-11T03:19:09.811749+00:00",
+      "period_end": "2026-11-12T01:20:14.051989+00:00",
+      "source": "Scheduled player-stat checkpoint comparison",
+      "rows": [
+        {
+          "entrant": "Krystian",
+          "player_id": 236834,
+          "note": "",
+          "player": "Jorge Dominguez",
+          "appearances": 1,
+          "goals": 3,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 8.9,
+          "points": 16
+        },
+        {
+          "entrant": "Hawkeye",
+          "player_id": 384642,
+          "note": "",
+          "player": "Charles Mavungu",
+          "appearances": 1,
+          "goals": 3,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 8.89,
+          "points": 16
+        },
+        {
+          "entrant": "BaldSherlock",
+          "player_id": 56184,
+          "note": "",
+          "player": "Pierre Wright",
+          "appearances": 1,
+          "goals": 2,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 8.58,
+          "points": 11
+        },
+        {
+          "entrant": "Mike",
+          "player_id": 68936,
+          "note": "",
+          "player": "Lars Dale",
+          "appearances": 1,
+          "goals": 2,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 8.42,
+          "points": 11
+        },
+        {
+          "entrant": "Eddie",
+          "player_id": 199596,
+          "note": "",
+          "player": "Levente Chis",
+          "appearances": 1,
+          "goals": 2,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 8.32,
+          "points": 11
+        },
+        {
+          "entrant": "iKenny",
+          "player_id": 152098,
+          "note": "",
+          "player": "Victor Varon",
+          "appearances": 1,
+          "goals": 2,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 8.27,
+          "points": 11
+        },
+        {
+          "entrant": "ClarkyIsland",
+          "player_id": 53882,
+          "note": "",
+          "player": "Ailton Lucena",
+          "appearances": 1,
+          "goals": 1,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 7.64,
+          "points": 6
+        },
+        {
+          "entrant": "Nooks",
+          "player_id": 412176,
+          "note": "",
+          "player": "Ayoub Al-Tairi",
+          "appearances": 1,
+          "goals": 1,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 7.36,
+          "points": 6
+        },
+        {
+          "entrant": "hcy",
+          "player_id": 316875,
+          "note": "",
+          "player": "Geraldo Marquês",
+          "appearances": 1,
+          "goals": 1,
+          "assists": 0,
+          "wins": 0,
+          "average_rating": 8.03,
+          "points": 5
+        },
+        {
+          "entrant": "Minty",
+          "player_id": 350909,
+          "note": "",
+          "player": "Hugo Pacheco",
+          "appearances": 1,
+          "goals": 1,
+          "assists": 0,
+          "wins": 0,
+          "average_rating": 7.66,
+          "points": 5
+        },
+        {
+          "entrant": "Rhythm",
+          "player_id": 110469,
+          "note": "",
+          "player": "Lothar Herzog",
+          "appearances": 1,
+          "goals": 0,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 5.83,
+          "points": 1
+        },
+        {
+          "entrant": "ShadyM",
+          "player_id": 411954,
+          "note": "",
+          "player": "Vidar Hagman",
+          "appearances": 1,
+          "goals": 0,
+          "assists": 0,
+          "wins": 1,
+          "average_rating": 5.79,
+          "points": 1
+        },
+        {
+          "entrant": "Dan",
+          "player_id": 90399,
+          "note": "",
+          "player": "Porfirio Herrera",
+          "appearances": 1,
+          "goals": 0,
+          "assists": 0,
+          "wins": 0,
+          "average_rating": 5.71,
+          "points": 0
+        },
+        {
+          "entrant": "Daz Shootz",
+          "player_id": 338443,
+          "note": "",
+          "player": "Peter Marx",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "wins": 0,
+          "average_rating": null,
+          "points": 0
+        },
+        {
+          "entrant": "Doineann",
+          "player_id": 240630,
+          "note": "",
+          "player": "Bob Bijlsma",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "wins": 0,
+          "average_rating": null,
+          "points": 0
+        },
+        {
+          "entrant": "mmewse",
+          "player_id": 127842,
+          "note": "",
+          "player": "Reinhold Vetter",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "wins": 0,
+          "average_rating": null,
+          "points": 0
+        },
+        {
+          "entrant": "Ricky",
+          "player_id": 35005,
+          "note": "",
+          "player": "Alexandru Popovici",
+          "appearances": 0,
+          "goals": 0,
+          "assists": 0,
+          "wins": 0,
+          "average_rating": null,
+          "points": 0
+        }
+      ],
+      "winners": [
+        236834
+      ],
+      "missing": [],
+      "status": "complete"
     }
   },
   "tonight": {
-    "day": "2026-11-11",
+    "day": "2026-11-12",
     "rows": [
       {
         "entrant": "Ricky",
@@ -13084,108 +15006,108 @@
         "player_id": 384642,
         "note": "",
         "player": "Charles Mavungu",
-        "appearances": 1,
-        "goals": 3,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 8.89,
-        "points": 16
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "Minty",
         "player_id": 350909,
         "note": "",
         "player": "Hugo Pacheco",
-        "appearances": 1,
-        "goals": 1,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
         "wins": 0,
-        "average_rating": 7.66,
-        "points": 5
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "iKenny",
         "player_id": 152098,
         "note": "",
         "player": "Victor Varon",
-        "appearances": 1,
-        "goals": 2,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 8.27,
-        "points": 11
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "Nooks",
         "player_id": 412176,
         "note": "",
         "player": "Ayoub Al-Tairi",
-        "appearances": 1,
-        "goals": 1,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 7.36,
-        "points": 6
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "Krystian",
         "player_id": 236834,
         "note": "",
         "player": "Jorge Dominguez",
-        "appearances": 1,
-        "goals": 3,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 8.9,
-        "points": 16
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "Rhythm",
         "player_id": 110469,
         "note": "",
         "player": "Lothar Herzog",
-        "appearances": 1,
+        "appearances": 0,
         "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 5.83,
-        "points": 1
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "ClarkyIsland",
         "player_id": 53882,
         "note": "",
         "player": "Ailton Lucena",
-        "appearances": 1,
-        "goals": 1,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 7.64,
-        "points": 6
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "hcy",
         "player_id": 316875,
         "note": "",
         "player": "Geraldo Marquês",
-        "appearances": 1,
-        "goals": 1,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
         "wins": 0,
-        "average_rating": 8.03,
-        "points": 5
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "BaldSherlock",
         "player_id": 56184,
         "note": "",
         "player": "Pierre Wright",
-        "appearances": 1,
-        "goals": 2,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 8.58,
-        "points": 11
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "Doineann",
@@ -13204,11 +15126,11 @@
         "player_id": 90399,
         "note": "",
         "player": "Porfirio Herrera",
-        "appearances": 1,
+        "appearances": 0,
         "goals": 0,
         "assists": 0,
         "wins": 0,
-        "average_rating": 5.71,
+        "average_rating": null,
         "points": 0
       },
       {
@@ -13240,36 +15162,36 @@
         "player_id": 199596,
         "note": "",
         "player": "Levente Chis",
-        "appearances": 1,
-        "goals": 2,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 8.32,
-        "points": 11
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "ShadyM",
         "player_id": 411954,
         "note": "",
         "player": "Vidar Hagman",
-        "appearances": 1,
+        "appearances": 0,
         "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 5.79,
-        "points": 1
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       },
       {
         "entrant": "Mike",
         "player_id": 68936,
         "note": "",
         "player": "Lars Dale",
-        "appearances": 1,
-        "goals": 2,
+        "appearances": 0,
+        "goals": 0,
         "assists": 0,
-        "wins": 1,
-        "average_rating": 8.42,
-        "points": 11
+        "wins": 0,
+        "average_rating": null,
+        "points": 0
       }
     ]
   },
@@ -13311,5 +15233,5 @@
     "338443": 16,
     "240630": 17
   },
-  "movement_compared_at": "2026-11-11T21:11:08.143422+00:00"
+  "movement_compared_at": "2026-11-11T21:18:26.756724+00:00"
 }
