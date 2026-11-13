@@ -2,7 +2,7 @@
   "version": 1,
   "season": 18,
   "competition": "grower",
-  "attempted_at": "2026-11-12T18:21:58.763657+00:00",
+  "attempted_at": "2026-11-13T00:29:56.495189+00:00",
   "errors": [],
   "players": {
     "468523": {
@@ -23,7 +23,7 @@
         "defense": 76.0,
         "physical": 74.0
       },
-      "profile_at": "2026-11-12T18:21:59.158223+00:00",
+      "profile_at": "2026-11-13T00:29:56.756076+00:00",
       "history": [
         {
           "date": 1792438632454,
@@ -48,7 +48,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:21:59.843564+00:00",
+      "history_at": "2026-11-13T00:29:57.432369+00:00",
       "baseline": {
         "at": "2026-10-19T19:37:12.454000+00:00",
         "overall": 69.0,
@@ -199,8 +199,8 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 7,
-            "time": 35100,
+            "nbMatches": 8,
+            "time": 40500,
             "goals": 0,
             "shots": 0,
             "shotsOnTarget": 0,
@@ -212,22 +212,22 @@
             "saves": 0,
             "goalsConceded": 0,
             "wins": 5,
-            "draws": 0,
+            "draws": 1,
             "losses": 2,
-            "foulsCommitted": 5,
+            "foulsCommitted": 6,
             "foulsSuffered": 2,
-            "rating": 49.34,
+            "rating": 56.14,
             "xG": 0,
             "chancesCreated": 0,
-            "passes": 317,
-            "passesAccurate": 312,
+            "passes": 355,
+            "passesAccurate": 349,
             "crosses": 0,
             "crossesAccurate": 0,
             "shotsInterceptions": 1,
-            "clearances": 35,
+            "clearances": 39,
             "dribbledPast": 4,
             "ownGoals": 0,
-            "defensiveDuelsWon": 14,
+            "defensiveDuelsWon": 15,
             "v": 6
           }
         },
@@ -314,7 +314,7 @@
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:00.571620+00:00",
+      "records_at": "2026-11-13T00:29:58.127728+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 1.0,
@@ -343,7 +343,7 @@
         "defense": 0.0,
         "physical": 0.0
       },
-      "profile_at": "2026-11-12T18:22:01.290999+00:00",
+      "profile_at": "2026-11-13T00:29:58.925187+00:00",
       "history": [
         {
           "date": 1765881428140,
@@ -361,7 +361,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:01.981265+00:00",
+      "history_at": "2026-11-13T00:29:59.621473+00:00",
       "baseline": {
         "at": "2025-12-16T10:37:08.140000+00:00",
         "overall": 55.0,
@@ -546,7 +546,7 @@
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:02.705679+00:00",
+      "records_at": "2026-11-13T00:30:00.354094+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -575,7 +575,7 @@
         "defense": 31.0,
         "physical": 62.0
       },
-      "profile_at": "2026-11-12T18:22:03.423040+00:00",
+      "profile_at": "2026-11-13T00:30:01.153510+00:00",
       "history": [
         {
           "date": 1765881152510,
@@ -593,7 +593,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:04.111139+00:00",
+      "history_at": "2026-11-13T00:30:01.830718+00:00",
       "baseline": {
         "at": "2025-12-16T10:32:32.510000+00:00",
         "overall": 56.0,
@@ -745,40 +745,40 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 5,
-            "time": 22559,
-            "goals": 3,
-            "shots": 14,
-            "shotsOnTarget": 7,
+            "nbMatches": 6,
+            "time": 27959,
+            "goals": 6,
+            "shots": 18,
+            "shotsOnTarget": 10,
             "shotsIntercepted": 1,
-            "dribblingSuccess": 17,
-            "assists": 1,
+            "dribblingSuccess": 23,
+            "assists": 3,
             "yellowCards": 0,
             "redCards": 0,
             "saves": 0,
             "goalsConceded": 0,
-            "wins": 2,
+            "wins": 3,
             "draws": 1,
             "losses": 2,
-            "foulsCommitted": 2,
-            "foulsSuffered": 8,
-            "rating": 34.51,
-            "xG": 2.98,
-            "chancesCreated": 3,
-            "passes": 137,
-            "passesAccurate": 98,
-            "crosses": 0,
+            "foulsCommitted": 4,
+            "foulsSuffered": 11,
+            "rating": 43.98,
+            "xG": 4.43,
+            "chancesCreated": 5,
+            "passes": 173,
+            "passesAccurate": 127,
+            "crosses": 2,
             "crossesAccurate": 0,
             "shotsInterceptions": 0,
             "clearances": 5,
-            "dribbledPast": 4,
+            "dribbledPast": 5,
             "ownGoals": 0,
-            "defensiveDuelsWon": 6,
+            "defensiveDuelsWon": 9,
             "v": 6
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:04.816568+00:00",
+      "records_at": "2026-11-13T00:30:02.565477+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -807,7 +807,7 @@
         "defense": 30.0,
         "physical": 43.0
       },
-      "profile_at": "2026-11-12T18:22:05.551760+00:00",
+      "profile_at": "2026-11-13T00:30:03.265028+00:00",
       "history": [
         {
           "date": 1788532416861,
@@ -825,7 +825,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:06.275732+00:00",
+      "history_at": "2026-11-13T00:30:03.938362+00:00",
       "baseline": {
         "at": "2026-09-04T14:33:36.861000+00:00",
         "overall": 65.0,
@@ -1008,7 +1008,7 @@
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:06.980946+00:00",
+      "records_at": "2026-11-13T00:30:04.685721+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1037,7 +1037,7 @@
         "defense": 40.0,
         "physical": 56.0
       },
-      "profile_at": "2026-11-12T18:22:07.679200+00:00",
+      "profile_at": "2026-11-13T00:30:05.399023+00:00",
       "history": [
         {
           "date": 1792439040667,
@@ -1055,7 +1055,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:08.346023+00:00",
+      "history_at": "2026-11-13T00:30:06.074057+00:00",
       "baseline": {
         "at": "2026-10-19T19:44:00.667000+00:00",
         "overall": 43.0,
@@ -1205,8 +1205,8 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 7,
-            "time": 37800,
+            "nbMatches": 8,
+            "time": 43200,
             "goals": 0,
             "shots": 3,
             "shotsOnTarget": 2,
@@ -1219,26 +1219,26 @@
             "goalsConceded": 0,
             "wins": 0,
             "draws": 0,
-            "losses": 7,
-            "foulsCommitted": 5,
-            "foulsSuffered": 5,
-            "rating": 43.46,
+            "losses": 8,
+            "foulsCommitted": 7,
+            "foulsSuffered": 6,
+            "rating": 49.16,
             "xG": 0.17,
             "chancesCreated": 2,
-            "passes": 197,
-            "passesAccurate": 169,
+            "passes": 232,
+            "passesAccurate": 196,
             "crosses": 2,
             "crossesAccurate": 0,
-            "shotsInterceptions": 1,
-            "clearances": 35,
-            "dribbledPast": 20,
+            "shotsInterceptions": 2,
+            "clearances": 39,
+            "dribbledPast": 23,
             "ownGoals": 0,
-            "defensiveDuelsWon": 23,
+            "defensiveDuelsWon": 25,
             "v": 6
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:09.060079+00:00",
+      "records_at": "2026-11-13T00:30:06.806335+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1267,7 +1267,7 @@
         "defense": 45.0,
         "physical": 66.0
       },
-      "profile_at": "2026-11-12T18:22:09.787175+00:00",
+      "profile_at": "2026-11-13T00:30:07.586599+00:00",
       "history": [
         {
           "date": 1792439120466,
@@ -1285,7 +1285,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:10.480747+00:00",
+      "history_at": "2026-11-13T00:30:08.263545+00:00",
       "baseline": {
         "at": "2026-10-19T19:45:20.466000+00:00",
         "overall": 48.0,
@@ -1437,8 +1437,8 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 7,
-            "time": 12996,
+            "nbMatches": 8,
+            "time": 13226,
             "goals": 0,
             "shots": 1,
             "shotsOnTarget": 0,
@@ -1450,27 +1450,27 @@
             "saves": 0,
             "goalsConceded": 0,
             "wins": 3,
-            "draws": 1,
+            "draws": 2,
             "losses": 3,
             "foulsCommitted": 5,
             "foulsSuffered": 5,
-            "rating": 47.47,
+            "rating": 54.11,
             "xG": 0.08,
             "chancesCreated": 4,
-            "passes": 96,
-            "passesAccurate": 73,
+            "passes": 99,
+            "passesAccurate": 76,
             "crosses": 4,
             "crossesAccurate": 1,
             "shotsInterceptions": 0,
-            "clearances": 13,
-            "dribbledPast": 12,
+            "clearances": 14,
+            "dribbledPast": 13,
             "ownGoals": 0,
-            "defensiveDuelsWon": 17,
+            "defensiveDuelsWon": 18,
             "v": 6
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:11.200619+00:00",
+      "records_at": "2026-11-13T00:30:08.965166+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1499,7 +1499,7 @@
         "defense": 65.0,
         "physical": 63.0
       },
-      "profile_at": "2026-11-12T18:22:11.940855+00:00",
+      "profile_at": "2026-11-13T00:30:09.670602+00:00",
       "history": [
         {
           "date": 1755093768116,
@@ -1517,7 +1517,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:12.639331+00:00",
+      "history_at": "2026-11-13T00:30:10.342809+00:00",
       "baseline": {
         "at": "2025-08-13T14:02:48.116000+00:00",
         "overall": 58.0,
@@ -1577,7 +1577,7 @@
               "arenaProfileBanner": "banner-gates-open",
               "twitter": "Soraredts",
               "country": "GERMANY",
-              "lastActive": 1
+              "lastActive": 2
             },
             "squads": []
           },
@@ -1662,7 +1662,7 @@
               "arenaProfileBanner": "banner-gates-open",
               "twitter": "Soraredts",
               "country": "GERMANY",
-              "lastActive": 1
+              "lastActive": 2
             },
             "squads": []
           },
@@ -1700,7 +1700,7 @@
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:13.333592+00:00",
+      "records_at": "2026-11-13T00:30:11.025157+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -1729,7 +1729,7 @@
         "defense": 65.0,
         "physical": 61.0
       },
-      "profile_at": "2026-11-12T18:22:14.067682+00:00",
+      "profile_at": "2026-11-13T00:30:11.738486+00:00",
       "history": [
         {
           "date": 1766154938995,
@@ -1763,7 +1763,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:14.767451+00:00",
+      "history_at": "2026-11-13T00:30:12.420628+00:00",
       "baseline": {
         "at": "2025-12-19T14:35:38.995000+00:00",
         "overall": 60.0,
@@ -1915,10 +1915,10 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 5,
-            "time": 27000,
+            "nbMatches": 6,
+            "time": 32400,
             "goals": 0,
-            "shots": 1,
+            "shots": 2,
             "shotsOnTarget": 1,
             "shotsIntercepted": 0,
             "dribblingSuccess": 0,
@@ -1927,20 +1927,20 @@
             "redCards": 0,
             "saves": 0,
             "goalsConceded": 0,
-            "wins": 3,
+            "wins": 4,
             "draws": 2,
             "losses": 0,
-            "foulsCommitted": 3,
+            "foulsCommitted": 4,
             "foulsSuffered": 3,
-            "rating": 37.35,
-            "xG": 0.4,
+            "rating": 44.83,
+            "xG": 0.47,
             "chancesCreated": 1,
-            "passes": 243,
-            "passesAccurate": 237,
+            "passes": 264,
+            "passesAccurate": 258,
             "crosses": 0,
             "crossesAccurate": 0,
             "shotsInterceptions": 2,
-            "clearances": 14,
+            "clearances": 16,
             "dribbledPast": 6,
             "ownGoals": 0,
             "defensiveDuelsWon": 10,
@@ -1948,7 +1948,7 @@
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:15.449233+00:00",
+      "records_at": "2026-11-13T00:30:13.134956+00:00",
       "gains": {
         "overall": 1.0,
         "pace": 0.0,
@@ -1977,7 +1977,7 @@
         "defense": 31.0,
         "physical": 47.0
       },
-      "profile_at": "2026-11-12T18:22:16.197496+00:00",
+      "profile_at": "2026-11-13T00:30:14.022662+00:00",
       "history": [
         {
           "date": 1765881488666,
@@ -2010,7 +2010,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:16.884949+00:00",
+      "history_at": "2026-11-13T00:30:14.699139+00:00",
       "baseline": {
         "at": "2025-12-16T10:38:08.666000+00:00",
         "overall": 59.0,
@@ -2160,13 +2160,13 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 5,
-            "time": 27000,
+            "nbMatches": 6,
+            "time": 32400,
             "goals": 2,
-            "shots": 8,
+            "shots": 10,
             "shotsOnTarget": 6,
             "shotsIntercepted": 0,
-            "dribblingSuccess": 17,
+            "dribblingSuccess": 19,
             "assists": 0,
             "yellowCards": 0,
             "redCards": 0,
@@ -2174,26 +2174,26 @@
             "goalsConceded": 0,
             "wins": 2,
             "draws": 0,
-            "losses": 3,
-            "foulsCommitted": 10,
-            "foulsSuffered": 12,
-            "rating": 34.8,
-            "xG": 0.81,
-            "chancesCreated": 5,
-            "passes": 171,
-            "passesAccurate": 125,
+            "losses": 4,
+            "foulsCommitted": 11,
+            "foulsSuffered": 13,
+            "rating": 41.08,
+            "xG": 1.12,
+            "chancesCreated": 6,
+            "passes": 199,
+            "passesAccurate": 146,
             "crosses": 9,
             "crossesAccurate": 4,
             "shotsInterceptions": 0,
-            "clearances": 6,
+            "clearances": 8,
             "dribbledPast": 5,
             "ownGoals": 0,
-            "defensiveDuelsWon": 10,
+            "defensiveDuelsWon": 11,
             "v": 6
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:17.600739+00:00",
+      "records_at": "2026-11-13T00:30:15.401153+00:00",
       "gains": {
         "overall": 1.0,
         "pace": 0.0,
@@ -2222,7 +2222,7 @@
         "defense": 29.0,
         "physical": 51.0
       },
-      "profile_at": "2026-11-12T18:22:18.339077+00:00",
+      "profile_at": "2026-11-13T00:30:16.115709+00:00",
       "history": [
         {
           "date": 1788528624096,
@@ -2240,7 +2240,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:19.043164+00:00",
+      "history_at": "2026-11-13T00:30:16.796800+00:00",
       "baseline": {
         "at": "2026-09-04T13:30:24.096000+00:00",
         "overall": 51.0,
@@ -2390,40 +2390,40 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 7,
-            "time": 28862,
+            "nbMatches": 8,
+            "time": 33191,
             "goals": 1,
-            "shots": 10,
-            "shotsOnTarget": 3,
-            "shotsIntercepted": 0,
-            "dribblingSuccess": 30,
+            "shots": 14,
+            "shotsOnTarget": 4,
+            "shotsIntercepted": 2,
+            "dribblingSuccess": 37,
             "assists": 5,
             "yellowCards": 0,
             "redCards": 0,
             "saves": 0,
             "goalsConceded": 0,
-            "wins": 2,
+            "wins": 3,
             "draws": 3,
             "losses": 2,
-            "foulsCommitted": 6,
-            "foulsSuffered": 10,
-            "rating": 49.87,
-            "xG": 1.51,
-            "chancesCreated": 13,
-            "passes": 210,
-            "passesAccurate": 145,
-            "crosses": 18,
-            "crossesAccurate": 6,
+            "foulsCommitted": 8,
+            "foulsSuffered": 12,
+            "rating": 57.46,
+            "xG": 1.82,
+            "chancesCreated": 17,
+            "passes": 249,
+            "passesAccurate": 175,
+            "crosses": 27,
+            "crossesAccurate": 8,
             "shotsInterceptions": 0,
             "clearances": 3,
-            "dribbledPast": 6,
+            "dribbledPast": 7,
             "ownGoals": 0,
-            "defensiveDuelsWon": 10,
+            "defensiveDuelsWon": 11,
             "v": 6
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:19.762579+00:00",
+      "records_at": "2026-11-13T00:30:17.514104+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -2447,12 +2447,12 @@
         "overall": 50.0,
         "pace": 63.0,
         "shooting": 38.0,
-        "passing": 45.0,
+        "passing": 46.0,
         "dribbling": 64.0,
         "defense": 43.0,
         "physical": 54.0
       },
-      "profile_at": "2026-11-12T18:22:20.488171+00:00",
+      "profile_at": "2026-11-13T00:30:18.210204+00:00",
       "history": [
         {
           "date": 1792438578429,
@@ -2475,9 +2475,16 @@
           "values": {
             "defense": 43
           }
+        },
+        {
+          "date": 1794511443219,
+          "reasonType": "MATCH",
+          "values": {
+            "passing": 46
+          }
         }
       ],
-      "history_at": "2026-11-12T18:22:21.160665+00:00",
+      "history_at": "2026-11-13T00:30:18.888288+00:00",
       "baseline": {
         "at": "2026-10-19T19:36:18.429000+00:00",
         "overall": 50.0,
@@ -2629,8 +2636,8 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 3,
-            "time": 16200,
+            "nbMatches": 4,
+            "time": 21600,
             "goals": 0,
             "shots": 0,
             "shotsOnTarget": 0,
@@ -2643,21 +2650,21 @@
             "goalsConceded": 0,
             "wins": 2,
             "draws": 0,
-            "losses": 1,
-            "foulsCommitted": 2,
-            "foulsSuffered": 3,
-            "rating": 19.02,
+            "losses": 2,
+            "foulsCommitted": 4,
+            "foulsSuffered": 4,
+            "rating": 23.41,
             "xG": 0,
             "chancesCreated": 1,
-            "passes": 158,
-            "passesAccurate": 127,
+            "passes": 193,
+            "passesAccurate": 151,
             "crosses": 13,
             "crossesAccurate": 1,
             "shotsInterceptions": 0,
-            "clearances": 5,
-            "dribbledPast": 21,
+            "clearances": 6,
+            "dribbledPast": 24,
             "ownGoals": 0,
-            "defensiveDuelsWon": 22,
+            "defensiveDuelsWon": 25,
             "v": 6
           }
         },
@@ -2744,12 +2751,12 @@
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:21.867457+00:00",
+      "records_at": "2026-11-13T00:30:19.607645+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
         "shooting": 0.0,
-        "passing": 0.0,
+        "passing": 1.0,
         "dribbling": 0.0,
         "defense": 1.0,
         "physical": 0.0
@@ -2773,7 +2780,7 @@
         "defense": 69.0,
         "physical": 55.0
       },
-      "profile_at": "2026-11-12T18:22:22.594885+00:00",
+      "profile_at": "2026-11-13T00:30:20.300002+00:00",
       "history": [
         {
           "date": 1788532382139,
@@ -2791,7 +2798,7 @@
           }
         }
       ],
-      "history_at": "2026-11-12T18:22:23.299767+00:00",
+      "history_at": "2026-11-13T00:30:20.965526+00:00",
       "baseline": {
         "at": "2026-09-04T14:33:02.139000+00:00",
         "overall": 67.0,
@@ -2941,40 +2948,40 @@
             "squads": []
           },
           "stats": {
-            "nbMatches": 6,
-            "time": 21924,
+            "nbMatches": 7,
+            "time": 25447,
             "goals": 0,
-            "shots": 5,
+            "shots": 6,
             "shotsOnTarget": 1,
-            "shotsIntercepted": 2,
-            "dribblingSuccess": 19,
+            "shotsIntercepted": 3,
+            "dribblingSuccess": 23,
             "assists": 1,
-            "yellowCards": 1,
+            "yellowCards": 2,
             "redCards": 0,
             "saves": 0,
             "goalsConceded": 0,
-            "wins": 1,
+            "wins": 2,
             "draws": 2,
             "losses": 3,
-            "foulsCommitted": 2,
-            "foulsSuffered": 6,
-            "rating": 39.58,
-            "xG": 0.32,
-            "chancesCreated": 3,
-            "passes": 166,
-            "passesAccurate": 138,
-            "crosses": 11,
-            "crossesAccurate": 1,
+            "foulsCommitted": 3,
+            "foulsSuffered": 8,
+            "rating": 46.08,
+            "xG": 0.4,
+            "chancesCreated": 4,
+            "passes": 195,
+            "passesAccurate": 161,
+            "crosses": 14,
+            "crossesAccurate": 2,
             "shotsInterceptions": 0,
             "clearances": 6,
             "dribbledPast": 4,
             "ownGoals": 0,
-            "defensiveDuelsWon": 16,
+            "defensiveDuelsWon": 20,
             "v": 6
           }
         }
       ],
-      "records_at": "2026-11-12T18:22:24.025602+00:00",
+      "records_at": "2026-11-13T00:30:21.647295+00:00",
       "gains": {
         "overall": 0.0,
         "pace": 0.0,
@@ -2986,5 +2993,5 @@
       }
     }
   },
-  "last_complete_at": "2026-11-12T18:22:24.525759+00:00"
+  "last_complete_at": "2026-11-13T00:30:22.147459+00:00"
 }
