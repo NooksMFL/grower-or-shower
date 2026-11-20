@@ -1,5 +1,6 @@
 """Load durable Season 18 growth scans while preserving saved starting values."""
 import json
+import base64
 import time
 import requests
 import streamlit as st
@@ -7,14 +8,40 @@ import backend as b
 from grower_sync import LIVE_URL
 
 
+def valid_snapshot(value):
+    return isinstance(value,dict) and value.get('version')==1 and value.get('season')==18 and value.get('competition')=='grower' and isinstance(value.get('players'),dict)
+
+
+def newest(*snapshots):
+    available=[v for v in snapshots if valid_snapshot(v)]
+    return max(available,key=lambda v:b.timestamp(v.get('attempted_at') or v.get('last_complete_at')) or b.timestamp('1970-01-01T00:00:00Z')) if available else None
+
+
+@st.cache_data(ttl=120,show_spinner=False)
+def direct():
+    try:
+        response=requests.get('https://api.github.com/repos/NooksMFL/grower-or-shower/contents/season18/live/grower.json',
+            params={'ref':'grower-live'},headers={'Accept':'application/vnd.github+json','Cache-Control':'no-cache'},timeout=(4,12))
+        response.raise_for_status()
+        value=json.loads(base64.b64decode(response.json()['content']))
+        return value if valid_snapshot(value) else None
+    except (requests.RequestException,ValueError,KeyError,TypeError):return None
+
+
 @st.cache_data(ttl=60,show_spinner=False)
 def fetch():
+    current=direct()
     try:
-        response=requests.get(LIVE_URL+'?tick='+str(int(time.time()//60)),timeout=(4,12))
-        response.raise_for_status();value=response.json()
-        if value.get('version')!=1 or value.get('season')!=18 or value.get('competition')!='grower' or not isinstance(value.get('players'),dict):return None
-        return value
-    except (requests.RequestException,ValueError,AttributeError):return None
+        response=requests.get(LIVE_URL+'?tick='+str(int(time.time()//60)),headers={'Cache-Control':'no-cache'},timeout=(4,12))
+        response.raise_for_status()
+        return newest(current,response.json())
+    except (requests.RequestException,ValueError,AttributeError):return current
+
+
+def load_latest():
+    value=newest(fetch(),st.session_state.get('grower_loaded_snapshot'))
+    if value:st.session_state['grower_loaded_snapshot']=value
+    return value
 
 
 def apply(store,snapshot):

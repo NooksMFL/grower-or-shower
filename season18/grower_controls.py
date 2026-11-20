@@ -8,14 +8,15 @@ import backend as b
 @st.fragment(run_every=10)
 def render(store,setting):
     import grower_live
-    snapshot=grower_live.fetch()
+    snapshot=grower_live.load_latest()
     if snapshot:
         # This fragment polls while the page is open; redraw the whole page
         # when a newer saved scan arrives so cards and the table change too.
         if grower_live.apply(store,snapshot):st.rerun()
         if st.button('↻ Load latest player update',type='primary',width='stretch',key='grower_load_live'):
+            grower_live.direct.clear()
             grower_live.fetch.clear()
-            grower_live.apply(store,grower_live.fetch())
+            grower_live.apply(store,grower_live.load_latest())
             st.rerun()
         st.caption('Hourly development checks · New results appear automatically · Starting values stay fixed.')
         return

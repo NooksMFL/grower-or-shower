@@ -71,15 +71,16 @@ if page == 'Top Boy':
 
 store = storage()
 import grower_live
-grower_snapshot=grower_live.fetch()
+grower_snapshot=grower_live.load_latest()
 grower_live.apply(store,grower_snapshot)
 if grower_snapshot:
-    checked=b.timestamp(grower_snapshot.get('last_complete_at'))
-    if checked:st.caption('Player development updated '+checked.strftime('%d %b, %H:%M GMT'))
     if grower_snapshot.get('errors'):st.info('Some players could not be checked. Their saved data is kept.')
 confirmed = str(setting('SCORING_CONFIRMED', 'false')).lower() == 'true'
 entries = b.entrants()
 data = b.standings(store, confirmed=confirmed)
+checked=[b.timestamp(r.get('checked_at')) for r in data]
+if checked and all(checked):st.caption('Table and cards updated: '+min(checked).strftime('%d %b, %H:%M GMT'))
+if grower_snapshot is None and store.latest():st.warning('The latest saved scan could not be loaded. Previously saved player data is shown.')
 saved = sum(bool(r.get('checked_at')) for r in data)
 baselines = sum(bool(r.get('baseline_at')) for r in data)
 cols = st.columns(4)

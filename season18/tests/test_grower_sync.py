@@ -60,3 +60,18 @@ class GrowerImportTests(unittest.TestCase):
             data={'competition':'grower','players':{str(pid):{'baseline':{**{f:50 for f in b.FIELDS},'at':'2026-11-07T01:00:00Z'}}}}
             grower_live.apply(store,data)
             self.assertIsNone(store.baseline(pid))
+
+
+class GrowerFetchTests(unittest.TestCase):
+    def test_direct_grower_snapshot_wins_over_older_raw_copy(self):
+        import base64,json
+        import grower_live
+        older={'version':1,'season':18,'competition':'grower','players':{},'attempted_at':'2026-11-20T03:00:00Z'}
+        newer={**older,'attempted_at':'2026-11-20T10:57:00Z'}
+        direct=Mock();direct.json.return_value={'content':base64.b64encode(json.dumps(newer).encode()).decode()}
+        raw=Mock();raw.json.return_value=older
+        grower_live.direct.clear();grower_live.fetch.clear()
+        with patch.object(grower_live.requests,'get',side_effect=[direct,raw]):
+            self.assertEqual(grower_live.fetch(),newer)
+        self.assertIsNone(grower_live.newest({'version':1,'season':18,'players':{}}))
+        grower_live.direct.clear();grower_live.fetch.clear()
