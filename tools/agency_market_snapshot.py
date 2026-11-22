@@ -4,7 +4,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 import requests
 BASE='https://api.playmfl.com'
-HEADERS={'Accept':'application/json','Origin':'https://app.playmfl.com','Referer':'https://app.playmfl.com/','User-Agent':'Mozilla/5.0'}
+HEADERS={'Accept':'application/json','Origin':'https://app.playmfl.com','Referer':'https://app.playmfl.com/','User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0'}
 SESSION=requests.Session();SESSION.headers.update(HEADERS)
 OUT=Path('agency-market-snapshot.json')
 
@@ -15,6 +15,8 @@ def get(path,params=None):
         if r.status_code in (429,500,502,503,504):
             delay=max(15,min(120,int(r.headers.get('Retry-After','30'))))
             print('Waiting for MFL',r.status_code,delay,'seconds',flush=True);time.sleep(delay);continue
+        if r.status_code==403:
+            raise RuntimeError('MFL HTTP 403: '+('HTML security block' if 'html' in r.headers.get('content-type','') else 'API permission denial'))
         r.raise_for_status();return r.json()
     raise RuntimeError('MFL read failed after retries')
 def rows(payload):
