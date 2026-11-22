@@ -1,0 +1,33 @@
+name: Agency valuation data scan
+on:
+  push:
+    branches: [agency-market-scan]
+    paths:
+      - '.github/workflows/agency_market_snapshot.yml'
+      - 'tools/agency_market_snapshot.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: agency-market-readonly
+  cancel-in-progress: false
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'requests>=2.32,<3'
+      - run: python tools/agency_market_snapshot.py
+        env:
+          AGENCY_WALLET: '0x65cc0e72dd71ad80'
+          MARKET_PAGES: '160'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agency-market-snapshot
+          path: agency-market-snapshot.json
+          retention-days: 7
