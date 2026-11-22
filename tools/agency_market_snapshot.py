@@ -17,6 +17,10 @@ def get(path,params=None):
             print('Waiting for MFL',r.status_code,delay,'seconds',flush=True);time.sleep(delay);continue
         if r.status_code==403:
             raise RuntimeError('MFL HTTP 403: '+('HTML security block' if 'html' in r.headers.get('content-type','') else 'API permission denial'))
+        if r.status_code==400:
+            try:detail=json.dumps(r.json())[:350]
+            except ValueError:detail='Non-JSON validation error'
+            raise RuntimeError('MFL invalid query: '+detail)
         r.raise_for_status();return r.json()
     raise RuntimeError('MFL read failed after retries')
 def rows(payload):
@@ -59,7 +63,7 @@ def main():
     seen={};before=None
     try:
         for page in range(100):
-            params={'ownerWalletAddress':wallet,'limit':100,'view':'full'}
+            params={'ownerWalletAddress':wallet,'limit':25}
             if before is not None:params['beforePlayerId']=before
             payload=get('/players',params);batch=rows(payload)
             if page==0:
@@ -77,7 +81,7 @@ def main():
         # Verify the roster membership with a second complete pass.
         verify=set();cursor=None
         for page in range(100):
-            params={'ownerWalletAddress':wallet,'limit':100}
+            params={'ownerWalletAddress':wallet,'limit':25}
             if cursor is not None:params['beforePlayerId']=cursor
             batch=rows(get('/players',params))
             if not batch:break
