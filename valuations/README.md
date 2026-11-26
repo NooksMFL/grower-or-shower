@@ -1,3 +1,11 @@
+# Formatted workbook with tabs
+
+[**Download Excel workbook: All prices + Patient + MID + Quick sell + supporting tabs**](https://github.com/NooksMFL/grower-or-shower/raw/refs/heads/main/valuations/2026-11-22/Nooks_All_Listing_Prices_with_Tabs.xlsx)
+
+Open this **.xlsx file in Excel** for the coloured, filtered tables and 12 tabs. The All prices sheet puts **Patient price, MID price and Quick sell price** side by side. CSV files are plain text and cannot hold tabs or formatting. Prices remain based on the 22 November 2026 snapshot.
+
+---
+
 # Agency valuations
 
 ## Download one CSV with all three prices
