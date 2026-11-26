@@ -11,6 +11,7 @@ import requests
 import backend as b
 import top_boy as tb
 import nightly
+from feed_transport import RAW_ACCEPT,decode_snapshot
 
 LIVE_BRANCH='topboy-live'
 LIVE_PATH='season18/live/topboy.json'
@@ -21,10 +22,10 @@ def fetch_previous():
     repo=os.getenv('GITHUB_REPOSITORY');token=os.getenv('GITHUB_TOKEN')
     if repo and token:
         r=requests.get('https://api.github.com/repos/'+repo+'/contents/'+LIVE_PATH,
-                       params={'ref':LIVE_BRANCH},headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'},timeout=20)
+                       params={'ref':LIVE_BRANCH},headers={'Authorization':'Bearer '+token,'Accept':RAW_ACCEPT},timeout=20)
         if r.status_code==404:return {}
         r.raise_for_status()
-        value=json.loads(base64.b64decode(r.json()['content']))
+        value=decode_snapshot(r.json())
     else:
         r=requests.get(LIVE_URL+'?tick='+str(int(time.time()//60)),timeout=20,headers={'Cache-Control':'no-cache'})
         if r.status_code==404:return {}
@@ -115,7 +116,7 @@ def publish(snapshot):
     else:ref.raise_for_status()
     existing=session.get(api+'/contents/'+LIVE_PATH,params={'ref':LIVE_BRANCH},timeout=20)
     body={'message':'Update Top Boy results '+snapshot['attempted_at'],'branch':LIVE_BRANCH,
-          'content':base64.b64encode(json.dumps(snapshot,ensure_ascii=False,indent=2).encode()).decode()}
+          'content':base64.b64encode(json.dumps(snapshot,ensure_ascii=False,separators=(',',':')).encode()).decode()}
     if existing.ok:body['sha']=existing.json()['sha']
     elif existing.status_code!=404:existing.raise_for_status()
     saved=session.put(api+'/contents/'+LIVE_PATH,json=body,timeout=30);saved.raise_for_status()

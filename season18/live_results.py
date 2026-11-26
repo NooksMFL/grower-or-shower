@@ -7,6 +7,7 @@ from zoneinfo import ZoneInfo
 import requests
 import streamlit as st
 import backend as b
+from feed_transport import RAW_ACCEPT,decode_snapshot
 from topboy_sync import LIVE_URL
 
 
@@ -19,10 +20,9 @@ def direct():
     # The contents API reads the branch directly, avoiding stale raw-file CDN copies.
     try:
         response=requests.get('https://api.github.com/repos/NooksMFL/grower-or-shower/contents/season18/live/topboy.json',
-            params={'ref':'topboy-live'},headers={'Accept':'application/vnd.github+json','Cache-Control':'no-cache'},timeout=(4,12))
+            params={'ref':'topboy-live'},headers={'Accept':RAW_ACCEPT,'Cache-Control':'no-cache'},timeout=(4,12))
         response.raise_for_status()
-        content=response.json()
-        value=json.loads(base64.b64decode(content['content']))
+        value=decode_snapshot(response.json())
         return value if valid_snapshot(value) else None
     except (requests.RequestException,ValueError,KeyError,TypeError):return None
 

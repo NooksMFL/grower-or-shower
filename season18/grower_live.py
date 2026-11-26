@@ -5,6 +5,7 @@ import time
 import requests
 import streamlit as st
 import backend as b
+from feed_transport import RAW_ACCEPT,decode_snapshot
 from grower_sync import LIVE_URL
 
 
@@ -21,9 +22,9 @@ def newest(*snapshots):
 def direct():
     try:
         response=requests.get('https://api.github.com/repos/NooksMFL/grower-or-shower/contents/season18/live/grower.json',
-            params={'ref':'grower-live'},headers={'Accept':'application/vnd.github+json','Cache-Control':'no-cache'},timeout=(4,12))
+            params={'ref':'grower-live'},headers={'Accept':RAW_ACCEPT,'Cache-Control':'no-cache'},timeout=(4,12))
         response.raise_for_status()
-        value=json.loads(base64.b64decode(response.json()['content']))
+        value=decode_snapshot(response.json())
         return value if valid_snapshot(value) else None
     except (requests.RequestException,ValueError,KeyError,TypeError):return None
 
