@@ -1,5 +1,15 @@
 # Agency valuations
 
+## Download one CSV with all three prices
+
+[**Download all listing prices: Patient, MID and Quick sell**](https://github.com/NooksMFL/grower-or-shower/raw/refs/heads/main/valuations/2026-11-22/all_listing_prices.csv)
+
+The first five columns are **Player ID, Player, Patient price, MID price, Quick sell price**. The file includes all 436 CSV players; two lack supported prices and are left blank for manual review. Prices use the 22 November 2026 market snapshot. Patient is the upper-quartile ask rounded up; MID is the median ask rounded up; Quick sell is the lower-quartile ask rounded down, with a minimum of 1. These are marketplace asking suggestions, not MFL's instant Quick Sell feature or guaranteed sale proceeds.
+
+---
+
+# Agency valuations
+
 ## 22 November 2026
 
 - [Download the Excel workbook](https://github.com/NooksMFL/grower-or-shower/raw/refs/heads/main/valuations/2026-11-22/Nooks_Agency_Valuations_2026-11-22.xlsx)

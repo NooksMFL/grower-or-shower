@@ -1,0 +1,437 @@
+Player ID,Player,Patient price,MID price,Quick sell price,Confidence,Review notes
+390276,Stuart Costello,151,92,81,Low,Weak or broad asking-price evidence: inspect comparables before listing
+412099,Carlo Sala,135,105,50,Low,Weak or broad asking-price evidence: inspect comparables before listing
+271970,Bill Morgan,112,69,50,Low,Weak or broad asking-price evidence: inspect comparables before listing
+251251,Fredy Almada,112,53,49,Low,Weak or broad asking-price evidence: inspect comparables before listing
+407421,Erick Mena,93,50,41,Low,Weak or broad asking-price evidence: inspect comparables before listing
+329765,Albino Perego,92,85,70,Low,Weak or broad asking-price evidence: inspect comparables before listing
+405582,Rigino Trenidad,85,85,40,Low,Weak or broad asking-price evidence: inspect comparables before listing
+468523,Hans-Peter Bonga,85,69,55,Low,Weak or broad asking-price evidence: inspect comparables before listing
+229518,Hans-Dieter Kramer,85,74,41,Low,Weak or broad asking-price evidence: inspect comparables before listing
+396440,Venance Tshilanda,85,74,41,Low,Weak or broad asking-price evidence: inspect comparables before listing
+335077,Cemal Sezgin,83,80,65,Low,Weak or broad asking-price evidence: inspect comparables before listing
+408728,Vasco Figueira,83,49,37,Low,Weak or broad asking-price evidence: inspect comparables before listing
+466880,Emiliano Rosas Cuello,81,60,41,Low,Weak or broad asking-price evidence: inspect comparables before listing
+405743,Timon Gruev,80,70,50,Low,Weak or broad asking-price evidence: inspect comparables before listing
+299296,Martin Pavlík,80,39,36,Low,Weak or broad asking-price evidence: inspect comparables before listing
+374865,Arnt Jenssen,79,75,75,Low,Weak or broad asking-price evidence: inspect comparables before listing
+407948,Mikkel Warlo,78,44,32,Low,Weak or broad asking-price evidence: inspect comparables before listing
+315610,Lawrence Welch,78,70,62,Low,Weak or broad asking-price evidence: inspect comparables before listing
+304055,Sandro Spina,70,50,49,Low,Weak or broad asking-price evidence: inspect comparables before listing
+468919,Leo Beeler,70,69,60,Low,Weak or broad asking-price evidence: inspect comparables before listing
+390558,Esteban Carrera,66,52,39,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+468380,Leo Paris,64,50,47,Low,Weak or broad asking-price evidence: inspect comparables before listing
+319369,Mauricio Arias,63,47,32,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+250490,Hans Hellström,60,52,45,Medium,
+411696,Daniel Matthews,57,53,38,Medium,
+309738,Shingo Takayama,55,50,50,Low,Weak or broad asking-price evidence: inspect comparables before listing
+350428,Carlo Laan,53,49,37,Low,Weak or broad asking-price evidence: inspect comparables before listing
+308000,Vasile Tamas,53,43,29,Low,Weak or broad asking-price evidence: inspect comparables before listing
+206772,Marcos Villacorta,51,45,43,Medium,
+302544,Raymond Peacock,50,41,30,Low,Weak or broad asking-price evidence: inspect comparables before listing
+467207,Nikolas Doğan,47,35,30,Medium,
+405656,Juan Mereles,47,37,20,Low,Weak or broad asking-price evidence: inspect comparables before listing
+411427,Benjamin Zimmermann,45,34,19,Low,Weak or broad asking-price evidence: inspect comparables before listing
+406583,Romain Petit,45,35,33,Low,Weak or broad asking-price evidence: inspect comparables before listing
+467433,Margarito Valdez,43,31,28,Medium,
+409162,Elkin Zapata,40,35,30,Low,Weak or broad asking-price evidence: inspect comparables before listing
+408303,Heinrich Russ,40,33,27,Medium,
+294427,Delfino Gamboa,39,35,20,Low,Weak or broad asking-price evidence: inspect comparables before listing
+333255,János Domján,39,36,22,Medium,
+466877,Sebastián Mafla Rojas,38,25,18,Low,Weak or broad asking-price evidence: inspect comparables before listing
+394904,Suljo Sadiković,37,24,21,Medium,
+346135,Jarl Hall,37,21,15,Low,Weak or broad asking-price evidence: inspect comparables before listing
+411913,Henrik Næss Gerhardsen,36,29,25,Medium,
+411690,Gyeong Ha,35,26,22,Medium,
+247289,Maxime Dumont,35,25,17,Low,Weak or broad asking-price evidence: inspect comparables before listing
+411989,Kevin Seke,35,30,23,Medium,
+411297,Brendon da Cunha,35,28,25,Medium,
+263418,Flaviu Zaharia,35,22,15,Medium,
+405305,Karrar Khorsheed,35,28,22,Low,Weak or broad asking-price evidence: inspect comparables before listing
+467405,Alejo López,35,25,19,Medium,
+412176,Ayoub Al-Tairi,34,33,31,Low,Weak or broad asking-price evidence: inspect comparables before listing
+206616,Dino Grosso,34,24,20,Medium,
+468385,Jascha Trojanowski,34,25,18,Medium,
+394339,Renold Gaspard,33,15,11,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+465799,Vicent Reyes,33,28,22,Medium,
+406176,Cristian Jipescu,33,27,25,Medium,
+411974,Leonardo Silvestri,31,25,22,Medium,
+277942,Nicolas Berger,31,28,25,Low,Weak or broad asking-price evidence: inspect comparables before listing
+465687,Lukas Andersson,31,30,23,Medium,
+346621,Hans Schmidt,30,22,15,Low,Weak or broad asking-price evidence: inspect comparables before listing
+363093,Stuart Chamberlain,30,26,20,Low,Weak or broad asking-price evidence: inspect comparables before listing
+467422,Archie Millen,30,23,21,Medium,
+300873,Ottó Almási,30,26,20,Medium,
+467494,Adolfo Álvarez,30,27,23,Medium,
+297989,Jáchym Brabec,29,22,17,Low,Weak or broad asking-price evidence: inspect comparables before listing
+273222,Valmir Rezende,29,18,12,Low,Weak or broad asking-price evidence: inspect comparables before listing
+330811,Svante Abdi,29,23,19,Medium,
+388955,Leon Kalombe,28,23,22,Low,Weak or broad asking-price evidence: inspect comparables before listing
+371075,Ramis Zhukov,28,22,14,Medium,
+248294,Maxime Engels,28,19,17,Medium,
+468310,Oliver Ekström,28,23,22,Low,Weak or broad asking-price evidence: inspect comparables before listing
+292812,Reinier Jacobs,27,20,16,Medium,
+408386,Martín Púa,27,22,16,Medium,
+405686,Joe Darko,27,24,15,Medium,
+162189,Shogo Matsumoto,27,22,17,Low,Weak or broad asking-price evidence: inspect comparables before listing
+410270,Giovanbattista Messina,25,22,21,Low,Weak or broad asking-price evidence: inspect comparables before listing
+198585,Scott Godin,25,22,19,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+406734,Maximilien Vaillant,25,22,18,Medium,
+357899,Nathan Beauchamp,25,19,16,Medium,
+389697,Sreten Bjelica,25,19,14,Low,Weak or broad asking-price evidence: inspect comparables before listing
+405123,Henry Sánchez,25,22,20,Medium,
+225919,Shigeyuki Yano,25,20,13,Low,Weak or broad asking-price evidence: inspect comparables before listing
+236064,Thiago Barreto,25,23,16,Medium,
+227910,Elek Bartók,25,23,15,Medium,
+334576,Christophe Reynaud,25,24,22,Medium,
+256084,Dong-Jun Paeng,24,21,15,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+298731,Ljubisav Aksentijević,24,22,18,Medium,
+350955,Qazim Ndreu,24,17,15,Low,Weak or broad asking-price evidence: inspect comparables before listing
+409293,Pierre Jordan,24,22,17,Low,Weak or broad asking-price evidence: inspect comparables before listing
+407565,Ferdinand Ungeheuer,24,22,17,Low,Weak or broad asking-price evidence: inspect comparables before listing
+405396,Marc Promok,24,21,20,Low,Weak or broad asking-price evidence: inspect comparables before listing
+267058,Fidencio Madrigal,24,21,15,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+411027,Andrea Mora,23,18,18,Medium,
+253674,Rafael Queiroz,23,19,9,Medium,
+222793,Matt Cooke,22,20,18,Medium,
+299412,Patrick Beckers,22,20,17,Medium,
+282014,Joaquin Ayala,22,14,10,Low,Weak or broad asking-price evidence: inspect comparables before listing
+411730,Santiago Castillo,22,17,15,Medium,
+466835,Abel Pampín,22,20,17,Medium,
+260046,Germano Giuliani,21,17,14,Medium,
+226779,Kolbjørn Holm,21,20,17,Medium,
+390379,Anton Groenendijk,21,20,18,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+343896,Ross Joyce,21,20,13,Medium,
+298492,César Silva,21,20,13,Medium,
+356283,Domingo Figueredo,21,18,16,Medium,
+409049,Karlo Tokić,21,20,20,Low,Weak or broad asking-price evidence: inspect comparables before listing
+409951,Wesley Habibou,20,16,14,Medium,
+390242,Raphael Macedo,20,18,16,Medium,
+296818,Jakob Röder,20,15,13,Low,Weak or broad asking-price evidence: inspect comparables before listing
+284768,Ekene Baba,20,15,10,Low,Weak or broad asking-price evidence: inspect comparables before listing
+411580,Malik Kappler,20,17,14,Medium,
+407965,Robin Duval,20,17,14,Low,Weak or broad asking-price evidence: inspect comparables before listing
+247038,Arjen Moonen,20,20,18,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+245135,Charlie Marshall,20,14,12,Medium,
+126112,Adrien Pichon,20,18,16,Medium,
+394832,Daniel Lourenço,20,19,17,Low,Weak or broad asking-price evidence: inspect comparables before listing
+345427,Grigory Nikolaev,20,13,10,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+256318,Gregory Dixon,20,20,16,Medium,
+342550,Mads Stokholm,19,14,13,Medium,
+245518,Sandro Camilo,19,17,14,Medium,
+358988,Guy Laborde,19,14,9,Low,Weak or broad asking-price evidence: inspect comparables before listing
+326522,Jean-Michel Declerck,19,14,10,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+244892,Nick Burk,19,12,6,Low,Weak or broad asking-price evidence: inspect comparables before listing
+467715,Daniel Pacheco,19,15,13,Low,Weak or broad asking-price evidence: inspect comparables before listing
+142555,Nicolas Pirotte,18,12,10,Low,Weak or broad asking-price evidence: inspect comparables before listing
+316424,Jörg Wagner,18,15,11,Medium,
+308891,Roger Humbert,18,13,10,Low,Weak or broad asking-price evidence: inspect comparables before listing
+290346,Isidro Lozano,17,15,13,Medium,
+359658,Carmine Carli,17,15,10,Low,Weak or broad asking-price evidence: inspect comparables before listing
+324217,Gabriel Guerin,17,14,9,Medium,
+184181,Qasem Hassanpour,17,10,8,Low,Weak or broad asking-price evidence: inspect comparables before listing
+363680,Matthias Bartels,16,15,13,Medium,
+469337,Jonathan Kerhe,16,14,11,Medium,
+246938,Pierluigi Barbato,16,10,8,Low,Weak or broad asking-price evidence: inspect comparables before listing
+308400,Zvonko Mijailović,16,14,10,Medium,
+409606,Bruno Couto Correia,16,15,11,Low,Weak or broad asking-price evidence: inspect comparables before listing
+400215,Neculai Irimia,15,11,10,Low,Weak or broad asking-price evidence: inspect comparables before listing
+333186,Vernon Hall,15,12,9,Low,Weak or broad asking-price evidence: inspect comparables before listing
+295495,Felix Nolte,15,15,12,Medium,
+255696,Márió Császár,15,12,8,Medium,
+255372,Henning Jost,15,10,9,Low,Weak or broad asking-price evidence: inspect comparables before listing
+235964,Ermanno Ferrero,15,12,10,Medium,
+350490,Benoit Gill,15,13,9,Low,Weak or broad asking-price evidence: inspect comparables before listing
+405425,Mark Deing,15,13,10,Low,Weak or broad asking-price evidence: inspect comparables before listing
+219488,Petar Ćirić,15,10,8,Low,Weak or broad asking-price evidence: inspect comparables before listing
+412234,Leonardo Avila,15,10,9,Medium,
+369370,Kosta Gjoni,15,13,10,Medium,
+254813,Neil Acosta,15,10,8,Medium,
+373847,Sascha Kremer,14,10,9,Medium,
+323501,Zbigniew Orzechowski,14,10,8,Low,Weak or broad asking-price evidence: inspect comparables before listing
+467057,Marinus Hennes,14,8,7,Low,Weak or broad asking-price evidence: inspect comparables before listing
+362382,Emerson Mattos,14,11,7,Low,Weak or broad asking-price evidence: inspect comparables before listing
+401175,Sam Jennings,14,11,10,Low,Weak or broad asking-price evidence: inspect comparables before listing
+288617,Franz König,14,12,10,Medium,
+410698,Hagen Koch,14,12,9,Medium,
+403968,Sadiq Saigh,14,6,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+351309,Juliano Magalhaes,14,11,8,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+221263,Germano Spano,14,9,8,Medium,
+357053,Jérôme Favier,14,12,10,Medium,
+207538,Martino Baldini,13,11,9,Medium,
+165105,Brian Watts,13,10,4,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+282045,Jesus Carrion,13,11,10,Low,Weak or broad asking-price evidence: inspect comparables before listing
+384245,Kassoum Boko,13,5,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+364458,William Castaño,13,9,8,Medium,
+129989,Andraž Vogrinec,12,9,6,Medium,Retires in 2 seasons; verify timing before sale
+73565,Luis Vergara,12,8,3,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+207517,Alan Dodd,12,11,8,Low,Retires in 2 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+401044,André Renggli,12,6,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+288764,Noriyuki Ichikawa,12,10,8,Medium,
+384823,Dave Stone,12,10,7,Low,Weak or broad asking-price evidence: inspect comparables before listing
+407576,Jorge Mascaró,12,9,8,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+272340,Nicolas Roques,12,8,5,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+301811,Jens Weise,12,10,8,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+261999,Jake Mann,12,7,6,Low,Weak or broad asking-price evidence: inspect comparables before listing
+405766,Kjell Fischer,12,12,10,Medium,
+227309,Gerhard Böhm,12,8,6,Medium,
+411983,Ygor Kumode,12,10,8,Medium,
+340627,Rudi Born,11,6,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+282630,Matěj Hlaváček,11,9,6,Medium,
+186746,Gil Braga,11,9,6,Medium,
+334625,Andreu Prieto,11,7,6,Medium,
+260468,Armando Pacheco,11,9,7,Medium,
+223792,Ramon López,11,8,6,Medium,
+341511,Amedeo Fantini,11,10,9,Low,Weak or broad asking-price evidence: inspect comparables before listing
+229959,Gustav König,11,6,5,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+334295,Benjamin Doyle,11,7,6,Medium,
+278416,Istvan Costin,11,7,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+282033,Harun Karasu,11,9,8,Medium,
+332874,Naeem Qahtani,10,9,7,Medium,
+406059,Karl Larry,10,9,8,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+407704,Yannis Batum,10,7,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+321445,Arno de Klerk,10,9,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+246209,Ji-Un Cui,10,9,8,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+308323,Mladen Ognjanović,10,7,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+192956,Jean-Marc Bourdon,10,9,7,Low,Weak or broad asking-price evidence: inspect comparables before listing
+193041,Marcelo Veloso,10,10,9,Medium,
+214377,Maximilian Braun,10,9,9,Low,Weak or broad asking-price evidence: inspect comparables before listing
+202346,Anibal Macedo,10,7,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+314081,Salim Maameri,10,9,7,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+284059,Aleksander Spahiu,10,8,6,Low,Weak or broad asking-price evidence: inspect comparables before listing
+268415,Enzo Bravo,10,10,7,Medium,
+340922,Didier Grijalba,10,8,6,Medium,
+150911,Josh Marshall,10,7,6,Low,Weak or broad asking-price evidence: inspect comparables before listing
+334803,Hipolito Mireles,10,9,6,Medium,
+289199,Olivér Dömötör,10,5,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+332585,Albrecht Steffens,10,7,6,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+281393,Mathias Kopp,10,7,5,Medium,
+300592,Sandro Cardozo,10,7,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+74735,Olgierd Stasiak,10,9,7,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+294474,Francisco Alcaraz,9,5,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+335299,Rubens Barbosa,9,7,6,Low,Weak or broad asking-price evidence: inspect comparables before listing
+329718,Giuseppe Sacco,9,8,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+471412,Gary Washington,9,5,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+303914,Douglas Hicks,9,5,4,Medium,
+357956,Aurelio Cosentino,9,7,6,Medium,
+298343,Mariano Macias,9,5,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+303481,Mehdi Lefebvre,9,6,5,Medium,
+228230,Dietmar John,9,7,6,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+324520,Dean Ward,9,8,6,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+405849,Valentin Chabat,9,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+336186,Felipe Abregu,9,5,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+473638,Aled Morgan,9,7,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+301020,Philip Buckley,8,5,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+253691,Tord Bergqvist,8,6,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+299828,Michio Akimoto,8,6,5,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+304452,Vincent Caron,8,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+212490,Fred Dupont,8,6,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+353684,Arthur Arnaud,8,7,7,Low,Weak or broad asking-price evidence: inspect comparables before listing
+184856,Benito Suazo,8,7,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+288367,Daniel Fleischer,8,6,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+301449,Joel Jurado,8,5,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+259531,Igor Rodríguez,8,7,6,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+401773,Markus Andrén,8,7,6,Low,Weak or broad asking-price evidence: inspect comparables before listing
+375733,Vincenzo Hänni,8,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+174632,Ferdinand Kramer,8,7,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+330835,Valentin Richard,7,5,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+308274,Alexandre Guibert,7,5,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+398077,Celestino Palma,7,6,4,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+350796,Pavel Panchenko,7,4,3,Medium,
+292355,Frits Roelofs,7,5,4,Medium,
+320266,Mitsuhiro Hirose,7,5,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+348337,Ovidio Varon,7,5,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+410370,Bo-min Jung,7,5,4,Medium,
+296077,Jakov Ivezić,7,6,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+145943,Menyhért Molnár,7,7,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+94302,Crispin Santacruz,7,6,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+247220,Gerardo Vera,7,7,5,Medium,
+228369,Moacir Menezes,7,3,2,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+241847,Eun-hyeok A,7,6,3,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+283352,Garry Potter,7,6,4,Low,Older player; retirement timing not supplied; Weak or broad asking-price evidence: inspect comparables before listing
+140402,Elmar Lange,7,5,5,Low,Weak or broad asking-price evidence: inspect comparables before listing
+86397,Jeroen van der Beek,7,5,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+408968,Renaud Bailly,7,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+389856,Wiseman Mkhize,7,5,5,Medium,
+338341,Costin Ardelean,7,4,3,Medium,
+203846,Marco Hofmann,7,6,3,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+38528,Jovica Dakić,6,6,5,Low,Older player; retirement timing not supplied; Weak or broad asking-price evidence: inspect comparables before listing
+85337,Kamel Roy,6,2,2,Low,Retires in 2 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+286760,Marc Blum,6,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+390017,Cezar Molnar,6,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+400191,Jonathan Chang,6,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+298693,Frank Watt,6,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+322496,Nicolai Lyhne,6,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+390576,Ulf Haglund,6,4,4,Medium,
+297155,Everton Claudino,6,5,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+376350,Juraj Špaček,6,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+24463,Wesley Almeida,6,4,3,Low,Older player; retirement timing not supplied; Weak or broad asking-price evidence: inspect comparables before listing
+91662,Sergio Sandoval,6,5,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+146850,Ziyad Sayed,6,3,2,Low,Retires in 2 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+177348,Richard Chuku,6,5,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+228735,Božidar Kosanović,6,4,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+322492,Rodrigo Gonzaga,6,5,4,Medium,
+284377,Madani Bahloul,6,5,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+165497,Christophe Lemonnier,6,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+351471,Clas Ljung,6,4,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+336541,Justo Beltran,6,4,3,Medium,
+217414,Albert Hildebrandt,6,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+277289,Mariano Batista,6,5,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+343654,Zouhir Karam,6,5,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+333922,Yusif Gabriel,6,5,4,Medium,
+297769,Fermin Heredia,6,5,4,Medium,
+291792,Gottfried Knoll,6,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+359626,Marc Jeanneret,6,5,3,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+249868,Tim Reitsma,6,5,5,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+399474,Clive Pearce,5,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+130017,Jeremy Gray,5,3,1,Low,Retires in 2 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+207399,Sigurd Thorvaldsen,5,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+401780,Raymond Goossens,5,3,2,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+36697,Benito del Valle,5,5,2,Low,Older player; retirement timing not supplied; Weak or broad asking-price evidence: inspect comparables before listing
+290733,Simone Paoletti,5,4,3,Medium,
+228462,Braulio Mata,5,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+234465,Barry Glover,5,4,1,Low,Retires in 2 seasons; verify timing before sale; Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+389965,Domingo Mansilla,5,3,3,Medium,
+12403,Gelu Diaconu,5,3,2,Medium,Retires in 2 seasons; verify timing before sale
+391999,Felice Piccolo,5,5,4,Low,Weak or broad asking-price evidence: inspect comparables before listing
+317710,Cleber Jardim,5,4,4,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+392306,Edoardo Colella,5,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+265169,Vicente Bazan,5,3,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+286903,Arturo Cuadrado,5,5,3,Medium,
+246918,Catalino Romero,5,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+408961,Patrick Herbst,5,3,3,Medium,
+69479,Veroljub Živojinović,5,5,5,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+268107,Wilfried Herbst,5,4,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+328638,Benny Cambier,5,4,3,Medium,
+334619,Samuel Baron,5,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+401558,David Robertson,5,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+390079,Joel Bousquet,5,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+394033,Damian Ordoñez,5,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+400762,Matsobane Ntshangase,5,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+322385,Jens Palmqvist,5,5,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+473362,Michel Achu,5,4,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+401777,Emmanuel Guillon,5,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+400606,Ton Boonstra,5,5,3,Medium,
+393150,Abraham Salgado,5,4,3,Medium,
+53654,Adriano Amado,5,5,4,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+399956,Štěpán Fišer,5,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+403316,Gabriel Peiu,5,3,3,Medium,
+339529,Maximo Rebolledo,5,4,2,Medium,
+58611,Emilian Bogdan,5,5,3,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+215894,Steven Lawrence,5,3,2,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+383365,Sead Demirović,5,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+293160,Elvis Nkou,5,4,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+393667,Graham Gibson,5,2,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+393256,Domingo Olaya,5,5,3,Medium,
+306121,Pablo Bustos,5,4,2,Medium,
+188258,Gines Villegas,5,3,1,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+178860,Torsten Schmitz,5,3,2,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+376338,Vladlen Fomenko,5,4,2,Medium,
+403133,Jerome Lewis,5,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+221420,Ricardo Pais,4,3,2,Medium,
+185316,Bruno Le Roux,4,3,2,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+184622,Guillermo Martos,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+395791,Yazan Ababacar,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+399790,Elkin Molina,4,4,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+330977,Claus Højgaard,4,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+402267,Renzo Girardi,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+405210,Carl Miller,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+404046,Gonzalo Contreras Ballivián,4,3,2,Medium,
+387509,Arnaldo Baessa,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+255339,Junichi Miki,4,2,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+371598,Dimitri Salmon,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+219177,Hugo Maurin,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+390261,Carlos Robayo,4,2,2,Medium,
+191192,Jacinto Castellanos,4,3,3,Low,Retires in 2 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+36776,Seung-Min Chen,4,2,2,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+72803,Eduardo Tavares,4,3,2,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+317395,Ibragim Shishkin,4,3,2,Medium,
+172895,Đuro Martić,4,3,1,Medium,Retires in 2 seasons; verify timing before sale
+304649,Jefferson Matos,4,4,4,Medium,
+144031,Albert Roos,4,3,2,Low,Retires in 2 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+302807,Dejan Simić,4,2,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+317080,Donald West,4,4,3,Medium,
+404275,Iker Molina,4,2,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+304987,Hugo Caballero,4,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+285277,Willie Sharkey,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+165201,Sasan Kareme,4,3,2,Medium,No club supplied; verify contract / tradeability; not automatically treated as retired
+376896,Jaromír Turek,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+400790,Mojtaba Asghari,4,3,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+376017,Hector Thomas,4,3,3,Medium,
+266894,Roland Krähenbühl,3,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+18775,Harold Villagra,3,2,1,Low,Older player; retirement timing not supplied; Weak or broad asking-price evidence: inspect comparables before listing
+401064,Denis Carvalho,3,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+144221,Geoff Manning,3,1,1,Medium,Retires in 2 seasons; verify timing before sale
+341831,Madani Madi,3,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+282731,Leobardo Mondragon,3,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+407882,Ricardo Cortez,3,2,2,Medium,
+406160,Luca Bjerre,3,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+61725,Gottfried Esser,3,2,1,Medium,Retires in 3 seasons; verify timing before sale
+73010,Jean-Daniel Landolt,3,2,1,Low,Older player; retirement timing not supplied; Weak or broad asking-price evidence: inspect comparables before listing
+290782,Gilvan Pinheiro,3,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+388455,Neil Dyantyi,3,2,1,Medium,
+401334,Alejandro Ahumada,3,2,1,Medium,
+392571,Gianni Caputo,3,3,2,Medium,
+103060,Gorka Pascual,3,2,2,Low,Older player; retirement timing not supplied; Weak or broad asking-price evidence: inspect comparables before listing
+386044,Armindo Anes,3,2,2,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+376642,Fausto Haro,3,1,1,Medium,
+317721,Mathieu Verbruggen,3,3,2,Medium,
+393422,Nathan Kelly,3,3,3,Medium,
+376395,Simone Saldanha,3,2,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+391108,Shane Fox,3,3,3,Medium,
+82146,Cyril Clements,3,2,2,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+287214,Jeff Sheppard,3,2,1,Medium,
+188779,Caio Paulino,3,2,2,Medium,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+155021,Fuad Harbi,3,3,2,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+267127,Kianoush Ebadi,3,2,2,Medium,
+315424,Szczepan Rak,3,3,2,Medium,
+143534,Troy Singh,3,3,3,Low,Weak or broad asking-price evidence: inspect comparables before listing
+114435,Allan Tomaz,3,2,2,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+102868,Nathan Hunter,3,2,2,Low,Older player; retirement timing not supplied; Weak or broad asking-price evidence: inspect comparables before listing
+390533,Eugene Pujol,2,2,1,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+273069,Radoš Živojinović,2,2,2,Medium,Retires in 3 seasons; verify timing before sale
+217087,Tomas Pino,2,2,1,Low,Retires in 2 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+399705,Gert Stage,2,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+378381,Selorm Kusi,2,1,1,Medium,
+250514,Harold Phillips,2,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+402843,Arne Kristiansen,2,1,1,Medium,
+466398,Kåre Moen,2,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+335118,Arnulfo Giraldo,2,1,1,Medium,
+376325,Carl Ottosson,2,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+408659,Gabin Neuburger,2,1,1,Medium,
+83064,Gonzalo Galvez,2,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+159962,Hans-Werner Kellner,2,1,1,Medium,Retires in 3 seasons; verify timing before sale; Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+390471,Douglas Xavier,2,2,1,Low,No club supplied; verify contract / tradeability; not automatically treated as retired; Weak or broad asking-price evidence: inspect comparables before listing
+267877,Nicolas Bourdon,2,1,1,Low,Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV; Weak or broad asking-price evidence: inspect comparables before listing
+304775,Salvador Pinzon,2,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+193251,Björn Zeller,2,1,1,Medium,
+390688,Joop Damen,2,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+391859,Johann Förster,2,2,1,Medium,
+392739,Budimir Nenadović,2,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+401438,Jozef op de Beeck,2,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+311851,Farrokh Yar,2,2,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+235451,Klaus Pinter,2,2,1,Medium,
+375768,Daniel Rousseau,2,2,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+400544,Dennis Stevens,2,1,1,Medium,
+134306,Henryk Niedzielski,2,1,1,Medium,Retires in 2 seasons; verify timing before sale; Goalkeeper: compared with goalkeeper age and OVR; goalkeeping attribute absent from CSV
+171957,Romain Geeraerts,2,2,1,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+104810,Yoshio Sakaguchi,2,2,2,Low,Retires in 2 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+288830,Tamerlan Kuzmenko,2,2,2,Low,Weak or broad asking-price evidence: inspect comparables before listing
+390443,Luciano Segovia,2,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+337149,Jörn Kaiser,2,2,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+203409,Markus Hartung,1,1,1,Medium,Retires in 2 seasons; verify timing before sale
+318309,Czesław Borek,1,1,1,Medium,
+232958,Niclas Granström,1,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+403650,Mátyás Bordás,1,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+402735,Allan Osborne,1,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+264304,Derek Shaw,1,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+217082,Gerald Howarth,1,1,1,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+85703,Tullio Magni,1,1,1,Medium,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary
+132203,Gustavo Suarez,1,1,1,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+137580,Arthur Bishop,1,1,1,Low,Weak or broad asking-price evidence: inspect comparables before listing
+229091,Kevin Vos,1,1,1,Low,Retires in 3 seasons; verify timing before sale; Weak or broad asking-price evidence: inspect comparables before listing
+108743,Mahdi Seifi,1,1,1,Low,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; Weak or broad asking-price evidence: inspect comparables before listing
+391295,Ömer Dede,1,1,1,Medium,
+250683,Jeroen Gillard,1,1,1,Medium,
+65041,Celestino Mercado,,,,Unpriced,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; No defensible price from this market sample; manual review required
+126737,Gottfried Menzel,,,,Unpriced,ONE SEASON TO RETIREMENT: review before waiting or listing through the season boundary; No defensible price from this market sample; manual review required
